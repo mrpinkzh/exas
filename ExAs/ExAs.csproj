@@ -32,12 +32,32 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ToText">
+      <HintPath>..\packages\ToText.1.0.9\lib\net45\ToText.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertionResult.cs" />
+    <Compile Include="Assertions\Assertion.cs" />
+    <Compile Include="Assertions\EqualAssertion.cs" />
+    <Compile Include="Assertions\Generic\Assertion.cs" />
+    <Compile Include="Assertions\Generic\DataAssertion.cs" />
+    <Compile Include="Assertions\Generic\PrintAssertion.cs" />
+    <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
+    <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
+    <Compile Include="Assertions\Generic\StructAssertion.cs" />
+    <Compile Include="Assertions\IsNotNullAssertion.cs" />
+    <Compile Include="Assertions\DummyAssertion.cs" />
+    <Compile Include="Assertions\IsNullAssertion.cs" />
+    <Compile Include="ExAsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\EmptyAssertionResult.cs" />
+    <Compile Include="Utils\MemberExpressionFunctions.cs" />
+    <Compile Include="Utils\StringFunctions.cs" />
+    <Compile Include="Utils\SystemFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Asserters\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
