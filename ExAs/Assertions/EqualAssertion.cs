@@ -1,4 +1,6 @@
-﻿namespace ExAs.Assertions
+﻿using ExAs.Utils;
+
+namespace ExAs.Assertions
 {
     public class EqualAssertion : Assertion
     {
@@ -11,11 +13,13 @@
 
         public override AssertionResult Assert(object actual)
         {
+            string actualString =
+                "'".Add(actual.ToNullAwareString()).Add("' (expected: '").Add(expected.ToString()).Add("')");
             if (Equals(expected, actual))
             {
-                return new AssertionResult(true, actual.ToString(), this);
+                return new AssertionResult(true, actualString);
             }
-            return new AssertionResult(false, actual.ToString(), this);
+            return new AssertionResult(false, actualString.Add(" FAIL"));
         }
     }
 }

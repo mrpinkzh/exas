@@ -44,6 +44,8 @@ namespace ExAs.Assertions.Generic
                 AssertionResult isNotNullResult = isNotNullAssertion.Assert(actual);
                 if (!isNotNullResult.succeeded)
                     return isNotNullResult;
+                if (!propertyAssertions.Any())
+                    return new AssertionResult(true, TypeName().Add(isNotNullResult.log));
             }
             if (isNullAssertion != null)
             {

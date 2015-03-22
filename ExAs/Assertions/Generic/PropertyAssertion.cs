@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using ExAs.Utils;
+using ToText.Core;
 
 namespace ExAs.Assertions.Generic
 {
@@ -25,12 +26,14 @@ namespace ExAs.Assertions.Generic
         public override AssertionResult Assert(T actual)
         {
             if (assertion == null)
-                return new AssertionResult(false, actual.ToNullAwareString(), this);
+                return new AssertionResult(false, "no assertion specified");
             object value = propertyExpression.Compile()(actual);
             AssertionResult result = assertion.Assert(value);
+            string memberName = propertyExpression.ExtractMemberName();
+            string log = memberName.Add(" = ").Add(result.log);
             if (result.succeeded)
-                return new AssertionResult(true, actual.ToNullAwareString(), assertion);
-            return new AssertionResult(false, actual.ToNullAwareString(), assertion);
+                return new AssertionResult(true, log);
+            return new AssertionResult(false, log);
         }
     }
 }
