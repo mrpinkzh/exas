@@ -41,13 +41,15 @@
     <Compile Include="Assertions\Assertion.cs" />
     <Compile Include="Assertions\EqualAssertion.cs" />
     <Compile Include="Assertions\Generic\Assertion.cs" />
+    <Compile Include="Assertions\Generic\GenericAdapter.cs" />
+    <Compile Include="Assertions\Generic\IAssert.cs" />
     <Compile Include="Assertions\Generic\PrintAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
     <Compile Include="Assertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\IsNullAssertion.cs" />
     <Compile Include="ExAsExtensions.cs" />
-    <Compile Include="IAssert.cs" />
+    <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
     <Compile Include="Utils\StringFunctions.cs" />
