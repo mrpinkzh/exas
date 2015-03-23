@@ -23,17 +23,17 @@ namespace ExAs.Assertions.Generic
             return parent;
         }
 
-        public AssertionResult Assert(T actual)
+        public PropertyAssertionResult Assert(T actual)
         {
+            string memberName = propertyExpression.ExtractMemberName();
             if (assertion == null)
-                return new AssertionResult(false, "no assertion specified");
+                return new PropertyAssertionResult(false, "no assertion specified", memberName);
             object value = propertyExpression.Compile()(actual);
             AssertionResult result = assertion.Assert(value);
-            string memberName = propertyExpression.ExtractMemberName();
             string log = memberName.Add(" = ").Add(result.log);
             if (result.succeeded)
-                return new AssertionResult(true, log);
-            return new AssertionResult(false, log);
+                return new PropertyAssertionResult(true, log, memberName);
+            return new PropertyAssertionResult(false, log, memberName);
         }
     }
 }
