@@ -6,8 +6,7 @@ using ExAs.Utils;
 
 namespace ExAs.Assertions.Generic
 {
-    public class ObjectAssertion<T> : DataAssertion<T>
-        where T : class
+    public class ObjectAssertion<T> : Assertion<T>
     {
         private readonly List<PropertyAssertion<T>> propertyAssertions; 
         private IsNotNullAssertion isNotNullAssertion;

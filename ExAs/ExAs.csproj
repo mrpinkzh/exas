@@ -41,11 +41,9 @@
     <Compile Include="Assertions\Assertion.cs" />
     <Compile Include="Assertions\EqualAssertion.cs" />
     <Compile Include="Assertions\Generic\Assertion.cs" />
-    <Compile Include="Assertions\Generic\DataAssertion.cs" />
     <Compile Include="Assertions\Generic\PrintAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
-    <Compile Include="Assertions\Generic\StructAssertion.cs" />
     <Compile Include="Assertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\IsNullAssertion.cs" />
     <Compile Include="ExAsExtensions.cs" />

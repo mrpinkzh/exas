@@ -8,16 +8,16 @@ namespace ExAs.Assertions.Generic
     public class PropertyAssertion<T> : Assertion<T>
     {
         private readonly Expression<Func<T, object>> propertyExpression;
-        private readonly DataAssertion<T> parent;
+        private readonly ObjectAssertion<T> parent;
         private IAssert assertion;
 
-        public PropertyAssertion(Expression<Func<T, object>> propertyExpression, DataAssertion<T> parent)
+        public PropertyAssertion(Expression<Func<T, object>> propertyExpression, ObjectAssertion<T> parent)
         {
             this.parent = parent;
             this.propertyExpression = propertyExpression;
         }
 
-        public DataAssertion<T> EqualTo(object expected)
+        public ObjectAssertion<T> EqualTo(object expected)
         {
             assertion = new EqualAssertion(expected);
             return parent;
