@@ -9,7 +9,7 @@ namespace ExAs.Assertions.Generic
     {
         private readonly Expression<Func<T, object>> propertyExpression;
         private readonly DataAssertion<T> parent;
-        private Assertion assertion;
+        private IAssert assertion;
 
         public PropertyAssertion(Expression<Func<T, object>> propertyExpression, DataAssertion<T> parent)
         {

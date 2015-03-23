@@ -2,7 +2,7 @@
 
 namespace ExAs.Assertions
 {
-    public class EqualAssertion : Assertion
+    public class EqualAssertion : IAssert
     {
         private readonly object expected;
 
@@ -11,7 +11,7 @@ namespace ExAs.Assertions
             this.expected = expected;
         }
 
-        public override AssertionResult Assert(object actual)
+        public AssertionResult Assert(object actual)
         {
             return new AssertionResult(ConcreteAssert(actual), ResultString(actual));
         }

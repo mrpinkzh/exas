@@ -2,11 +2,11 @@
 
 namespace ExAs.Assertions
 {
-    public class IsNullAssertion : Assertion
+    public class IsNullAssertion : IAssert
     {
         private const string ExpectationString = "(expected: null)";
 
-        public override AssertionResult Assert(object actual)
+        public AssertionResult Assert(object actual)
         {
             return new AssertionResult(ConcreteAssert(actual), ComposeResultString(actual));
         }
