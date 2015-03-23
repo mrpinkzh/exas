@@ -1,5 +1,4 @@
-﻿using System;
-using ExAs.Utils;
+﻿using ExAs.Utils;
 
 namespace ExAs.Assertions.Generic
 {

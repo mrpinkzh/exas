@@ -43,6 +43,7 @@
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Assertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\Generic\GenericAdapterTests.cs" />
+    <Compile Include="Assertions\Generic\ObjectAssertionTests.cs" />
     <Compile Include="Assertions\IsNotNullAssertionTests.cs" />
     <Compile Include="Assertions\IsNullAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

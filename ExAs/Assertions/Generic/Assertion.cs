@@ -2,7 +2,7 @@
 
 namespace ExAs.Assertions.Generic
 {
-    public abstract class Assertion<T> : Assertion
+    public abstract class Assertion<T> : Assertion, IAssert<T>
     {
         public abstract AssertionResult Assert(T actual);
 
