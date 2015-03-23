@@ -42,5 +42,13 @@ namespace ExAs.Utils
                 return String.Empty;
             return String.Format(" {0}", (amount - 1).Spaces());
         }
+
+        public static string FillUpWithSpacesToLength(this string input, int length)
+        {
+            if (length <= input.Length)
+                return input;
+            int amount = length - input.Length;
+            return input.Add(amount.Spaces());
+        }
     }
 }

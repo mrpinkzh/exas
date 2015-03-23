@@ -30,10 +30,9 @@ namespace ExAs.Assertions.Generic
                 return new PropertyAssertionResult(false, "no assertion specified", memberName);
             object value = propertyExpression.Compile()(actual);
             AssertionResult result = assertion.Assert(value);
-            string log = memberName.Add(" = ").Add(result.log);
             if (result.succeeded)
-                return new PropertyAssertionResult(true, log, memberName);
-            return new PropertyAssertionResult(false, log, memberName);
+                return new PropertyAssertionResult(true, result.log, memberName);
+            return new PropertyAssertionResult(false, result.log, memberName);
         }
     }
 }

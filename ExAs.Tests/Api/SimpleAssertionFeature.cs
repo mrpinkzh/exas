@@ -13,7 +13,7 @@ namespace ExAs.Api
         {
             var result = naruto.Evaluate(n => n);
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: ", result.log);
+            Assert.AreEqual("no assertions", result.log);
         }
 
         [Test]

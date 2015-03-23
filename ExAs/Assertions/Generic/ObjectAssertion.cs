@@ -47,12 +47,15 @@ namespace ExAs.Assertions.Generic
                     return new AssertionResult(true, TypeName().Add(isNotNullResult.log));
             }
             if (isNullAssertion != null)
-            {
                 return isNullAssertion.Assert(actual);
-            }
 
-            IReadOnlyCollection<AssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
-            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, results.Select(r => r.log)));
+            if (!propertyAssertions.Any())
+                return new AssertionResult(true, "no assertions");
+
+            IReadOnlyCollection<PropertyAssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
+            int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
+            IReadOnlyCollection<string> propertyResults = results.Map(r => StringFunctions.HangingIndent(r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty).Add(" = "), r.log));
+            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
             return new AssertionResult(results.All(r => r.succeeded), log);
         }
 
