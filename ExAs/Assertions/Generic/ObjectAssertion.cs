@@ -6,7 +6,7 @@ using ExAs.Utils;
 
 namespace ExAs.Assertions.Generic
 {
-    public class ObjectAssertion<T> : Assertion<T>
+    public class ObjectAssertion<T> : IAssert<T>
     {
         private readonly List<PropertyAssertion<T>> propertyAssertions; 
         private IsNotNullAssertion isNotNullAssertion;
@@ -36,7 +36,7 @@ namespace ExAs.Assertions.Generic
             return propertyAssertion;
         } 
 
-        public override AssertionResult Assert(T actual)
+        public AssertionResult Assert(T actual)
         {
             if (isNotNullAssertion != null)
             {

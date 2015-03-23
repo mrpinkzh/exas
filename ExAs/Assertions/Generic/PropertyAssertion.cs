@@ -5,7 +5,7 @@ using ToText.Core;
 
 namespace ExAs.Assertions.Generic
 {
-    public class PropertyAssertion<T> : Assertion<T>
+    public class PropertyAssertion<T>
     {
         private readonly Expression<Func<T, object>> propertyExpression;
         private readonly ObjectAssertion<T> parent;
@@ -23,7 +23,7 @@ namespace ExAs.Assertions.Generic
             return parent;
         }
 
-        public override AssertionResult Assert(T actual)
+        public AssertionResult Assert(T actual)
         {
             if (assertion == null)
                 return new AssertionResult(false, "no assertion specified");

@@ -38,12 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertionResult.cs" />
-    <Compile Include="Assertions\Assertion.cs" />
     <Compile Include="Assertions\EqualAssertion.cs" />
-    <Compile Include="Assertions\Generic\Assertion.cs" />
     <Compile Include="Assertions\Generic\GenericAdapter.cs" />
     <Compile Include="Assertions\Generic\IAssert.cs" />
-    <Compile Include="Assertions\Generic\PrintAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
     <Compile Include="Assertions\IsNotNullAssertion.cs" />
