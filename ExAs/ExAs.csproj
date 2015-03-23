@@ -47,7 +47,6 @@
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
     <Compile Include="Assertions\Generic\StructAssertion.cs" />
     <Compile Include="Assertions\IsNotNullAssertion.cs" />
-    <Compile Include="Assertions\DummyAssertion.cs" />
     <Compile Include="Assertions\IsNullAssertion.cs" />
     <Compile Include="ExAsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
