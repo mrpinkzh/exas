@@ -8,9 +8,19 @@ namespace ExAs.Assertions
 
         public override AssertionResult Assert(object actual)
         {
-            if (actual == null)
-                return new AssertionResult(true, "null ".Add(ExpectationString));
-            return new AssertionResult(false, "not null ".Add(ExpectationString).Add(" FAIL"));
+            return new AssertionResult(ConcreteAssert(actual), ComposeResultString(actual));
+        }
+
+        private string ComposeResultString(object actual)
+        {
+            if (ConcreteAssert(actual))
+                return "null ".Add(ExpectationString);
+            return "not null ".Add(ExpectationString).Add(" FAIL");
+        }
+
+        private bool ConcreteAssert(object actual)
+        {
+            return actual == null;
         }
     }
 }

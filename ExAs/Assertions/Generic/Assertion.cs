@@ -16,7 +16,7 @@ namespace ExAs.Assertions.Generic
             T actualInstanceOrValue;
             if (actual.TryCast(out actualInstanceOrValue))
                 return Assert(actualInstanceOrValue);
-            return new AssertionResult(false, actual.ToNullAwareString(), this);
+            return new AssertionResult(false, "Not of expected type");
         }
 
         public override string Print(object actual)
