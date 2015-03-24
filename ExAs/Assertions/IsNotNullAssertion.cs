@@ -1,16 +1,24 @@
-﻿using ExAs.Utils;
-
-namespace ExAs.Assertions
+﻿namespace ExAs.Assertions
 {
-    public class IsNotNullAssertion : IAssert
+    public class IsNotNullAssertion : IAssertValue
     {
         private const string ExpectationString = "(expected: not null)";
 
-        public AssertionResult Assert(object actual)
+        public ValueAssertionResult AssertValue(object actual)
         {
-            if (actual != null)
-                return new AssertionResult(true, "not null ".Add(ExpectationString));
-            return new AssertionResult(false, "null ".Add(ExpectationString).Add(" FAIL"));
+            return new ValueAssertionResult(ConcreteAssert(actual), ActualValueString(actual), ExpectationString);
+        }
+
+        private static bool ConcreteAssert(object actual)
+        {
+            return actual != null;
+        }
+
+        private static string ActualValueString(object actual)
+        {
+            if (ConcreteAssert(actual))
+                return "not null";
+            return "null";
         }
     }
 }

@@ -16,10 +16,21 @@ namespace ExAs.Api
                 n => n.HasProperty(x => x.Name).EqualTo("Naruto")
                       .HasProperty(x => x.Age) .EqualTo(12));
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')".Add(Environment.NewLine)
+            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')".NewLine()
                        .Add("       Age  = '12'     (expected: '12')"),
                        result.log);
         }
-         
+
+        [Test]
+        public void Assert_WithNaruto_AndInvalidNameAssertion_ShouldFail()
+        {
+            AssertionResult result = naruto.Evaluate(
+                n => n.HasProperty(x => x.Name).EqualTo("Tsubasa")
+                      .HasProperty(x => x.Age) .EqualTo(12));
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Tsubasa')".NewLine()
+                       .Add("       Age  = '12'     (expected: '12')"),
+                       result.log);
+        }
     }
 }

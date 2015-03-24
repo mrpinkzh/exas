@@ -32,7 +32,7 @@ namespace ExAs.Api
             var result = ninja.Evaluate(
                 n => n.IsNotNull());
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("null (expected: not null) FAIL", result.log);
+            Assert.AreEqual("null (expected: not null)", result.log);
         }
 
         [Test]

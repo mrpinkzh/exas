@@ -40,11 +40,11 @@ namespace ExAs.Assertions.Generic
         {
             if (isNotNullAssertion != null)
             {
-                AssertionResult isNotNullResult = isNotNullAssertion.Assert(actual);
+                ValueAssertionResult isNotNullResult = isNotNullAssertion.AssertValue(actual);
                 if (!isNotNullResult.succeeded)
-                    return isNotNullResult;
+                    return new AssertionResult(isNotNullResult.succeeded, ValueString(isNotNullResult));
                 if (!propertyAssertions.Any())
-                    return new AssertionResult(true, TypeName().Add(isNotNullResult.log));
+                    return new AssertionResult(true, TypeName().Add(ValueString(isNotNullResult)));
             }
             if (isNullAssertion != null)
                 return isNullAssertion.Assert(actual);
@@ -59,11 +59,15 @@ namespace ExAs.Assertions.Generic
                 r =>
                 {
                     string propertyString = r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty).Add(" = ");
-                    string actualValue = r.childResult.actualValueString.FillUpWithSpacesToLength(lengthOfLongestActual).Add(" ");
-                    return StringFunctions.HangingIndent(propertyString, actualValue.Add(r.childResult.expectationString));
+                    return StringFunctions.HangingIndent(propertyString, ValueString(r.childResult, lengthOfLongestActual));
                 });
             string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
             return new AssertionResult(results.All(r => r.childResult.succeeded), log);
+        }
+
+        private static string ValueString(ValueAssertionResult result, int spaceToFill = 0)
+        {
+            return result.actualValueString.FillUpWithSpacesToLength(spaceToFill).Add(" ").Add(result.expectationString);
         }
 
         private static string TypeName()

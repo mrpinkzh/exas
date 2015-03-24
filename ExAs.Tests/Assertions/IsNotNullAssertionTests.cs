@@ -14,19 +14,20 @@ namespace ExAs.Assertions
         }
 
         [Test]
-        public void Assert_WithObject_ShouldPass()
+        public void AssertValue_WithObject_ShouldPass()
         {
-            AssertionResult result = assertion.Assert(new object());
+            ValueAssertionResult result = assertion.AssertValue(new object());
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("not null (expected: not null)", result.log);
+            Assert.AreEqual("not null", result.actualValueString);
+            Assert.AreEqual("(expected: not null)", result.expectationString);
         }
 
         [Test]
-        public void Assert_WithNull_ShouldFail()
+        public void AssertValue_WithNull_ShouldFail()
         {
-            AssertionResult result = assertion.Assert(null);
-            Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("null (expected: not null) FAIL", result.log);
+            ValueAssertionResult result = assertion.AssertValue(null);
+            Assert.AreEqual("null", result.actualValueString);
+            Assert.AreEqual("(expected: not null)", result.expectationString);
         }
     }
 }
