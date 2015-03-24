@@ -9,7 +9,7 @@ namespace ExAs.Assertions.Generic
     {
         private readonly Expression<Func<T, object>> propertyExpression;
         private readonly ObjectAssertion<T> parent;
-        private IAssert assertion;
+        private IAssertValue assertion;
 
         public PropertyAssertion(Expression<Func<T, object>> propertyExpression, ObjectAssertion<T> parent)
         {
@@ -25,14 +25,17 @@ namespace ExAs.Assertions.Generic
 
         public PropertyAssertionResult Assert(T actual)
         {
-            string memberName = propertyExpression.ExtractMemberName();
+            string propertyName = propertyExpression.ExtractMemberName();
             if (assertion == null)
-                return new PropertyAssertionResult(false, "no assertion specified", memberName);
+                return new PropertyAssertionResult(propertyName, 
+                                                   new ValueAssertionResult(false, 
+                                                                            "no assertion specified", 
+                                                                            string.Empty));
             object value = propertyExpression.Compile()(actual);
-            AssertionResult result = assertion.Assert(value);
+            ValueAssertionResult result = assertion.AssertValue(value);
             if (result.succeeded)
-                return new PropertyAssertionResult(true, result.log, memberName);
-            return new PropertyAssertionResult(false, result.log, memberName);
+                return new PropertyAssertionResult(propertyName, result);
+            return new PropertyAssertionResult(propertyName, result);
         }
     }
 }

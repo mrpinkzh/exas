@@ -54,9 +54,15 @@ namespace ExAs.Assertions.Generic
 
             IReadOnlyCollection<PropertyAssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
             int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
-            IReadOnlyCollection<string> propertyResults = results.Map(r => StringFunctions.HangingIndent(r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty).Add(" = "), r.log));
+            IReadOnlyCollection<string> propertyResults = results.Map(
+                r =>
+                {
+                    string propertyString = r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty).Add(" = ");
+                    string valueBlockString = r.childResult.actualValueString.Add(" ").Add(r.childResult.expectationString);
+                    return StringFunctions.HangingIndent(propertyString, valueBlockString);
+                });
             string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
-            return new AssertionResult(results.All(r => r.succeeded), log);
+            return new AssertionResult(results.All(r => r.childResult.succeeded), log);
         }
 
         private static string TypeName()

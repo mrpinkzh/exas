@@ -77,7 +77,7 @@ namespace ExAs.Api
 
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Age = '12' (expected: '12')",
-                            result.Print());
+                            result.log);
         }
     }
 }

@@ -13,12 +13,6 @@ namespace ExAs
             this.log = log;
         }
 
-        public string Print()
-        {
-            return log;
-            return string.Format("(_)Ninja: (_)Name = 'Naruto'");
-        }
-
         public override string ToString()
         {
             return this.ToText(x => x.succeeded,

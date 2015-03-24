@@ -2,7 +2,7 @@
 
 namespace ExAs.Assertions
 {
-    public class EqualAssertion : IAssert
+    public class EqualAssertion : IAssert, IAssertValue
     {
         private readonly object expected;
 
@@ -14,6 +14,14 @@ namespace ExAs.Assertions
         public AssertionResult Assert(object actual)
         {
             return new AssertionResult(ConcreteAssert(actual), ResultString(actual));
+        }
+
+        public ValueAssertionResult AssertValue(object actual)
+        {
+            return new ValueAssertionResult(
+                ConcreteAssert(actual), 
+                "'".Add(actual.ToNullAwareString()).Add("'"),
+                "(expected: '".Add(expected.ToNullAwareString()).Add("')"));
         }
 
         private string ResultString(object actual)

@@ -44,8 +44,10 @@
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertionResult.cs" />
+    <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\IsNullAssertion.cs" />
+    <Compile Include="Assertions\ValueAssertionResult.cs" />
     <Compile Include="ExAsExtensions.cs" />
     <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

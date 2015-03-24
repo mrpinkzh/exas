@@ -2,21 +2,21 @@
 
 namespace ExAs.Assertions.Generic
 {
-    public class PropertyAssertionResult : AssertionResult
+    public class PropertyAssertionResult
     {
         public readonly string propertyName;
+        public readonly ValueAssertionResult childResult;
 
-        public PropertyAssertionResult(bool succeeded, string log, string propertyName) 
-            : base(succeeded, log)
+        public PropertyAssertionResult(string propertyName, ValueAssertionResult childResult) 
         {
             this.propertyName = propertyName;
+            this.childResult = childResult;
         }
 
         public override string ToString()
         {
             return this.ToText(x => x.propertyName,
-                               x => x.succeeded,
-                               x => x.log);
+                               x => x.childResult);
         }
     }
 }
