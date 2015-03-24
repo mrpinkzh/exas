@@ -6,13 +6,14 @@ namespace ExAs.Assertions
     public class EqualAssertionTests
     {
         [Test]
-        public void Assert_OnEqualsWithObject_WithSameObject_ShouldPass()
+        public void AssertValue_OnEqualsWithObject_WithSameObject_ShouldPass()
         {
             var expected = new object();
             EqualAssertion assertion = CreateAssertion(expected);
-            AssertionResult result = assertion.Assert(expected);
+            ValueAssertionResult result = assertion.AssertValue(expected);
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("'System.Object' (expected: 'System.Object')", result.log);
+            Assert.AreEqual("'System.Object'", result.actualValueString);
+            Assert.AreEqual("(expected: 'System.Object')", result.expectationString);
         }
 
         [Test]
@@ -20,9 +21,10 @@ namespace ExAs.Assertions
         {
             var expected = new object();
             EqualAssertion assertion = CreateAssertion(expected);
-            AssertionResult result = assertion.Assert(new object());
+            ValueAssertionResult result = assertion.AssertValue(new object());
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("'System.Object' (expected: 'System.Object') FAIL", result.log);
+            Assert.AreEqual("'System.Object'", result.actualValueString);
+            Assert.AreEqual("(expected: 'System.Object')", result.expectationString);
         }
 
         [Test]
@@ -30,9 +32,10 @@ namespace ExAs.Assertions
         {
             var expected = new object();
             EqualAssertion assertion = CreateAssertion(expected);
-            AssertionResult result = assertion.Assert("AnyString");
+            ValueAssertionResult result = assertion.AssertValue("AnyString");
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("'AnyString' (expected: 'System.Object') FAIL", result.log);
+            Assert.AreEqual("'AnyString'", result.actualValueString);
+            Assert.AreEqual("(expected: 'System.Object')", result.expectationString);
         }
 
         private static EqualAssertion CreateAssertion(object expected)

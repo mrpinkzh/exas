@@ -17,7 +17,7 @@ namespace ExAs.Api
                       .HasProperty(x => x.Age) .EqualTo(12));
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')".Add(Environment.NewLine)
-                       .Add("       Age  = '12' (expected: '12')"),
+                       .Add("       Age  = '12'     (expected: '12')"),
                        result.log);
         }
          
