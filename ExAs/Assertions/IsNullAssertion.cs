@@ -1,8 +1,6 @@
-﻿using ExAs.Utils;
-
-namespace ExAs.Assertions
+﻿namespace ExAs.Assertions
 {
-    public class IsNullAssertion : IAssertValue, IAssert
+    public class IsNullAssertion : IAssertValue
     {
         private const string ExpectationString = "(expected: null)";
 
@@ -16,18 +14,6 @@ namespace ExAs.Assertions
             if (ConcreteAssert(actual))
                 return "null";
             return "not null";
-        }
-
-        public AssertionResult Assert(object actual)
-        {
-            return new AssertionResult(ConcreteAssert(actual), ComposeResultString(actual));
-        }
-
-        private static string ComposeResultString(object actual)
-        {
-            if (ConcreteAssert(actual))
-                return "null ".Add(ExpectationString);
-            return "not null ".Add(ExpectationString).Add(" FAIL");
         }
 
         private static bool ConcreteAssert(object actual)
