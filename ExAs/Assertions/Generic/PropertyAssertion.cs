@@ -23,6 +23,13 @@ namespace ExAs.Assertions.Generic
             return parent;
         }
 
+        public ObjectAssertion<T> Fulfills<TResult>(Func<ObjectAssertion<TResult>, ObjectAssertion<TResult>> assertionFunc)
+        {
+            ObjectAssertion<TResult> objectAssertion = assertionFunc(new ObjectAssertion<TResult>());
+            assertion = new GenericAssertToAssertValueAdapter<TResult>(objectAssertion);
+            return parent;
+        }
+
         public PropertyAssertionResult Assert(T actual)
         {
             string propertyName = propertyExpression.ExtractMemberName();

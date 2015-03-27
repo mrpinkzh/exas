@@ -12,7 +12,8 @@ namespace ExAs.Assertions.Generic
         {
             bool succeeded = CreateRandom.Bool();
             string log = CreateRandom.String();
-            var genericAdapter = CreateGenericAdapter<string>(s => new AssertionResult(succeeded, log));
+            string expectation = CreateRandom.String();
+            var genericAdapter = CreateGenericAdapter<string>(s => new AssertionResult(succeeded, log, expectation));
 
             AssertionResult result = genericAdapter.Assert("anyString");
             Assert.AreEqual(succeeded, result.succeeded);
@@ -22,10 +23,11 @@ namespace ExAs.Assertions.Generic
         [Test]
         public void Assert_OnStringAdapter_WithInt_ShouldFail()
         {
-            GenericAdapter<string> genericAdapter = CreateGenericAdapter<string>(s => new AssertionResult(true, "Whatever"));
+            GenericAdapter<string> genericAdapter = CreateGenericAdapter<string>(s => new AssertionResult(true, "Whatever", "Yeah"));
             AssertionResult result = genericAdapter.Assert(12);
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("not of expected type System.String", result.log);
+            Assert.AreEqual("is of type System.Int32", result.log);
+            Assert.AreEqual("(expected: of type System.String)", result.expectation);
         }
 
         private static GenericAdapter<T> CreateGenericAdapter<T>(Func<T, AssertionResult> behavior)

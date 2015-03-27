@@ -16,7 +16,9 @@ namespace ExAs.Assertions.Generic
             T actualInstanceOrValue;
             if (actual.TryCast(out actualInstanceOrValue))
                 return genericAssertion.Assert((T)actual);
-            return new AssertionResult(false, "not of expected type ".Add(typeof(T).ToString()));
+            string actualoutput = "is of type ".Add(actual.GetType().ToString());
+            string expectation = "(expected: of type ".Add(typeof(T).ToString().Add(")"));
+            return new AssertionResult(false, actualoutput, expectation);
         }
     }
 }

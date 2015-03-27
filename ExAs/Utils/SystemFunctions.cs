@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace ExAs.Utils
@@ -31,6 +32,20 @@ namespace ExAs.Utils
                 action(item);
             }
             return itemList;
+        }
+
+        public static IReadOnlyList<TResult> Map<T, TOther, TResult>(
+            this IList<T> items,
+            Func<T, TOther, TResult> func, 
+            IList<TOther> arguments)
+        {
+            int longestPossibleResult = new[] {items.Count, arguments.Count}.Min();
+            var result = new List<TResult>(longestPossibleResult);
+            for (int i = 0; i < longestPossibleResult; i++)
+            {
+                result.Add(func(items[i], arguments[i]));
+            }
+            return result;
         }
 
         public static bool TryCast<T>(this object objectToCast, out T result)

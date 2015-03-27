@@ -22,7 +22,7 @@ namespace ExAs.Api
             var result = naruto.Evaluate(
                 n => n.IsNotNull());
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: not null (expected: not null)", result.log);
+            Assert.AreEqual("Ninja: not null (expected: not null)", result.PrintLog());
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace ExAs.Api
             var result = ninja.Evaluate(
                 n => n.IsNotNull());
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("null (expected: not null)", result.log);
+            Assert.AreEqual("null (expected: not null)", result.PrintLog());
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace ExAs.Api
             var result = ninja.Evaluate(
                 n => n.IsNull());
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("null (expected: null)", result.log);
+            Assert.AreEqual("null (expected: null)", result.PrintLog());
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace ExAs.Api
             var result = naruto.Evaluate(
                 n => n.IsNull());
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("not null (expected: null)", result.log);
+            Assert.AreEqual("not null (expected: null)", result.PrintLog());
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace ExAs.Api
 
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')",
-                            result.log);
+                            result.PrintLog());
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace ExAs.Api
 
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Age = '12' (expected: '12')",
-                            result.log);
+                            result.PrintLog());
         }
     }
 }

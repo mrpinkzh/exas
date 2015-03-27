@@ -55,5 +55,10 @@ namespace ExAs.Utils
             int amount = length - input.Length;
             return input.Add(amount.Spaces());
         }
+
+        public static string[] SplitLines(this string multiLineString)
+        {
+            return multiLineString.Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }

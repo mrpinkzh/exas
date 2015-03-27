@@ -1,5 +1,4 @@
-﻿using System;
-using ExAs.Utils;
+﻿using ExAs.Utils;
 using NUnit.Framework;
 
 namespace ExAs.Api
@@ -18,7 +17,7 @@ namespace ExAs.Api
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')".NewLine()
                        .Add("       Age  = '12'     (expected: '12')"),
-                       result.log);
+                       result.PrintLog());
         }
 
         [Test]
@@ -30,7 +29,7 @@ namespace ExAs.Api
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Tsubasa')".NewLine()
                        .Add("       Age  = '12'     (expected: '12')"),
-                       result.log);
+                       result.PrintLog());
         }
     }
 }

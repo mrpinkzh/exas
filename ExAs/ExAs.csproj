@@ -40,6 +40,7 @@
     <Compile Include="AssertionResult.cs" />
     <Compile Include="Assertions\EqualAssertion.cs" />
     <Compile Include="Assertions\Generic\GenericAdapter.cs" />
+    <Compile Include="Assertions\Generic\GenericAssertToAssertValueAdapter.cs" />
     <Compile Include="Assertions\Generic\IAssert.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />

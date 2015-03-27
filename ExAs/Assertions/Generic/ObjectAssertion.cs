@@ -42,30 +42,29 @@ namespace ExAs.Assertions.Generic
             {
                 ValueAssertionResult isNotNullResult = isNotNullAssertion.AssertValue(actual);
                 if (!isNotNullResult.succeeded)
-                    return new AssertionResult(isNotNullResult.succeeded, ValueString(isNotNullResult));
+                    return new AssertionResult(isNotNullResult.succeeded, isNotNullResult.actualValueString, isNotNullResult.expectationString);
                 if (!propertyAssertions.Any())
-                    return new AssertionResult(true, TypeName().Add(ValueString(isNotNullResult)));
+                    return new AssertionResult(true, TypeName().Add(isNotNullResult.actualValueString), isNotNullResult.expectationString);
             }
             if (isNullAssertion != null)
             {
                 ValueAssertionResult isNullResult = isNullAssertion.AssertValue(actual);
-                return new AssertionResult(isNullResult.succeeded, ValueString(isNullResult));
+                return new AssertionResult(isNullResult.succeeded, isNullResult.actualValueString, isNullResult.expectationString);
             }
 
             if (!propertyAssertions.Any())
-                return new AssertionResult(true, "no assertions");
+                return new AssertionResult(true, "no assertions", "-");
 
             IReadOnlyCollection<PropertyAssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
             int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
-            int lengthOfLongestActual = results.Max(x => x.childResult.actualValueString.Length);
             IReadOnlyCollection<string> propertyResults = results.Map(
                 r =>
                 {
                     string propertyString = r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty).Add(" = ");
-                    return StringFunctions.HangingIndent(propertyString, ValueString(r.childResult, lengthOfLongestActual));
+                    return StringFunctions.HangingIndent(propertyString, r.childResult.actualValueString);
                 });
             string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
-            return new AssertionResult(results.All(r => r.childResult.succeeded), log);
+            return new AssertionResult(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
         }
 
         private static string ValueString(ValueAssertionResult result, int spaceToFill = 0)
