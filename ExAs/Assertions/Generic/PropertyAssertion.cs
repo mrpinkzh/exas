@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq.Expressions;
-using ExAs.Utils;
 using ToText.Core;
 
 namespace ExAs.Assertions.Generic
 {
-    public class PropertyAssertion<T>
+    public class PropertyAssertion<T> : IAssertOnProperty<T>
     {
         private readonly Expression<Func<T, object>> propertyExpression;
         private readonly ObjectAssertion<T> parent;

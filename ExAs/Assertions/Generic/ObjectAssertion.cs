@@ -8,13 +8,13 @@ namespace ExAs.Assertions.Generic
 {
     public class ObjectAssertion<T> : IAssert<T>
     {
-        private readonly List<PropertyAssertion<T>> propertyAssertions; 
+        private readonly List<IAssertOnProperty<T>> propertyAssertions; 
         private IsNotNullAssertion isNotNullAssertion;
         private IsNullAssertion isNullAssertion;
 
         public ObjectAssertion()
         {
-            propertyAssertions = new List<PropertyAssertion<T>>();
+            propertyAssertions = new List<IAssertOnProperty<T>>();
         }
 
         public ObjectAssertion<T> IsNotNull()
@@ -27,7 +27,12 @@ namespace ExAs.Assertions.Generic
         {
             isNullAssertion = new IsNullAssertion();
             return this;
-        } 
+        }
+
+        public void AddPropertAssertion(IAssertOnProperty<T> propertyAssertion)
+        {
+            propertyAssertions.Add(propertyAssertion);
+        }
 
         public PropertyAssertion<T> HasProperty(Expression<Func<T, object>> property)
         {
@@ -65,11 +70,6 @@ namespace ExAs.Assertions.Generic
                 });
             string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
             return new AssertionResult(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
-        }
-
-        private static string ValueString(ValueAssertionResult result, int spaceToFill = 0)
-        {
-            return result.actualValueString.FillUpWithSpacesToLength(spaceToFill).Add(" ").Add(result.expectationString);
         }
 
         private static string TypeName()

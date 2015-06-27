@@ -41,6 +41,7 @@
     <Compile Include="Assertions\EqualAssertion.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IAssertValue.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IsNullAssertion.cs" />
+    <Compile Include="Assertions\Generic\GenericPropertyIdentifier.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertionResult.cs" />
     <Compile Include="Assertions\Generic\GenericAdapter.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Assertions\Generic\IAssert.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
+    <Compile Include="Assertions\IAssertOnProperty.cs" />
     <Compile Include="Assertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\IsNullAssertion.cs" />
     <Compile Include="Assertions\ValueAssertionResult.cs" />
