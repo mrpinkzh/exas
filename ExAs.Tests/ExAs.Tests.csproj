@@ -43,6 +43,7 @@
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
+    <Compile Include="Api\StringAssertionFeature.cs" />
     <Compile Include="Assertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\Generic\GenericAdapterTests.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertionTests.cs" />
