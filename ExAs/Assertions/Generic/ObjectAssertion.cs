@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using ExAs.Assertions.GenericValueAssertions;
 using ExAs.Utils;
 
 namespace ExAs.Assertions.Generic
@@ -10,7 +11,7 @@ namespace ExAs.Assertions.Generic
     {
         private readonly List<IAssertOnProperty<T>> propertyAssertions; 
         private IsNotNullAssertion isNotNullAssertion;
-        private IsNullAssertion isNullAssertion;
+        private IsNullAssertion<object> isNullAssertion;
 
         public ObjectAssertion()
         {
@@ -25,7 +26,7 @@ namespace ExAs.Assertions.Generic
 
         public ObjectAssertion<T> IsNull()
         {
-            isNullAssertion = new IsNullAssertion();
+            isNullAssertion = new IsNullAssertion<object>();
             return this;
         }
 

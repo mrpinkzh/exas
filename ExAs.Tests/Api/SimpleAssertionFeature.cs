@@ -51,7 +51,7 @@ namespace ExAs.Api
             var result = naruto.Evaluate(
                 n => n.IsNull());
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("not null (expected: null)", result.PrintLog());
+            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: null)", result.PrintLog());
         }
 
         [Test]

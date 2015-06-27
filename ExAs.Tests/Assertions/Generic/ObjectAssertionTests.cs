@@ -21,7 +21,7 @@ namespace ExAs.Assertions.Generic
             var assertion = Ninja().IsNull();
             AssertionResult result = assertion.Assert(new Ninja());
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("not null (expected: null)", result.PrintLog());
+            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: null)", result.PrintLog());
         }
 
         private static ObjectAssertion<Ninja> Ninja()
