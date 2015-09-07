@@ -2,13 +2,13 @@
 
 namespace ExAs.Assertions.Generic
 {
-    public class GenericAssertToAssertValueAdapter<T> : IAssertValue<T>
+    public class AssertToAssertValueAdapter<T> : IAssertValue<T>
     {
-        private readonly IAssert assert;
+        private readonly IAssert<T> assert;
 
-        public GenericAssertToAssertValueAdapter(IAssert<T> assert)
+        public AssertToAssertValueAdapter(IAssert<T> assert)
         {
-            this.assert = new GenericAdapter<T>(assert);
+            this.assert = assert;
         }
 
         public ValueAssertionResult AssertValue(T actual)

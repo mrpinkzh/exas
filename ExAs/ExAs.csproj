@@ -45,15 +45,12 @@
     <Compile Include="Assertions\Generic\GenericPropertyIdentifier.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertionResult.cs" />
-    <Compile Include="Assertions\Generic\GenericAdapter.cs" />
-    <Compile Include="Assertions\Generic\GenericAssertToAssertValueAdapter.cs" />
+    <Compile Include="Assertions\Generic\AssertToAssertValueAdapter.cs" />
     <Compile Include="Assertions\Generic\IAssert.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertion.cs" />
-    <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\IAssertOnProperty.cs" />
     <Compile Include="Assertions\ValueAssertionResult.cs" />
     <Compile Include="ExAsExtensions.cs" />
-    <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="GenericPropertyAssertionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyIdentificationExtensions.cs" />

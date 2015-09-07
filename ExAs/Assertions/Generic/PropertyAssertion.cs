@@ -26,7 +26,7 @@ namespace ExAs.Assertions.Generic
         public ObjectAssertion<T> Fulfills(Func<ObjectAssertion<TProperty>, ObjectAssertion<TProperty>> assertionFunc)
         {
             ObjectAssertion<TProperty> objectAssertion = assertionFunc(new ObjectAssertion<TProperty>());
-            assertion = new GenericAssertToAssertValueAdapter<TProperty>(objectAssertion);
+            assertion = new AssertToAssertValueAdapter<TProperty>(objectAssertion);
             return parent;
         }
 
