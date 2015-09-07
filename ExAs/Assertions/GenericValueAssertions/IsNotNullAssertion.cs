@@ -6,11 +6,7 @@ namespace ExAs.Assertions.GenericValueAssertions
     {
         public ValueAssertionResult AssertValue(T actual)
         {
-            var actualString = actual.ToNullAwareString();
-            var expectationString = ComposeLog.Expected("not null");
-            if (actual != null)
-                return new ValueAssertionResult(true, actualString, expectationString);
-            return new ValueAssertionResult(false, actualString, expectationString);
+            return new ValueAssertionResult(actual != null, actual.ToNullAwareString(), ComposeLog.Expected("not null"));
         }
     }
 }

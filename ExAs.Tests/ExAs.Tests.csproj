@@ -47,6 +47,7 @@
     <Compile Include="Assertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IsNotNullAssertionTests.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IsNullAssertionTests.cs" />
+    <Compile Include="Assertions\Generic\EqualAssertionTests.cs" />
     <Compile Include="Assertions\Generic\GenericAdapterTests.cs" />
     <Compile Include="Assertions\Generic\ObjectAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
