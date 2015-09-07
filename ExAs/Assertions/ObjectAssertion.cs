@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using ExAs.Assertions.ObjectAssertions;
 using ExAs.Utils;
 
@@ -30,16 +29,9 @@ namespace ExAs.Assertions
             return this;
         }
 
-        public void AddPropertAssertion(IAssertOnProperty<T> propertyAssertion)
+        public void AddPropertyAssertion(IAssertOnProperty<T> propertyAssertion)
         {
             propertyAssertions.Add(propertyAssertion);
-        }
-
-        public PropertyAssertion<T, TProperty> HasProperty<TProperty>(Expression<Func<T, TProperty>> property)
-        {
-            var propertyAssertion = new PropertyAssertion<T, TProperty>(property, this);
-            propertyAssertions.Add(propertyAssertion);
-            return propertyAssertion;
         }
 
         public AssertionResult Assert(T actual)

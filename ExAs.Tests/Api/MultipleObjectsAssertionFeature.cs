@@ -13,9 +13,9 @@ namespace ExAs.Api
         public void WithNarutosDojo_AndValidAssertions_ShouldPass()
         {
             AssertionResult result = narutosDojo.Evaluate(
-                d => d.HasProperty(x => x.Master).Fulfills(n => n.HasProperty(x => x.Name).EqualTo("Naruto")
-                                                                 .HasProperty(x => x.Age) .EqualTo(12))
-                      .HasProperty(x => x.Founded).EqualTo(new DateTime(1515, 11, 1)));
+                d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Name).EqualTo("Naruto")
+                                                                 .Property(x => x.Age) .EqualTo(12))
+                      .Property(x => x.Founded).EqualTo(new DateTime(1515, 11, 1)));
 
             Assert.IsTrue(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
