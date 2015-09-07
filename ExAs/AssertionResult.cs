@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using ExAs.Utils;
 using ToText;
 
@@ -23,9 +22,9 @@ namespace ExAs
         {
             string[] logLines = log.SplitLines();
             string[] expectationLines = expectation.SplitLines();
-            int longestLogLine = logLines.Max(s => s.Length);
-            IReadOnlyList<string> resultingLogLines = logLines.Map(
-                (al, el) => al.FillUpWithSpacesToLength(longestLogLine).Add(" ").Add(el), expectationLines);
+            int longestLogLine = logLines.MaxOrDefault(s => s.Length);
+            IReadOnlyList<string> resultingLogLines = logLines.Map(expectationLines, 
+                                                                   (al, el) => al.FillUpWithSpacesToLength(longestLogLine).Add(" ").Add(el));
             return string.Join(Environment.NewLine, resultingLogLines);
         }
 

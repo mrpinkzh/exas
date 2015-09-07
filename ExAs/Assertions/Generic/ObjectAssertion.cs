@@ -10,8 +10,8 @@ namespace ExAs.Assertions.Generic
     public class ObjectAssertion<T> : IAssert<T>
     {
         private readonly List<IAssertOnProperty<T>> propertyAssertions; 
-        private IsNotNullAssertion isNotNullAssertion;
-        private IsNullAssertion<object> isNullAssertion;
+        private IsNotNullAssertion<T> isNotNullAssertion;
+        private IsNullAssertion<T> isNullAssertion;
 
         public ObjectAssertion()
         {
@@ -20,13 +20,13 @@ namespace ExAs.Assertions.Generic
 
         public ObjectAssertion<T> IsNotNull()
         {
-            isNotNullAssertion = new IsNotNullAssertion();
+            isNotNullAssertion = new IsNotNullAssertion<T>();
             return this;
         }
 
         public ObjectAssertion<T> IsNull()
         {
-            isNullAssertion = new IsNullAssertion<object>();
+            isNullAssertion = new IsNullAssertion<T>();
             return this;
         }
 
@@ -50,7 +50,7 @@ namespace ExAs.Assertions.Generic
                 if (!isNotNullResult.succeeded)
                     return new AssertionResult(isNotNullResult.succeeded, isNotNullResult.actualValueString, isNotNullResult.expectationString);
                 if (!propertyAssertions.Any())
-                    return new AssertionResult(true, TypeName().Add(isNotNullResult.actualValueString), isNotNullResult.expectationString);
+                    return new AssertionResult(true, isNotNullResult.actualValueString, isNotNullResult.expectationString);
             }
             if (isNullAssertion != null)
             {

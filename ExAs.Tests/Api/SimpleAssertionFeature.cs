@@ -22,7 +22,7 @@ namespace ExAs.Api
             var result = naruto.Evaluate(
                 n => n.IsNotNull());
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: not null (expected: not null)", result.PrintLog());
+            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: not null)", result.PrintLog());
         }
 
         [Test]

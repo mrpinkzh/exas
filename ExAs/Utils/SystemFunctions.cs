@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace ExAs.Utils
@@ -36,8 +35,8 @@ namespace ExAs.Utils
 
         public static IReadOnlyList<TResult> Map<T, TOther, TResult>(
             this IList<T> items,
-            Func<T, TOther, TResult> func, 
-            IList<TOther> arguments)
+            IList<TOther> arguments, 
+            Func<T, TOther, TResult> func)
         {
             int longestPossibleResult = new[] {items.Count, arguments.Count}.Min();
             var result = new List<TResult>(longestPossibleResult);
@@ -46,6 +45,16 @@ namespace ExAs.Utils
                 result.Add(func(items[i], arguments[i]));
             }
             return result;
+        }
+
+        public static int MaxOrDefault<T>(this IEnumerable<T> items, Func<T, int> selector)
+        {
+            var itemList = items.ToList();
+            if (itemList.Any())
+            {
+                return itemList.Max(selector);
+            }
+            return 0;
         }
 
         public static bool TryCast<T>(this object objectToCast, out T result)
