@@ -1,7 +1,7 @@
 ﻿using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Assertions.GenericValueAssertions
+namespace ExAs.Assertions.PropertyAssertions
 {
     [TestFixture]
     public class EqualAssertionTests

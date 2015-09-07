@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
-using ExAs.Assertions.GenericValueAssertions;
 using ToText.Core;
 
-namespace ExAs.Assertions.Generic
+namespace ExAs.Assertions
 {
     public class GenericPropertyIdentifier<T, TProperty> : IAssertOnProperty<T>
     {

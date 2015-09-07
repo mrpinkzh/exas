@@ -1,6 +1,6 @@
 ﻿using ExAs.Utils;
 
-namespace ExAs.Assertions.GenericValueAssertions
+namespace ExAs.Assertions.ObjectAssertions
 {
     public class IsNullAssertion<T> : IAssertValue<T>
     {

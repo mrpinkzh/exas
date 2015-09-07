@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using ExAs.Assertions.Generic;
+using ExAs.Assertions;
 
 namespace ExAs
 {

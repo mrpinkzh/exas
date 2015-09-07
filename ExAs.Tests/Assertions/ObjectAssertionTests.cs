@@ -1,7 +1,7 @@
 ﻿using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Assertions.Generic
+namespace ExAs.Assertions
 {
     [TestFixture]
     public class ObjectAssertionTests

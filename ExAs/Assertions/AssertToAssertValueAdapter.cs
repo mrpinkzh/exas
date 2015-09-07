@@ -1,6 +1,4 @@
-﻿using ExAs.Assertions.GenericValueAssertions;
-
-namespace ExAs.Assertions.Generic
+﻿namespace ExAs.Assertions
 {
     public class AssertToAssertValueAdapter<T> : IAssertValue<T>
     {

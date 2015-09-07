@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using ExAs.Assertions.GenericValueAssertions;
+using ExAs.Assertions.ObjectAssertions;
 using ExAs.Utils;
 
-namespace ExAs.Assertions.Generic
+namespace ExAs.Assertions
 {
     public class ObjectAssertion<T> : IAssert<T>
     {

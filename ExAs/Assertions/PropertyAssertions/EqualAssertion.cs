@@ -1,6 +1,6 @@
 ﻿using ExAs.Utils;
 
-namespace ExAs.Assertions.GenericValueAssertions
+namespace ExAs.Assertions.PropertyAssertions
 {
     public class EqualAssertion<T> : IAssertValue<T>
     {

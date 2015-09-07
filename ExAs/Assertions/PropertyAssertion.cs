@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
-using ExAs.Assertions.GenericValueAssertions;
 using ToText.Core;
 
-namespace ExAs.Assertions.Generic
+namespace ExAs.Assertions
 {
     public class PropertyAssertion<T, TProperty> : IAssertOnProperty<T>
     {
@@ -17,16 +16,9 @@ namespace ExAs.Assertions.Generic
             this.parent = parent;
         }
 
-        public ObjectAssertion<T> EqualTo(TProperty expected)
+        public ObjectAssertion<T> SetAssertion(IAssertValue<TProperty> newAssertion)
         {
-            assertion = new EqualAssertion<TProperty>(expected);
-            return parent;
-        }
-
-        public ObjectAssertion<T> Fulfills(Func<ObjectAssertion<TProperty>, ObjectAssertion<TProperty>> assertionFunc)
-        {
-            ObjectAssertion<TProperty> objectAssertion = assertionFunc(new ObjectAssertion<TProperty>());
-            assertion = new AssertToAssertValueAdapter<TProperty>(objectAssertion);
+            assertion = newAssertion;
             return parent;
         }
 

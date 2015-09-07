@@ -1,4 +1,4 @@
-﻿namespace ExAs.Assertions.Generic
+﻿namespace ExAs.Assertions
 {
     public interface IAssert<T>
     {

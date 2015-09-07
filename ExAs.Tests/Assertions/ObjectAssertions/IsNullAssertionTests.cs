@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace ExAs.Assertions.GenericValueAssertions
+namespace ExAs.Assertions.ObjectAssertions
 {
     [TestFixture]
     public class IsNullAssertionTests

@@ -1,6 +1,4 @@
-﻿using ExAs.Assertions.Generic;
-
-namespace ExAs.Assertions
+﻿namespace ExAs.Assertions
 {
     public interface IAssertOnProperty<in T>
     {

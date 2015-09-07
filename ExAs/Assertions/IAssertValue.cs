@@ -1,4 +1,4 @@
-﻿namespace ExAs.Assertions.GenericValueAssertions
+﻿namespace ExAs.Assertions
 {
     public interface IAssertValue<in T>
     {
