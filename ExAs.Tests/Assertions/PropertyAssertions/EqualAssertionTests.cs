@@ -12,8 +12,8 @@ namespace ExAs.Assertions.PropertyAssertions
             EqualAssertion<int> assertion = EqualAssertion<int>(12);
             ValueAssertionResult result = assertion.AssertValue(12);
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("'12'", result.actualValueString);
-            Assert.AreEqual(ComposeLog.Expected("'12'"), result.expectationString);
+            Assert.AreEqual("12", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("12"), result.expectationString);
         }
 
         [Test]
@@ -32,8 +32,8 @@ namespace ExAs.Assertions.PropertyAssertions
             EqualAssertion<string> assertion = EqualAssertion<string>(null);
             ValueAssertionResult result = assertion.AssertValue(null);
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("'null'", result.actualValueString);
-            Assert.AreEqual(ComposeLog.Expected("'null'"), result.expectationString);
+            Assert.AreEqual("null", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("null"), result.expectationString);
         }
 
         [Test]
@@ -42,8 +42,8 @@ namespace ExAs.Assertions.PropertyAssertions
             EqualAssertion<int> assertion = EqualAssertion(12);
             ValueAssertionResult result = assertion.AssertValue(25);
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("'25'", result.actualValueString);
-            Assert.AreEqual(ComposeLog.Expected("'12'"), result.expectationString);
+            Assert.AreEqual("25", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("12"), result.expectationString);
         }
 
         private static EqualAssertion<T> EqualAssertion<T>(T expected)

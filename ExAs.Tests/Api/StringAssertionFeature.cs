@@ -16,5 +16,16 @@ namespace ExAs.Api
                 "Ninja: Name = null (expected: null)",
                 result.PrintLog());
         }
+
+        [Test]
+        public void IsNull_WithNaruto_ShouldFail()
+        {
+            var ninja = new Ninja("Naruto");
+            AssertionResult result = ninja.Evaluate(n => n.Property(x => x.Name).IsNull());
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual(
+                "Ninja: Name = 'Naruto' (expected: null)",
+                result.PrintLog());
+        }
     }
 }

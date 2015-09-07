@@ -16,7 +16,7 @@ namespace ExAs.Api
                       .Property(x => x.Age) .EqualTo(12));
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')".NewLine()
-                       .Add("       Age  = '12'     (expected: '12')"),
+                       .Add("       Age  = 12       (expected: 12)"),
                        result.PrintLog());
         }
 
@@ -28,7 +28,7 @@ namespace ExAs.Api
                       .Property(x => x.Age) .EqualTo(12));
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Tsubasa')".NewLine()
-                       .Add("       Age  = '12'     (expected: '12')"),
+                       .Add("       Age  = 12       (expected: 12)"),
                        result.PrintLog());
         }
     }

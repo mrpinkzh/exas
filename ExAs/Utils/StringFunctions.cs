@@ -10,11 +10,15 @@ namespace ExAs.Utils
         {
             if (instance == null)
                 return nullString;
+            if (instance is string)
+                return instance.ToString().Apostrophed();
             return instance.ToString();
         }
 
-        public static string Apostrophed(this string input)
+        public static string Apostrophed(this string input, string nullString="null")
         {
+            if (string.Equals(input, nullString))
+                return input;
             return string.Format("'{0}'", input);
         }
 

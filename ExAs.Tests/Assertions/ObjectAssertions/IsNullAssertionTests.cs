@@ -21,7 +21,7 @@ namespace ExAs.Assertions.ObjectAssertions
             IsNullAssertion<string> assertion = CreateStringIsNullAssertion();
             ValueAssertionResult result = assertion.AssertValue("String");
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("String", result.actualValueString);
+            Assert.AreEqual("'String'", result.actualValueString);
             Assert.AreEqual("(expected: null)", result.expectationString);
         }
 
