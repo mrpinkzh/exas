@@ -13,6 +13,11 @@ namespace ExAs.Utils
             return instance.ToString();
         }
 
+        public static string Apostrophed(this string input)
+        {
+            return string.Format("'{0}'", input);
+        }
+
         public static string HangingIndent(string unindentedPrefix, string indentedBlock)
         {
             int indentation = 0;

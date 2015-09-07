@@ -9,6 +9,6 @@ namespace ExAs
             this GenericPropertyIdentifier<T, TProperty> propertyIdentifier)
         {
             return propertyIdentifier.SetAssertion(new IsNullAssertion<TProperty>());
-        } 
+        }
     }
 }

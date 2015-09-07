@@ -38,11 +38,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertionResult.cs" />
-    <Compile Include="Assertions\EqualAssertion.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IAssertValue.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\GenericValueAssertions\IsNullAssertion.cs" />
-    <Compile Include="Assertions\Generic\EqualAssertion.cs" />
+    <Compile Include="Assertions\GenericValueAssertions\EqualAssertion.cs" />
     <Compile Include="Assertions\Generic\GenericPropertyIdentifier.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertion.cs" />
     <Compile Include="Assertions\Generic\PropertyAssertionResult.cs" />

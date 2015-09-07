@@ -1,43 +1,44 @@
 ﻿using System;
 using System.Linq.Expressions;
+using ExAs.Assertions.GenericValueAssertions;
 using ToText.Core;
 
 namespace ExAs.Assertions.Generic
 {
-    public class PropertyAssertion<T> : IAssertOnProperty<T>
+    public class PropertyAssertion<T, TProperty> : IAssertOnProperty<T>
     {
-        private readonly Expression<Func<T, object>> propertyExpression;
+        private readonly Expression<Func<T, TProperty>> genericPropertyExpression;
         private readonly ObjectAssertion<T> parent;
-        private IAssertValue assertion;
+        private IAssertValue<TProperty> assertion;
 
-        public PropertyAssertion(Expression<Func<T, object>> propertyExpression, ObjectAssertion<T> parent)
+        public PropertyAssertion(Expression<Func<T, TProperty>> genericPropertyExpression, ObjectAssertion<T> parent)
         {
+            this.genericPropertyExpression = genericPropertyExpression;
             this.parent = parent;
-            this.propertyExpression = propertyExpression;
         }
 
-        public ObjectAssertion<T> EqualTo(object expected)
+        public ObjectAssertion<T> EqualTo(TProperty expected)
         {
-            assertion = new EqualAssertion(expected);
+            assertion = new EqualAssertion<TProperty>(expected);
             return parent;
         }
 
-        public ObjectAssertion<T> Fulfills<TResult>(Func<ObjectAssertion<TResult>, ObjectAssertion<TResult>> assertionFunc)
+        public ObjectAssertion<T> Fulfills(Func<ObjectAssertion<TProperty>, ObjectAssertion<TProperty>> assertionFunc)
         {
-            ObjectAssertion<TResult> objectAssertion = assertionFunc(new ObjectAssertion<TResult>());
-            assertion = new GenericAssertToAssertValueAdapter<TResult>(objectAssertion);
+            ObjectAssertion<TProperty> objectAssertion = assertionFunc(new ObjectAssertion<TProperty>());
+            assertion = new GenericAssertToAssertValueAdapter<TProperty>(objectAssertion);
             return parent;
         }
 
         public PropertyAssertionResult Assert(T actual)
         {
-            string propertyName = propertyExpression.ExtractMemberName();
+            string propertyName = genericPropertyExpression.ExtractMemberName();
             if (assertion == null)
                 return new PropertyAssertionResult(propertyName, 
                                                    new ValueAssertionResult(false, 
                                                                             "no assertion specified", 
                                                                             string.Empty));
-            object value = propertyExpression.Compile()(actual);
+            TProperty value = genericPropertyExpression.Compile()(actual);
             ValueAssertionResult result = assertion.AssertValue(value);
             if (result.succeeded)
                 return new PropertyAssertionResult(propertyName, result);

@@ -35,12 +35,12 @@ namespace ExAs.Assertions.Generic
             propertyAssertions.Add(propertyAssertion);
         }
 
-        public PropertyAssertion<T> HasProperty(Expression<Func<T, object>> property)
+        public PropertyAssertion<T, TProperty> HasProperty<TProperty>(Expression<Func<T, TProperty>> property)
         {
-            var propertyAssertion = new PropertyAssertion<T>(property, this);
+            var propertyAssertion = new PropertyAssertion<T, TProperty>(property, this);
             propertyAssertions.Add(propertyAssertion);
             return propertyAssertion;
-        } 
+        }
 
         public AssertionResult Assert(T actual)
         {
