@@ -11,15 +11,8 @@ namespace ExAs.Utils
             if (instance == null)
                 return nullString;
             if (instance is string)
-                return instance.ToString().Apostrophed();
+                return string.Format("'{0}'", instance);
             return instance.ToString();
-        }
-
-        public static string Apostrophed(this string input, string nullString="null")
-        {
-            if (string.Equals(input, nullString))
-                return input;
-            return string.Format("'{0}'", input);
         }
 
         public static string HangingIndent(string unindentedPrefix, string indentedBlock)

@@ -27,5 +27,17 @@ namespace ExAs.Api
                 "Ninja: Name = 'Naruto' (expected: null)",
                 result.PrintLog());
         }
+
+        [Test]
+        public void IsEmpty_WithEmptyNinja_ShouldPass()
+        {
+            Assert.Inconclusive("IsEmpty not yet implemented..");
+            var ninja = new Ninja("");
+            AssertionResult result = ninja.Evaluate(n => n.Property(x => x.Name).IsEmpty());
+            Assert.IsTrue(result.succeeded);
+            Assert.AreEqual(
+                "Ninja: Name = '' (expected: '')",
+                result.PrintLog());
+        }
     }
 }

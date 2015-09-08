@@ -41,6 +41,7 @@
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\PrintoutAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\EqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertionResult.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="ObjectAssertionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyAssertionExtensions.cs" />
+    <Compile Include="StringPropertyAssertionExtensions.cs" />
     <Compile Include="Utils\ComposeLog.cs" />
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
     <Compile Include="Utils\StringFunctions.cs" />
