@@ -1,5 +1,4 @@
-﻿using System;
-using ExAs.Utils;
+﻿using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions
 {
@@ -7,7 +6,7 @@ namespace ExAs.Assertions.PropertyAssertions
     {
         public ValueAssertionResult AssertValue(T actual)
         {
-            return new ValueAssertionResult(true, actual.ToNullAwareString(), string.Empty);
+            return new ValueAssertionResult(true, actual.ToNullAwareString(), " ");
         }
     }
 }

@@ -6,6 +6,8 @@ namespace ExAs.Api
     [TestFixture]
     public class StringAssertionFeature
     {
+        private readonly Ninja naruto = new Ninja();
+
         [Test]
         public void IsNull_WithNullNinja_ShouldPass()
         {
@@ -20,8 +22,7 @@ namespace ExAs.Api
         [Test]
         public void IsNull_WithNaruto_ShouldFail()
         {
-            var ninja = new Ninja("Naruto");
-            AssertionResult result = ninja.Evaluate(n => n.Property(x => x.Name).IsNull());
+            AssertionResult result = naruto.Evaluate(n => n.Property(x => x.Name).IsNull());
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual(
                 "Ninja: Name = 'Naruto' (expected: null)",
@@ -31,12 +32,21 @@ namespace ExAs.Api
         [Test]
         public void IsEmpty_WithEmptyNinja_ShouldPass()
         {
-            Assert.Inconclusive("IsEmpty not yet implemented..");
             var ninja = new Ninja("");
             AssertionResult result = ninja.Evaluate(n => n.Property(x => x.Name).IsEmpty());
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual(
-                "Ninja: Name = '' (expected: '')",
+                "Ninja: Name = '' (expected: empty string)",
+                result.PrintLog());
+        }
+
+        [Test]
+        public void IsEmpty_WithNaruto_ShouldFail()
+        {
+            AssertionResult result = naruto.Evaluate(n => n.Property(x => x.Name).IsEmpty());
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual(
+                "Ninja: Name = 'Naruto' (expected: empty string)",
                 result.PrintLog());
         }
     }

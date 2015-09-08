@@ -48,6 +48,7 @@
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertionTests.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\AssertionStub.cs" />
     <Compile Include="Utils\CreateRandom.cs" />

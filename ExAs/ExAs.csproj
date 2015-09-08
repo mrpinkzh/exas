@@ -49,6 +49,7 @@
     <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="Assertions\ObjectAssertion.cs" />
     <Compile Include="Assertions\IAssertOnProperty.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\ValueAssertionResult.cs" />
     <Compile Include="ExAsExtensions.cs" />
     <Compile Include="ObjectAssertionExtensions.cs" />
@@ -63,9 +64,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assertions\StringAssertions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
