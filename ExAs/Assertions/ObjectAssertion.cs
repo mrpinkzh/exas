@@ -58,7 +58,8 @@ namespace ExAs.Assertions
             IReadOnlyCollection<string> propertyResults = results.Map(
                 r =>
                 {
-                    string propertyString = r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty).Add(" = ");
+                    string failureIndicator = r.childResult.succeeded ? "( )" : "(X)";
+                    string propertyString = failureIndicator.Add(r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty)).Add(" = ");
                     return StringFunctions.HangingIndent(propertyString, r.childResult.actualValueString);
                 });
             string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
