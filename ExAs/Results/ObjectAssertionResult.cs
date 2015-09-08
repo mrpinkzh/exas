@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using ExAs.Utils;
 using ToText;
 
-namespace ExAs
+namespace ExAs.Results
 {
-    public class AssertionResult
+    public class ObjectAssertionResult
     {
         public readonly bool succeeded;
         public readonly string log;
         public readonly string expectation;
 
-        public AssertionResult(bool succeeded, string log, string expectation)
+        public ObjectAssertionResult(bool succeeded, string log, string expectation)
         {
             this.succeeded = succeeded;
             this.log = log;

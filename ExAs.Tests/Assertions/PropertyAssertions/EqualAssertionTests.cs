@@ -1,4 +1,5 @@
-﻿using ExAs.Utils;
+﻿using ExAs.Results;
+using ExAs.Utils;
 using NUnit.Framework;
 
 namespace ExAs.Assertions.PropertyAssertions

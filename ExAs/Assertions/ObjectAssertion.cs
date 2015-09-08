@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ExAs.Assertions.ObjectAssertions;
+using ExAs.Results;
 using ExAs.Utils;
 
 namespace ExAs.Assertions
@@ -34,24 +35,24 @@ namespace ExAs.Assertions
             propertyAssertions.Add(propertyAssertion);
         }
 
-        public AssertionResult Assert(T actual)
+        public ObjectAssertionResult Assert(T actual)
         {
             if (isNotNullAssertion != null)
             {
                 ValueAssertionResult isNotNullResult = isNotNullAssertion.AssertValue(actual);
                 if (!isNotNullResult.succeeded)
-                    return new AssertionResult(isNotNullResult.succeeded, isNotNullResult.actualValueString, isNotNullResult.expectationString);
+                    return new ObjectAssertionResult(isNotNullResult.succeeded, isNotNullResult.actualValueString, isNotNullResult.expectationString);
                 if (!propertyAssertions.Any())
-                    return new AssertionResult(true, isNotNullResult.actualValueString, isNotNullResult.expectationString);
+                    return new ObjectAssertionResult(true, isNotNullResult.actualValueString, isNotNullResult.expectationString);
             }
             if (isNullAssertion != null)
             {
                 ValueAssertionResult isNullResult = isNullAssertion.AssertValue(actual);
-                return new AssertionResult(isNullResult.succeeded, isNullResult.actualValueString, isNullResult.expectationString);
+                return new ObjectAssertionResult(isNullResult.succeeded, isNullResult.actualValueString, isNullResult.expectationString);
             }
 
             if (!propertyAssertions.Any())
-                return new AssertionResult(true, "no assertions", "-");
+                return new ObjectAssertionResult(true, "no assertions", "-");
 
             IReadOnlyCollection<PropertyAssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
             int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
@@ -62,7 +63,7 @@ namespace ExAs.Assertions
                     return StringFunctions.HangingIndent(propertyString, r.childResult.actualValueString);
                 });
             string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
-            return new AssertionResult(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
+            return new ObjectAssertionResult(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
         }
 
         private static string TypeName()

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ExAs.Results;
 using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions.Strings

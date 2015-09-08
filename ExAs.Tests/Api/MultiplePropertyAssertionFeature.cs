@@ -1,4 +1,6 @@
-﻿using ExAs.Utils;
+﻿using ExAs.Assertions;
+using ExAs.Results;
+using ExAs.Utils;
 using NUnit.Framework;
 
 namespace ExAs.Api
@@ -11,7 +13,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndValidAssertionForBothProperties_ShouldPass()
         {
-            AssertionResult result = naruto.Evaluate(
+            ObjectAssertionResult result = naruto.Evaluate(
                 n => n.Property(x => x.Name).EqualTo("Naruto")
                       .Property(x => x.Age) .EqualTo(12));
             Assert.IsTrue(result.succeeded);
@@ -23,7 +25,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndInvalidNameAssertion_ShouldFail()
         {
-            AssertionResult result = naruto.Evaluate(
+            ObjectAssertionResult result = naruto.Evaluate(
                 n => n.Property(x => x.Name).EqualTo("Tsubasa")
                       .Property(x => x.Age) .EqualTo(12));
             Assert.IsFalse(result.succeeded);

@@ -1,4 +1,6 @@
-﻿using ExAs.Utils;
+﻿using ExAs.Assertions;
+using ExAs.Results;
+using ExAs.Utils;
 using NUnit.Framework;
 
 namespace ExAs.Api
@@ -59,7 +61,7 @@ namespace ExAs.Api
         {
             var ninja = new Ninja("Naruto", 12);
 
-            AssertionResult result = ninja.Evaluate(
+            ObjectAssertionResult result = ninja.Evaluate(
                 n => n.Property(x => x.Name).EqualTo("Naruto"));
 
             Assert.IsTrue(result.succeeded);
@@ -72,7 +74,7 @@ namespace ExAs.Api
         {
             var ninja = new Ninja("Naruto", 12);
 
-            AssertionResult result = ninja.Evaluate(
+            ObjectAssertionResult result = ninja.Evaluate(
                 n => n.Property(x => x.Age).EqualTo(12));
 
             Assert.IsTrue(result.succeeded);

@@ -1,4 +1,6 @@
-﻿namespace ExAs.Assertions
+﻿using ExAs.Results;
+
+namespace ExAs.Assertions
 {
     public interface IAssertValue<in T>
     {

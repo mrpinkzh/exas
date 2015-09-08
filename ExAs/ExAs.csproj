@@ -37,20 +37,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssertionResult.cs" />
+    <Compile Include="Results\ObjectAssertionResult.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\PrintoutAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\EqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertion.cs" />
-    <Compile Include="Assertions\PropertyAssertionResult.cs" />
+    <Compile Include="Results\PropertyAssertionResult.cs" />
     <Compile Include="Assertions\AssertToAssertValueAdapter.cs" />
     <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="Assertions\ObjectAssertion.cs" />
     <Compile Include="Assertions\IAssertOnProperty.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertion.cs" />
-    <Compile Include="Assertions\ValueAssertionResult.cs" />
+    <Compile Include="Results\ValueAssertionResult.cs" />
     <Compile Include="ExAsExtensions.cs" />
     <Compile Include="ObjectAssertionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

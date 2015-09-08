@@ -1,6 +1,6 @@
 ﻿using ToText;
 
-namespace ExAs.Assertions
+namespace ExAs.Results
 {
     public class PropertyAssertionResult
     {

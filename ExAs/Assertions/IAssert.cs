@@ -1,7 +1,9 @@
-﻿namespace ExAs.Assertions
+﻿using ExAs.Results;
+
+namespace ExAs.Assertions
 {
     public interface IAssert<T>
     {
-        AssertionResult Assert(T actual);
+        ObjectAssertionResult Assert(T actual);
     }
 }

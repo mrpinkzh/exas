@@ -1,4 +1,6 @@
-﻿namespace ExAs.Assertions
+﻿using ExAs.Results;
+
+namespace ExAs.Assertions
 {
     public class AssertToAssertValueAdapter<T> : IAssertValue<T>
     {
@@ -11,7 +13,7 @@
 
         public ValueAssertionResult AssertValue(T actual)
         {
-            AssertionResult result = assert.Assert(actual);
+            ObjectAssertionResult result = assert.Assert(actual);
             return new ValueAssertionResult(result.succeeded, result.log, result.expectation);
         }
     }

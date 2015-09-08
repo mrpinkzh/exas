@@ -1,4 +1,6 @@
 ﻿using System;
+using ExAs.Assertions;
+using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
 
@@ -12,7 +14,7 @@ namespace ExAs.Api
         [Test]
         public void WithNarutosDojo_AndValidAssertions_ShouldPass()
         {
-            AssertionResult result = narutosDojo.Evaluate(
+            ObjectAssertionResult result = narutosDojo.Evaluate(
                 d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Name).EqualTo("Naruto")
                                                                  .Property(x => x.Age) .EqualTo(12))
                       .Property(x => x.Founded).EqualTo(new DateTime(1515, 11, 1)));
