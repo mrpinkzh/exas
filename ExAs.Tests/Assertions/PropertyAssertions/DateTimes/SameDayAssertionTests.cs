@@ -9,24 +9,23 @@ namespace ExAs.Assertions.PropertyAssertions.DateTimes
     public class SameDayAssertionTests
     {
         [Test]
-        public void OnExpectedYesterday_WithYesterday_ShouldSucceed()
+        public void OnStandardDay_WithStandardDay_ShouldSucceed()
         {
-            DateTime yesterday = Dates.Yesterday();
-            SameDayAssertion assertion = SameDayAssertion(yesterday);
-            ValueAssertionResult result = assertion.AssertValue(yesterday.AddHours(5));
+            SameDayAssertion assertion = SameDayAssertion(Dates.StandardDay());
+            ValueAssertionResult result = assertion.AssertValue(Dates.StandardDay().AddHours(5));
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual(yesterday.ToShortDateString(), result.actualValueString);
-            Assert.AreEqual(ComposeLog.Expected(yesterday.ToShortDateString()), result.expectationString);
+            Assert.AreEqual("11/16/1984", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("11/16/1984"), result.expectationString);
         }
 
         [Test]
-        public void OnTomorrow_WithToday_ShouldFail()
+        public void OnStandardDay_WithDayAfter_ShouldFail()
         {
-            var assertion = SameDayAssertion(Dates.Tomorrow());
-            var result = assertion.AssertValue(Dates.Today());
+            var assertion = SameDayAssertion(Dates.StandardDay());
+            var result = assertion.AssertValue(Dates.StandardDay().AddDays(1));
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual(Dates.Today().ToShortDateString(), result.actualValueString);
-            Assert.AreEqual(ComposeLog.Expected(Dates.Tomorrow().ToShortDateString()), result.expectationString);
+            Assert.AreEqual("11/17/1984", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("11/16/1984"), result.expectationString);
         }
 
         private static SameDayAssertion SameDayAssertion(DateTime expected)

@@ -1,4 +1,5 @@
-﻿using ExAs.Utils;
+﻿using System;
+using ExAs.Utils;
 using NUnit.Framework;
 
 namespace ExAs.Api
@@ -6,28 +7,46 @@ namespace ExAs.Api
     [TestFixture]
     public class DateTimeAssertionFeature
     {
+        private readonly DateTime commonDojoFoundationDay = new DateTime(1515, 11, 15);
+
         [Test]
-        public void SameDayAs_OnYesterday_WithYesterday_ShouldSucceed()
+        public void SameDayAs_OnCommonDojoFoundationDay_WithCommonDojoFoundationDay_ShouldSucceed()
         {
-            var dojosYesterday = Dates.Yesterday();
-            var dojo = new Dojo(new Ninja(), dojosYesterday);
-            var expectedYesterday = Dates.Yesterday();
-            var result = dojo.Evaluate(d => d.Property(x => x.Founded).OnSameDayAs(expectedYesterday));
+            var dojo = new Dojo(new Ninja(), commonDojoFoundationDay);
+            var result = dojo.Evaluate(d => d.Property(x => x.Founded).OnSameDayAs(commonDojoFoundationDay.AddHours(12)));
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Dojo: ( )Founded = ".Add(dojosYesterday.ToShortDateString()).Add(" (expected: ").Add(expectedYesterday.ToShortDateString()).Add(")"),
+            Assert.AreEqual("Dojo: ( )Founded = 11/15/1515 (expected: 11/15/1515)",
                             result.PrintLog());
         }
 
         [Test]
-        public void SameDayAs_OnToday_WithTomoroow_ShouldFail()
+        public void SameDayAs_OnCommonDojoFoundationDay_With200YearsLater_ShouldFail()
         {
-            var dojosFoundation = Dates.Today();
-            var dojo = new Dojo(new Ninja(), dojosFoundation);
-            var expectation = Dates.Tomorrow();
-            var result = dojo.Evaluate(d => d.Property(x => x.Founded).OnSameDayAs(expectation));
+            var dojo = new Dojo(new Ninja(), commonDojoFoundationDay);
+            var result = dojo.Evaluate(d => d.Property(x => x.Founded).OnSameDayAs(commonDojoFoundationDay.AddYears(200)));
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("Dojo: (X)Founded = ".Add(dojosFoundation.ToShortDateString()).Add(" (expected: ").Add(expectation.ToShortDateString()).Add(")"),
+            Assert.AreEqual("Dojo: (X)Founded = 11/15/1515 (expected: 11/15/1715)",
                             result.PrintLog());
+        }
+
+        [Test]
+        public void CloseTo_OnLunchTime_WithLunchTimePlus5Seconds_ShouldPass()
+        {
+            var dinnerAppointment = new DinnerAppointment(Times.LunchTime());
+            var result = dinnerAppointment.Evaluate(da => da.Property(x => x.Time).IsCloseTo(Times.LunchTime(), 5.Seconds()));
+            Assert.IsTrue(result.succeeded);
+            Assert.AreEqual("DinnerAppointment: ( )Time = 11/16/1984 12:00:00.000 (expected between 11/16/1984 11:59:55.000 and 11/16/1984 12:00:05.000)",
+                             result.PrintLog());
+        }
+
+        [Test]
+        public void CloseTo_OnLunchTime_WithDinnerTimePlus5Seconds_ShouldFail()
+        {
+            var dinnerAppointment = new DinnerAppointment(Times.LunchTime());
+            var result = dinnerAppointment.Evaluate(da => da.Property(x => x.Time).IsCloseTo(Times.DinnerTime(), 5.Seconds()));
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual("DinnerAppointment: (X)Time = 11/16/1984 12:00:00.000 (expected between 11/16/1984 17:59:55.000 and 11/16/1984 18:00:05.000)",
+                             result.PrintLog());
         }
     }
 }

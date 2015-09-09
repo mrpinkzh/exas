@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using ExAs.Results;
 using ExAs.Utils;
 
@@ -17,8 +18,8 @@ namespace ExAs.Assertions.PropertyAssertions.DateTimes
         {
             return new ValueAssertionResult(
                 actual.Date == expected.Date, 
-                actual.ToShortDateString(), 
-                ComposeLog.Expected(expected.ToShortDateString()));
+                actual.ToString("d", CultureInfo.InvariantCulture),
+                ComposeLog.Expected(expected.ToString("d", CultureInfo.InvariantCulture)));
         }
     }
 }

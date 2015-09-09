@@ -37,6 +37,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
     <Compile Include="Utils\StringFunctions.cs" />
     <Compile Include="Utils\SystemFunctions.cs" />
+    <Compile Include="Utils\TimeSpanFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
