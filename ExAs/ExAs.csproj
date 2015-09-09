@@ -37,6 +37,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
+    <Compile Include="DateTimePropertyAssertionExtensions.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />

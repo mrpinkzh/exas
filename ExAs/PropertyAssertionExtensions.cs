@@ -8,6 +8,7 @@ namespace ExAs
     public static class PropertyAssertionExtensions
     {
         public static ObjectAssertion<T> IsNull<T, TProperty>(this PropertyAssertion<T, TProperty> property)
+            where TProperty : class
         {
             return property.SetAssertion(new IsNullAssertion<TProperty>());
         }
