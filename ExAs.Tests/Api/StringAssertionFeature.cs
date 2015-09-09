@@ -1,5 +1,4 @@
-﻿using ExAs.Assertions;
-using ExAs.Results;
+﻿using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
 
@@ -17,7 +16,7 @@ namespace ExAs.Api
             ObjectAssertionResult result = nullNinja.Evaluate(n => n.Property(x => x.Name).IsNull());
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual(
-                "Ninja: Name = null (expected: null)",
+                "Ninja: ( )Name = null (expected: null)",
                 result.PrintLog());
         }
 
@@ -27,7 +26,7 @@ namespace ExAs.Api
             ObjectAssertionResult result = naruto.Evaluate(n => n.Property(x => x.Name).IsNull());
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual(
-                "Ninja: Name = 'Naruto' (expected: null)",
+                "Ninja: (X)Name = 'Naruto' (expected: null)",
                 result.PrintLog());
         }
 
@@ -38,7 +37,7 @@ namespace ExAs.Api
             ObjectAssertionResult result = ninja.Evaluate(n => n.Property(x => x.Name).IsEmpty());
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual(
-                "Ninja: Name = '' (expected: empty string)",
+                "Ninja: ( )Name = '' (expected: empty string)",
                 result.PrintLog());
         }
 
@@ -48,7 +47,7 @@ namespace ExAs.Api
             ObjectAssertionResult result = naruto.Evaluate(n => n.Property(x => x.Name).IsEmpty());
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual(
-                "Ninja: Name = 'Naruto' (expected: empty string)",
+                "Ninja: (X)Name = 'Naruto' (expected: empty string)",
                 result.PrintLog());
         }
     }

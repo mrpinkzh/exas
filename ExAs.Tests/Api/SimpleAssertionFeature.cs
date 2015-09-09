@@ -1,5 +1,4 @@
-﻿using ExAs.Assertions;
-using ExAs.Results;
+﻿using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
 
@@ -24,7 +23,7 @@ namespace ExAs.Api
             var result = naruto.Evaluate(
                 n => n.IsNotNull());
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: ( )Name = 'Naruto' (expected: not null)", result.PrintLog());
+            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: not null)", result.PrintLog());
         }
 
         [Test]
@@ -65,7 +64,7 @@ namespace ExAs.Api
                 n => n.Property(x => x.Name).EqualTo("Naruto"));
 
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: Name = 'Naruto' (expected: 'Naruto')",
+            Assert.AreEqual("Ninja: ( )Name = 'Naruto' (expected: 'Naruto')",
                             result.PrintLog());
         }
 
@@ -78,7 +77,7 @@ namespace ExAs.Api
                 n => n.Property(x => x.Age).EqualTo(12));
 
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Ninja: Age = 12 (expected: 12)",
+            Assert.AreEqual("Ninja: ( )Age = 12 (expected: 12)",
                             result.PrintLog());
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using ExAs.Assertions;
 using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
@@ -21,9 +20,9 @@ namespace ExAs.Api
 
             Assert.IsTrue(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
-            Assert.AreEqual("Dojo: Master  = Ninja: Name = 'Naruto' (expected: 'Naruto')".NewLine()
-                       .Add("                       Age  = 12       (expected: 12)").NewLine()
-                       .Add("      Founded = 01.11.1515 00:00:00    (expected: 01.11.1515 00:00:00)"),
+            Assert.AreEqual("Dojo: ( )Master  = Ninja: ( )Name = 'Naruto' (expected: 'Naruto')".NewLine()
+                       .Add("                          ( )Age  = 12       (expected: 12)").NewLine()
+                       .Add("      ( )Founded = 01.11.1515 00:00:00       (expected: 01.11.1515 00:00:00)"),
                        result.PrintLog());
         }
     }
