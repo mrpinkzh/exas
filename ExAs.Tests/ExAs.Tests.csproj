@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
+    <Compile Include="Api\EnumerableAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Assertions\ObjectAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\City.cs" />
     <Compile Include="Utils\CreateRandom.cs" />
     <Compile Include="Utils\Dates.cs" />
     <Compile Include="Utils\DinnerAppointment.cs" />
