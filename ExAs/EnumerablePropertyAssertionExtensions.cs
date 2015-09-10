@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions;
+﻿using ExAs.Assertions;
+using ExAs.Assertions.PropertyAssertions.Enumerables;
 
 namespace ExAs
 {
     public static class EnumerablePropertyAssertionExtensions
     {
-        public static ObjectAssertion<T> IsEmpty<T>(this EnumerablePropertyAssertion property)
+        public static ObjectAssertion<T> IsEmpty<T, TPropertyElement>(this EnumerablePropertyAssertion<T, TPropertyElement> property)
         {
-            return null;
+            return property.SetAssertion(new IsEmptyAssertion<TPropertyElement>());
         }
     }
 }

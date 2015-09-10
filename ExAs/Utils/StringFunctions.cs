@@ -15,6 +15,16 @@ namespace ExAs.Utils
             return instance.ToString();
         }
 
+        public static string ToValueString<T>(this IEnumerable<T> enumerable)
+        {
+            IReadOnlyCollection<string> strings = enumerable.Map(item => item.ToNullAwareString());
+            if (!strings.Any())
+                return "<empty>";
+            if (strings.Any(s => s.Contains(Environment.NewLine)))
+                return "<".Add(strings.Count.ToString()).Add(" ").Add(typeof(T).Name).Add(">");
+            return "[ ".Add(string.Join(", ", strings)).Add(" ]");
+        }
+
         public static string HangingIndent(string unindentedPrefix, string indentedBlock)
         {
             int indentation = 0;

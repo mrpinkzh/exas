@@ -16,11 +16,12 @@ namespace ExAs
             return propertyAssertion;
         }
 
-        public static EnumerablePropertyAssertion Property<T, TPropertyElement>(
+        public static EnumerablePropertyAssertion<T, TPropertyElement> Property<T, TPropertyElement>(
             this ObjectAssertion<T> parent,
             Expression<Func<T, IEnumerable<TPropertyElement>>> propertyExpression)
         {
-            var propertyAssertion = new EnumerablePropertyAssertion();
+            var propertyAssertion = new EnumerablePropertyAssertion<T, TPropertyElement>(propertyExpression, parent);
+            parent.AddPropertyAssertion(propertyAssertion);
             return propertyAssertion;
         }
     }

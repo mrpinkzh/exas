@@ -25,17 +25,7 @@ namespace ExAs.Assertions
 
         public PropertyAssertionResult Assert(T actual)
         {
-            string propertyName = genericPropertyExpression.ExtractMemberName();
-            if (assertion == null)
-                return new PropertyAssertionResult(propertyName, 
-                                                   new ValueAssertionResult(false, 
-                                                                            "no assertion specified", 
-                                                                            string.Empty));
-            TProperty value = genericPropertyExpression.Compile()(actual);
-            ValueAssertionResult result = assertion.AssertValue(value);
-            if (result.succeeded)
-                return new PropertyAssertionResult(propertyName, result);
-            return new PropertyAssertionResult(propertyName, result);
+            return PropertyAssertionFunctions.Assert(actual, genericPropertyExpression, assertion);
         }
     }
 }

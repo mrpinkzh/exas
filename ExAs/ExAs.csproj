@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assertions\EnumerablePropertyAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />

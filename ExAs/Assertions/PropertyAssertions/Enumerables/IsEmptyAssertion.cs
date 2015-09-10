@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ExAs.Results;
 using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions.Enumerables
 {
-    public class IsEmptyAssertion<TElement>
+    public class IsEmptyAssertion<TElement> : IAssertValue<IEnumerable<TElement>>
     {
-        public ValueAssertionResult Assert(IEnumerable<TElement> actual)
+        public ValueAssertionResult AssertValue(IEnumerable<TElement> actual)
         {
+            List<TElement> elements = actual.ToList();
             return new ValueAssertionResult(
-                true,
-                "0",
-                ComposeLog.Expected("0"));
+                !elements.Any(),
+                elements.ToValueString(),
+                ComposeLog.Expected("empty enumerable"));
         }
     }
 }

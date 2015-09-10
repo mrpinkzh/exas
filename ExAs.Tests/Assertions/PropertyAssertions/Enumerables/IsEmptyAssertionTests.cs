@@ -11,10 +11,20 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
         public void WithEmptyEnumerable_ShouldReturnSuccess()
         {
             IsEmptyAssertion<string> assertion = IsEmptyAssertion<string>();
-            ValueAssertionResult result = assertion.Assert(new string[0]);
+            ValueAssertionResult result = assertion.AssertValue(new string[0]);
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("0", result.actualValueString);
-            Assert.AreEqual(ComposeLog.Expected("0"), result.expectationString);
+            Assert.AreEqual("<empty>", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("empty enumerable"), result.expectationString);
+        }
+
+        [Test]
+        public void WithEnumerableHavingOneItem_ShouldReturnFail()
+        {
+            var assertion = IsEmptyAssertion<string>();
+            var result = assertion.AssertValue(new[] {"AnyString"});
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual("[ 'AnyString' ]", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("empty enumerable"), result.expectationString);
         }
 
         private static IsEmptyAssertion<T> IsEmptyAssertion<T>()
