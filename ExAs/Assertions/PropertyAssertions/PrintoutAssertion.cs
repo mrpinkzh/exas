@@ -7,7 +7,7 @@ namespace ExAs.Assertions.PropertyAssertions
     {
         public ValueAssertionResult AssertValue(T actual)
         {
-            return new ValueAssertionResult(true, actual.ToNullAwareString(), " ");
+            return new ValueAssertionResult(true, actual.ToValueString(), " ");
         }
     }
 }

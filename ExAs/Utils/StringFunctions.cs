@@ -8,25 +8,6 @@ namespace ExAs.Utils
 {
     public static class StringFunctions
     {
-        public static string ToNullAwareString(this object instance, string nullString = "null")
-        {
-            if (instance == null)
-                return nullString;
-            if (instance is string)
-                return string.Format("'{0}'", instance);
-            return instance.ToString();
-        }
-
-        public static string ToValueString<T>(this IEnumerable<T> enumerable)
-        {
-            IReadOnlyCollection<string> strings = enumerable.Map(item => item.ToNullAwareString());
-            if (!strings.Any())
-                return "<empty>";
-            if (strings.Any(s => s.Contains(Environment.NewLine)))
-                return "<".Add(strings.Count.ToString()).Add(" ").Add(typeof(T).Name).Add(">");
-            return "[ ".Add(string.Join(", ", strings)).Add(" ]");
-        }
-
         public static string ToValueString<T>(this T item, string nullString = "null")
         {
             if (item == null)
@@ -42,7 +23,7 @@ namespace ExAs.Utils
         public static string ToValueString(this IEnumerable enumerable)
         {
             var arrayList = enumerable.ToArrayList();
-            IReadOnlyCollection<string> strings = arrayList.Map(item => item.ToNullAwareString());
+            IReadOnlyCollection<string> strings = arrayList.Map(item => item.ToValueString());
             if (!strings.Any())
                 return "<empty>";
             if (strings.Any(s => s.Contains(Environment.NewLine)))

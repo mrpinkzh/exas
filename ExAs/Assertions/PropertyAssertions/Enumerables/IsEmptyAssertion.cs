@@ -12,7 +12,7 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             var expectationString = ComposeLog.Expected("empty enumerable");
 
             if (actual == null)
-                return new ValueAssertionResult(false, actual.ToNullAwareString(), expectationString);
+                return new ValueAssertionResult(false, actual.ToValueString(), expectationString);
 
             List<TElement> elements = actual.ToList();
             return new ValueAssertionResult(

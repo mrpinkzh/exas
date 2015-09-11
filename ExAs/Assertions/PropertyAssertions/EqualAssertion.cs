@@ -16,8 +16,8 @@ namespace ExAs.Assertions.PropertyAssertions
         {
             return new ValueAssertionResult(
                 Equals(expected, actual), 
-                actual.ToNullAwareString(), 
-                ComposeLog.Expected(expected.ToNullAwareString()));
+                actual.ToValueString(), 
+                ComposeLog.Expected(expected.ToValueString()));
         }
     }
 }

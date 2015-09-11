@@ -7,7 +7,7 @@ namespace ExAs.Assertions.ObjectAssertions
     {
         public ValueAssertionResult AssertValue(T actual)
         {
-            return new ValueAssertionResult(actual != null, actual.ToNullAwareString(), ComposeLog.Expected("not null"));
+            return new ValueAssertionResult(actual != null, actual.ToValueString(), ComposeLog.Expected("not null"));
         }
     }
 }

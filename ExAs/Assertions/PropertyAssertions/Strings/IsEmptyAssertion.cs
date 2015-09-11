@@ -8,7 +8,7 @@ namespace ExAs.Assertions.PropertyAssertions.Strings
     {
         public ValueAssertionResult AssertValue(string actual)
         {
-            return new ValueAssertionResult(IsEmpty(actual), actual.ToNullAwareString(), ComposeLog.Expected("empty string"));
+            return new ValueAssertionResult(IsEmpty(actual), actual.ToValueString(), ComposeLog.Expected("empty string"));
         }
 
         private static bool IsEmpty(string actual)
