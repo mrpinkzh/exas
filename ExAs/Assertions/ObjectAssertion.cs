@@ -4,6 +4,7 @@ using System.Linq;
 using ExAs.Assertions.ObjectAssertions;
 using ExAs.Results;
 using ExAs.Utils;
+using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Assertions
 {

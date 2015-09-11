@@ -12,6 +12,11 @@ namespace ExAs.Utils
             this.dojos.AddRange(dojos);
         }
 
+        public City(List<Dojo> dojoList)
+        {
+            this.dojos = dojoList;
+        }
+
         public IEnumerable<Dojo> Dojos
         {
             get { return dojos; }

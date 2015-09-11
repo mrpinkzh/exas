@@ -66,7 +66,8 @@
     <Compile Include="Utils\ComposeLog.cs" />
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
     <Compile Include="Utils\StringFunctions.cs" />
-    <Compile Include="Utils\SystemFunctions.cs" />
+    <Compile Include="Utils\SystemExtensions\ClassicEnumerableExtensions.cs" />
+    <Compile Include="Utils\SystemExtensions\SystemFunctions.cs" />
     <Compile Include="Utils\TimeSpanFunctions.cs" />
   </ItemGroup>
   <ItemGroup>

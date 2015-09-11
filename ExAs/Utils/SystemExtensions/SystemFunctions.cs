@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ExAs.Utils
+namespace ExAs.Utils.SystemExtensions
 {
     public static class SystemFunctions
     {

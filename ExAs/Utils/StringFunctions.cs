@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Utils
 {
@@ -22,6 +24,32 @@ namespace ExAs.Utils
                 return "<empty>";
             if (strings.Any(s => s.Contains(Environment.NewLine)))
                 return "<".Add(strings.Count.ToString()).Add(" ").Add(typeof(T).Name).Add(">");
+            return "[ ".Add(string.Join(", ", strings)).Add(" ]");
+        }
+
+        public static string ToValueString<T>(this T item, string nullString = "null")
+        {
+            if (item == null)
+                return nullString;
+            if (item is string)
+                return string.Format("'{0}'", item);
+            var enumerable = item as IEnumerable;
+            if (enumerable != null)
+                return enumerable.ToValueString();
+            return item.ToString();
+        }
+
+        public static string ToValueString(this IEnumerable enumerable)
+        {
+            var arrayList = enumerable.ToArrayList();
+            IReadOnlyCollection<string> strings = arrayList.Map(item => item.ToNullAwareString());
+            if (!strings.Any())
+                return "<empty>";
+            if (strings.Any(s => s.Contains(Environment.NewLine)))
+            {
+                var typeName = arrayList.FirstOrDefault().GetType().Name;
+                return "<".Add(strings.Count.ToString()).Add(" ").Add(typeName).Add(">");
+            }
             return "[ ".Add(string.Join(", ", strings)).Add(" ]");
         }
 

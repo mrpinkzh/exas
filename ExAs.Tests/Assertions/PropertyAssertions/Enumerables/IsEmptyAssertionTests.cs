@@ -27,6 +27,16 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             Assert.AreEqual(ComposeLog.Expected("empty enumerable"), result.expectationString);
         }
 
+        [Test]
+        public void WithNull_ShouldReturnFail()
+        {
+            var assertion = IsEmptyAssertion<string>();
+            var result = assertion.AssertValue(null);
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual("null", result.actualValueString);
+            Assert.AreEqual(ComposeLog.Expected("empty enumerable"), result.expectationString);
+        }
+
         private static IsEmptyAssertion<T> IsEmptyAssertion<T>()
         {
             return new IsEmptyAssertion<T>();

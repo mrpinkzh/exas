@@ -9,11 +9,16 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
     {
         public ValueAssertionResult AssertValue(IEnumerable<TElement> actual)
         {
+            var expectationString = ComposeLog.Expected("empty enumerable");
+
+            if (actual == null)
+                return new ValueAssertionResult(false, actual.ToNullAwareString(), expectationString);
+
             List<TElement> elements = actual.ToList();
             return new ValueAssertionResult(
                 !elements.Any(),
                 elements.ToValueString(),
-                ComposeLog.Expected("empty enumerable"));
+                expectationString);
         }
     }
 }

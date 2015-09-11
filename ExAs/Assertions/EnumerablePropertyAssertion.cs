@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using ExAs.Assertions.PropertyAssertions.Enumerables;
 using ExAs.Results;
 
 namespace ExAs.Assertions
@@ -10,7 +9,7 @@ namespace ExAs.Assertions
     {
         private readonly Expression<Func<T, IEnumerable<TElement>>> propertExpression;
         private readonly ObjectAssertion<T> parent;
-        private IsEmptyAssertion<TElement> childAssertion;
+        private IAssertValue<IEnumerable<TElement>> childAssertion;
 
         public EnumerablePropertyAssertion(Expression<Func<T, IEnumerable<TElement>>> propertExpression, ObjectAssertion<T> parent)
         {
@@ -18,7 +17,7 @@ namespace ExAs.Assertions
             this.parent = parent;
         }
 
-        public ObjectAssertion<T> SetAssertion(IsEmptyAssertion<TElement> assertion)
+        public ObjectAssertion<T> SetAssertion(IAssertValue<IEnumerable<TElement>> assertion)
         {
             childAssertion = assertion;
             return parent;
