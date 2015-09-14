@@ -46,7 +46,7 @@ namespace ExAs.Utils
         {
             if (value == null)
                 return null;
-            IReadOnlyCollection<string> lines = value.Split(new[] { Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+            IReadOnlyCollection<string> lines = value.Split(new[] { Environment.NewLine}, StringSplitOptions.None);
             IEnumerable<string> indentedSubLines = lines.Rest().Select(x => String.Format("{0}{1}", indentation.Spaces(), x));
             IReadOnlyCollection<string> result = SystemFunctions.Cons(lines.First(), indentedSubLines);
             return String.Join(Environment.NewLine, result);
@@ -69,6 +69,15 @@ namespace ExAs.Utils
             return String.Format(" {0}", (amount - 1).Spaces());
         }
 
+        public static string NewLines(this string value, int amount)
+        {
+            if (amount <= 0)
+                return value;
+            if (amount == 1)
+                return value.NewLine();
+            return value.NewLines(amount - 1);
+        }
+
         public static string FillUpWithSpacesToLength(this string input, int length)
         {
             if (length <= input.Length)
@@ -79,7 +88,7 @@ namespace ExAs.Utils
 
         public static string[] SplitLines(this string multiLineString)
         {
-            return multiLineString.Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+            return multiLineString.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
         }
     }
 }

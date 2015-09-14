@@ -37,11 +37,11 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             return new ValueAssertionResult(
                 amountOfSucceededResults > 0, 
                 string.Join(Environment.NewLine,
-                            new[] { Matches(amountOfSucceededResults) }
-                                .Concat(results.Select(r => r.log))), 
+                            Matches(amountOfSucceededResults)
+                                .Cons(results.Select(r => r.log))),
                 string.Join(Environment.NewLine,
-                            new[] { expectation }
-                                .Concat(results.Select(r => r.expectation))));
+                            expectation
+                                .Cons(results.Select(r => r.expectation))));
         }
 
         private static string Matches(int amount)
