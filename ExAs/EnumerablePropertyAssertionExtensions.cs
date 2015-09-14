@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ExAs.Assertions;
 using ExAs.Assertions.ObjectAssertions;
 using ExAs.Assertions.PropertyAssertions.Enumerables;
@@ -15,6 +16,13 @@ namespace ExAs
         public static ObjectAssertion<T> IsEmpty<T, TPropertyElement>(this EnumerablePropertyAssertion<T, TPropertyElement> property)
         {
             return property.SetAssertion(new IsEmptyAssertion<TPropertyElement>());
+        }
+
+        public static ObjectAssertion<T> HasAny<T, TPropertyElement>(
+            this EnumerablePropertyAssertion<T, TPropertyElement> property,
+            Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFunc)
+        {
+            return property.SetAssertion(new HasAnyAssertion<TPropertyElement>(assertionFunc(new ObjectAssertion<TPropertyElement>())));
         }
     }
 }

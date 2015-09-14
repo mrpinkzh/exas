@@ -52,7 +52,7 @@ namespace ExAs.Utils
             return String.Join(Environment.NewLine, result);
         }
 
-        public static string Add(this string value, string valueToConcat)
+        public static string Add(this string value, object valueToConcat)
         {
             return String.Format("{0}{1}", value, valueToConcat);
         }
