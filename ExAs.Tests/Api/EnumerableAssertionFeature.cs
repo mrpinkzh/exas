@@ -11,6 +11,9 @@ namespace ExAs.Api
         private readonly City cityWithDojo = new City(new Dojo(new Ninja(), Dates.StandardDay()));
         private readonly City cityWithoutDojo = new City();
         private readonly City cityWithNullDojoList = new City(dojoList:null);
+        private readonly City threeDojoCity = new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
+                                                       new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
+                                                       new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
 
         [Test]
         public void IsNull_WithNullDojos_ShouldPass()
@@ -126,11 +129,7 @@ namespace ExAs.Api
         [Test]
         public void HasAnySpecificDojo_OnCityWithThreeOtherDojos_ShouldFail()
         {
-            var city = new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
-                                new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
-                                new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
-            
-            var result = city.Evaluate(
+            var result = threeDojoCity.Evaluate(
                 c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Master) .Fulfills(n => n.Property(x => x.Age).EqualTo(26))
                                                            .Property(x => x.Founded).OnSameDayAs(Dates.StandardDay())));
             Assert.IsFalse(result.succeeded);
@@ -144,6 +143,26 @@ namespace ExAs.Api
                    .Add("                 Dojo: (X)Master  = Ninja: (X)Age = 14 (expected: 26)").NewLine()
                    .Add("                       ( )Founded = 11/16/1984         (expected: 11/16/1984)"))),
                  result.PrintLog());
+        }
+
+        [Test]
+        public void HasNoneSpecificDojo_OnCityWithThreeOtherDojos_ShouldSucceed()
+        {
+            var result = threeDojoCity.Evaluate(
+                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age).EqualTo(26))
+                                                            .Property(x => x.Founded).OnSameDayAs(Dates.StandardDay())));
+
+            Console.Out.WriteLine(result.PrintLog());
+            Assert.AreEqual(
+                            "City: ( )Dojos = <0 matches>                           (expected: 0 matches)".NewLine()
+                       .Add("                 Dojo: (X)Master  = Ninja: (X)Age = 12 (expected: 26)").NewLine()
+                       .Add("                       (X)Founded = 11/15/1515         (expected: 11/16/1984)").NewLine()
+                       .Add("                 Dojo: ( )Master  = Ninja: ( )Age = 26 (expected: 26)".NewLine()
+                       .Add("                       (X)Founded = 01/01/1500         (expected: 11/16/1984)".NewLine()
+                       .Add("                 Dojo: (X)Master  = Ninja: (X)Age = 14 (expected: 26)").NewLine()
+                       .Add("                       ( )Founded = 11/16/1984         (expected: 11/16/1984)"))),
+                   result.PrintLog());
+            Assert.IsTrue(result.succeeded);
         }
     }
 }

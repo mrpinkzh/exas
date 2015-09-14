@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ExAs.Assertions;
 using ExAs.Assertions.ObjectAssertions;
+using ExAs.Assertions.PropertyAssertions;
 using ExAs.Assertions.PropertyAssertions.Enumerables;
 
 namespace ExAs
@@ -33,6 +34,13 @@ namespace ExAs
             Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFunc)
         {
             return property.SetAssertion(new HasAnyAssertion<TPropertyElement>(assertionFunc(new ObjectAssertion<TPropertyElement>())));
+        }
+
+        public static ObjectAssertion<T> HasNone<T, TPropertyElement>(
+            this EnumerablePropertyAssertion<T, TPropertyElement> property,
+            Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFunc)
+        {
+            return property.SetAssertion(new PrintoutAssertion<IEnumerable<TPropertyElement>>());
         }
     }
 }

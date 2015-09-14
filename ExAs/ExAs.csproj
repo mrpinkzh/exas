@@ -44,11 +44,13 @@
     <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\HasAnyAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Enumerables\HasNoneAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertion.cs" />
     <Compile Include="BooleanAssertionExtensions.cs" />
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
     <Compile Include="EnumerablePropertyAssertionExtensions.cs" />
+    <Compile Include="ExtendedAssertionException.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />

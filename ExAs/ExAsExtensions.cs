@@ -11,5 +11,13 @@ namespace ExAs
             ObjectAssertion<T> exAssertion = assertion(new ObjectAssertion<T>());
             return exAssertion.Assert(instance);
         }
+
+        public static void ExAssert<T>(this T instance, Func<ObjectAssertion<T>, ObjectAssertion<T>> assertion)
+        {
+            ObjectAssertionResult result = instance.Evaluate(assertion);
+            if (result.succeeded)
+                return;
+            throw new ExtendedAssertionException(result);
+        }
     }
 }
