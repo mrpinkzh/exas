@@ -18,6 +18,11 @@ namespace ExAs
             return property.SetAssertion(new IsEmptyAssertion<TPropertyElement>());
         }
 
+        public static ObjectAssertion<T> IsNotEmpty<T, TPropertyElement>(this EnumerablePropertyAssertion<T, TPropertyElement> property)
+        {
+            return property.SetAssertion(new IsNotEmptyAssertion<TPropertyElement>());
+        }
+
         public static ObjectAssertion<T> HasAny<T, TPropertyElement>(
             this EnumerablePropertyAssertion<T, TPropertyElement> property,
             Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFunc)

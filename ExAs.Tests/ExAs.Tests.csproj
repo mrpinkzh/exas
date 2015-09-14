@@ -52,6 +52,7 @@
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\HasAnyAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertionTests.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertionTests.cs" />

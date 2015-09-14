@@ -31,7 +31,7 @@ namespace ExAs.Utils
                 var typeName = arrayList.FirstOrDefault().GetType().Name;
                 return "<".Add(strings.Count.ToString()).Add(" ").Add(typeName).Add(">");
             }
-            return "[ ".Add(string.Join(", ", strings)).Add(" ]");
+            return "[".Add(string.Join(", ", strings)).Add("]");
         }
 
         public static string HangingIndent(string unindentedPrefix, string indentedBlock)

@@ -8,11 +8,14 @@ namespace ExAs.Api
     [TestFixture]
     public class EnumerableAssertionFeature
     {
+        private readonly City cityWithDojo = new City(new Dojo(new Ninja(), Dates.StandardDay()));
+        private readonly City cityWithoutDojo = new City();
+        private readonly City cityWithNullDojoList = new City(dojoList:null);
+
         [Test]
         public void IsNull_WithNullDojos_ShouldPass()
         {
-            var city = new City(dojoList: null);
-            ObjectAssertionResult result = city.Evaluate(n => n.Property(x => x.Dojos).IsNull());
+            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(n => n.Property(x => x.Dojos).IsNull());
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("City: ( )Dojos = null (expected: null)", result.PrintLog());
         }
@@ -20,8 +23,7 @@ namespace ExAs.Api
         [Test]
         public void IsNull_OnCityWithoutDojo_ShouldFail()
         {
-            var city = new City();
-            ObjectAssertionResult result = city.Evaluate(c => c.Property(x => x.Dojos).IsNull());
+            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsNull());
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("City: (X)Dojos = <empty> (expected: null)", result.PrintLog());
         }
@@ -29,8 +31,7 @@ namespace ExAs.Api
         [Test]
         public void IsEmpty_OnCityWithoutDojo_ShouldSucceed()
         {
-            var city = new City();
-            ObjectAssertionResult result = city.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
+            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("City: ( )Dojos = <empty> (expected: empty enumerable)", result.PrintLog());
         }
@@ -38,8 +39,7 @@ namespace ExAs.Api
         [Test]
         public void IsEmpty_OnCityWithDojo_ShouldFail()
         {
-            var city = new City(new Dojo(new Ninja(), Dates.StandardDay()));
-            ObjectAssertionResult result = city.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
+            ObjectAssertionResult result = cityWithDojo.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
             Assert.IsFalse(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual("City: (X)Dojos = <1 Dojo> (expected: empty enumerable)", result.PrintLog());
@@ -48,11 +48,36 @@ namespace ExAs.Api
         [Test]
         public void IsEmpty_OnCityNullDojos_ShouldFail()
         {
-            var city = new City(dojoList:null);
-            ObjectAssertionResult result = city.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
+            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
             Assert.IsFalse(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual("City: (X)Dojos = null (expected: empty enumerable)", result.PrintLog());
+        }
+
+        [Test]
+        public void IsNotEmpty_OnCityWithDojo_ShouldSucceed()
+        {
+            var result = cityWithDojo.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());
+            Assert.AreEqual("City: ( )Dojos = <1 Dojo> (expected: not empty)", result.PrintLog());
+            Assert.IsTrue(result.succeeded);
+        }
+
+        [Test]
+        public void IsNotEmpty_OnCityWithoutDojo_ShouldFail()
+        {
+            var city = cityWithoutDojo;
+            ObjectAssertionResult result = city.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());
+            Assert.IsFalse(result.succeeded);
+            Assert.AreEqual("City: (X)Dojos = <empty> (expected: not empty)", result.PrintLog());
+        }
+
+        [Test]
+        public void IsNotEmpty_OnCityNullDojos_ShouldSucceed()
+        {
+            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());
+            Console.Out.WriteLine(result.PrintLog());
+            Assert.IsTrue(result.succeeded);
+            Assert.AreEqual("City: ( )Dojos = null (expected: not empty)", result.PrintLog());
         }
 
         [Test]

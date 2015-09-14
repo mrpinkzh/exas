@@ -23,7 +23,7 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             var assertion = IsEmptyAssertion<string>();
             var result = assertion.AssertValue(new[] {"AnyString"});
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("[ 'AnyString' ]", result.actualValueString);
+            Assert.AreEqual("['AnyString']", result.actualValueString);
             Assert.AreEqual(ComposeLog.Expected("empty enumerable"), result.expectationString);
         }
 
