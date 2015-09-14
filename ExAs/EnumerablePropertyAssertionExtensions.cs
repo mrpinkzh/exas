@@ -40,7 +40,7 @@ namespace ExAs
             this EnumerablePropertyAssertion<T, TPropertyElement> property,
             Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFunc)
         {
-            return property.SetAssertion(new PrintoutAssertion<IEnumerable<TPropertyElement>>());
+            return property.SetAssertion(new HasNoneAssertion<TPropertyElement>(assertionFunc(new ObjectAssertion<TPropertyElement>())));
         }
     }
 }

@@ -164,5 +164,30 @@ namespace ExAs.Api
                    result.PrintLog());
             Assert.IsTrue(result.succeeded);
         }
+
+        [Test]
+        public void HasNoneSpecificDojo_OnCityWithSpecificAndOtherDojo_ShouldFail()
+        {
+            var city = new City(new Dojo(new Ninja("Naruto".NewLine().Add("Uzumaki")), new DateTime(1515, 11, 15)),
+                                new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)));
+
+            var result = city.Evaluate(
+                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age) .EqualTo(26)
+                                                                                                    .Property(x => x.Name).EqualTo("Kakashi"))
+                                                            .Property(x => x.Founded).OnSameDayAs(new DateTime(1500, 1, 1))));
+
+            Console.Out.WriteLine(result.PrintLog());
+            Assert.AreEqual(
+                            "City: (X)Dojos = <1 match>                                     (expected: 0 matches)"  .NewLine()
+                       .Add("                 Dojo: (X)Master  = Ninja: (X)Age  = 12        (expected: 26)")        .NewLine()
+                       .Add("                                           (X)Name = 'Naruto   (expected: 'Kakashi')") .NewLine()
+                       .Add("                                                      Uzumaki' ")                      .NewLine()
+                       .Add("                       (X)Founded = 11/15/1515                 (expected: 01/01/1500)").NewLine()
+                       .Add("                 Dojo: ( )Master  = Ninja: ( )Age  = 26        (expected: 26)")        .NewLine()
+                       .Add("                                           ( )Name = 'Kakashi' (expected: 'Kakashi')") .NewLine()
+                       .Add("                       ( )Founded = 01/01/1500                 (expected: 01/01/1500)"),
+                   result.PrintLog());
+            Assert.IsFalse(result.succeeded);
+        }
     }
 }
