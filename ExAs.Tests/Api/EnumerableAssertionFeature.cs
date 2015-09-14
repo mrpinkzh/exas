@@ -29,6 +29,22 @@ namespace ExAs.Api
         }
 
         [Test]
+        public void IsNotNull_OnCityWithoutDojo_ShouldSucceed()
+        {
+            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsNotNull());
+            Assert.AreEqual("City: ( )Dojos = <empty> (expected: not null)", result.PrintLog());
+            Assert.IsTrue(result.succeeded);
+        }
+
+        [Test]
+        public void IsNotNull_WithNullDojos_ShouldFail()
+        {
+            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(n => n.Property(x => x.Dojos).IsNotNull());
+            Assert.AreEqual("City: (X)Dojos = null (expected: not null)", result.PrintLog());
+            Assert.IsFalse(result.succeeded);
+        }
+
+        [Test]
         public void IsEmpty_OnCityWithoutDojo_ShouldSucceed()
         {
             ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());

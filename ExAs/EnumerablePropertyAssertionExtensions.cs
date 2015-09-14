@@ -13,6 +13,11 @@ namespace ExAs
             return property.SetAssertion(new IsNullAssertion<IEnumerable<TPropertyElement>>());
         }
 
+        public static ObjectAssertion<T> IsNotNull<T, TPropertyElement>(this EnumerablePropertyAssertion<T, TPropertyElement> property)
+        {
+            return property.SetAssertion(new IsNotNullAssertion<IEnumerable<TPropertyElement>>());
+        }
+
         public static ObjectAssertion<T> IsEmpty<T, TPropertyElement>(this EnumerablePropertyAssertion<T, TPropertyElement> property)
         {
             return property.SetAssertion(new IsEmptyAssertion<TPropertyElement>());
