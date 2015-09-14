@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ExAs.Utils
 {
@@ -20,6 +21,11 @@ namespace ExAs.Utils
         public IEnumerable<Dojo> Dojos
         {
             get { return dojos; }
+        }
+
+        public bool HasDojo
+        {
+            get { return dojos != null && dojos.Any(); }
         }
     }
 }

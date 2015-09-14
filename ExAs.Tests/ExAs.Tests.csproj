@@ -40,6 +40,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BooleanAssertionFeature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\EnumerableAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Api\StringAssertionFeature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertionTests.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Booleans\IsTrueAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\HasAnyAssertionTests.cs" />

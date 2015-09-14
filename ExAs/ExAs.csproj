@@ -39,11 +39,13 @@
   <ItemGroup>
     <Compile Include="Assertions\EnumerablePropertyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Booleans\IsTrueAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\HasAnyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertion.cs" />
+    <Compile Include="BooleanAssertionExtensions.cs" />
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
     <Compile Include="EnumerablePropertyAssertionExtensions.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
