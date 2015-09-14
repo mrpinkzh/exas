@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
 using ExAs.Results;
-using ToText.Core;
 
 namespace ExAs.Assertions
 {
