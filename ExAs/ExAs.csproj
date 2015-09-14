@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Assertions\EnumerablePropertyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsTrueAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
