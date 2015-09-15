@@ -51,9 +51,9 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             HasNoneAssertion<string> assertion = HasNoneAssertion(s => s.IsNull());
             ValueAssertionResult result = assertion.AssertValue(null);
             
-            result.ExAssert(r => StringPropertyAssertionExtensions.IsEqualTo(r.Property(x => x.succeeded)        .IsTrue()
-                                      .Property(x => x.actualValueString).EqualTo("null")
-                                      .Property(x => x.expectationString), ComposeLog.Expected("0 matches")));
+            result.ExAssert(r => r.Property(x => x.succeeded)        .IsTrue()
+                                  .Property(x => x.actualValueString).IsEqualTo("null")
+                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches")));
         }
 
         private static HasNoneAssertion<string> HasNoneAssertion(
