@@ -1,5 +1,4 @@
 ﻿using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions;
 using ExAs.Assertions.PropertyAssertions.Booleans;
 
 namespace ExAs

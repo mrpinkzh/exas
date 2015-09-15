@@ -13,7 +13,7 @@ namespace ExAs.Api
         public void SameDayAs_OnCommonDojoFoundationDay_WithCommonDojoFoundationDay_ShouldSucceed()
         {
             var dojo = new Dojo(new Ninja(), commonDojoFoundationDay);
-            var result = dojo.Evaluate(d => d.Property(x => x.Founded).OnSameDayAs(commonDojoFoundationDay.AddHours(12)));
+            var result = dojo.Evaluate(d => d.Property(x => x.Founded).IsOnSameDayAs(commonDojoFoundationDay.AddHours(12)));
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Dojo: ( )Founded = 11/15/1515 (expected: 11/15/1515)",
                             result.PrintLog());
@@ -23,7 +23,7 @@ namespace ExAs.Api
         public void SameDayAs_OnCommonDojoFoundationDay_With200YearsLater_ShouldFail()
         {
             var dojo = new Dojo(new Ninja(), commonDojoFoundationDay);
-            var result = dojo.Evaluate(d => d.Property(x => x.Founded).OnSameDayAs(commonDojoFoundationDay.AddYears(200)));
+            var result = dojo.Evaluate(d => d.Property(x => x.Founded).IsOnSameDayAs(commonDojoFoundationDay.AddYears(200)));
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Dojo: (X)Founded = 11/15/1515 (expected: 11/15/1715)",
                             result.PrintLog());

@@ -5,7 +5,7 @@ namespace ExAs
 {
     public static class StringPropertyAssertionExtensions
     {
-        public static ObjectAssertion<T> EqualTo<T>(this PropertyAssertion<T, string> property, string expected)
+        public static ObjectAssertion<T> IsEqualTo<T>(this PropertyAssertion<T, string> property, string expected)
         {
             return property.SetAssertion(new EqualAssertion(expected));
         }

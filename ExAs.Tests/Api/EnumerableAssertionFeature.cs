@@ -104,7 +104,7 @@ namespace ExAs.Api
         {
             var city = new City(new Dojo(new Ninja(), Dates.StandardDay()));
             var result = city.Evaluate(
-                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Founded).OnSameDayAs(Dates.StandardDay())));
+                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
             Assert.IsTrue(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual("City: ( )Dojos = <1 match>                     (expected: at least 1 match)".NewLine()
@@ -117,7 +117,7 @@ namespace ExAs.Api
             var city = new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
                                 new Dojo(new Ninja(), Dates.StandardDay()));
             ObjectAssertionResult result = city.Evaluate(
-                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Founded).OnSameDayAs(Dates.StandardDay())));
+                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
             Assert.IsTrue(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual("City: ( )Dojos = <1 match>                     (expected: at least 1 match)".NewLine()
@@ -130,8 +130,8 @@ namespace ExAs.Api
         public void HasAnySpecificDojo_OnCityWithThreeOtherDojos_ShouldFail()
         {
             var result = threeDojoCity.Evaluate(
-                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Master) .Fulfills(n => n.Property(x => x.Age).EqualTo(26))
-                                                           .Property(x => x.Founded).OnSameDayAs(Dates.StandardDay())));
+                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Master) .Fulfills(n => n.Property(x => x.Age).IsEqualTo(26))
+                                                           .Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
             Assert.IsFalse(result.succeeded);
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual(
@@ -149,8 +149,8 @@ namespace ExAs.Api
         public void HasNoneSpecificDojo_OnCityWithThreeOtherDojos_ShouldSucceed()
         {
             var result = threeDojoCity.Evaluate(
-                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age).EqualTo(26))
-                                                            .Property(x => x.Founded).OnSameDayAs(Dates.StandardDay())));
+                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age).IsEqualTo(26))
+                                                            .Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
 
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual(
@@ -172,9 +172,9 @@ namespace ExAs.Api
                                 new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)));
 
             var result = city.Evaluate(
-                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age) .EqualTo(26)
-                                                                                                    .Property(x => x.Name).EqualTo("Kakashi"))
-                                                            .Property(x => x.Founded).OnSameDayAs(new DateTime(1500, 1, 1))));
+                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age) .IsEqualTo(26)
+                                                                                                    .Property(x => x.Name).IsEqualTo("Kakashi"))
+                                                            .Property(x => x.Founded).IsOnSameDayAs(new DateTime(1500, 1, 1))));
 
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual(

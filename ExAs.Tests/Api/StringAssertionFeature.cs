@@ -57,7 +57,7 @@ namespace ExAs.Api
         [Test]
         public void EqualTo_OnNaruto_WithNaruto_ShouldPass()
         {
-            var result = naruto.Evaluate(n => n.Property(x => x.Name).EqualTo("Naruto"));
+            var result = naruto.Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto"));
             Assert.AreEqual("Ninja: ( )Name = 'Naruto' (expected: 'Naruto')", result.PrintLog());
             Assert.IsTrue(result.succeeded);
         }
@@ -65,7 +65,7 @@ namespace ExAs.Api
         [Test]
         public void EqualTo_OnNaruto_WithTakashi_ShouldFail()
         {
-            var result = naruto.Evaluate(n => n.Property(x => x.Name).EqualTo("Takashi"));
+            var result = naruto.Evaluate(n => n.Property(x => x.Name).IsEqualTo("Takashi"));
             Assert.AreEqual("Ninja: (X)Name = 'Naruto' (expected: 'Takashi')", result.PrintLog());
             Assert.IsFalse(result.succeeded);
         }
@@ -73,7 +73,7 @@ namespace ExAs.Api
         [Test]
         public void EqualTo_OnMultilinedNarutoUzumaki_WithMultilinedNarutoUzumaki_ShouldPass()
         {
-            var result = narutoUzumaki.Evaluate(n => n.Property(x => x.Name).EqualTo("Naruto".NewLine()
+            var result = narutoUzumaki.Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto".NewLine()
                                                                                 .Add("Uzumaki")));
 
             Console.Out.WriteLine(result.PrintLog());
@@ -86,7 +86,7 @@ namespace ExAs.Api
         [Test]
         public void OnMultilinedNarutoUzumaki_WithSinglelinedNaruto_ShouldFail()
         {
-            var result = narutoUzumaki.Evaluate(n => n.Property(x => x.Name).EqualTo("Naruto"));
+            var result = narutoUzumaki.Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto"));
 
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual("Ninja: (X)Name = 'Naruto   (expected: 'Naruto')".NewLine()
@@ -98,7 +98,7 @@ namespace ExAs.Api
         [Test]
         public void OnSinglelinedNaruto_WithMultilinedNaruto_ShouldFail()
         {
-            var result = naruto.Evaluate(n => n.Property(x => x.Name).EqualTo("Naruto".NewLine()
+            var result = naruto.Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto".NewLine()
                                                                          .Add("Uzumaki")));
 
             Console.Out.WriteLine(result.PrintLog());

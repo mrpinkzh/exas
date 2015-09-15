@@ -15,9 +15,9 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             ValueAssertionResult result = assertion.AssertValue(new[] {"Stringy"});
 
             result.ExAssert(r => r.Property(x => x.succeeded)        .IsTrue()
-                                  .Property(x => x.actualValueString).EqualTo("<0 matches>".NewLine()
+                                  .Property(x => x.actualValueString).IsEqualTo("<0 matches>".NewLine()
                                                                          .Add("'Stringy'"))
-                                  .Property(x => x.expectationString).EqualTo(ComposeLog.Expected("0 matches").NewLine()
+                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches").NewLine()
                                                                          .Add(ComposeLog.Expected("null"))));
         }
 
@@ -28,9 +28,9 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             ValueAssertionResult result = assertion.AssertValue(new string[] { null });
             
             result.ExAssert(r => r.Property(x => x.succeeded)        .IsFalse()
-                                  .Property(x => x.actualValueString).EqualTo("<1 match>".NewLine()
+                                  .Property(x => x.actualValueString).IsEqualTo("<1 match>".NewLine()
                                                                          .Add("null"))
-                                  .Property(x => x.expectationString).EqualTo(ComposeLog.Expected("0 matches").NewLine()
+                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches").NewLine()
                                                                          .Add(ComposeLog.Expected("null"))));
         }
 
@@ -41,8 +41,8 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             ValueAssertionResult result = assertion.AssertValue(new string[] { });
             
             result.ExAssert(r => r.Property(x => x.succeeded).IsTrue()
-                                  .Property(x => x.actualValueString).EqualTo("<empty>")
-                                  .Property(x => x.expectationString).EqualTo(ComposeLog.Expected("0 matches")));
+                                  .Property(x => x.actualValueString).IsEqualTo("<empty>")
+                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches")));
         }
 
         [Test]
@@ -51,9 +51,9 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
             HasNoneAssertion<string> assertion = HasNoneAssertion(s => s.IsNull());
             ValueAssertionResult result = assertion.AssertValue(null);
             
-            result.ExAssert(r => r.Property(x => x.succeeded)        .IsTrue()
-                                  .Property(x => x.actualValueString).EqualTo("null")
-                                  .Property(x => x.expectationString).EqualTo(ComposeLog.Expected("0 matches")));
+            result.ExAssert(r => StringPropertyAssertionExtensions.IsEqualTo(r.Property(x => x.succeeded)        .IsTrue()
+                                      .Property(x => x.actualValueString).EqualTo("null")
+                                      .Property(x => x.expectationString), ComposeLog.Expected("0 matches")));
         }
 
         private static HasNoneAssertion<string> HasNoneAssertion(
