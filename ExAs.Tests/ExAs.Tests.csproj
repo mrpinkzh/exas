@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Api\BooleanAssertionFeature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
+    <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\EnumerableAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />

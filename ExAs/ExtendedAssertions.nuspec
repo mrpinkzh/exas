@@ -7,13 +7,16 @@
     <authors>mrpinkzh</authors>
     <owners>mrpinkzh</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Yet another C# assertion package.</description>
+    <description>see: https://github.com/mrpinkzh/exas</description>
     <copyright>Copyright ©  2015</copyright>
+    <tags>
+        TDD BDD
+    </tags>
     <dependencies>
       <dependency id="ToText" version="1.0.9" />
     </dependencies>
   </metadata>
   <files>
-        <file src="bin\Release\ExAs.dll" target="lib" />
-    </files>
+    <file src="bin\Release\ExAs.dll" target="lib" />
+  </files>
 </package>

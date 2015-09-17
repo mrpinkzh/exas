@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using ExAs.Assertions;
+using ExAs.Assertions.PropertyAssertions.Enumerables;
 using ExAs.Results;
 
 namespace ExAs
@@ -12,9 +14,37 @@ namespace ExAs
             return exAssertion.Assert(instance);
         }
 
+        public static ObjectAssertionResult EvaluateHasAny<T>(this IEnumerable<T> enumerable, Func<ObjectAssertion<T>, ObjectAssertion<T>> assertion)
+        {
+            var enumerableAssertion = new EnumerableAssertion<T>(new HasAnyAssertion<T>(assertion(new ObjectAssertion<T>())));
+            return enumerableAssertion.AssertEnumerable(enumerable);
+        }
+
+        public static ObjectAssertionResult EvaluateHasNone<T>(this IEnumerable<T> enumerable, Func<ObjectAssertion<T>, ObjectAssertion<T>> assertion)
+        {
+            var enumerableAssertion = new EnumerableAssertion<T>(new HasNoneAssertion<T>((assertion(new ObjectAssertion<T>()))));
+            return enumerableAssertion.AssertEnumerable(enumerable);
+        }
+
         public static void ExAssert<T>(this T instance, Func<ObjectAssertion<T>, ObjectAssertion<T>> assertion)
         {
             ObjectAssertionResult result = instance.Evaluate(assertion);
+            if (result.succeeded)
+                return;
+            throw new ExtendedAssertionException(result);
+        }
+
+        public static void ExAssertHasAny<T>(this IEnumerable<T> enumerable, Func<ObjectAssertion<T>, ObjectAssertion<T>> assertion)
+        {
+            ObjectAssertionResult result = enumerable.EvaluateHasAny(assertion);
+            if (result.succeeded)
+                return;
+            throw new ExtendedAssertionException(result);
+        }
+
+        public static void ExAssertHasNone<T>(this IEnumerable<T> enumerable, Func<ObjectAssertion<T>, ObjectAssertion<T>> assertion)
+        {
+            ObjectAssertionResult result = enumerable.EvaluateHasNone(assertion);
             if (result.succeeded)
                 return;
             throw new ExtendedAssertionException(result);

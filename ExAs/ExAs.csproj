@@ -37,6 +37,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assertions\EnumerableAssertion.cs" />
     <Compile Include="Assertions\EnumerablePropertyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertion.cs" />
