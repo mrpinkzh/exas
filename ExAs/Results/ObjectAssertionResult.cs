@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using ExAs.Utils;
 using ExAs.Utils.SystemExtensions;
-using ToText;
 
 namespace ExAs.Results
 {
@@ -31,9 +30,7 @@ namespace ExAs.Results
 
         public override string ToString()
         {
-            return this.ToText(x => x.succeeded,
-                               x => x.log,
-                               x => x.expectation);
+            return string.Format("ObjectAssertionResult: succeeded = {0}", succeeded);
         }
     }
 }

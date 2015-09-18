@@ -1,6 +1,4 @@
-﻿using ToText;
-
-namespace ExAs.Results
+﻿namespace ExAs.Results
 {
     public class ValueAssertionResult
     {
@@ -17,9 +15,7 @@ namespace ExAs.Results
 
         public override string ToString()
         {
-            return this.ToText(x => x.succeeded,
-                               x => x.actualValueString,
-                               x => x.expectationString);
+            return string.Format("ValueAssertionResult: succeeded = {0}", succeeded);
         }
     }
 }

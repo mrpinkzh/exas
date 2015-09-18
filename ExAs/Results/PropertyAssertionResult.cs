@@ -1,6 +1,4 @@
-﻿using ToText;
-
-namespace ExAs.Results
+﻿namespace ExAs.Results
 {
     public class PropertyAssertionResult
     {
@@ -15,8 +13,7 @@ namespace ExAs.Results
 
         public override string ToString()
         {
-            return this.ToText(x => x.propertyName,
-                               x => x.childResult);
+            return string.Format("PropertyAssertionResult: propertyName = {0}", propertyName);
         }
     }
 }
