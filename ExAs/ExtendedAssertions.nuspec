@@ -12,9 +12,6 @@
     <tags>
         TDD BDD
     </tags>
-    <dependencies>
-      <dependency id="ToText" version="1.0.9" />
-    </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\ExAs.dll" target="lib" />
