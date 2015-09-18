@@ -31,12 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ToText">
-      <HintPath>..\packages\ToText.1.0.9\lib\net45\ToText.dll</HintPath>
+      <HintPath>..\..\packages\ToText.1.0.9\lib\net45\ToText.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
