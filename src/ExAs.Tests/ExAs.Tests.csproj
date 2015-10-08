@@ -61,6 +61,7 @@
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertionTests.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Integers\IsSmallerAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -46,6 +46,7 @@
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\OutputExtensions.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Integers\IsSmallerAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertion.cs" />
     <Compile Include="BooleanAssertionExtensions.cs" />
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
