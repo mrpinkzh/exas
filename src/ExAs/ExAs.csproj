@@ -51,6 +51,7 @@
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
     <Compile Include="EnumerablePropertyAssertionExtensions.cs" />
     <Compile Include="ExtendedAssertionException.cs" />
+    <Compile Include="IntegerProperyAssertionExtensions.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />

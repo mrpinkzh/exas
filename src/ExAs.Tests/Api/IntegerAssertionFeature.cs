@@ -26,5 +26,14 @@ namespace ExAs.Api
                                   .p(x => x.log)        .IsEqualTo("Ninja: (X)Age = 12")
                                   .p(x => x.expectation).IsEqualTo("(expected: 13)"));
         }
+
+        [Test]
+        public void IsSmallerThan_Expected13_Get12_ShouldPass()
+        {
+            ObjectAssertionResult result = naruto.Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
+            result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
+                                  .p(x => x.log).IsEqualTo("Ninja: ( )Age = 12")
+                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 12)"));
+        }
     }
 }
