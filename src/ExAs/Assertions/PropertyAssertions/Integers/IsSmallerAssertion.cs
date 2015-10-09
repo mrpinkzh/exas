@@ -14,7 +14,10 @@ namespace ExAs.Assertions.PropertyAssertions.Integers
 
         public ValueAssertionResult AssertValue(int actual)
         {
-            return new ValueAssertionResult(true, "14", ComposeLog.Expected("15"));
+            return new ValueAssertionResult(
+                actual < expected, 
+                actual.ToValueString(), 
+                string.Format("(expected: smaller than {0})", expected));
         }
     }
 }

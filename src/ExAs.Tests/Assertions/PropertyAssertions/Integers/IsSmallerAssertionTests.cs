@@ -13,7 +13,7 @@ namespace ExAs.Assertions.PropertyAssertions.Integers
             ValueAssertionResult result = IsSmallerThan(15).AssertValue(14);
             result.ExAssert(r => r.p(x => x.succeeded)        .IsTrue()
                                   .p(x => x.actualValueString).IsEqualTo("14")
-                                  .p(x => x.expectationString).IsEqualTo(ComposeLog.Expected("15")));
+                                  .p(x => x.expectationString).IsEqualTo(ComposeLog.Expected("smaller than 15")));
         }
 
         [Test]
@@ -22,7 +22,16 @@ namespace ExAs.Assertions.PropertyAssertions.Integers
             ValueAssertionResult result = IsSmallerThan(7).AssertValue(6);
             result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
                                   .p(x => x.actualValueString).IsEqualTo("6")
-                                  .p(x => x.expectationString).IsEqualTo(ComposeLog.Expected("7")));
+                                  .p(x => x.expectationString).IsEqualTo(ComposeLog.Expected("smaller than 7")));
+        }
+
+        [Test]
+        public void On7_With7_ShouldFail()
+        {
+            ValueAssertionResult result = IsSmallerThan(7).AssertValue(7);
+            result.ExAssert(r => r.p(x => x.succeeded).IsFalse()
+                                  .p(x => x.actualValueString).IsEqualTo("7")
+                                  .p(x => x.expectationString).IsEqualTo(ComposeLog.Expected("smaller than 7")));
         }
 
         private static IsSmallerAssertion IsSmallerThan(int expected)
