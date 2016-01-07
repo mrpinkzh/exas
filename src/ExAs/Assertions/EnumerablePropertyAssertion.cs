@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using ExAs.Results;
+using ExAs.Utils;
 
 namespace ExAs.Assertions
 {
     public class EnumerablePropertyAssertion<T, TElement> : IAssertOnProperty<T>
     {
-        private readonly Expression<Func<T, IEnumerable<TElement>>> propertExpression;
+        private readonly Expression<Func<T, dynamic>> propertExpression;
         private readonly ObjectAssertion<T> parent;
         private IAssertValue<IEnumerable<TElement>> childAssertion;
 
-        public EnumerablePropertyAssertion(Expression<Func<T, IEnumerable<TElement>>> propertExpression, ObjectAssertion<T> parent)
+        public EnumerablePropertyAssertion(Expression<Func<T, dynamic>> propertExpression, ObjectAssertion<T> parent)
         {
             this.propertExpression = propertExpression;
             this.parent = parent;
@@ -25,7 +26,9 @@ namespace ExAs.Assertions
 
         public PropertyAssertionResult Assert(T actual)
         {
-            return PropertyAssertionFunctions.Assert(actual, propertExpression, childAssertion);
+            string memberName = propertExpression.ExtractMemberName();
+            dynamic value = propertExpression.Compile()(actual);
+            return PropertyAssertionFunctions.Assert(childAssertion, memberName, value);
         }
     }
 }

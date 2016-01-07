@@ -34,7 +34,7 @@ namespace ExAs.Api
         [Test]
         public void IsNotNull_OnCityWithoutDojo_ShouldSucceed()
         {
-            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsNotNull());
+            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Enumerable(x => x.Dojos).IsNotNull());
             Assert.AreEqual("City: ( )Dojos = <empty> (expected: not null)", result.PrintLog());
             Assert.IsTrue(result.succeeded);
         }

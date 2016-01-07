@@ -11,12 +11,18 @@ namespace ExAs.Assertions
             Expression<Func<TType, TPropertyType>> propertExpression, IAssertValue<TPropertyType> assertion)
         {
             string memberName = propertExpression.ExtractMemberName();
+            TPropertyType value = propertExpression.Compile()(instance);
+            return Assert(assertion, memberName, value);
+        }
+
+        public static PropertyAssertionResult Assert<TPropertyType>(IAssertValue<TPropertyType> assertion, string memberName,
+            TPropertyType value)
+        {
             if (assertion == null)
                 return new PropertyAssertionResult(memberName,
-                                                   new ValueAssertionResult(false,
-                                                                            "no assertion specified",
-                                                                            string.Empty));
-            TPropertyType value = propertExpression.Compile()(instance);
+                    new ValueAssertionResult(false,
+                        "no assertion specified",
+                        string.Empty));
             ValueAssertionResult result = assertion.AssertValue(value);
             return new PropertyAssertionResult(memberName, result);
         }
