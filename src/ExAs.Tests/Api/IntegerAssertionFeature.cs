@@ -69,5 +69,41 @@ namespace ExAs.Api
                                   .p(x => x.succeeded) .IsFalse()
                                   .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 93 (expected: bigger than 100)"));
         }
+
+        [Test]
+        public void IsInRange_ExpectedIn9And12_Get12_ShouldPass()
+        {
+            // Act
+            var result = naruto.Evaluate(n => n.p(x => x.Age).IsInRange(9, 12));
+
+            // Arrange
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded) .IsTrue()
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )Age = 12 (expected: between 9 and 12)"));
+        }
+
+        [Test]
+        public void IsInRange_ExpectedIn9And11_Get12_ShouldPass()
+        {
+            // Act
+            var result = naruto.Evaluate(n => n.p(x => x.Age).IsInRange(9, 11));
+
+            // Arrange
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded) .IsFalse()
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 12 (expected: between 9 and 11)"));
+        }
+
+        [Test]
+        public void IsInRange_ExpectedIn13And25_Get12_ShouldPass()
+        {
+            // Act
+            var result = naruto.Evaluate(n => n.p(x => x.Age).IsInRange(13, 25));
+
+            // Arrange
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded).IsFalse()
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 12 (expected: between 13 and 25)"));
+        }
     }
 }
