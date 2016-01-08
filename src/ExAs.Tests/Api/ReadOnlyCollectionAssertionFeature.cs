@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ExAs.Results;
 using ExAs.Utils;
@@ -88,6 +89,36 @@ namespace ExAs.Api
             // Assert
             result.ExAssert(r => r.Property(x => x.succeeded).IsFalse()
                 .Property(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
+        }
+
+        [Test]
+        public void IsNotEmpty_OnCityWithDojo_ShouldSucceed()
+        {
+            // Act
+            var result = cityWithDojo.Evaluate(c => c.Property(x => x.ReadOnlyDojos).IsNotEmpty());
+
+            // Assert
+            result.ExAssert(r => r.Property(x => x.succeeded).IsTrue());
+        }
+
+        [Test]
+        public void IsNotEmpty_OnCityWithoutDojo_ShouldFail()
+        {
+            // Act
+            var result = cityWithoutDojo.Evaluate(c => c.Property(x => x.ReadOnlyDojos).IsNotEmpty());
+
+            // Assert
+            Assert.IsFalse(result.succeeded);
+        }
+
+        [Test]
+        public void IsNotEmpty_OnCityNullDojos_ShouldSucceed()
+        {
+            // Act
+            ObjectAssertionResult result = cityWithNullDojos.Evaluate(c => c.Property(x => x.ReadOnlyDojos).IsNotEmpty());
+
+            // Assert
+            Assert.IsTrue(result.succeeded);
         }
 
         private class CollectionCity : City

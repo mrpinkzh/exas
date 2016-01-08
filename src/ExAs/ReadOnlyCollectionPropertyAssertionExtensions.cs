@@ -10,5 +10,10 @@ namespace ExAs
         {
             return property.SetAssertion(new IsEmptyAssertion<TPropertyElement>());
         }
+
+        public static ObjectAssertion<T> IsNotEmpty<T, TPropertyElement>(this PropertyAssertion<T, IReadOnlyCollection<TPropertyElement>> property)
+        {
+            return property.SetAssertion(new IsNotEmptyAssertion<TPropertyElement>());
+        }   
     }
 }
