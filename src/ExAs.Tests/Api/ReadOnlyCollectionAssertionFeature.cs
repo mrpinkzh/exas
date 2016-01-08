@@ -13,6 +13,9 @@ namespace ExAs.Api
         private readonly CollectionCity cityWithNullDojos = new CollectionCity(dojoList: null);
         private readonly CollectionCity cityWithoutDojo = new CollectionCity();
         private readonly CollectionCity cityWithDojo = new CollectionCity(new Dojo(new Ninja(), Dates.StandardDay()));
+        private readonly CollectionCity threeDojoCity = new CollectionCity(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
+                                                                           new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
+                                                                           new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
 
         [Test]
         public void IsNull_WithNullDojos_ShouldPass()
@@ -119,6 +122,39 @@ namespace ExAs.Api
 
             // Assert
             Assert.IsTrue(result.succeeded);
+        }
+
+        [Test]
+        public void HasAnyStandardDayDojo_OnCityWithStandardDayDojo_ShouldPass()
+        {
+            // Act
+            var result = cityWithDojo.Evaluate(
+                c => c.Property(x => x.ReadOnlyDojos).HasAny(d => d.Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+
+            // Assert
+            result.ExAssert(r => r.Property(x => x.succeeded) .IsTrue()
+                                  .Property(x => x.PrintLog()).IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <1 match>                     (expected: at least 1 match)".NewLine()
+                                                                    .Add("                                   Dojo: ( )Founded = 11/16/1984 (expected: 11/16/1984)")));
+        }
+
+        [Test]
+        public void HasNoneSpecificDojo_OnCityWithThreeOtherDojos_ShouldSucceed()
+        {
+            // Act
+            var result = threeDojoCity.Evaluate(
+                c => c.Property(x => x.ReadOnlyDojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age).IsEqualTo(26))
+                                                                    .Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+
+            // Assert
+            result.ExAssert(r => r.p(x => x.succeeded) .IsTrue()
+                                  .p(x => x.PrintLog()).IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <0 matches>                           (expected: 0 matches)".NewLine()
+                                                             .Add("                                   Dojo: (X)Master  = Ninja: (X)Age = 12 (expected: 26)").NewLine()
+                                                             .Add("                                         (X)Founded = 11/15/1515         (expected: 11/16/1984)").NewLine()
+                                                             .Add("                                   Dojo: ( )Master  = Ninja: ( )Age = 26 (expected: 26)".NewLine()
+                                                             .Add("                                         (X)Founded = 01/01/1500         (expected: 11/16/1984)".NewLine()
+                                                             .Add("                                   Dojo: (X)Master  = Ninja: (X)Age = 14 (expected: 26)").NewLine()
+                                                             .Add("                                         ( )Founded = 11/16/1984         (expected: 11/16/1984)")))));
+            
         }
 
         private class CollectionCity : City
