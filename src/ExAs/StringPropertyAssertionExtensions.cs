@@ -13,7 +13,7 @@ namespace ExAs
 
         public static ObjectAssertion<T> IsEmpty<T>(this PropertyAssertion<T, string> property)
         {
-            return property.SetAssertion(new IsEmptyAssertion<char>());
+            return property.SetAssertion(new IsEmptyAssertion());
         }
     }
 }
