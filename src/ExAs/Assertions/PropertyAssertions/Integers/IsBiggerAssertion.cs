@@ -3,11 +3,11 @@ using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions.Integers
 {
-    public class IsSmallerAssertion : IAssertValue<int>
+    public class IsBiggerAssertion : IAssertValue<int>
     {
         private readonly int expected;
 
-        public IsSmallerAssertion(int expected)
+        public IsBiggerAssertion(int expected)
         {
             this.expected = expected;
         }
@@ -15,9 +15,9 @@ namespace ExAs.Assertions.PropertyAssertions.Integers
         public ValueAssertionResult AssertValue(int actual)
         {
             return new ValueAssertionResult(
-                actual < expected, 
-                actual.ToValueString(),
-                $"(expected: smaller than {expected})");
+                actual > expected, 
+                actual.ToString(), 
+                ComposeLog.Expected($"bigger than {expected}"));
         }
     }
 }

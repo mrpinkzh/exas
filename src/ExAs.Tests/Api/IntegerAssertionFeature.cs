@@ -8,6 +8,7 @@ namespace ExAs.Api
     public class IntegerAssertionFeature
     {
         private readonly Ninja naruto = new Ninja();
+        private readonly Ninja oldNaruto = new Ninja(age:93);
 
         [Test]
         public void IsEqualTo_Expect12_Get12_ShouldPass()
@@ -39,11 +40,34 @@ namespace ExAs.Api
         [Test]
         public void IsSmallerThan_Expected13_Get13_ShouldPass()
         {
-            var oldNaruto = new Ninja(age: 93);
             ObjectAssertionResult result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
                                   .p(x => x.log)        .IsEqualTo("Ninja: (X)Age = 93")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));
+        }
+
+        [Test]
+        public void IsBiggerThan_Expected2_Get12_ShouldPass()
+        {
+            // Act
+            var result = naruto.Evaluate(n => n.Property(x => x.Age).IsBiggerThan(2));
+
+            // Assert
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded) .IsTrue()
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )Age = 12 (expected: bigger than 2)"));
+        }
+
+        [Test]
+        public void IsBiggerThan_Expected100_Get93_ShouldFail()
+        {
+            // Act
+            var result = oldNaruto.Evaluate(n => n.Property(x => x.Age).IsBiggerThan(100));
+
+            // Assert
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded) .IsFalse()
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 93 (expected: bigger than 100)"));
         }
     }
 }
