@@ -13,6 +13,12 @@ namespace ExAs
             return property.SetAssertion(new IsNullAssertion<TProperty>());
         }
 
+        public static ObjectAssertion<T> IsNotNull<T, TProperty>(this PropertyAssertion<T, TProperty> property)
+            where TProperty : class
+        {
+            return property.SetAssertion(new IsNullAssertion<TProperty>());
+        }
+
         public static ObjectAssertion<T> IsEqualTo<T, TProperty>(this PropertyAssertion<T, TProperty> property, TProperty expected)
         {
             return property.SetAssertion(new EqualAssertion<TProperty>(expected));

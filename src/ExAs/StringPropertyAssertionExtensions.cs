@@ -1,4 +1,5 @@
 ﻿using ExAs.Assertions;
+using ExAs.Assertions.PropertyAssertions.Enumerables;
 using ExAs.Assertions.PropertyAssertions.Strings;
 
 namespace ExAs
@@ -12,7 +13,7 @@ namespace ExAs
 
         public static ObjectAssertion<T> IsEmpty<T>(this PropertyAssertion<T, string> property)
         {
-            return property.SetAssertion(new IsEmptyAssertion());
+            return property.SetAssertion(new IsEmptyAssertion<char>());
         }
     }
 }

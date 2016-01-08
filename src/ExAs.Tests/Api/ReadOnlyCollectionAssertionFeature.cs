@@ -26,7 +26,7 @@ namespace ExAs.Api
         public void IsEmpty_WithNullDojos_ShouldFail()
         {
             // Act
-            ObjectAssertionResult result = cityWithNullDojos.Evaluate(c => c.Propi(x => x.ReadOnlyDojos).IsEmpty());
+            ObjectAssertionResult result = cityWithNullDojos.Evaluate(c => c.Property(x => x.ReadOnlyDojos).IsEmpty());
 
             // Assert
             result.ExAssert(r => r.Property(x => x.succeeded).IsFalse()
