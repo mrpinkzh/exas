@@ -3,7 +3,7 @@ using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Api
+namespace ExAs.Api.Enumerables
 {
     [TestFixture]
     public class EnumerableAssertionFeature
@@ -14,22 +14,6 @@ namespace ExAs.Api
         private readonly City threeDojoCity = new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
                                                        new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
                                                        new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
-
-        [Test]
-        public void IsNull_WithNullDojos_ShouldPass()
-        {
-            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(n => n.Property(x => x.Dojos).IsNull());
-            Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("City: ( )Dojos = null (expected: null)", result.PrintLog());
-        }
-
-        [Test]
-        public void IsNull_OnCityWithoutDojo_ShouldFail()
-        {
-            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsNull());
-            Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("City: (X)Dojos = <empty> (expected: null)", result.PrintLog());
-        }
 
         [Test]
         public void IsNotNull_OnCityWithoutDojo_ShouldSucceed()
