@@ -16,32 +16,6 @@ namespace ExAs.Api.Enumerables
                                                        new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
 
         [Test]
-        public void IsEmpty_OnCityWithoutDojo_ShouldSucceed()
-        {
-            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
-            Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("City: ( )Dojos = <empty> (expected: empty enumerable)", result.PrintLog());
-        }
-
-        [Test]
-        public void IsEmpty_OnCityWithDojo_ShouldFail()
-        {
-            ObjectAssertionResult result = cityWithDojo.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
-            Assert.IsFalse(result.succeeded);
-            Console.Out.WriteLine(result.PrintLog());
-            Assert.AreEqual("City: (X)Dojos = <1 Dojo> (expected: empty enumerable)", result.PrintLog());
-        }
-
-        [Test]
-        public void IsEmpty_OnCityNullDojos_ShouldFail()
-        {
-            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
-            Assert.IsFalse(result.succeeded);
-            Console.Out.WriteLine(result.PrintLog());
-            Assert.AreEqual("City: (X)Dojos = null (expected: empty enumerable)", result.PrintLog());
-        }
-
-        [Test]
         public void IsNotEmpty_OnCityWithDojo_ShouldSucceed()
         {
             var result = cityWithDojo.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());

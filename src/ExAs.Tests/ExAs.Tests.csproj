@@ -44,6 +44,7 @@
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertionFeature.cs" />
+    <Compile Include="Api\Enumerables\EnumerableAssertion_IsEmpty_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotNull_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNull_Feature.cs" />
     <Compile Include="Api\IntegerAssertionFeature.cs" />
