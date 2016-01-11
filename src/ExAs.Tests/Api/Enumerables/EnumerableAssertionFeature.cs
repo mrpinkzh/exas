@@ -8,38 +8,9 @@ namespace ExAs.Api.Enumerables
     [TestFixture]
     public class EnumerableAssertionFeature
     {
-        private readonly City cityWithDojo = new City(new Dojo(new Ninja(), Dates.StandardDay()));
-        private readonly City cityWithoutDojo = new City();
-        private readonly City cityWithNullDojoList = new City(dojoList:null);
         private readonly City threeDojoCity = new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
                                                        new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
                                                        new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
-
-        [Test]
-        public void IsNotEmpty_OnCityWithDojo_ShouldSucceed()
-        {
-            var result = cityWithDojo.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());
-            Assert.AreEqual("City: ( )Dojos = <1 Dojo> (expected: not empty)", result.PrintLog());
-            Assert.IsTrue(result.succeeded);
-        }
-
-        [Test]
-        public void IsNotEmpty_OnCityWithoutDojo_ShouldFail()
-        {
-            var city = cityWithoutDojo;
-            ObjectAssertionResult result = city.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());
-            Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("City: (X)Dojos = <empty> (expected: not empty)", result.PrintLog());
-        }
-
-        [Test]
-        public void IsNotEmpty_OnCityNullDojos_ShouldSucceed()
-        {
-            ObjectAssertionResult result = cityWithNullDojoList.Evaluate(c => c.Property(x => x.Dojos).IsNotEmpty());
-            Console.Out.WriteLine(result.PrintLog());
-            Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("City: ( )Dojos = null (expected: not empty)", result.PrintLog());
-        }
 
         [Test]
         public void HasAnyStandardDayDojo_OnCityWithStandardDayDojo_ShouldPass()

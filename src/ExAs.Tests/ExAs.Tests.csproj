@@ -47,6 +47,7 @@
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsEmpty_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotNull_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNull_Feature.cs" />
+    <Compile Include="Api\Enumerables\Enumerable_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\IntegerAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />
