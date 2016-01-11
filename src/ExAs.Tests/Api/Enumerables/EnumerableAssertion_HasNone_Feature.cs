@@ -1,24 +1,22 @@
 ﻿using System;
-using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateCities;
 
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertionFeature
+    public class EnumerableAssertion_HasNone_Feature
     {
-        private readonly City threeDojoCity = new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
-                                                       new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
-                                                       new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
-
         [Test]
-        public void HasNoneSpecificDojo_OnCityWithThreeOtherDojos_ShouldSucceed()
+        public void ExpectingNoSpecificDojo_OnCityWithThreeOtherDojos_ShouldSucceed()
         {
-            var result = threeDojoCity.Evaluate(
+            // act
+            var result = ThreeDojoCity().Evaluate(
                 c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age).IsEqualTo(26))
                                                             .Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
 
+            // assert
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual(
                             "City: ( )Dojos = <0 matches>                           (expected: 0 matches)".NewLine()
@@ -33,16 +31,19 @@ namespace ExAs.Api.Enumerables
         }
 
         [Test]
-        public void HasNoneSpecificDojo_OnCityWithSpecificAndOtherDojo_ShouldFail()
+        public void ExpectingNoSpecificDojo_OnCityWithSpecificAndOtherDojo_ShouldFail()
         {
+            // arrange
             var city = new City(new Dojo(new Ninja("Naruto".NewLine().Add("Uzumaki")), new DateTime(1515, 11, 15)),
                                 new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)));
 
+            // act
             var result = city.Evaluate(
                 c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age) .IsEqualTo(26)
                                                                                                     .Property(x => x.Name).IsEqualTo("Kakashi"))
                                                             .Property(x => x.Founded).IsOnSameDayAs(new DateTime(1500, 1, 1))));
 
+            // assert
             Console.Out.WriteLine(result.PrintLog());
             Assert.AreEqual(
                             "City: (X)Dojos = <1 match>                                     (expected: 0 matches)"  .NewLine()
