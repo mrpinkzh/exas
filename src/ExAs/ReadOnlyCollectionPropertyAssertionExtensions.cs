@@ -18,6 +18,11 @@ namespace ExAs
             return property.SetAssertion(new IsNotEmptyAssertion<TPropertyElement>());
         }
 
+        public static ObjectAssertion<T> HasCount<T, TPropertyElement>(this PropertyAssertion<T, IReadOnlyCollection<TPropertyElement>> property, int expected)
+        {
+            return property.SetAssertion(new HasCountAssertion<TPropertyElement>(expected));
+        }
+
         public static ObjectAssertion<T> HasAny<T, TPropertyElement>(this PropertyAssertion<T, IReadOnlyCollection<TPropertyElement>> property, 
                                                                      Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFactory)
         {

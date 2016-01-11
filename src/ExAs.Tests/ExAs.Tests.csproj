@@ -53,7 +53,7 @@
     <Compile Include="Api\IntegerAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />
-    <Compile Include="Api\ReadOnlyCollectionAssertionFeature.cs" />
+    <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\StringAssertionFeature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
