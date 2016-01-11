@@ -41,6 +41,7 @@
     <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\HasAnyAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Enumerables\HasCountAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\HasNoneAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertion.cs" />

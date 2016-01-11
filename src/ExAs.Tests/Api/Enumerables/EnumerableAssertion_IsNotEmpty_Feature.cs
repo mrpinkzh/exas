@@ -6,7 +6,7 @@ using static ExAs.Utils.Creation.CreateCities;
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class Enumerable_IsNotEmpty_Feature
+    public class EnumerableAssertion_IsNotEmpty_Feature
     {
         [Test]
         public void OnCityWithDojo_ShouldSucceed()
