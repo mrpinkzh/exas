@@ -21,5 +21,10 @@ namespace ExAs
         {
             return property.SetAssertion(new NullableAssertionAdapter<int>(new IsSmallerAssertion(expected)));
         }
+
+        public static ObjectAssertion<T> IsBiggerThan<T>(this PropertyAssertion<T, int?> property, int expected)
+        {
+            return property.SetAssertion(new NullableAssertionAdapter<int>(new IsBiggerAssertion(expected)));
+        }
     }
 }

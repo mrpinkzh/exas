@@ -1,5 +1,4 @@
-﻿using System;
-using ExAs.Results;
+﻿using ExAs.Results;
 using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions
@@ -19,7 +18,7 @@ namespace ExAs.Assertions.PropertyAssertions
             if (actual.HasValue)
                 return assertion.AssertValue(actual.Value);
             ValueAssertionResult innerResult = assertion.AssertValue(default(T));
-            return new ValueAssertionResult(false, actual.ToValueString(), innerResult.expectationString);
+            return new ValueAssertionResult(false, StringFunctions.ToValueString(null), innerResult.expectationString);
         }
     }
 }
