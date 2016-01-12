@@ -49,6 +49,46 @@ namespace ExAs.Api
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: not null)"));
         }
 
+        [Test]
+        public void IsEqual_ExpectingTrue_OnDefeatedNinja_ShouldSucceed()
+        {
+            // act
+            var result = defeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsEqualTo(true));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = True", "(expected: True)"));
+        }
+
+        [Test]
+        public void IsEqual_ExpectingTrue_OnVirginNinja_ShouldFail()
+        {
+            // act
+            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsEqualTo(true));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: True)"));
+        }
+
+        [Test]
+        public void IsTrue_OnDefeatedNinja_ShouldSucceed()
+        {
+            // act
+            var result = defeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsTrue());
+
+            // assert
+            result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = True", "(expected: True)"));
+        }
+
+        [Test]
+        public void IsTrue_OnVirginNinja_ShouldFail()
+        {
+            // act
+            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsTrue());
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: True)"));
+        }
+
         private class FightNinja : Ninja
         {
             public readonly bool? defeated;

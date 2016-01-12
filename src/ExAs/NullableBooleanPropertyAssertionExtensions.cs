@@ -1,5 +1,7 @@
 ﻿using ExAs.Assertions;
 using ExAs.Assertions.ObjectAssertions;
+using ExAs.Assertions.PropertyAssertions;
+using ExAs.Assertions.PropertyAssertions.Booleans;
 
 namespace ExAs
 {
@@ -14,5 +16,10 @@ namespace ExAs
         {
             return property.SetAssertion(new IsNotNullAssertion<bool?>());
         }
+
+        public static ObjectAssertion<T> IsTrue<T>(this PropertyAssertion<T, bool?> property)
+        {
+            return property.SetAssertion(new NullableAssertionAdapter<bool>(new IsTrueAssertion()));
+        } 
     }
 }
