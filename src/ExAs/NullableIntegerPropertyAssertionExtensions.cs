@@ -1,5 +1,7 @@
 ﻿using ExAs.Assertions;
 using ExAs.Assertions.ObjectAssertions;
+using ExAs.Assertions.PropertyAssertions;
+using ExAs.Assertions.PropertyAssertions.Integers;
 
 namespace ExAs
 {
@@ -13,6 +15,11 @@ namespace ExAs
         public static ObjectAssertion<T> IsNotNull<T>(this PropertyAssertion<T, int?> property)
         {
             return property.SetAssertion(new IsNotNullAssertion<int?>());
+        }
+
+        public static ObjectAssertion<T> IsSmallerThan<T>(this PropertyAssertion<T, int?> property, int expected)
+        {
+            return property.SetAssertion(new NullableAssertionAdapter<int>(new IsSmallerAssertion(expected)));
         }
     }
 }
