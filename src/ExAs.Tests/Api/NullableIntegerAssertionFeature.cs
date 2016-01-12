@@ -30,10 +30,8 @@ namespace ExAs.Api
             // act
             var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.FirstAppearance).IsNull());
 
-            // asset
-            result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
-                                  .p(x => x.log).IsEqualTo("AppearingNinja: ( )FirstAppearance = null")
-                                  .p(x => x.expectation).IsEqualTo("(expected: null)"));
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)FirstAppearance = 1", "(expected: null)"));
         }
 
         private class AppearingNinja : Ninja
