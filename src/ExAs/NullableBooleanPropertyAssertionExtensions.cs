@@ -9,5 +9,10 @@ namespace ExAs
         {
             return property.SetAssertion(new IsNullAssertion<bool?>());
         }
+
+        public static ObjectAssertion<T> IsNotNull<T>(this PropertyAssertion<T, bool?> property)
+        {
+            return property.SetAssertion(new IsNotNullAssertion<bool?>());
+        }
     }
 }
