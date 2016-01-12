@@ -57,6 +57,7 @@
     <Compile Include="EnumerablePropertyAssertionExtensions.cs" />
     <Compile Include="ExtendedAssertionException.cs" />
     <Compile Include="IntegerProperyAssertionExtensions.cs" />
+    <Compile Include="NullableBooleanPropertyAssertionExtensions.cs" />
     <Compile Include="NullableIntegerPropertyAssertionExtensions.cs" />
     <Compile Include="ReadOnlyCollectionPropertyAssertionExtensions.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
