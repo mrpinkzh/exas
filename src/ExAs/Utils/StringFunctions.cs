@@ -29,6 +29,8 @@ namespace ExAs.Utils
             if (strings.Any(s => s.Contains(Environment.NewLine)))
             {
                 var typeName = arrayList.FirstOrDefault().GetType().Name;
+                if (strings.Count != 1)
+                    typeName = typeName.Add("s");
                 return "<".Add(strings.Count.ToString()).Add(" ").Add(typeName).Add(">");
             }
             return "[".Add(string.Join(", ", strings)).Add("]");

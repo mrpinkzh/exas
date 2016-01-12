@@ -5,7 +5,7 @@ using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Api
+namespace ExAs.Api.ReadOnlyCollections
 {
     [TestFixture]
     public class ReadOnlyCollectionAssertionFeature
@@ -122,6 +122,30 @@ namespace ExAs.Api
 
             // Assert
             Assert.IsTrue(result.succeeded);
+        }
+
+        [Test]
+        public void HasCount_Expecting1_OnCityWithDojo_ShouldSucceed()
+        {
+            // act
+            var result = cityWithDojo.Evaluate(c => c.p(x => x.ReadOnlyDojos).HasCount(1));
+
+            // assert
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded).IsTrue()
+                                  .p(x => x.PrintLog()).IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <1 Dojo> (expected: 1 Dojo)"));
+        }
+
+        [Test]
+        public void HasCount_Expecting2_OnCityWithoutDojo_ShouldFail()
+        {
+            // act
+            var result = cityWithoutDojo.Evaluate(c => c.p(x => x.ReadOnlyDojos).HasCount(2));
+
+            // assert
+            result.ExAssert(r => r.IsNotNull()
+                                  .p(x => x.succeeded).IsFalse()
+                                  .p(x => x.PrintLog()).IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <empty> (expected: 2 Dojos)"));
         }
 
         [Test]
