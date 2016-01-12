@@ -89,6 +89,29 @@ namespace ExAs.Api
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: True)"));
         }
 
+        [Test]
+        public void IsFalse_OnUndefeatedNinja_ShouldSucceed()
+        {
+            // arrange
+            var undefeatedNinja = new FightNinja(false);
+
+            // act
+            var result = undefeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsFalse());
+
+            // assert
+            result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = False", "(expected: False)"));
+        }
+
+        [Test]
+        public void IsFalse_OnVirginNinja_ShouldFail()
+        {
+            // act
+            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsFalse());
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: False)"));
+        }
+
         private class FightNinja : Ninja
         {
             public readonly bool? defeated;

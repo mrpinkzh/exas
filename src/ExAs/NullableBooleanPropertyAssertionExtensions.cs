@@ -20,6 +20,11 @@ namespace ExAs
         public static ObjectAssertion<T> IsTrue<T>(this PropertyAssertion<T, bool?> property)
         {
             return property.SetAssertion(new NullableAssertionAdapter<bool>(new IsTrueAssertion()));
-        } 
+        }
+
+        public static ObjectAssertion<T> IsFalse<T>(this PropertyAssertion<T, bool?> property)
+        {
+            return property.SetAssertion(new NullableAssertionAdapter<bool>(new IsFalseAssertion()));
+        }
     }
 }
