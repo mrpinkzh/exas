@@ -51,6 +51,36 @@ namespace ExAs.Api
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)FirstAppearance = null", "(expected: not null)"));
         }
 
+        [Test]
+        public void IsEqual_Expecting1_OnEarlyAppearingNinja_ShouldSucceed()
+        {
+            // act
+            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.FirstAppearance).IsEqualTo(1));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )FirstAppearance = 1", "(expected: 1)"));
+        }
+
+        [Test]
+        public void IsEqual_Expecting1_OnNotAppearingNinja_ShouldFail()
+        {
+            // act
+            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.FirstAppearance).IsEqualTo(1));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)FirstAppearance = null", "(expected: 1)"));
+        }
+
+        [Test]
+        public void IsEqual_Expecting2_OnEarlyAppearingNinja_ShouldFail()
+        {
+            // act
+            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.FirstAppearance).IsEqualTo(2));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)FirstAppearance = 1", "(expected: 2)"));
+        }
+
         private class AppearingNinja : Ninja
         {
             public readonly int? FirstAppearance;
