@@ -121,6 +121,26 @@ namespace ExAs.Api
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: bigger than 0)"));
         }
 
+        [Test]
+        public void IsInRange_ExpectingIn0And2_OnEarlyAppearingNinja_ShouldSucceed()
+        {
+            // act
+            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsInRange(0, 2));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: between 0 and 2)"));
+        }
+
+        [Test]
+        public void IsInRange_ExpectingIn0And2_OnNotAppearingNinja_ShouldFail()
+        {
+            // act
+            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsInRange(0, 2));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: between 0 and 2)"));
+        }
+
         private class AppearingNinja : Ninja
         {
             public readonly int? firstAppearance;
