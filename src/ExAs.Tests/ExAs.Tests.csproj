@@ -59,6 +59,7 @@
     <Compile Include="Api\ShortAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\Strings\StringAssertionFeature.cs" />
+    <Compile Include="Api\Strings\StringAssertion_IsNull_Feature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertionTests.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Utils\City.cs" />
     <Compile Include="Utils\CreateRandom.cs" />
     <Compile Include="Utils\Creation\CreateCities.cs" />
+    <Compile Include="Utils\Creation\CreateNinjas.cs" />
     <Compile Include="Utils\Dates.cs" />
     <Compile Include="Utils\DinnerAppointment.cs" />
     <Compile Include="Utils\Dojo.cs" />
