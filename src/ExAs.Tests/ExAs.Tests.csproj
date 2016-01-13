@@ -58,7 +58,7 @@
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
     <Compile Include="Api\ShortAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
-    <Compile Include="Api\StringAssertionFeature.cs" />
+    <Compile Include="Api\Strings\StringAssertionFeature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertionTests.cs" />

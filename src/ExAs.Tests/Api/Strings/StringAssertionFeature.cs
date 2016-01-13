@@ -3,7 +3,7 @@ using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Api
+namespace ExAs.Api.Strings
 {
     [TestFixture]
     public class StringAssertionFeature
