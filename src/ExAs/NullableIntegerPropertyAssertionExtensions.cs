@@ -24,7 +24,7 @@ namespace ExAs
 
         public static ObjectAssertion<T> IsBiggerThan<T>(this PropertyAssertion<T, int?> property, int expected)
         {
-            return property.SetAssertion(new NullableAssertionAdapter<int>(new IsBiggerAssertion(expected)));
+            return property.SetAssertion(new NullableAssertionAdapter<int>(new IsBiggerAssertion<int>(expected)));
         }
 
         public static ObjectAssertion<T> IsInRange<T>(this PropertyAssertion<T, int?> property, int min, int max)

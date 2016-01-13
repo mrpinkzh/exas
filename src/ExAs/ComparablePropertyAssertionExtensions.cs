@@ -11,5 +11,11 @@ namespace ExAs
         {
             return property.SetAssertion(new IsSmallerAssertion<TProperty>(expected));
         }
+
+        public static ObjectAssertion<T> IsBiggerThan<T, TProperty>(this PropertyAssertion<T, TProperty> property, TProperty expected)
+            where TProperty : IComparable<TProperty>
+        {
+            return property.SetAssertion(new IsBiggerAssertion<TProperty>(expected));
+        }
     }
 }

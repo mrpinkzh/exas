@@ -28,6 +28,16 @@ namespace ExAs.Api
             result.ExAssert(r => r.Fullfills(true, "DetailedNinja: ( )strength = 65", "(expected: smaller than 66)"));
         }
 
+        [Test]
+        public void IsBiggerThan_ExpectingBiggerThan64_OnNinjaWith65_ShouldSucceed()
+        {
+            // act
+            var result = strongNinja.Evaluate(n => n.Property(x => x.strength).IsBiggerThan(64));
+
+            // assert
+            result.ExAssert(r => r.Fullfills(true, "DetailedNinja: ( )strength = 65", "(expected: bigger than 64)"));
+        }
+
         public class DetailedNinja : Ninja
         {
             public readonly short strength;

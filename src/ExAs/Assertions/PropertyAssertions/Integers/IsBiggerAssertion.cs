@@ -1,21 +1,24 @@
-﻿using ExAs.Results;
+﻿using System;
+using ExAs.Results;
 using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions.Integers
 {
-    public class IsBiggerAssertion : IAssertValue<int>
+    public class IsBiggerAssertion<T> : IAssertValue<T>
+        where T : IComparable<T>
     {
-        private readonly int expected;
 
-        public IsBiggerAssertion(int expected)
+        private readonly T expected;
+
+        public IsBiggerAssertion(T expected)
         {
             this.expected = expected;
         }
 
-        public ValueAssertionResult AssertValue(int actual)
+        public ValueAssertionResult AssertValue(T actual)
         {
             return new ValueAssertionResult(
-                actual > expected, 
+                actual.CompareTo(expected) > 0, 
                 actual.ToString(), 
                 ComposeLog.Expected($"bigger than {expected}"));
         }

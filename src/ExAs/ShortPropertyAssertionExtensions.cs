@@ -15,5 +15,10 @@ namespace ExAs
         {
             return property.SetAssertion(new IsSmallerAssertion<short>(expected));
         }
+
+        public static ObjectAssertion<T> IsBiggerThan<T>(this PropertyAssertion<T, short> property, short expected)
+        {
+            return property.SetAssertion(new IsBiggerAssertion<short>(expected));
+        }
     }
 }
