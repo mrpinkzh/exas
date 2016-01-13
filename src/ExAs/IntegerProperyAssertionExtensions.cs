@@ -5,11 +5,6 @@ namespace ExAs
 {
     public static class IntegerProperyAssertionExtensions
     {
-        public static ObjectAssertion<T> IsSmallerThan<T>(this PropertyAssertion<T, int> property, int expected)
-        {
-            return property.SetAssertion(new IsSmallerAssertion(expected));
-        }
-
         public static ObjectAssertion<T> IsBiggerThan<T>(this PropertyAssertion<T, int> property, int expected)
         {
             return property.SetAssertion(new IsBiggerAssertion(expected));

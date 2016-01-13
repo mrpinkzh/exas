@@ -53,6 +53,7 @@
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertion.cs" />
     <Compile Include="BooleanAssertionExtensions.cs" />
+    <Compile Include="ComparablePropertyAssertionExtensions.cs" />
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
     <Compile Include="EnumerablePropertyAssertionExtensions.cs" />
     <Compile Include="ExtendedAssertionException.cs" />

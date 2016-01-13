@@ -1,21 +1,23 @@
-﻿using ExAs.Results;
+﻿using System;
+using ExAs.Results;
 using ExAs.Utils;
 
 namespace ExAs.Assertions.PropertyAssertions.Integers
 {
-    public class IsSmallerAssertion : IAssertValue<int>
+    public class IsSmallerAssertion<T> : IAssertValue<T>
+        where T : IComparable<T>
     {
-        private readonly int expected;
+        private readonly T expected;
 
-        public IsSmallerAssertion(int expected)
+        public IsSmallerAssertion(T expected)
         {
             this.expected = expected;
         }
 
-        public ValueAssertionResult AssertValue(int actual)
+        public ValueAssertionResult AssertValue(T actual)
         {
             return new ValueAssertionResult(
-                actual < expected, 
+                actual.CompareTo(expected) < 0, 
                 actual.ToValueString(),
                 $"(expected: smaller than {expected})");
         }

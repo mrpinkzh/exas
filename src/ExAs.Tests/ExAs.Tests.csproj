@@ -71,7 +71,6 @@
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Integers\IsSmallerAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertionTests.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,7 +94,9 @@
       <Name>ExAs</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assertions\PropertyAssertions\Integers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
