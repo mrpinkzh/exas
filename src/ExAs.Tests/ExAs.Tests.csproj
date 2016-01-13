@@ -56,6 +56,7 @@
     <Compile Include="Api\NullableBooleanAssertionFeature.cs" />
     <Compile Include="Api\NullableIntegerAssertionFeature.cs" />
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
+    <Compile Include="Api\ShortAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\StringAssertionFeature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
