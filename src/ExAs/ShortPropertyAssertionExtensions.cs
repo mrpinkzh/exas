@@ -20,5 +20,10 @@ namespace ExAs
         {
             return property.SetAssertion(new IsBiggerAssertion<short>(expected));
         }
+
+        public static ObjectAssertion<T> IsInRange<T>(this PropertyAssertion<T, short> property, short min, short max)
+        {
+            return property.SetAssertion(new InRangeAssertion<short>(min, max));
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace ExAs
 
         public static ObjectAssertion<T> IsInRange<T>(this PropertyAssertion<T, int?> property, int min, int max)
         {
-            return property.SetAssertion(new NullableAssertionAdapter<int>(new InRangeAssertion(min, max)));
+            return property.SetAssertion(new NullableAssertionAdapter<int>(new InRangeAssertion<int>(min, max)));
         }
     }
 }

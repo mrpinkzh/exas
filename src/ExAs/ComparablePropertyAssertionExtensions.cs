@@ -17,5 +17,11 @@ namespace ExAs
         {
             return property.SetAssertion(new IsBiggerAssertion<TProperty>(expected));
         }
+
+        public static ObjectAssertion<T> IsInRange<T, TProperty>(this PropertyAssertion<T, TProperty> property, TProperty min, TProperty max)
+            where TProperty : IComparable<TProperty>
+        {
+            return property.SetAssertion(new InRangeAssertion<TProperty>(min, max));
+        }
     }
 }
