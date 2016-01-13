@@ -9,7 +9,7 @@ namespace ExAs.Api.Strings
     public class StringAssertion_IsNull_Feature
     {
         [Test]
-        public void IsNull_WithNullNinja_ShouldPass()
+        public void OnNullNinja_ShouldSucceed()
         {
             // arrange 
             var nullNinja = new Ninja(name: null);
@@ -22,13 +22,13 @@ namespace ExAs.Api.Strings
         }
 
         [Test]
-        public void IsNull_WithNaruto_ShouldFail()
+        public void OnNaruto_ShouldFail()
         {
             // act
             var result = Naruto().Evaluate(n => n.Property(x => x.Name).IsNull());
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "Ninja: (X)Name = 'Naruto'", "(expected: null)"));
+            result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = 'Naruto'", "(expected: null)"));
         }
     }
 }

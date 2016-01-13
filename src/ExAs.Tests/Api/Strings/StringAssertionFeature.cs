@@ -14,29 +14,6 @@ namespace ExAs.Api.Strings
 
         
 
-        
-
-        [Test]
-        public void IsEmpty_WithEmptyNinja_ShouldPass()
-        {
-            var ninja = new Ninja("");
-            ObjectAssertionResult result = ninja.Evaluate(n => n.Property(x => x.Name).IsEmpty());
-            Assert.IsTrue(result.succeeded);
-            Assert.AreEqual(
-                "Ninja: ( )Name = '' (expected: empty string)",
-                result.PrintLog());
-        }
-
-        [Test]
-        public void IsEmpty_WithNaruto_ShouldFail()
-        {
-            ObjectAssertionResult result = naruto.Evaluate(n => n.Property(x => x.Name).IsEmpty());
-            Assert.IsFalse(result.succeeded);
-            Assert.AreEqual(
-                "Ninja: (X)Name = 'Naruto' (expected: empty string)",
-                result.PrintLog());
-        }
-
         [Test]
         public void EqualTo_OnNaruto_WithNaruto_ShouldPass()
         {
