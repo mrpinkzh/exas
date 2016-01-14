@@ -6,5 +6,10 @@
         {
             return new Ninja();
         }
+
+        public static Ninja NullNinja()
+        {
+            return new Ninja(name:null);
+        }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Api\ShortAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\Strings\StringAssertionFeature.cs" />
+    <Compile Include="Api\Strings\StringAssertion_HasLength_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsEmpty_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsNull_Feature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
