@@ -6,5 +6,11 @@
         {
             return new Ninja();
         }
+
+        public static Ninja MultilinedNarutoUzumaki()
+        {
+            return new Ninja("Naruto".NewLine()
+                        .Add("Uzumaki"));
+        }
     }
 }
