@@ -58,6 +58,7 @@
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
     <Compile Include="Api\ShortAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
+    <Compile Include="Api\Strings\StringAssertion_HasLength_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsEmpty_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsEqualTo_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsNotEmpty_Feature.cs" />

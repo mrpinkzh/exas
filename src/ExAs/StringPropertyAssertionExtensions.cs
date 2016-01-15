@@ -19,5 +19,10 @@ namespace ExAs
         {
             return property.SetAssertion(new IsNotEmptyAssertion());
         } 
+
+        public static ObjectAssertion<T> HasLength<T>(this PropertyAssertion<T, string> property, int expectedLength)
+        {
+            return property.SetAssertion(new HasLengthAssertion(expectedLength));
+        }
     }
 }
