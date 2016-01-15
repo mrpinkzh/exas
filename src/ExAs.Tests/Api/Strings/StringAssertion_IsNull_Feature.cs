@@ -11,11 +11,8 @@ namespace ExAs.Api.Strings
         [Test]
         public void OnNullNinja_ShouldSucceed()
         {
-            // arrange 
-            var nullNinja = new Ninja(name: null);
-
             // act
-            var result = nullNinja.Evaluate(n => n.Property(x => x.Name).IsNull());
+            var result = NullNinja().Evaluate(n => n.Property(x => x.Name).IsNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = null", "(expected: null)"));

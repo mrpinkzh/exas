@@ -8,13 +8,10 @@ namespace ExAs.Api.Strings
     public class StringAssertion_IsEmpty_Feature
     {
         [Test]
-        public void OnEmptyNinja_ShouldPass()
+        public void OnNamelessNinja_ShouldPass()
         {
-            // arrange
-            var emptyNinja = new Ninja("");
-
             // act
-            var result = emptyNinja.Evaluate(n => n.Property(x => x.Name).IsEmpty());
+            var result = NamelessNinja().Evaluate(n => n.Property(x => x.Name).IsEmpty());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = ''", "(expected: empty string)"));
@@ -28,6 +25,16 @@ namespace ExAs.Api.Strings
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = 'Naruto'", "(expected: empty string)"));
+        }
+
+        [Test]
+        public void OnNullNinja_ShouldFail()
+        {
+            // act
+            var result = NullNinja().Evaluate(n => n.Property(x => x.Name).IsEmpty());
+
+            // assert
+            result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = null", "(expected: empty string)"));
         }
     }
 }

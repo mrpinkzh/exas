@@ -12,5 +12,15 @@
             return new Ninja("Naruto".NewLine()
                         .Add("Uzumaki"));
         }
+
+        public static Ninja NamelessNinja()
+        {
+            return new Ninja(name:"");
+        }
+
+        public static Ninja NullNinja()
+        {
+            return new Ninja(name:null);
+        }
     }
 }

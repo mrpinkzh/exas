@@ -52,6 +52,7 @@
     <Compile Include="Assertions\PropertyAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Strings\IsNotEmptyAssertion.cs" />
     <Compile Include="BooleanAssertionExtensions.cs" />
     <Compile Include="ComparablePropertyAssertionExtensions.cs" />
     <Compile Include="DateTimePropertyAssertionExtensions.cs" />
