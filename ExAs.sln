@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExAs", "ExAs\ExAs.csproj", "{67692418-EF4F-4C04-980F-B6FE872E79AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExAs", "src\ExAs\ExAs.csproj", "{67692418-EF4F-4C04-980F-B6FE872E79AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExAs.Tests", "..\tests\ExAs.Tests\ExAs.Tests.csproj", "{66243631-ED19-4AF3-8416-DE0B3F50B8F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExAs.Tests", "tests\ExAs.Tests\ExAs.Tests.csproj", "{66243631-ED19-4AF3-8416-DE0B3F50B8F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
