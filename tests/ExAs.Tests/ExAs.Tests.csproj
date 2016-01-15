@@ -94,7 +94,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExAs\ExAs.csproj">
+    <ProjectReference Include="..\..\src\ExAs\ExAs.csproj">
       <Project>{67692418-ef4f-4c04-980f-b6fe872e79aa}</Project>
       <Name>ExAs</Name>
     </ProjectReference>
