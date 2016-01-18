@@ -24,6 +24,7 @@ Ninja: (X)Age  = 26        (expected: 12)
 
 ## Assertions
 
+**Assert**
 ```
 dojo.ExAssert(d => d.Property(x => x.Name)  .IsNotNull()
 				   d.Property(x => x.Master).FullFills(n => n.Property(x => x.Name).IsNull()
@@ -36,4 +37,16 @@ The assertions `IsNotNull()`, `IsNull()` and `IsEqualTo(int)` are applicable to 
 Dojo: ( )Name   = 'Takahashis Dojo'			   (expected: not null)
 	  (X)Master = Ninja: (X)Name = 'Takahashi' (expected: null)
 						 (X)Age  = 26		   (expected: 109)
+```
+
+### Boolean assertions
+```
+naruto.ExAssert(n => n.Property(x => x.HasWeapon()).IsTrue()
+		 			  .Property(x => x.IsFemale)   .IsFalse());
+```
+In addition to the built in `IsEqualTo(true)` and `IsEqualTo(false)` it is now possible to use the more specific
+assertions `IsTrue()` and `IsFalse()`.
+```
+Ninja: ( )HasWeapon() = True  (expected: True)
+       ( )IsFemale    = False (expected: False)
 ```
