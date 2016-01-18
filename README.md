@@ -22,4 +22,18 @@ Ninja: (X)Age  = 26        (expected: 12)
        (X)Name = 'Kakashi' (expected: 'Naruto')
 ```
 
-There is not much more, yet.
+## Assertions
+
+```
+dojo.ExAssert(d => d.Property(x => x.Name)  .IsNotNull()
+				   d.Property(x => x.Master).FullFills(n => n.Property(x => x.Name).IsNull()
+														     .Property(x => x.Age) .IsEqualTo(109)));
+```
+The assertions `IsNotNull()`, `IsNull()` and `IsEqualTo(int)` are applicable to each reference type.
+
+**Output**
+```
+Dojo: ( )Name   = 'Takahashis Dojo'			   (expected: not null)
+	  (X)Master = Ninja: (X)Name = 'Takahashi' (expected: null)
+						 (X)Age  = 26		   (expected: 109)
+```
