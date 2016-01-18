@@ -50,3 +50,17 @@ assertions `IsTrue()` and `IsFalse()`.
 Ninja: ( )HasWeapon() = True  (expected: True)
        ( )IsFemale    = False (expected: False)
 ```
+
+### Integer assertions
+Beside the already covered `IsEqualTo(int)` assertion the following exist:
+```
+naruto.ExAssert(n => n.Property(x => x.Age).IsBiggerThan(25)
+                      .Property(x => x.Age).IsSmallerThan(27)
+                      .Property(x => x.Age).IsInRange(25, 27));
+```
+```
+Output:
+Ninja: ( )Age = 26 (expected: bigger than 25)
+       ( )Age = 26 (expected: smaller than 27)
+       ( )Age = 26 (expected: between 25 and 27)
+```       
