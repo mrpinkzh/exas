@@ -8,5 +8,10 @@ namespace ExAs.Utils
         {
             return new TimeSpan(8, 30, 15);
         }
+
+        public static TimeSpan MonthAndWorkDay()
+        {
+            return new TimeSpan(30, 8, 30, 15);
+        }
     }
 }
