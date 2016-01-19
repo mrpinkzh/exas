@@ -16,7 +16,7 @@ namespace ExAs.Api.Timespans
             var result = AsleepNinja().Evaluate(n => n.Property(x => x.awake).IsNotEqualTo(WorkDay()));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = -04:15:45", "(expected: 08:30:15)"));
+            result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = -04:15:45", "(expected: not 08:30:15)"));
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace ExAs.Api.Timespans
             var result = WorkDayNinja().Evaluate(n => n.Property(x => x.awake).IsNotEqualTo(WorkDay()));
 
             // assert
-            result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 08:30:15", "(expected: 08:30:15)"));
+            result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 08:30:15", "(expected: not 08:30:15)"));
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace ExAs.Api.Timespans
             var result = SleeplessNinja().Evaluate(n => n.Property(x => x.awake).IsNotEqualTo(WorkDay()));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = 30.08:30:15", "(expected: 08:30:15)"));
+            result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = 30.08:30:15", "(expected: not 08:30:15)"));
         }
     }
 }
