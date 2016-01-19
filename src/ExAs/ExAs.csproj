@@ -49,6 +49,7 @@
     <Compile Include="Assertions\PropertyAssertions\Integers\InRangeAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Integers\IsBiggerAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Integers\IsSmallerAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\NotEqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\HasLengthAssertion.cs" />

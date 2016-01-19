@@ -7,7 +7,7 @@ nugets_restore :restore do |p|
 end
 
 build :build do |b|
-    b.sln = "src/Exas.sln"
+    b.sln = "Exas.sln"
     b.prop 'outdir', '../../build/bin'
     b.prop 'Configuration', 'Release'
     b.logging = 'detailed'
