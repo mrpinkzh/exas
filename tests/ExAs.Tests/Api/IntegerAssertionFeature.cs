@@ -38,7 +38,7 @@ namespace ExAs.Api
         }
 
         [Test]
-        public void IsSmallerThan_Expected13_Get13_ShouldPass()
+        public void IsSmallerThan_Expected13_Get13_ShouldFail()
         {
             ObjectAssertionResult result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
