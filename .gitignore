@@ -6,3 +6,4 @@ packages
 *.feature.cs
 *.VisualState.xml
 TestResult.xml
+.vs
