@@ -45,6 +45,7 @@
     <Compile Include="Api\BooleanAssertionFeature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
+    <Compile Include="Api\DoubleAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasCount_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasNone_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasAny_Feature.cs" />
