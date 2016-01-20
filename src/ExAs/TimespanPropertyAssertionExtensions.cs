@@ -21,5 +21,10 @@ namespace ExAs
         {
             return property.SetAssertion(new NotEqualAssertion<TimeSpan>(expected));
         }
+
+        public static ObjectAssertion<T> IsCloseTo<T>(this PropertyAssertion<T, TimeSpan> property, TimeSpan expected, TimeSpan range)
+        {
+            return property.SetAssertion(new IsCloseToAssertion(expected, range));
+        } 
     }
 }

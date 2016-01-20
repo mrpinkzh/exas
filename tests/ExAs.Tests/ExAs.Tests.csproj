@@ -66,6 +66,7 @@
     <Compile Include="Api\Strings\StringAssertion_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsNull_Feature.cs" />
     <Compile Include="Api\Timespans\SleepyNinja.cs" />
+    <Compile Include="Api\Timespans\TimespanAssertion_IsCloseTo_Feature.cs" />
     <Compile Include="Api\Timespans\TimespanAssertion_IsNegative_Feature.cs" />
     <Compile Include="Api\Timespans\TimespanAssertion_IsNotEqual_Feature.cs" />
     <Compile Include="Api\Timespans\TimespanAssertion_IsPositive_Feature.cs" />

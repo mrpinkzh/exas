@@ -55,6 +55,7 @@
     <Compile Include="Assertions\PropertyAssertions\Strings\HasLengthAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\IsNotEmptyAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Timespans\IsCloseToAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Timespans\IsNegativeAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Timespans\IsPositiveAssertion.cs" />
     <Compile Include="BooleanAssertionExtensions.cs" />
