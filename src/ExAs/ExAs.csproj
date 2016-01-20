@@ -46,9 +46,9 @@
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\OutputExtensions.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Integers\InRangeAssertion.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Integers\IsBiggerAssertion.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Integers\IsSmallerAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Numbers\InRangeAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Numbers\IsBiggerAssertion.cs" />
+    <Compile Include="Assertions\PropertyAssertions\Numbers\IsSmallerAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Strings\HasLengthAssertion.cs" />
