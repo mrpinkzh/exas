@@ -1,7 +1,7 @@
 ﻿using ExAs.Assertions;
 using ExAs.Assertions.ObjectAssertions;
 using ExAs.Assertions.PropertyAssertions;
-using ExAs.Assertions.PropertyAssertions.Integers;
+using ExAs.Assertions.PropertyAssertions.Numbers;
 
 namespace ExAs
 {

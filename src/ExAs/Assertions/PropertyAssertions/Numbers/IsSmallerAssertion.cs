@@ -2,7 +2,7 @@
 using ExAs.Results;
 using ExAs.Utils;
 
-namespace ExAs.Assertions.PropertyAssertions.Integers
+namespace ExAs.Assertions.PropertyAssertions.Numbers
 {
     public class IsSmallerAssertion<T> : IAssertValue<T>
         where T : IComparable<T>
