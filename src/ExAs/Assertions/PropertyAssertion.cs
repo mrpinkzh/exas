@@ -4,19 +4,19 @@ using ExAs.Results;
 
 namespace ExAs.Assertions
 {
-    public class PropertyAssertion<T, TProperty> : IAssertOnProperty<T>
+    public class PropertyAssertion<T, TMember> : IAssertOnProperty<T>, IAssertMember<T, TMember>
     {
-        private readonly Expression<Func<T, TProperty>> genericPropertyExpression;
+        private readonly Expression<Func<T, TMember>> genericPropertyExpression;
         private readonly ObjectAssertion<T> parent;
-        private IAssertValue<TProperty> assertion;
+        private IAssertValue<TMember> assertion;
 
-        public PropertyAssertion(Expression<Func<T, TProperty>> genericPropertyExpression, ObjectAssertion<T> parent)
+        public PropertyAssertion(Expression<Func<T, TMember>> genericPropertyExpression, ObjectAssertion<T> parent)
         {
             this.genericPropertyExpression = genericPropertyExpression;
             this.parent = parent;
         }
 
-        public ObjectAssertion<T> SetAssertion(IAssertValue<TProperty> newAssertion)
+        public ObjectAssertion<T> SetAssertion(IAssertValue<TMember> newAssertion)
         {
             assertion = newAssertion;
             return parent;

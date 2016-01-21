@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assertions\EnumerableAssertion.cs" />
+    <Compile Include="Assertions\IAssertMember.cs" />
     <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsTrueAssertion.cs" />
@@ -46,7 +47,6 @@
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Enumerables\OutputExtensions.cs" />
-
     <Compile Include="Assertions\PropertyAssertions\NotEqualAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Numbers\InRangeAssertion.cs" />
     <Compile Include="Assertions\PropertyAssertions\Numbers\IsBiggerAssertion.cs" />
