@@ -1,6 +1,6 @@
 ﻿using System;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.Integers;
+using ExAs.Assertions.PropertyAssertions.Numbers;
 
 namespace ExAs
 {
