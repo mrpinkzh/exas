@@ -60,7 +60,7 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
         }
 
         private static HasAnyAssertion<string> HasAnyAssertion(
-            Func<ObjectAssertion<string>, ObjectAssertion<string>> assertionFunc)
+            Func<IAssert<string>, IAssert<string>> assertionFunc)
         {
             return new HasAnyAssertion<string>(assertionFunc(new ObjectAssertion<string>()));
         }

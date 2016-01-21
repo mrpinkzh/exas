@@ -9,9 +9,9 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
 {
     public class HasAnyAssertion<TElement> : IAssertValue<IEnumerable<TElement>>
     {
-        private readonly ObjectAssertion<TElement> childAssertion;
+        private readonly IAssert<TElement> childAssertion;
 
-        public HasAnyAssertion(ObjectAssertion<TElement> childAssertion)
+        public HasAnyAssertion(IAssert<TElement> childAssertion)
         {
             this.childAssertion = childAssertion;
         }

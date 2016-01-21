@@ -9,7 +9,7 @@ namespace ExAs.Utils
     public static class ExasShortcutNotationExtensions
     {
         public static PropertyAssertion<T, TProperty> p<T, TProperty>(
-            this ObjectAssertion<T> objectAssertion, 
+            this IAssert<T> objectAssertion, 
             Expression<Func<T, TProperty>> expession)
         {
             var propertyAssertion = new PropertyAssertion<T, TProperty>(expession, objectAssertion);
@@ -17,8 +17,8 @@ namespace ExAs.Utils
             return propertyAssertion;
         }
 
-        public static ObjectAssertion<ObjectAssertionResult> Fullfills(
-            this ObjectAssertion<ObjectAssertionResult> instance, 
+        public static IAssert<ObjectAssertionResult> Fullfills(
+            this IAssert<ObjectAssertionResult> instance, 
             bool succeeded, 
             string log, 
             string expectation)

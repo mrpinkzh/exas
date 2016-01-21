@@ -2,6 +2,6 @@
 {
     public interface IAssertMember<T, out TMember>
     {
-        ObjectAssertion<T> SetAssertion(IAssertValue<TMember> newAssertion);
+        IAssert<T> SetAssertion(IAssertValue<TMember> newAssertion);
     }
 }

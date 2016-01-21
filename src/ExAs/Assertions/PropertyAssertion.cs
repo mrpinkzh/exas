@@ -7,16 +7,16 @@ namespace ExAs.Assertions
     public class PropertyAssertion<T, TMember> : IAssertOnProperty<T>, IAssertMember<T, TMember>
     {
         private readonly Expression<Func<T, TMember>> genericPropertyExpression;
-        private readonly ObjectAssertion<T> parent;
+        private readonly IAssert<T> parent;
         private IAssertValue<TMember> assertion;
 
-        public PropertyAssertion(Expression<Func<T, TMember>> genericPropertyExpression, ObjectAssertion<T> parent)
+        public PropertyAssertion(Expression<Func<T, TMember>> genericPropertyExpression, IAssert<T> parent)
         {
             this.genericPropertyExpression = genericPropertyExpression;
             this.parent = parent;
         }
 
-        public ObjectAssertion<T> SetAssertion(IAssertValue<TMember> newAssertion)
+        public IAssert<T> SetAssertion(IAssertValue<TMember> newAssertion)
         {
             assertion = newAssertion;
             return parent;

@@ -57,7 +57,7 @@ namespace ExAs.Assertions.PropertyAssertions.Enumerables
         }
 
         private static HasNoneAssertion<string> HasNoneAssertion(
-            Func<ObjectAssertion<string>, ObjectAssertion<string>> assertionFunc)
+            Func<IAssert<string>, IAssert<string>> assertionFunc)
         {
             return new HasNoneAssertion<string>(assertionFunc(new ObjectAssertion<string>()));
         }

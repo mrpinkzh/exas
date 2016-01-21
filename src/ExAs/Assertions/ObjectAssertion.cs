@@ -8,7 +8,7 @@ using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Assertions
 {
-    public class ObjectAssertion<T> : IAssert<T>
+    public class ObjectAssertion<T> : IAssert<T>, IAssertInstance<T>
     {
         private readonly List<IAssertOnProperty<T>> propertyAssertions; 
         private IsNotNullAssertion<T> isNotNullAssertion;
@@ -19,13 +19,13 @@ namespace ExAs.Assertions
             propertyAssertions = new List<IAssertOnProperty<T>>();
         }
 
-        public ObjectAssertion<T> IsNotNull()
+        public IAssert<T> IsNotNull()
         {
             isNotNullAssertion = new IsNotNullAssertion<T>();
             return this;
         }
 
-        public ObjectAssertion<T> IsNull()
+        public IAssert<T> IsNull()
         {
             isNullAssertion = new IsNullAssertion<T>();
             return this;

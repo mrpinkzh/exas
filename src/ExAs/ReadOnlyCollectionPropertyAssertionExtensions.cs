@@ -8,29 +8,29 @@ namespace ExAs
 {
     public static class ReadOnlyCollectionPropertyAssertionExtensions
     {
-        public static ObjectAssertion<T> IsEmpty<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property)
+        public static IAssert<T> IsEmpty<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property)
         {
             return property.SetAssertion(new IsEmptyAssertion<TPropertyElement>());
         }
 
-        public static ObjectAssertion<T> IsNotEmpty<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property)
+        public static IAssert<T> IsNotEmpty<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property)
         {
             return property.SetAssertion(new IsNotEmptyAssertion<TPropertyElement>());
         }
 
-        public static ObjectAssertion<T> HasCount<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property, int expected)
+        public static IAssert<T> HasCount<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property, int expected)
         {
             return property.SetAssertion(new HasCountAssertion<TPropertyElement>(expected));
         }
 
-        public static ObjectAssertion<T> HasAny<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property, 
-                                                                     Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFactory)
+        public static IAssert<T> HasAny<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property, 
+                                                                     Func<IAssert<TPropertyElement>, IAssert<TPropertyElement>> assertionFactory)
         {
             return property.SetAssertion(new HasAnyAssertion<TPropertyElement>(assertionFactory(new ObjectAssertion<TPropertyElement>())));
         }
 
-        public static ObjectAssertion<T> HasNone<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property,
-                                                                      Func<ObjectAssertion<TPropertyElement>, ObjectAssertion<TPropertyElement>> assertionFactory)
+        public static IAssert<T> HasNone<T, TPropertyElement>(this IAssertMember<T, IReadOnlyCollection<TPropertyElement>> property,
+                                                                      Func<IAssert<TPropertyElement>, IAssert<TPropertyElement>> assertionFactory)
         {
             return property.SetAssertion(new HasNoneAssertion<TPropertyElement>(assertionFactory(new ObjectAssertion<TPropertyElement>())));
         }
