@@ -6,13 +6,13 @@ namespace ExAs.Assertions
 {
     public class MemberAssertion<T, TMember> : IAssertMember<T, TMember>
     {
-        private readonly Expression<Func<T, TMember>> genericPropertyExpression;
+        private readonly Expression<Func<T, TMember>> memberExpression;
         private readonly IAssert<T> parent;
         private IAssertValue<TMember> assertion;
 
-        public MemberAssertion(Expression<Func<T, TMember>> genericPropertyExpression, IAssert<T> parent)
+        public MemberAssertion(Expression<Func<T, TMember>> memberExpression, IAssert<T> parent)
         {
-            this.genericPropertyExpression = genericPropertyExpression;
+            this.memberExpression = memberExpression;
             this.parent = parent;
         }
 
@@ -24,7 +24,7 @@ namespace ExAs.Assertions
 
         public PropertyAssertionResult Assert(T actual)
         {
-            return PropertyAssertionFunctions.Assert(actual, genericPropertyExpression, assertion);
+            return MemberAssertionFunctions.Assert(actual, memberExpression, assertion);
         }
     }
 }

@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="Assertions\EnumerableAssertion.cs" />
     <Compile Include="Assertions\IAssertMember.cs" />
-    <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
+    <Compile Include="Assertions\MemberAssertionFunctions.cs" />
     <Compile Include="Assertions\MemberAssertions\Booleans\IsFalseAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Booleans\IsTrueAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertion.cs" />
@@ -59,14 +59,14 @@
     <Compile Include="Assertions\MemberAssertions\Timespans\IsCloseToAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Timespans\IsNegativeAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Timespans\IsPositiveAssertion.cs" />
-    <Compile Include="BooleanAssertionExtensions.cs" />
-    <Compile Include="ComparablePropertyAssertionExtensions.cs" />
-    <Compile Include="DateTimePropertyAssertionExtensions.cs" />
-    <Compile Include="EnumerablePropertyAssertionExtensions.cs" />
+    <Compile Include="BooleanAssertions.cs" />
+    <Compile Include="ComparableAssertions.cs" />
+    <Compile Include="DateTimeAssertions.cs" />
+    <Compile Include="EnumerableAssertions.cs" />
     <Compile Include="ExtendedAssertionException.cs" />
-    <Compile Include="NullableBooleanPropertyAssertionExtensions.cs" />
-    <Compile Include="NullableIntegerPropertyAssertionExtensions.cs" />
-    <Compile Include="ReadOnlyCollectionPropertyAssertionExtensions.cs" />
+    <Compile Include="NullableBooleanAssertions.cs" />
+    <Compile Include="NullableIntegerAssertions.cs" />
+    <Compile Include="ReadOnlyCollectionAssertions.cs" />
     <Compile Include="Results\ObjectAssertionResult.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />
@@ -83,10 +83,10 @@
     <Compile Include="ExAsExtensions.cs" />
     <Compile Include="ObjectAssertionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyAssertionExtensions.cs" />
-    <Compile Include="ShortPropertyAssertionExtensions.cs" />
-    <Compile Include="StringPropertyAssertionExtensions.cs" />
-    <Compile Include="TimespanPropertyAssertionExtensions.cs" />
+    <Compile Include="MemberAssertionExtensions.cs" />
+    <Compile Include="ShortAssertions.cs" />
+    <Compile Include="StringAssertions.cs" />
+    <Compile Include="TimespanAssertions.cs" />
     <Compile Include="Utils\ComposeLog.cs" />
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
     <Compile Include="Utils\StringFunctions.cs" />

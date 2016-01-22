@@ -5,18 +5,18 @@ using ExAs.Utils;
 
 namespace ExAs.Assertions
 {
-    public static class PropertyAssertionFunctions
+    public static class MemberAssertionFunctions
     {
-        public static PropertyAssertionResult Assert<TType, TPropertyType>(TType instance,
-            Expression<Func<TType, TPropertyType>> propertExpression, IAssertValue<TPropertyType> assertion)
+        public static PropertyAssertionResult Assert<T, TMember>(T instance,
+            Expression<Func<T, TMember>> memberExpression, IAssertValue<TMember> assertion)
         {
-            string memberName = propertExpression.ExtractMemberName();
-            TPropertyType value = propertExpression.Compile()(instance);
+            string memberName = memberExpression.ExtractMemberName();
+            TMember value = memberExpression.Compile()(instance);
             return Assert(assertion, memberName, value);
         }
 
-        public static PropertyAssertionResult Assert<TPropertyType>(IAssertValue<TPropertyType> assertion, string memberName,
-            TPropertyType value)
+        public static PropertyAssertionResult Assert<TMember>(IAssertValue<TMember> assertion, string memberName,
+            TMember value)
         {
             if (assertion == null)
                 return new PropertyAssertionResult(memberName,
