@@ -4,13 +4,13 @@ using ExAs.Results;
 
 namespace ExAs.Assertions
 {
-    public class PropertyAssertion<T, TMember> : IAssertMember<T, TMember>
+    public class MemberAssertion<T, TMember> : IAssertMember<T, TMember>
     {
         private readonly Expression<Func<T, TMember>> genericPropertyExpression;
         private readonly IAssert<T> parent;
         private IAssertValue<TMember> assertion;
 
-        public PropertyAssertion(Expression<Func<T, TMember>> genericPropertyExpression, IAssert<T> parent)
+        public MemberAssertion(Expression<Func<T, TMember>> genericPropertyExpression, IAssert<T> parent)
         {
             this.genericPropertyExpression = genericPropertyExpression;
             this.parent = parent;

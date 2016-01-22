@@ -73,7 +73,7 @@
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\PrintoutAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\EqualAssertion.cs" />
-    <Compile Include="Assertions\PropertyAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertion.cs" />
     <Compile Include="Results\PropertyAssertionResult.cs" />
     <Compile Include="Assertions\AssertToAssertValueAdapter.cs" />
     <Compile Include="Assertions\IAssert.cs" />
