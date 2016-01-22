@@ -14,8 +14,8 @@ namespace ExAs.Api
         public void Assert_WithNaruto_AndValidAssertionForBothProperties_ShouldPass()
         {
             ObjectAssertionResult result = naruto.Evaluate(
-                n => n.Property(x => x.Name).IsEqualTo("Naruto")
-                      .Property(x => x.Age) .IsEqualTo(12));
+                n => n.Member(x => x.Name).IsEqualTo("Naruto")
+                      .Member(x => x.Age) .IsEqualTo(12));
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: ( )Name = 'Naruto' (expected: 'Naruto')".NewLine()
                        .Add("       ( )Age  = 12       (expected: 12)"),
@@ -26,8 +26,8 @@ namespace ExAs.Api
         public void Assert_WithNaruto_AndInvalidNameAssertion_ShouldFail()
         {
             ObjectAssertionResult result = naruto.Evaluate(
-                n => n.Property(x => x.Name).IsEqualTo("Tsubasa")
-                      .Property(x => x.Age) .IsEqualTo(12));
+                n => n.Member(x => x.Name).IsEqualTo("Tsubasa")
+                      .Member(x => x.Age) .IsEqualTo(12));
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Ninja: (X)Name = 'Naruto' (expected: 'Tsubasa')".NewLine()
                        .Add("       ( )Age  = 12       (expected: 12)"),

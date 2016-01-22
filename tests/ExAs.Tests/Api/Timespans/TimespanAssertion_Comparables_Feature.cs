@@ -13,7 +13,7 @@ namespace ExAs.Api.Timespans
             var ninja = new SleepyNinja(4.Seconds());
 
             // act
-            var result = ninja.Evaluate(n => n.Property(x => x.awake).IsSmallerThan(5.Seconds()));
+            var result = ninja.Evaluate(n => n.Member(x => x.awake).IsSmallerThan(5.Seconds()));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = 00:00:04", "(expected: smaller than 00:00:05)"));
@@ -26,7 +26,7 @@ namespace ExAs.Api.Timespans
             var ninja = new SleepyNinja(6.Seconds());
 
             // act
-            var result = ninja.Evaluate(n => n.Property(x => x.awake).IsBiggerThan(6.Seconds()));
+            var result = ninja.Evaluate(n => n.Member(x => x.awake).IsBiggerThan(6.Seconds()));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 00:00:06", "(expected: bigger than 00:00:06)"));
@@ -39,7 +39,7 @@ namespace ExAs.Api.Timespans
             var ninja = new SleepyNinja(2.Hours());
 
             // act
-            var result = ninja.Evaluate(n => n.Property(x => x.awake).IsInRange(16.Minutes(), 38.Minutes()));
+            var result = ninja.Evaluate(n => n.Member(x => x.awake).IsInRange(16.Minutes(), 38.Minutes()));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 02:00:00", "(expected: between 00:16:00 and 00:38:00)"));

@@ -12,7 +12,7 @@ namespace ExAs.Api.Strings
         public void OnNullNinja_ShouldSucceed()
         {
             // act
-            var result = NullNinja().Evaluate(n => n.Property(x => x.Name).IsNull());
+            var result = NullNinja().Evaluate(n => n.Member(x => x.Name).IsNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = null", "(expected: null)"));
@@ -22,7 +22,7 @@ namespace ExAs.Api.Strings
         public void OnNaruto_ShouldFail()
         {
             // act
-            var result = Naruto().Evaluate(n => n.Property(x => x.Name).IsNull());
+            var result = Naruto().Evaluate(n => n.Member(x => x.Name).IsNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = 'Naruto'", "(expected: null)"));

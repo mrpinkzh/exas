@@ -11,7 +11,7 @@ namespace ExAs.Api.Enumerables
         public void Expecting1_OnCityWithDojo_ShouldSucceed()
         {
             // act
-            var result = CityWithDojo().Evaluate(c => c.Property(x => x.Dojos).HasCount(1));
+            var result = CityWithDojo().Evaluate(c => c.Member(x => x.Dojos).HasCount(1));
 
             // assert
             result.ExAssert(r => r.IsNotNull()

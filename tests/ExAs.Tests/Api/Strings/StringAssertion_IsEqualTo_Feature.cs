@@ -12,7 +12,7 @@ namespace ExAs.Api.Strings
         public void ExpectingNaruto_OnNaruto_ShouldSucceed()
         {
             // act
-            var result = Naruto().Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto"));
+            var result = Naruto().Evaluate(n => n.Member(x => x.Name).IsEqualTo("Naruto"));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = 'Naruto'", "(expected: 'Naruto')"));
@@ -22,7 +22,7 @@ namespace ExAs.Api.Strings
         public void ExpectingTakashi_OnNaruto_ShouldFail()
         {
             // act
-            var result = Naruto().Evaluate(n => n.Property(x => x.Name).IsEqualTo("Takashi"));
+            var result = Naruto().Evaluate(n => n.Member(x => x.Name).IsEqualTo("Takashi"));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = 'Naruto'", "(expected: 'Takashi')"));
@@ -32,7 +32,7 @@ namespace ExAs.Api.Strings
         public void ExpectingMultilinedNarutoUzumaki_OnMultilinedNarutoUzumaki_ShouldSucceed()
         {
             // act
-            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto".NewLine()
+            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).IsEqualTo("Naruto".NewLine()
                                                                                               .Add("Uzumaki")));
 
             // assert
@@ -45,7 +45,7 @@ namespace ExAs.Api.Strings
         public void ExpectingNaruto_OnMultilinedNarutoUzumaki_ShouldFail()
         {
             // act
-            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto"));
+            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).IsEqualTo("Naruto"));
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded) .IsFalse()
@@ -57,7 +57,7 @@ namespace ExAs.Api.Strings
         public void ExpectingMultilinedNarutoUzumaki_OnNaruto_ShouldFail()
         {
             // act
-            var result = Naruto().Evaluate(n => n.Property(x => x.Name).IsEqualTo("Naruto".NewLine()
+            var result = Naruto().Evaluate(n => n.Member(x => x.Name).IsEqualTo("Naruto".NewLine()
                                                                              .Add("Uzumaki")));
 
             // assert

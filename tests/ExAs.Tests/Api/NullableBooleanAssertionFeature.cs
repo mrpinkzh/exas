@@ -13,7 +13,7 @@ namespace ExAs.Api
         public void IsNull_OnVirginNinja_ShouldPass()
         {
             // act
-            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsNull());
+            var result = virginNinja.Evaluate(n => n.Member(x => x.defeated).IsNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = null", "(expected: null)"));
@@ -23,7 +23,7 @@ namespace ExAs.Api
         public void IsNull_OnDefeatedNinja_ShouldFail()
         {
             // act
-            var result = defeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsNull());
+            var result = defeatedNinja.Evaluate(n => n.Member(x => x.defeated).IsNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = True", "(expected: null)"));
@@ -33,7 +33,7 @@ namespace ExAs.Api
         public void IsNotNull_OnDefeatedNinja_ShouldSucceed()
         {
             // act
-            var result = defeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsNotNull());
+            var result = defeatedNinja.Evaluate(n => n.Member(x => x.defeated).IsNotNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = True", "(expected: not null)"));
@@ -43,7 +43,7 @@ namespace ExAs.Api
         public void IsNotNull_OnVirginNinja_ShouldFail()
         {
             // act
-            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsNotNull());
+            var result = virginNinja.Evaluate(n => n.Member(x => x.defeated).IsNotNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: not null)"));
@@ -53,7 +53,7 @@ namespace ExAs.Api
         public void IsEqual_ExpectingTrue_OnDefeatedNinja_ShouldSucceed()
         {
             // act
-            var result = defeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsEqualTo(true));
+            var result = defeatedNinja.Evaluate(n => n.Member(x => x.defeated).IsEqualTo(true));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = True", "(expected: True)"));
@@ -63,7 +63,7 @@ namespace ExAs.Api
         public void IsEqual_ExpectingTrue_OnVirginNinja_ShouldFail()
         {
             // act
-            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsEqualTo(true));
+            var result = virginNinja.Evaluate(n => n.Member(x => x.defeated).IsEqualTo(true));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: True)"));
@@ -73,7 +73,7 @@ namespace ExAs.Api
         public void IsTrue_OnDefeatedNinja_ShouldSucceed()
         {
             // act
-            var result = defeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsTrue());
+            var result = defeatedNinja.Evaluate(n => n.Member(x => x.defeated).IsTrue());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = True", "(expected: True)"));
@@ -83,7 +83,7 @@ namespace ExAs.Api
         public void IsTrue_OnVirginNinja_ShouldFail()
         {
             // act
-            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsTrue());
+            var result = virginNinja.Evaluate(n => n.Member(x => x.defeated).IsTrue());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: True)"));
@@ -96,7 +96,7 @@ namespace ExAs.Api
             var undefeatedNinja = new FightNinja(false);
 
             // act
-            var result = undefeatedNinja.Evaluate(n => n.Property(x => x.defeated).IsFalse());
+            var result = undefeatedNinja.Evaluate(n => n.Member(x => x.defeated).IsFalse());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "FightNinja: ( )defeated = False", "(expected: False)"));
@@ -106,7 +106,7 @@ namespace ExAs.Api
         public void IsFalse_OnVirginNinja_ShouldFail()
         {
             // act
-            var result = virginNinja.Evaluate(n => n.Property(x => x.defeated).IsFalse());
+            var result = virginNinja.Evaluate(n => n.Member(x => x.defeated).IsFalse());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "FightNinja: (X)defeated = null", "(expected: False)"));

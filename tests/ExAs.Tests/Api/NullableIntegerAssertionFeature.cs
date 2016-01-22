@@ -13,7 +13,7 @@ namespace ExAs.Api
         public void IsNull_OnNotAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsNull());
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsNull());
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
@@ -25,7 +25,7 @@ namespace ExAs.Api
         public void IsNull_OnEarlyAppearingNinja_ShouldFail()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsNull());
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = 1", "(expected: null)"));
@@ -35,7 +35,7 @@ namespace ExAs.Api
         public void IsNotNull_OnEarlyAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsNotNull());
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsNotNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: not null)"));
@@ -45,7 +45,7 @@ namespace ExAs.Api
         public void IsNotNull_OnNotAppearingNinja_ShouldFail()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsNotNull());
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsNotNull());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: not null)"));
@@ -55,7 +55,7 @@ namespace ExAs.Api
         public void IsEqual_Expecting1_OnEarlyAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsEqualTo(1));
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsEqualTo(1));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: 1)"));
@@ -65,7 +65,7 @@ namespace ExAs.Api
         public void IsEqual_Expecting1_OnNotAppearingNinja_ShouldFail()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsEqualTo(1));
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsEqualTo(1));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: 1)"));
@@ -75,7 +75,7 @@ namespace ExAs.Api
         public void IsEqual_Expecting2_OnEarlyAppearingNinja_ShouldFail()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsEqualTo(2));
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsEqualTo(2));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = 1", "(expected: 2)"));
@@ -85,7 +85,7 @@ namespace ExAs.Api
         public void IsSmallerThan_Expecting2_OnEarlyAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsSmallerThan(2));
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsSmallerThan(2));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: smaller than 2)"));
@@ -95,7 +95,7 @@ namespace ExAs.Api
         public void IsSmallerThan_Expecting2_OnNotAppearingNinja_ShouldFail()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsSmallerThan(2));
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsSmallerThan(2));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: smaller than 2)"));
@@ -105,7 +105,7 @@ namespace ExAs.Api
         public void IsBiggerThan_Expecting0_OnEarlyAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsBiggerThan(0));
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsBiggerThan(0));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: bigger than 0)"));
@@ -115,7 +115,7 @@ namespace ExAs.Api
         public void IsBiggerThan_Expecting0_OnNotAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsBiggerThan(0));
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsBiggerThan(0));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: bigger than 0)"));
@@ -125,7 +125,7 @@ namespace ExAs.Api
         public void IsInRange_ExpectingIn0And2_OnEarlyAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsInRange(0, 2));
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsInRange(0, 2));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: between 0 and 2)"));
@@ -135,7 +135,7 @@ namespace ExAs.Api
         public void IsInRange_ExpectingIn0And2_OnNotAppearingNinja_ShouldFail()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Property(x => x.firstAppearance).IsInRange(0, 2));
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsInRange(0, 2));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: between 0 and 2)"));

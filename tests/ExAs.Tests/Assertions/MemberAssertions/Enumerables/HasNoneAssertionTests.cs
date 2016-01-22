@@ -14,10 +14,10 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
             HasNoneAssertion<string> assertion = HasNoneAssertion(x => x.IsNull());
             ValueAssertionResult result = assertion.AssertValue(new[] {"Stringy"});
 
-            result.ExAssert(r => r.Property(x => x.succeeded)        .IsTrue()
-                                  .Property(x => x.actualValueString).IsEqualTo("<0 matches>".NewLine()
+            result.ExAssert(r => r.Member(x => x.succeeded)        .IsTrue()
+                                  .Member(x => x.actualValueString).IsEqualTo("<0 matches>".NewLine()
                                                                          .Add("'Stringy'"))
-                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches").NewLine()
+                                  .Member(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches").NewLine()
                                                                          .Add(ComposeLog.Expected("null"))));
         }
 
@@ -27,10 +27,10 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
             HasNoneAssertion<string> assertion = HasNoneAssertion(s => s.IsNull());
             ValueAssertionResult result = assertion.AssertValue(new string[] { null });
             
-            result.ExAssert(r => r.Property(x => x.succeeded)        .IsFalse()
-                                  .Property(x => x.actualValueString).IsEqualTo("<1 match>".NewLine()
+            result.ExAssert(r => r.Member(x => x.succeeded)        .IsFalse()
+                                  .Member(x => x.actualValueString).IsEqualTo("<1 match>".NewLine()
                                                                          .Add("null"))
-                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches").NewLine()
+                                  .Member(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches").NewLine()
                                                                          .Add(ComposeLog.Expected("null"))));
         }
 
@@ -40,9 +40,9 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
             HasNoneAssertion<string> assertion = HasNoneAssertion(s => s.IsNull());
             ValueAssertionResult result = assertion.AssertValue(new string[] { });
             
-            result.ExAssert(r => r.Property(x => x.succeeded).IsTrue()
-                                  .Property(x => x.actualValueString).IsEqualTo("<empty>")
-                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches")));
+            result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
+                                  .Member(x => x.actualValueString).IsEqualTo("<empty>")
+                                  .Member(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches")));
         }
 
         [Test]
@@ -51,9 +51,9 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
             HasNoneAssertion<string> assertion = HasNoneAssertion(s => s.IsNull());
             ValueAssertionResult result = assertion.AssertValue(null);
             
-            result.ExAssert(r => r.Property(x => x.succeeded)        .IsTrue()
-                                  .Property(x => x.actualValueString).IsEqualTo("null")
-                                  .Property(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches")));
+            result.ExAssert(r => r.Member(x => x.succeeded)        .IsTrue()
+                                  .Member(x => x.actualValueString).IsEqualTo("null")
+                                  .Member(x => x.expectationString).IsEqualTo(ComposeLog.Expected("0 matches")));
         }
 
         private static HasNoneAssertion<string> HasNoneAssertion(

@@ -11,7 +11,7 @@ namespace ExAs.Api.Strings
         public void OnNaruto_ShouldSucceed()
         {
             // act
-            var result = Naruto().Evaluate(n => n.Property(x => x.Name).IsNotEmpty());
+            var result = Naruto().Evaluate(n => n.Member(x => x.Name).IsNotEmpty());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = 'Naruto'", "(expected: not empty)"));
@@ -21,7 +21,7 @@ namespace ExAs.Api.Strings
         public void OnNamelessNinja_ShouldFail()
         {
             // act
-            var result = NamelessNinja().Evaluate(n => n.Property(x => x.Name).IsNotEmpty());
+            var result = NamelessNinja().Evaluate(n => n.Member(x => x.Name).IsNotEmpty());
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = ''", "(expected: not empty)"));
@@ -31,7 +31,7 @@ namespace ExAs.Api.Strings
         public void OnNullNinja_ShouldSucceed()
         {
             // act
-            var result = NullNinja().Evaluate(n => n.Property(x => x.Name).IsNotEmpty());
+            var result = NullNinja().Evaluate(n => n.Member(x => x.Name).IsNotEmpty());
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = null", "(expected: not empty)"));
