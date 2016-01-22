@@ -1,7 +1,7 @@
 ﻿using System;
 using ExAs.Assertions;
+using ExAs.Assertions.MemberAssertions;
 using ExAs.Assertions.ObjectAssertions;
-using ExAs.Assertions.PropertyAssertions;
 
 namespace ExAs
 {

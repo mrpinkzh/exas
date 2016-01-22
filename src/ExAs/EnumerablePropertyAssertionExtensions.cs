@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions;
-using ExAs.Assertions.PropertyAssertions.Enumerables;
+using ExAs.Assertions.MemberAssertions.Enumerables;
 
 namespace ExAs
 {

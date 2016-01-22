@@ -1,7 +1,7 @@
 ﻿using System;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions;
-using ExAs.Assertions.PropertyAssertions.Timespans;
+using ExAs.Assertions.MemberAssertions;
+using ExAs.Assertions.MemberAssertions.Timespans;
 
 namespace ExAs
 {

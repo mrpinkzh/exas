@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.Booleans;
+using ExAs.Assertions.MemberAssertions.Booleans;
 using ExAs.Results;
 
 namespace ExAs.Utils

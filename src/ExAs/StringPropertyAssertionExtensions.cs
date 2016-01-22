@@ -1,5 +1,5 @@
 ﻿using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.Strings;
+using ExAs.Assertions.MemberAssertions.Strings;
 
 namespace ExAs
 {

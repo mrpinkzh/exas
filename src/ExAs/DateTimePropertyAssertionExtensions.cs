@@ -1,6 +1,6 @@
 ﻿using System;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.DateTimes;
+using ExAs.Assertions.MemberAssertions.DateTimes;
 
 namespace ExAs
 {

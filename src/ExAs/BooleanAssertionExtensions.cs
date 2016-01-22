@@ -1,5 +1,5 @@
 ﻿using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.Booleans;
+using ExAs.Assertions.MemberAssertions.Booleans;
 
 namespace ExAs
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.Enumerables;
+using ExAs.Assertions.MemberAssertions.Enumerables;
 
 namespace ExAs
 {
