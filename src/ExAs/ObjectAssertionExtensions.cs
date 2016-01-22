@@ -11,7 +11,7 @@ namespace ExAs
             Expression<Func<T, TProperty>> propertyExpression)
         {
             var propertyAssertion = new PropertyAssertion<T, TProperty>(propertyExpression, parent);
-            parent.AddPropertyAssertion(propertyAssertion);
+            parent.AddMemberAssertion(propertyAssertion);
             return propertyAssertion;
         }
     }

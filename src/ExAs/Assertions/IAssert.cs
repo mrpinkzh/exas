@@ -8,7 +8,7 @@ namespace ExAs.Assertions
 
         IAssert<T> IsNull();
 
-        void AddPropertyAssertion(IAssertMemberOf<T> propertyAssertion);
+        void AddMemberAssertion(IAssertMemberOf<T> memberAssertion);
 
         ObjectAssertionResult Assert(T actual);
     }

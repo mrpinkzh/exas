@@ -13,7 +13,7 @@ namespace ExAs.Utils
             Expression<Func<T, TProperty>> expession)
         {
             var propertyAssertion = new PropertyAssertion<T, TProperty>(expession, objectAssertion);
-            objectAssertion.AddPropertyAssertion(propertyAssertion);
+            objectAssertion.AddMemberAssertion(propertyAssertion);
             return propertyAssertion;
         }
 

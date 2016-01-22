@@ -10,13 +10,13 @@ namespace ExAs.Assertions
 {
     public class ObjectAssertion<T> : IAssert<T>
     {
-        private readonly List<IAssertMemberOf<T>> propertyAssertions; 
+        private readonly List<IAssertMemberOf<T>> memberAssertions; 
         private IsNotNullAssertion<T> isNotNullAssertion;
         private IsNullAssertion<T> isNullAssertion;
 
         public ObjectAssertion()
         {
-            propertyAssertions = new List<IAssertMemberOf<T>>();
+            memberAssertions = new List<IAssertMemberOf<T>>();
         }
 
         public IAssert<T> IsNotNull()
@@ -31,9 +31,9 @@ namespace ExAs.Assertions
             return this;
         }
 
-        public void AddPropertyAssertion(IAssertMemberOf<T> propertyAssertion)
+        public void AddMemberAssertion(IAssertMemberOf<T> memberAssertion)
         {
-            propertyAssertions.Add(propertyAssertion);
+            memberAssertions.Add(memberAssertion);
         }
 
         public ObjectAssertionResult Assert(T actual)
@@ -43,7 +43,7 @@ namespace ExAs.Assertions
                 ValueAssertionResult isNotNullResult = isNotNullAssertion.AssertValue(actual);
                 if (!isNotNullResult.succeeded)
                     return new ObjectAssertionResult(isNotNullResult.succeeded, isNotNullResult.actualValueString, isNotNullResult.expectationString);
-                if (!propertyAssertions.Any())
+                if (!memberAssertions.Any())
                     return new ObjectAssertionResult(true, isNotNullResult.actualValueString, isNotNullResult.expectationString);
             }
             if (isNullAssertion != null)
@@ -52,10 +52,10 @@ namespace ExAs.Assertions
                 return new ObjectAssertionResult(isNullResult.succeeded, isNullResult.actualValueString, isNullResult.expectationString);
             }
 
-            if (!propertyAssertions.Any())
+            if (!memberAssertions.Any())
                 return new ObjectAssertionResult(true, "no assertions", "-");
 
-            IReadOnlyCollection<PropertyAssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
+            IReadOnlyCollection<PropertyAssertionResult> results = memberAssertions.Map(assertion => assertion.Assert(actual));
             int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
             IReadOnlyCollection<string> propertyResults = results.Map(
                 r =>
