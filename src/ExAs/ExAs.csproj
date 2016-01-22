@@ -35,7 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assertions\EnumerableAssertion.cs" />
-    <Compile Include="Assertions\IAssertInstance.cs" />
     <Compile Include="Assertions\IAssertMember.cs" />
     <Compile Include="Assertions\PropertyAssertionFunctions.cs" />
     <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertion.cs" />
@@ -79,7 +78,7 @@
     <Compile Include="Assertions\AssertToAssertValueAdapter.cs" />
     <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="Assertions\ObjectAssertion.cs" />
-    <Compile Include="Assertions\IAssertOnProperty.cs" />
+    <Compile Include="Assertions\IAssertMemberOf.cs" />
     <Compile Include="Results\ValueAssertionResult.cs" />
     <Compile Include="ExAsExtensions.cs" />
     <Compile Include="ObjectAssertionExtensions.cs" />

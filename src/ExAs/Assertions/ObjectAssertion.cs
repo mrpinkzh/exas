@@ -8,15 +8,15 @@ using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Assertions
 {
-    public class ObjectAssertion<T> : IAssert<T>, IAssertInstance<T>
+    public class ObjectAssertion<T> : IAssert<T>
     {
-        private readonly List<IAssertOnProperty<T>> propertyAssertions; 
+        private readonly List<IAssertMemberOf<T>> propertyAssertions; 
         private IsNotNullAssertion<T> isNotNullAssertion;
         private IsNullAssertion<T> isNullAssertion;
 
         public ObjectAssertion()
         {
-            propertyAssertions = new List<IAssertOnProperty<T>>();
+            propertyAssertions = new List<IAssertMemberOf<T>>();
         }
 
         public IAssert<T> IsNotNull()
@@ -31,7 +31,7 @@ namespace ExAs.Assertions
             return this;
         }
 
-        public void AddPropertyAssertion(IAssertOnProperty<T> propertyAssertion)
+        public void AddPropertyAssertion(IAssertMemberOf<T> propertyAssertion)
         {
             propertyAssertions.Add(propertyAssertion);
         }

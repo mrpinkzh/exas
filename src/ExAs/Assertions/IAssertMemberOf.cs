@@ -2,7 +2,7 @@
 
 namespace ExAs.Assertions
 {
-    public interface IAssertOnProperty<in T>
+    public interface IAssertMemberOf<in T>
     {
         PropertyAssertionResult Assert(T actual);
     }

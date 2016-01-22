@@ -4,7 +4,7 @@ using ExAs.Results;
 
 namespace ExAs.Assertions
 {
-    public class PropertyAssertion<T, TMember> : IAssertOnProperty<T>, IAssertMember<T, TMember>
+    public class PropertyAssertion<T, TMember> : IAssertMember<T, TMember>
     {
         private readonly Expression<Func<T, TMember>> genericPropertyExpression;
         private readonly IAssert<T> parent;
