@@ -8,13 +8,13 @@ namespace ExAs.Utils
 {
     public static class ExasShortcutNotationExtensions
     {
-        public static MemberAssertion<T, TProperty> p<T, TProperty>(
-            this IAssert<T> objectAssertion, 
-            Expression<Func<T, TProperty>> expession)
+        public static MemberAssertion<T, TMember> p<T, TMember>(
+            this IAssert<T> assertion, 
+            Expression<Func<T, TMember>> expession)
         {
-            var propertyAssertion = new MemberAssertion<T, TProperty>(expession, objectAssertion);
-            objectAssertion.AddMemberAssertion(propertyAssertion);
-            return propertyAssertion;
+            var memberAssertion = new MemberAssertion<T, TMember>(expession, assertion);
+            assertion.AddMemberAssertion(memberAssertion);
+            return memberAssertion;
         }
 
         public static IAssert<ObjectAssertionResult> Fullfills(

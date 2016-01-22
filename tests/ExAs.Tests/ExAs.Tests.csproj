@@ -55,7 +55,7 @@
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\IntegerAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
-    <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />
+    <Compile Include="Api\MultipleMemberAssertionFeature.cs" />
     <Compile Include="Api\NullableBooleanAssertionFeature.cs" />
     <Compile Include="Api\NullableIntegerAssertionFeature.cs" />
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />

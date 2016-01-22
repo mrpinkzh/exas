@@ -22,7 +22,7 @@ namespace ExAs.Assertions
             return parent;
         }
 
-        public PropertyAssertionResult Assert(T actual)
+        public MemberAssertionResult Assert(T actual)
         {
             return MemberAssertionFunctions.Assert(actual, memberExpression, assertion);
         }

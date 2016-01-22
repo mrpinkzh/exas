@@ -55,16 +55,16 @@ namespace ExAs.Assertions
             if (!memberAssertions.Any())
                 return new ObjectAssertionResult(true, "no assertions", "-");
 
-            IReadOnlyCollection<PropertyAssertionResult> results = memberAssertions.Map(assertion => assertion.Assert(actual));
-            int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
-            IReadOnlyCollection<string> propertyResults = results.Map(
+            IReadOnlyCollection<MemberAssertionResult> results = memberAssertions.Map(assertion => assertion.Assert(actual));
+            int lengthOfLongestMember = results.Max(x => x.memberName.Length);
+            IReadOnlyCollection<string> memberResults = results.Map(
                 r =>
                 {
                     string failureIndicator = r.childResult.succeeded ? "( )" : "(X)";
-                    string propertyString = failureIndicator.Add(r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty)).Add(" = ");
-                    return StringFunctions.HangingIndent(propertyString, r.childResult.actualValueString);
+                    string memberString = failureIndicator.Add(r.memberName.FillUpWithSpacesToLength(lengthOfLongestMember)).Add(" = ");
+                    return StringFunctions.HangingIndent(memberString, r.childResult.actualValueString);
                 });
-            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
+            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, memberResults));
             return new ObjectAssertionResult(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
         }
 

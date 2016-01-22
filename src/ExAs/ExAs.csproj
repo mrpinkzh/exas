@@ -74,7 +74,7 @@
     <Compile Include="Assertions\MemberAssertions\PrintoutAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\EqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertion.cs" />
-    <Compile Include="Results\PropertyAssertionResult.cs" />
+    <Compile Include="Results\MemberAssertionResult.cs" />
     <Compile Include="Assertions\AssertToAssertValueAdapter.cs" />
     <Compile Include="Assertions\IAssert.cs" />
     <Compile Include="Assertions\ObjectAssertion.cs" />

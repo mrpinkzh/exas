@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace ExAs.Api
 {
     [TestFixture]
-    public class MultiplePropertyAssertionFeature
+    public class MultipleMemberAssertionFeature
     {
         private readonly Ninja naruto = new Ninja("Naruto", 12);
 

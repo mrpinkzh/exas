@@ -7,7 +7,7 @@ namespace ExAs.Assertions
 {
     public static class MemberAssertionFunctions
     {
-        public static PropertyAssertionResult Assert<T, TMember>(T instance,
+        public static MemberAssertionResult Assert<T, TMember>(T instance,
             Expression<Func<T, TMember>> memberExpression, IAssertValue<TMember> assertion)
         {
             string memberName = memberExpression.ExtractMemberName();
@@ -15,16 +15,16 @@ namespace ExAs.Assertions
             return Assert(assertion, memberName, value);
         }
 
-        public static PropertyAssertionResult Assert<TMember>(IAssertValue<TMember> assertion, string memberName,
+        public static MemberAssertionResult Assert<TMember>(IAssertValue<TMember> assertion, string memberName,
             TMember value)
         {
             if (assertion == null)
-                return new PropertyAssertionResult(memberName,
+                return new MemberAssertionResult(memberName,
                     new ValueAssertionResult(false,
                         "no assertion specified",
                         string.Empty));
             ValueAssertionResult result = assertion.AssertValue(value);
-            return new PropertyAssertionResult(memberName, result);
+            return new MemberAssertionResult(memberName, result);
         }
     }
 }

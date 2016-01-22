@@ -8,21 +8,21 @@ namespace ExAs
     {
         public static MemberAssertion<T, TMember> Member<T, TMember>(
             this IAssert<T> parent,
-            Expression<Func<T, TMember>> propertyExpression)
+            Expression<Func<T, TMember>> memberExpression)
         {
-            var propertyAssertion = new MemberAssertion<T, TMember>(propertyExpression, parent);
-            parent.AddMemberAssertion(propertyAssertion);
-            return propertyAssertion;
+            var memberAssertion = new MemberAssertion<T, TMember>(memberExpression, parent);
+            parent.AddMemberAssertion(memberAssertion);
+            return memberAssertion;
         }
 
         [Obsolete]
         public static MemberAssertion<T, TMember> Property<T, TMember>(
             this IAssert<T> parent,
-            Expression<Func<T, TMember>> propertyExpression)
+            Expression<Func<T, TMember>> memberExpression)
         {
-            var propertyAssertion = new MemberAssertion<T, TMember>(propertyExpression, parent);
-            parent.AddMemberAssertion(propertyAssertion);
-            return propertyAssertion;
+            var memberAssertion = new MemberAssertion<T, TMember>(memberExpression, parent);
+            parent.AddMemberAssertion(memberAssertion);
+            return memberAssertion;
         }
     }
 }

@@ -4,6 +4,6 @@ namespace ExAs.Assertions
 {
     public interface IAssertMemberOf<in T>
     {
-        PropertyAssertionResult Assert(T actual);
+        MemberAssertionResult Assert(T actual);
     }
 }
