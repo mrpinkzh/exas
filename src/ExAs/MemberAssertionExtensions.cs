@@ -19,6 +19,11 @@ namespace ExAs
             return member.SetAssertion(new IsNotNullAssertion<TMember>());
         }
 
+        public static IAssert<T> IsOfType<T, TMember>(this IAssertMember<T, TMember> member, Type expected)
+        {
+            return member.SetAssertion(new OfTypeAssertion<TMember>(expected));
+        }
+
         public static IAssert<T> IsEqualTo<T, TMember>(this IAssertMember<T, TMember> member, TMember expected)
         {
             return member.SetAssertion(new EqualAssertion<TMember>(expected));
