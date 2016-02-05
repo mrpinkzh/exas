@@ -102,7 +102,7 @@
     <Compile Include="Utils\Timespans.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\ExAs\ExAs.csproj">
