@@ -1,0 +1,8 @@
+NUGET
+  remote: https://www.nuget.org/api/v2
+  specs:
+    NUnit (3.0.1)
+    NUnit.Console (3.0.1)
+    NUnit.Runners (3.0.1)
+      NUnit.Console (3.0.1)
+    ToText (1.1.7)
