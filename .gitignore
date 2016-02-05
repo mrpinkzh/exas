@@ -7,3 +7,4 @@ packages
 *.VisualState.xml
 TestResult.xml
 .vs
+.paket/paket.exe
