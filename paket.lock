@@ -1,6 +1,7 @@
 NUGET
   remote: https://www.nuget.org/api/v2
   specs:
+    FAKE (4.20.0)
     NuGet.CommandLine (3.3.0)
     NUnit (3.0.1) - framework: >= net45
     NUnit.Console (3.0.1) - framework: >= net45
