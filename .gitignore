@@ -8,3 +8,5 @@ packages
 TestResult.xml
 .vs
 .paket/paket.exe
+.fake
+build
