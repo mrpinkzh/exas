@@ -51,7 +51,6 @@ Target "default" (fun _ ->
   ==> "compile-src"
   ==> "compile-test"
   ==> "test"
-  ==> "appveyor-test-publish"
   ==> "default"
 
 RunTargetOrDefault "default"
