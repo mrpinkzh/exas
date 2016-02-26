@@ -15,7 +15,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{84350C44-AE33-4AA0-808E-846686726F66}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		release-notes.md = release-notes.md
+		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{179D29E5-6A0D-4462-99E9-F189F6DFB106}"

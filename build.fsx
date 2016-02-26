@@ -5,7 +5,8 @@ open Fake.AssemblyInfoFile
 RestorePackages()
 
 let buildDir = "./build/"
-let version = "0.1.1.0"
+let release = ReleaseNotesHelper.LoadReleaseNotes "RELEASE_NOTES.md"
+let version = release.AssemblyVersion + "." + BuildServerHelper.buildVersion
 
 Target "clean" (fun _ ->
    CleanDir buildDir
