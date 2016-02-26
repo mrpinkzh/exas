@@ -1,14 +1,6 @@
 @echo off
 cls
 
-.paket\paket.bootstrapper.exe
-if errorlevel 1 (
-	exit /b %errorlevel%
-)
+call .\scripts\bootstrap-paket.bat
 
-.paket\paket.exe restore
-if errorlevel 1 (
-	exit \b %errorlevel%
-)
-
-packages\FAKE\tools\FAKE.exe build.fsx %*
+call .\scripts\fake-build.bat %*
