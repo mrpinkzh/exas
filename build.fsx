@@ -12,6 +12,10 @@ Target "clean" (fun _ ->
    CleanDir buildDir
 )
 
+Target "trace-version" (fun _ ->
+    trace version
+)
+
 Target "version" (fun _ ->
     CreateCSharpAssemblyInfo "./src/ExAs/Properties/Version.cs"
         [Attribute.Version version
