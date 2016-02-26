@@ -1,12 +1,20 @@
 #r @"packages/FAKE/tools/FakeLib.dll"
 open Fake
+open Fake.AssemblyInfoFile
 
 RestorePackages()
 
 let buildDir = "./build/"
+let version = "0.1.1.0"
 
 Target "clean" (fun _ ->
    CleanDir buildDir
+)
+
+Target "version" (fun _ ->
+    CreateCSharpAssemblyInfo "./src/ExAs/Properties/Version.cs"
+        [Attribute.Version version
+         Attribute.FileVersion version]
 )
 
 Target "compile-src" (fun _ ->
