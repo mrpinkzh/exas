@@ -32,9 +32,14 @@ Target "compile-test" (fun _ ->
 Target "test" (fun _ ->
    !! (buildDir + "/*.Tests.dll")
       |> NUnit(fun p ->
-         {p with
-            ToolPath = "packages/NUnit.Runners/tools" }   
-      )
+         { p with
+            ToolPath = "packages/NUnit.Runners/tools"
+            OutputFile = buildDir + "/TestResults.xml" } 
+         )
+)
+
+Target "appveyor-test-publish" (fun _ ->
+    AppVeyor.UploadTestResultsXml AppVeyor.TestResultsType.NUnit "./build"
 )
 
 Target "default" (fun _ ->
@@ -42,9 +47,11 @@ Target "default" (fun _ ->
 )
 
 "clean"
+  ==> "version"
   ==> "compile-src"
   ==> "compile-test"
   ==> "test"
+  ==> "appveyor-test-publish"
   ==> "default"
 
 RunTargetOrDefault "default"
