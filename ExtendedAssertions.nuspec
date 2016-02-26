@@ -2,18 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ExtendedAssertions</id>
-    <version>0.1.0.1</version>
-    <title>Extended Assertions</title>
+    <version>@build.number@</version>
     <authors>mrpinkzh</authors>
     <owners>mrpinkzh</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>see: https://github.com/mrpinkzh/exas</description>
+    
+    <title>Extended Assertions</title>
+    <description>@description@</description>
     <copyright>Copyright © aias engineering GmbH 2015</copyright>
     <tags>
         TDD BDD
     </tags>
   </metadata>
-  <files>
-    <file src="build\bin\ExAs.dll" target="lib\net45" />
-  </files>
+  @files@
 </package>

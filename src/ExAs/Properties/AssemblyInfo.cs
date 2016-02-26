@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ExAs")]
-[assembly: AssemblyDescription("see: https://github.com/mrpinkzh/exas")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("aias engineering gmbh")]
 [assembly: AssemblyProduct("Extended Asssertions")]
