@@ -78,7 +78,7 @@ Target "pack-nuget" (fun _ ->
 
 Target "publish-alpha" (fun _ ->
     if not isLocalBuild
-    then PackAndPublish (version + "alpha") true
+    then PackAndPublish (version + "-alpha") true
 )
 
 "clean"
