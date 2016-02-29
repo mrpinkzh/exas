@@ -14,6 +14,18 @@ let isLocalBuild = BuildServerHelper.buildServer = BuildServerHelper.BuildServer
 
 let productDesc = "see: https://github.com/mrpinkzh/exas"
 
+let PackAndPublish version publish =
+    CopyFiles packDir [buildDir + "ExAs.dll"]
+
+    NuGet (fun p -> 
+            { p with Version = version
+                     Description = productDesc
+                     WorkingDir = packDir
+                     Publish = publish
+                     OutputPath = buildDir
+                     Files = [("ExAs.dll", Some "lib", None)] })
+          "ExtendedAssertions.nuspec"
+
 Target "clean" (fun _ ->
    CleanDir buildDir
    CleanDir packDir
@@ -56,27 +68,17 @@ Target "appveyor-test-publish" (fun _ ->
 )
 
 Target "pack-nuget" (fun _ ->
-    CopyFiles packDir ["./build/ExAs.dll"]
-    
     // on a local build the version would contain a "LocalBuild" string which nuget cannot handle
     let nugetVersion = if isLocalBuild
                        then release.AssemblyVersion
                        else version
 
-    NuGet (fun p -> 
-            { p with Version = nugetVersion
-                     Description = productDesc
-                     WorkingDir = packDir
-                     Publish = false
-                     OutputPath = buildDir
-                     Files = [("ExAs.dll", Some "lib", None)] })
-          "ExtendedAssertions.nuspec"
-    
+    PackAndPublish nugetVersion false
 )
 
-Target "default" (fun _ ->
-   trace "building exas with fake"
-
+Target "publish-alpha" (fun _ ->
+    if not isLocalBuild
+    then PackAndPublish (version + "alpha") true
 )
 
 "clean"
@@ -84,7 +86,6 @@ Target "default" (fun _ ->
   ==> "compile-src"
   ==> "compile-test"
   ==> "test"
-  ==> "pack-nuget"
-  ==> "default"
+  ==> "pack-nuget" <=> "publish-alpha"
 
-RunTargetOrDefault "default"
+RunTargetOrDefault "pack-nuget"
