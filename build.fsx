@@ -14,14 +14,15 @@ let isLocalBuild = BuildServerHelper.buildServer = BuildServerHelper.BuildServer
 
 let productDesc = "see: https://github.com/mrpinkzh/exas"
 
-let PackAndPublish version publish =
+let PackAndPublish version =
     CopyFiles packDir [buildDir + "ExAs.dll"]
 
     NuGet (fun p -> 
             { p with Version = version
                      Description = productDesc
                      WorkingDir = packDir
-                     Publish = publish
+                     AccessKey = getBuildParamOrDefault "nugetkey" ""
+                     Publish = hasBuildParam "nugetkey"
                      OutputPath = buildDir
                      Files = [("ExAs.dll", Some "lib", None)] })
           "ExtendedAssertions.nuspec"
@@ -73,12 +74,12 @@ Target "pack-nuget" (fun _ ->
                        then release.AssemblyVersion
                        else version
 
-    PackAndPublish nugetVersion false
+    PackAndPublish nugetVersion
 )
 
 Target "publish-alpha" (fun _ ->
     if not isLocalBuild
-    then PackAndPublish (version + "-alpha") true
+    then PackAndPublish (version + "-alpha")
 )
 
 "clean"
