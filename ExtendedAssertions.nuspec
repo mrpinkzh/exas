@@ -9,6 +9,7 @@
     
     <title>Extended Assertions</title>
     <description>@description@</description>
+    <releaseNotes>@releaseNotes@</releaseNotes>
     <copyright>Copyright © aias engineering GmbH 2015</copyright>
     <tags>
         TDD BDD

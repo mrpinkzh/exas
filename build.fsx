@@ -6,6 +6,7 @@ RestorePackages()
 
 let buildDir = "./build/"
 let packDir = "./pack/"
+let binDir = "./bin/"
 
 let release = ReleaseNotesHelper.LoadReleaseNotes "RELEASE_NOTES.md"
 let version = release.AssemblyVersion + "." + BuildServerHelper.buildVersion
@@ -14,22 +15,10 @@ let isLocalBuild = BuildServerHelper.buildServer = BuildServerHelper.BuildServer
 
 let productDesc = "see: https://github.com/mrpinkzh/exas"
 
-let PackAndPublish version =
-    CopyFiles packDir [buildDir + "ExAs.dll"]
-
-    NuGet (fun p -> 
-            { p with Version = version
-                     Description = productDesc
-                     WorkingDir = packDir
-                     AccessKey = getBuildParamOrDefault "nugetkey" ""
-                     Publish = hasBuildParam "nugetkey"
-                     OutputPath = buildDir
-                     Files = [("ExAs.dll", Some "lib", None)] })
-          "ExtendedAssertions.nuspec"
-
 Target "clean" (fun _ ->
    CleanDir buildDir
    CleanDir packDir
+   CleanDir binDir
 )
 
 Target "trace-version" (fun _ ->
@@ -69,17 +58,27 @@ Target "appveyor-test-publish" (fun _ ->
 )
 
 Target "pack-nuget" (fun _ ->
+    CopyFiles packDir [buildDir + "ExAs.dll"]
+
     // on a local build the version would contain a "LocalBuild" string which nuget cannot handle
     let nugetVersion = if isLocalBuild
                        then release.AssemblyVersion
                        else version
 
-    PackAndPublish nugetVersion
+    NuGet (fun p -> 
+            { p with Version = nugetVersion
+                     Description = productDesc
+                     WorkingDir = packDir
+                     AccessKey = getBuildParamOrDefault "nugetkey" ""
+                     OutputPath = binDir
+                     ReleaseNotes = toLines release.Notes
+                     Files = [("ExAs.dll", Some "lib", None)] })
+          "ExtendedAssertions.nuspec"
 )
 
 Target "publish-alpha" (fun _ ->
-    if not isLocalBuild
-    then PackAndPublish (version + "-alpha")
+    Paket.Push(fun p ->
+        { p with WorkingDir = binDir })
 )
 
 "clean"
@@ -87,6 +86,7 @@ Target "publish-alpha" (fun _ ->
   ==> "compile-src"
   ==> "compile-test"
   ==> "test"
-  ==> "pack-nuget" <=> "publish-alpha"
+  ==> "pack-nuget" 
+  ==> "publish-alpha"
 
 RunTargetOrDefault "pack-nuget"
