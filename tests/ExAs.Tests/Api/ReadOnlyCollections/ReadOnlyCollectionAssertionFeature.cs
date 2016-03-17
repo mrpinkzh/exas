@@ -4,6 +4,7 @@ using System.Linq;
 using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.ReadOnlyCollections
 {
@@ -12,9 +13,9 @@ namespace ExAs.Api.ReadOnlyCollections
     {
         private readonly CollectionCity cityWithNullDojos = new CollectionCity(dojoList: null);
         private readonly CollectionCity cityWithoutDojo = new CollectionCity();
-        private readonly CollectionCity cityWithDojo = new CollectionCity(new Dojo(new Ninja(), Dates.StandardDay()));
-        private readonly CollectionCity threeDojoCity = new CollectionCity(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
-                                                                           new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
+        private readonly CollectionCity cityWithDojo = new CollectionCity(new Dojo(Naruto(), Dates.StandardDay()));
+        private readonly CollectionCity threeDojoCity = new CollectionCity(new Dojo(Naruto(), new DateTime(1515, 11, 15)),
+                                                                           new Dojo(Kakashi(), new DateTime(1500, 1, 1)),
                                                                            new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
 
         [Test]

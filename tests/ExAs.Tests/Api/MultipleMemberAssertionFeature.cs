@@ -2,18 +2,17 @@
 using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api
 {
     [TestFixture]
     public class MultipleMemberAssertionFeature
     {
-        private readonly Ninja naruto = new Ninja("Naruto", 12);
-
         [Test]
         public void Assert_WithNaruto_AndValidAssertionForBothProperties_ShouldPass()
         {
-            ObjectAssertionResult result = naruto.Evaluate(
+            ObjectAssertionResult result = Naruto().Evaluate(
                 n => n.Member(x => x.Name).IsEqualTo("Naruto")
                       .Member(x => x.Age) .IsEqualTo(12));
             Assert.IsTrue(result.succeeded);
@@ -25,7 +24,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndInvalidNameAssertion_ShouldFail()
         {
-            ObjectAssertionResult result = naruto.Evaluate(
+            ObjectAssertionResult result = Naruto().Evaluate(
                 n => n.Member(x => x.Name).IsEqualTo("Tsubasa")
                       .Member(x => x.Age) .IsEqualTo(12));
             Assert.IsFalse(result.succeeded);

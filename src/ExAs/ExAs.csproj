@@ -57,6 +57,7 @@
     <Compile Include="Assertions\MemberAssertions\Strings\HasLengthAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\IsNotEmptyAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Strings\StartsWithAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Timespans\IsCloseToAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Timespans\IsNegativeAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Timespans\IsPositiveAssertion.cs" />

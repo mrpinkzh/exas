@@ -1,3 +1,6 @@
+## New in 0.1.2
+* added string-starts-with assertion
+
 ## New in 0.1.1
 * added support for IReadOnlyCollection
 * added comparable assertions: is-bigger-than, is-in-range

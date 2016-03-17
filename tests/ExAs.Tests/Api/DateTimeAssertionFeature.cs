@@ -1,6 +1,7 @@
 ﻿using System;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api
 {
@@ -12,7 +13,7 @@ namespace ExAs.Api
         [Test]
         public void SameDayAs_OnCommonDojoFoundationDay_WithCommonDojoFoundationDay_ShouldSucceed()
         {
-            var dojo = new Dojo(new Ninja(), commonDojoFoundationDay);
+            var dojo = new Dojo(Naruto(), commonDojoFoundationDay);
             var result = dojo.Evaluate(d => d.Member(x => x.Founded).IsOnSameDayAs(commonDojoFoundationDay.AddHours(12)));
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Dojo: ( )Founded = 11/15/1515 (expected: 11/15/1515)",
@@ -22,7 +23,7 @@ namespace ExAs.Api
         [Test]
         public void SameDayAs_OnCommonDojoFoundationDay_With200YearsLater_ShouldFail()
         {
-            var dojo = new Dojo(new Ninja(), commonDojoFoundationDay);
+            var dojo = new Dojo(Naruto(), commonDojoFoundationDay);
             var result = dojo.Evaluate(d => d.Member(x => x.Founded).IsOnSameDayAs(commonDojoFoundationDay.AddYears(200)));
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Dojo: (X)Founded = 11/15/1515 (expected: 11/15/1715)",

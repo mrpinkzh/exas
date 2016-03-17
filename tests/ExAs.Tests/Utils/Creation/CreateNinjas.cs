@@ -7,6 +7,11 @@
             return new Ninja();
         }
 
+        public static Ninja Kakashi()
+        {
+            return new Ninja("Kakashi", 26);
+        }
+
         public static Ninja MultilinedNarutoUzumaki()
         {
             return new Ninja("Naruto".NewLine()

@@ -1,4 +1,5 @@
 ﻿using ExAs.Assertions;
+using ExAs.Assertions.MemberAssertions;
 using ExAs.Assertions.MemberAssertions.Strings;
 
 namespace ExAs
@@ -24,5 +25,10 @@ namespace ExAs
         {
             return member.SetAssertion(new HasLengthAssertion(expectedLength));
         }
+
+        public static IAssert<T> StartsWith<T>(this IAssertMember<T, string> member, string expectedStart)
+        {
+            return member.SetAssertion(new StartsWithAssertion(expectedStart));
+        } 
     }
 }

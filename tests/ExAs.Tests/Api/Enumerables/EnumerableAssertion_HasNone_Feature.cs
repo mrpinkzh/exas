@@ -2,6 +2,7 @@
 using ExAs.Utils;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateCities;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.Enumerables
 {
@@ -34,8 +35,8 @@ namespace ExAs.Api.Enumerables
         public void ExpectingNoSpecificDojo_OnCityWithSpecificAndOtherDojo_ShouldFail()
         {
             // arrange
-            var city = new City(new Dojo(new Ninja("Naruto".NewLine().Add("Uzumaki")), new DateTime(1515, 11, 15)),
-                                new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)));
+            var city = new City(new Dojo(MultilinedNarutoUzumaki(), new DateTime(1515, 11, 15)),
+                                new Dojo(Kakashi(), new DateTime(1500, 1, 1)));
 
             // act
             var result = city.Evaluate(

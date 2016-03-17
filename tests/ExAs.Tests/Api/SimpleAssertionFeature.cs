@@ -1,18 +1,17 @@
 ﻿using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api
 {
     [TestFixture]
     public class SimpleAssertionFeature
     {
-        private readonly Ninja naruto = new Ninja("Naruto", 12);
-
         [Test]
         public void Assert_WithNaruto_WithoutAssertions_ShouldPass()
         {
-            var result = naruto.Evaluate(n => n);
+            var result = Naruto().Evaluate(n => n);
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("no assertions", result.log);
         }
@@ -20,7 +19,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndNotNull_ShouldPass()
         {
-            var result = naruto.Evaluate(
+            var result = Naruto().Evaluate(
                 n => n.IsNotNull());
             Assert.IsTrue(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: not null)", result.PrintLog());
@@ -49,7 +48,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndNullAssertion_ShouldFail()
         {
-            var result = naruto.Evaluate(
+            var result = Naruto().Evaluate(
                 n => n.IsNull());
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: null)", result.PrintLog());
@@ -58,9 +57,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndValidNameAssertion_ShouldPass()
         {
-            var ninja = new Ninja("Naruto", 12);
-
-            ObjectAssertionResult result = ninja.Evaluate(
+            ObjectAssertionResult result = Naruto().Evaluate(
                 n => n.Member(x => x.Name).IsEqualTo("Naruto"));
 
             Assert.IsTrue(result.succeeded);
@@ -71,9 +68,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndValidAgeAssertion_ShouldPass()
         {
-            var ninja = new Ninja("Naruto", 12);
-
-            ObjectAssertionResult result = ninja.Evaluate(
+            ObjectAssertionResult result = Naruto().Evaluate(
                 n => n.Member(x => x.Age).IsEqualTo(12));
 
             Assert.IsTrue(result.succeeded);

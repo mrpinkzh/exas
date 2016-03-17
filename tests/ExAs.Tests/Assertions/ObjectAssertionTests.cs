@@ -1,6 +1,7 @@
 ﻿using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Assertions
 {
@@ -20,7 +21,7 @@ namespace ExAs.Assertions
         public void Assert_OnNullAssertion_WithNinja_ShouldFail()
         {
             var assertion = Ninja().IsNull();
-            ObjectAssertionResult result = assertion.Assert(new Ninja());
+            ObjectAssertionResult result = assertion.Assert(Naruto());
             Assert.IsFalse(result.succeeded);
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: null)", result.PrintLog());
         }

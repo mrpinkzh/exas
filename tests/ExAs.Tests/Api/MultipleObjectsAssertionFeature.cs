@@ -2,6 +2,7 @@
 using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api
 {
@@ -11,7 +12,7 @@ namespace ExAs.Api
     [TestFixture]
     public class MultipleObjectsAssertionFeature
     {
-        private readonly Dojo narutosDojo = new Dojo(new Ninja(), new DateTime(1515, 11, 1));
+        private readonly Dojo narutosDojo = new Dojo(Naruto(), new DateTime(1515, 11, 1));
 
         [Test]
         public void WithNarutosDojo_AndValidAssertions_ShouldPass()

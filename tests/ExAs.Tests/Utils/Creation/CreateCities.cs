@@ -1,5 +1,6 @@
 ﻿using System;
 using static ExAs.Utils.Dates;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Utils.Creation
 {
@@ -12,7 +13,7 @@ namespace ExAs.Utils.Creation
 
         public static City CityWithDojo()
         {
-            return new City(new Dojo(new Ninja(), StandardDay()));
+            return new City(new Dojo(Naruto(), StandardDay()));
         }
 
         public static City CityWithNullDojoList()
@@ -22,8 +23,8 @@ namespace ExAs.Utils.Creation
 
         public static City ThreeDojoCity()
         {
-            return new City(new Dojo(new Ninja(), new DateTime(1515, 11, 15)),
-                            new Dojo(new Ninja("Kakashi", 26), new DateTime(1500, 1, 1)),
+            return new City(new Dojo(Naruto(), new DateTime(1515, 11, 15)),
+                            new Dojo(Kakashi(), new DateTime(1500, 1, 1)),
                             new Dojo(new Ninja("Tsubasa", 14), StandardDay()));
         }
     }
