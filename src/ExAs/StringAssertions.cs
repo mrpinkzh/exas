@@ -44,6 +44,11 @@ namespace ExAs
         public static IAssert<T> DoesntEndWith<T>(this IAssertMember<T, string> member, string expected)
         {
             return member.SetAssertion(new EndsNotWithAssertion(expected));
-        }  
+        }
+
+        public static IAssert<T> Contains<T>(this IAssertMember<T, string> member, string expected)
+        {
+            return member.SetAssertion(new ContainsAssertion(expected));
+        } 
     }
 }

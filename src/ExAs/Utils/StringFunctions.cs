@@ -92,5 +92,12 @@ namespace ExAs.Utils
         {
             return multiLineString.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
         }
+
+        public static bool Contains_NullAware(this string subject, string value)
+        {
+            if (subject == null) return false;
+            if (value == null) return false;
+            return subject.Contains(value);
+        }
     }
 }
