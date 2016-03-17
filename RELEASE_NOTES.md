@@ -1,6 +1,5 @@
 ## New in 0.1.2
-* added string-starts-with assertion
-* addes string-ends-with assertion
+* added string assertions: starts-with, starts-not-with, ends-with
 
 ## New in 0.1.1
 * added support for IReadOnlyCollection

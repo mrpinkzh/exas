@@ -34,6 +34,11 @@ namespace ExAs
         public static IAssert<T> EndsWith<T>(this IAssertMember<T, string> member, string expectedEnd)
         {
             return member.SetAssertion(new EndsWithAssertion(expectedEnd));
+        }
+
+        public static IAssert<T> DoesntStartWith<T>(this IAssertMember<T, string> member, string expected)
+        {
+            return member.SetAssertion(new StartsNotWithAssertion(expected));
         } 
     }
 }

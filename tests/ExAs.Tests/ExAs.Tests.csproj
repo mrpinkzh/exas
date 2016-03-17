@@ -59,6 +59,7 @@
     <Compile Include="Api\Strings\StringAssertion_IsEqualTo_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsNull_Feature.cs" />
+    <Compile Include="Api\Strings\StringAssertion_DoesntStartWith_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_StartsWith_Feature.cs" />
     <Compile Include="Api\Timespans\SleepyNinja.cs" />
     <Compile Include="Api\Timespans\TimespanAssertion_IsCloseTo_Feature.cs" />
