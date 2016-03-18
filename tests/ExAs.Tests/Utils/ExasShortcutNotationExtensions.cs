@@ -17,8 +17,8 @@ namespace ExAs.Utils
             return memberAssertion;
         }
 
-        public static IAssert<ObjectAssertionResult> Fullfills(
-            this IAssert<ObjectAssertionResult> instance, 
+        public static IAssert<Result> Fullfills(
+            this IAssert<Result> instance, 
             bool succeeded, 
             string log, 
             string expectation)

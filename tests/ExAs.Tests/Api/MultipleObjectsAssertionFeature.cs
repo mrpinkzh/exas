@@ -21,7 +21,7 @@ namespace ExAs.Api
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("de");
 
             // act
-            ObjectAssertionResult result = narutosDojo.Evaluate(
+            Result result = narutosDojo.Evaluate(
                 d => d.Member(x => x.Master).Fulfills(n => n.Member(x => x.Name).IsEqualTo("Naruto")
                                                                  .Member(x => x.Age) .IsEqualTo(12))
                       .Member(x => x.Founded).IsEqualTo(new DateTime(1515, 11, 1)));

@@ -38,7 +38,7 @@ namespace ExAs.Api.ShortSyntax
                                                          .Member(x => x.Age) .IsEqualTo(12));
 
             // assert
-            ExAssert(result, Has<ObjectAssertionResult>().Member(x => x.succeeded).IsFalse()
+            ExAssert(result, Has<Result>().Member(x => x.succeeded).IsFalse()
                                                          .Member(x => x.actual)      .Printout());
         }
     }

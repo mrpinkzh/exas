@@ -7,13 +7,13 @@ namespace ExAs
     {
         public static void ExAssert<T>(T instance, IAssert<T> assertion)
         {
-            ObjectAssertionResult result = Evaluate(instance, assertion);
+            Result result = Evaluate(instance, assertion);
             if (result.succeeded)
                 return;
             throw new ExtendedAssertionException(result);
         }
 
-        public static ObjectAssertionResult Evaluate<T>(T instance, IAssert<T> assertion)
+        public static Result Evaluate<T>(T instance, IAssert<T> assertion)
         {
             return assertion.Assert(instance);
         }

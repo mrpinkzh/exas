@@ -5,13 +5,13 @@ using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Results
 {
-    public class ObjectAssertionResult
+    public class Result
     {
         public readonly bool succeeded;
         public readonly string actual;
         public readonly string expectation;
 
-        public ObjectAssertionResult(bool succeeded, string actual, string expectation)
+        public Result(bool succeeded, string actual, string expectation)
         {
             this.succeeded = succeeded;
             this.actual = actual;

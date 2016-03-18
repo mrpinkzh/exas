@@ -13,7 +13,7 @@ namespace ExAs.Api
         [Test]
         public void IsEqualTo_Expect12_Get12_ShouldPass()
         {
-            ObjectAssertionResult result = Naruto().Evaluate(n => n.Member(x => x.Age).IsEqualTo(12));
+            Result result = Naruto().Evaluate(n => n.Member(x => x.Age).IsEqualTo(12));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
                                   .p(x => x.actual)        .IsEqualTo("Ninja: ( )Age = 12")
                                   .p(x => x.expectation).IsEqualTo("(expected: 12)"));
@@ -22,7 +22,7 @@ namespace ExAs.Api
         [Test]
         public void IsEqualTo_Expect13_Get12_ShouldFail()
         {
-            ObjectAssertionResult result = Naruto().Evaluate(n => n.p(x => x.Age).IsEqualTo(13));
+            Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsEqualTo(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
                                   .p(x => x.actual)        .IsEqualTo("Ninja: (X)Age = 12")
                                   .p(x => x.expectation).IsEqualTo("(expected: 13)"));
@@ -31,7 +31,7 @@ namespace ExAs.Api
         [Test]
         public void IsSmallerThan_Expected13_Get12_ShouldPass()
         {
-            ObjectAssertionResult result = Naruto().Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
+            Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
                                   .p(x => x.actual)        .IsEqualTo("Ninja: ( )Age = 12")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));
@@ -40,7 +40,7 @@ namespace ExAs.Api
         [Test]
         public void IsSmallerThan_Expected13_Get13_ShouldFail()
         {
-            ObjectAssertionResult result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
+            Result result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
                                   .p(x => x.actual)        .IsEqualTo("Ninja: (X)Age = 93")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));

@@ -23,7 +23,7 @@ namespace ExAs.Api
         public void ExAssertHanNoneWhichIsNull_OnArrayWithNullValue_ShouldFail()
         {
             var array = new[] {"Stringy", null};
-            ObjectAssertionResult result = array.EvaluateHasNone(a => a.IsNull());
+            Result result = array.EvaluateHasNone(a => a.IsNull());
 
             result.ExAssert(r => r.Member(x => x.succeeded ).IsFalse()
                                   .Member(x => x.PrintLog()).IsEqualTo("Enumerable<String>: <1 match> (expected: 0 matches)".NewLine()

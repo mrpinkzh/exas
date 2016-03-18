@@ -13,7 +13,7 @@ namespace ExAs.Assertions
 
         public ValueAssertionResult AssertValue(T actual)
         {
-            ObjectAssertionResult result = assert.Assert(actual);
+            Result result = assert.Assert(actual);
             return new ValueAssertionResult(result.succeeded, result.actual, result.expectation);
         }
     }

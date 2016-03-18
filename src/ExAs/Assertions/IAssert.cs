@@ -10,6 +10,6 @@ namespace ExAs.Assertions
 
         void AddMemberAssertion(IAssertMemberOf<T> memberAssertion);
 
-        ObjectAssertionResult Assert(T actual);
+        Result Assert(T actual);
     }
 }

@@ -75,7 +75,7 @@
     <Compile Include="NullableBooleanAssertions.cs" />
     <Compile Include="NullableIntegerAssertions.cs" />
     <Compile Include="ReadOnlyCollectionAssertions.cs" />
-    <Compile Include="Results\ObjectAssertionResult.cs" />
+    <Compile Include="Results\Result.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertion.cs" />
