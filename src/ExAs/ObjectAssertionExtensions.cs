@@ -6,13 +6,23 @@ namespace ExAs
 {
     public static class ObjectAssertionExtensions
     {
-        public static PropertyAssertion<T, TProperty> Property<T, TProperty>(
-            this ObjectAssertion<T> parent,
-            Expression<Func<T, TProperty>> propertyExpression)
+        public static MemberAssertion<T, TMember> Member<T, TMember>(
+            this IAssert<T> parent,
+            Expression<Func<T, TMember>> memberExpression)
         {
-            var propertyAssertion = new PropertyAssertion<T, TProperty>(propertyExpression, parent);
-            parent.AddPropertyAssertion(propertyAssertion);
-            return propertyAssertion;
+            var memberAssertion = new MemberAssertion<T, TMember>(memberExpression, parent);
+            parent.AddMemberAssertion(memberAssertion);
+            return memberAssertion;
+        }
+
+        [Obsolete]
+        public static MemberAssertion<T, TMember> Property<T, TMember>(
+            this IAssert<T> parent,
+            Expression<Func<T, TMember>> memberExpression)
+        {
+            var memberAssertion = new MemberAssertion<T, TMember>(memberExpression, parent);
+            parent.AddMemberAssertion(memberAssertion);
+            return memberAssertion;
         }
     }
 }

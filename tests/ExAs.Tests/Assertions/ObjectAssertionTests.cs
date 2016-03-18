@@ -25,12 +25,12 @@ namespace ExAs.Assertions
             Assert.AreEqual("Ninja: Name = 'Naruto' (expected: null)", result.PrintLog());
         }
 
-        private static ObjectAssertion<Ninja> Ninja()
+        private static IAssert<Ninja> Ninja()
         {
             return ObjectAssertion<Ninja>();
         }
 
-        private static ObjectAssertion<T> ObjectAssertion<T>()
+        private static IAssert<T> ObjectAssertion<T>()
         {
             return new ObjectAssertion<T>();
         }

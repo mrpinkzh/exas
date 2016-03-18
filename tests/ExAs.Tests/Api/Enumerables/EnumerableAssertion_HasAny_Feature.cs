@@ -14,7 +14,7 @@ namespace ExAs.Api.Enumerables
         {
             // act
             var result = CityWithDojo().Evaluate(
-                c => c.Property(x => x.Dojos).HasAny(d => d.p(x => x.Founded).IsOnSameDayAs(StandardDay())));
+                c => c.Member(x => x.Dojos).HasAny(d => d.p(x => x.Founded).IsOnSameDayAs(StandardDay())));
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded) .IsTrue()
@@ -32,7 +32,7 @@ namespace ExAs.Api.Enumerables
 
             // act
             var result = city.Evaluate(
-                c => c.Property(x => x.Dojos).HasAny(d => d.p(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+                c => c.Member(x => x.Dojos).HasAny(d => d.p(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
@@ -47,8 +47,8 @@ namespace ExAs.Api.Enumerables
         {
             // act
             var result = ThreeDojoCity().Evaluate(
-                c => c.Property(x => x.Dojos).HasAny(d => d.Property(x => x.Master) .Fulfills(n => n.Property(x => x.Age).IsEqualTo(26))
-                                                           .Property(x => x.Founded).IsOnSameDayAs(StandardDay())));
+                c => c.Member(x => x.Dojos).HasAny(d => d.Member(x => x.Master) .Fulfills(n => n.Member(x => x.Age).IsEqualTo(26))
+                                                         .Member(x => x.Founded).IsOnSameDayAs(StandardDay())));
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded).IsFalse()

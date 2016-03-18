@@ -13,8 +13,8 @@ namespace ExAs.Api.Enumerables
         {
             // act
             var result = ThreeDojoCity().Evaluate(
-                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age).IsEqualTo(26))
-                                                            .Property(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+                c => c.Member(x => x.Dojos).HasNone(d => d.Member(x => x.Master).Fulfills(n => n.Member(x => x.Age).IsEqualTo(26))
+                                                          .Member(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
 
             // assert
             Console.Out.WriteLine(result.PrintLog());
@@ -39,9 +39,9 @@ namespace ExAs.Api.Enumerables
 
             // act
             var result = city.Evaluate(
-                c => c.Property(x => x.Dojos).HasNone(d => d.Property(x => x.Master).Fulfills(n => n.Property(x => x.Age) .IsEqualTo(26)
-                                                                                                    .Property(x => x.Name).IsEqualTo("Kakashi"))
-                                                            .Property(x => x.Founded).IsOnSameDayAs(new DateTime(1500, 1, 1))));
+                c => c.Member(x => x.Dojos).HasNone(d => d.Member(x => x.Master).Fulfills(n => n.Member(x => x.Age) .IsEqualTo(26)
+                                                                                                .Member(x => x.Name).IsEqualTo("Kakashi"))
+                                                          .Member(x => x.Founded).IsOnSameDayAs(new DateTime(1500, 1, 1))));
 
             // assert
             Console.Out.WriteLine(result.PrintLog());

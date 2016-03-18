@@ -1,5 +1,6 @@
 ﻿using System;
 using ExAs.Utils;
+using static ExAs.Utils.Timespans;
 
 namespace ExAs.Api.Timespans
 {
@@ -7,7 +8,7 @@ namespace ExAs.Api.Timespans
     {
         public static SleepyNinja WorkDayNinja()
         {
-            return new SleepyNinja(new TimeSpan(8, 30, 15));
+            return new SleepyNinja(WorkDay());
         }
 
         public static SleepyNinja AsleepNinja()
@@ -18,6 +19,11 @@ namespace ExAs.Api.Timespans
         public static SleepyNinja WokeUpNinja()
         {
             return new SleepyNinja(default(TimeSpan));
+        }
+
+        public static SleepyNinja SleeplessNinja()
+        {
+            return new SleepyNinja(MonthAndWorkDay());
         }
 
         public readonly TimeSpan awake;

@@ -13,7 +13,7 @@ namespace ExAs.Api
         [Test]
         public void IsEqualTo_Expect12_Get12_ShouldPass()
         {
-            ObjectAssertionResult result = naruto.Evaluate(n => n.Property(x => x.Age).IsEqualTo(12));
+            ObjectAssertionResult result = naruto.Evaluate(n => n.Member(x => x.Age).IsEqualTo(12));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
                                   .p(x => x.log)        .IsEqualTo("Ninja: ( )Age = 12")
                                   .p(x => x.expectation).IsEqualTo("(expected: 12)"));
@@ -50,7 +50,7 @@ namespace ExAs.Api
         public void IsBiggerThan_Expected2_Get12_ShouldPass()
         {
             // Act
-            var result = naruto.Evaluate(n => n.Property(x => x.Age).IsBiggerThan(2));
+            var result = naruto.Evaluate(n => n.Member(x => x.Age).IsBiggerThan(2));
 
             // Assert
             result.ExAssert(r => r.IsNotNull()
@@ -62,7 +62,7 @@ namespace ExAs.Api
         public void IsBiggerThan_Expected100_Get93_ShouldFail()
         {
             // Act
-            var result = oldNaruto.Evaluate(n => n.Property(x => x.Age).IsBiggerThan(100));
+            var result = oldNaruto.Evaluate(n => n.Member(x => x.Age).IsBiggerThan(100));
 
             // Assert
             result.ExAssert(r => r.IsNotNull()

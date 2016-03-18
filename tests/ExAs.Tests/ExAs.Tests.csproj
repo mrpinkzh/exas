@@ -30,16 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="ToText, Version=1.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ToText.1.1.7\lib\net45\ToText.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BooleanAssertionFeature.cs" />
@@ -55,7 +47,7 @@
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\IntegerAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
-    <Compile Include="Api\MultiplePropertyAssertionFeature.cs" />
+    <Compile Include="Api\MultipleMemberAssertionFeature.cs" />
     <Compile Include="Api\NullableBooleanAssertionFeature.cs" />
     <Compile Include="Api\NullableIntegerAssertionFeature.cs" />
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
@@ -67,22 +59,26 @@
     <Compile Include="Api\Strings\StringAssertion_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_IsNull_Feature.cs" />
     <Compile Include="Api\Timespans\SleepyNinja.cs" />
+    <Compile Include="Api\Timespans\TimespanAssertion_IsCloseTo_Feature.cs" />
     <Compile Include="Api\Timespans\TimespanAssertion_IsNegative_Feature.cs" />
+    <Compile Include="Api\Timespans\TimespanAssertion_IsNotEqual_Feature.cs" />
     <Compile Include="Api\Timespans\TimespanAssertion_IsPositive_Feature.cs" />
+    <Compile Include="Api\Timespans\TimespanAssertion_Comparables_Feature.cs" />
+    <Compile Include="Api\Types\TypeAssertionFeature.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Booleans\IsFalseAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Booleans\IsTrueAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\DateTimes\CloseToAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\DateTimes\SameDayAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Enumerables\HasAnyAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Enumerables\HasNoneAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Enumerables\IsEmptyAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Enumerables\IsNotEmptyAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\EqualAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Booleans\IsFalseAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Booleans\IsTrueAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\HasAnyAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\IsEmptyAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\IsNotEmptyAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\EqualAssertionTests.cs" />
     <Compile Include="Assertions\ObjectAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Strings\EqualAssertionTests.cs" />
-    <Compile Include="Assertions\PropertyAssertions\Strings\IsEmptyAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Strings\EqualAssertionTests.cs" />
+    <Compile Include="Assertions\MemberAssertions\Strings\IsEmptyAssertionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\City.cs" />
     <Compile Include="Utils\CreateRandom.cs" />
@@ -95,9 +91,10 @@
     <Compile Include="Utils\Ninja.cs" />
     <Compile Include="Utils\Shuriken.cs" />
     <Compile Include="Utils\Times.cs" />
+    <Compile Include="Utils\Timespans.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\ExAs\ExAs.csproj">
@@ -106,7 +103,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assertions\PropertyAssertions\Integers\" />
+    <Folder Include="Assertions\MemberAssertions\Integers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -116,4 +113,22 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')">
+      <ItemGroup>
+        <Reference Include="ToText">
+          <HintPath>..\..\packages\ToText\lib\net45\ToText.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
 </Project>

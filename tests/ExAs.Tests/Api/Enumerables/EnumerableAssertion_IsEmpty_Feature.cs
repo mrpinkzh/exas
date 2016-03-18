@@ -35,7 +35,7 @@ namespace ExAs.Api.Enumerables
         public void OnCityWithNullDojos_ShouldFail()
         {
             // act
-            var result = CityWithNullDojoList().Evaluate(c => c.Property(x => x.Dojos).IsEmpty());
+            var result = CityWithNullDojoList().Evaluate(c => c.Member(x => x.Dojos).IsEmpty());
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded).IsFalse()

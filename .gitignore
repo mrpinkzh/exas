@@ -1,6 +1,11 @@
+.vs
+.paket/paket.exe
+.fake
 obj
 bin
 packages
+build
+pack
 *.suo
 *.user
 *.feature.cs

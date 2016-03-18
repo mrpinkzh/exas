@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Linq.Expressions;
 using ExAs.Assertions;
-using ExAs.Assertions.PropertyAssertions.Booleans;
+using ExAs.Assertions.MemberAssertions.Booleans;
 using ExAs.Results;
 
 namespace ExAs.Utils
 {
     public static class ExasShortcutNotationExtensions
     {
-        public static PropertyAssertion<T, TProperty> p<T, TProperty>(
-            this ObjectAssertion<T> objectAssertion, 
-            Expression<Func<T, TProperty>> expession)
+        public static MemberAssertion<T, TMember> p<T, TMember>(
+            this IAssert<T> assertion, 
+            Expression<Func<T, TMember>> expession)
         {
-            var propertyAssertion = new PropertyAssertion<T, TProperty>(expession, objectAssertion);
-            objectAssertion.AddPropertyAssertion(propertyAssertion);
-            return propertyAssertion;
+            var memberAssertion = new MemberAssertion<T, TMember>(expession, assertion);
+            assertion.AddMemberAssertion(memberAssertion);
+            return memberAssertion;
         }
 
-        public static ObjectAssertion<ObjectAssertionResult> Fullfills(
-            this ObjectAssertion<ObjectAssertionResult> instance, 
+        public static IAssert<ObjectAssertionResult> Fullfills(
+            this IAssert<ObjectAssertionResult> instance, 
             bool succeeded, 
             string log, 
             string expectation)

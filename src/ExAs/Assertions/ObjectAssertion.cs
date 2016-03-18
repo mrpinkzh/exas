@@ -10,30 +10,30 @@ namespace ExAs.Assertions
 {
     public class ObjectAssertion<T> : IAssert<T>
     {
-        private readonly List<IAssertOnProperty<T>> propertyAssertions; 
+        private readonly List<IAssertMemberOf<T>> memberAssertions; 
         private IsNotNullAssertion<T> isNotNullAssertion;
         private IsNullAssertion<T> isNullAssertion;
 
         public ObjectAssertion()
         {
-            propertyAssertions = new List<IAssertOnProperty<T>>();
+            memberAssertions = new List<IAssertMemberOf<T>>();
         }
 
-        public ObjectAssertion<T> IsNotNull()
+        public IAssert<T> IsNotNull()
         {
             isNotNullAssertion = new IsNotNullAssertion<T>();
             return this;
         }
 
-        public ObjectAssertion<T> IsNull()
+        public IAssert<T> IsNull()
         {
             isNullAssertion = new IsNullAssertion<T>();
             return this;
         }
 
-        public void AddPropertyAssertion(IAssertOnProperty<T> propertyAssertion)
+        public void AddMemberAssertion(IAssertMemberOf<T> memberAssertion)
         {
-            propertyAssertions.Add(propertyAssertion);
+            memberAssertions.Add(memberAssertion);
         }
 
         public ObjectAssertionResult Assert(T actual)
@@ -43,7 +43,7 @@ namespace ExAs.Assertions
                 ValueAssertionResult isNotNullResult = isNotNullAssertion.AssertValue(actual);
                 if (!isNotNullResult.succeeded)
                     return new ObjectAssertionResult(isNotNullResult.succeeded, isNotNullResult.actualValueString, isNotNullResult.expectationString);
-                if (!propertyAssertions.Any())
+                if (!memberAssertions.Any())
                     return new ObjectAssertionResult(true, isNotNullResult.actualValueString, isNotNullResult.expectationString);
             }
             if (isNullAssertion != null)
@@ -52,19 +52,19 @@ namespace ExAs.Assertions
                 return new ObjectAssertionResult(isNullResult.succeeded, isNullResult.actualValueString, isNullResult.expectationString);
             }
 
-            if (!propertyAssertions.Any())
+            if (!memberAssertions.Any())
                 return new ObjectAssertionResult(true, "no assertions", "-");
 
-            IReadOnlyCollection<PropertyAssertionResult> results = propertyAssertions.Map(assertion => assertion.Assert(actual));
-            int lengthOfLongestProperty = results.Max(x => x.propertyName.Length);
-            IReadOnlyCollection<string> propertyResults = results.Map(
+            IReadOnlyCollection<MemberAssertionResult> results = memberAssertions.Map(assertion => assertion.Assert(actual));
+            int lengthOfLongestMember = results.Max(x => x.memberName.Length);
+            IReadOnlyCollection<string> memberResults = results.Map(
                 r =>
                 {
                     string failureIndicator = r.childResult.succeeded ? "( )" : "(X)";
-                    string propertyString = failureIndicator.Add(r.propertyName.FillUpWithSpacesToLength(lengthOfLongestProperty)).Add(" = ");
-                    return StringFunctions.HangingIndent(propertyString, r.childResult.actualValueString);
+                    string memberString = failureIndicator.Add(r.memberName.FillUpWithSpacesToLength(lengthOfLongestMember)).Add(" = ");
+                    return StringFunctions.HangingIndent(memberString, r.childResult.actualValueString);
                 });
-            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, propertyResults));
+            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, memberResults));
             return new ObjectAssertionResult(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
         }
 
