@@ -49,6 +49,11 @@ namespace ExAs
         public static IAssert<T> Contains<T>(this IAssertMember<T, string> member, string expected)
         {
             return member.SetAssertion(new ContainsAssertion(expected));
+        }
+
+        public static IAssert<T> DoesntContain<T>(this IAssertMember<T, string> member, string expected)
+        {
+            return member.SetAssertion(new ContainsNotAssertion(expected));
         } 
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="Api\ShortAssertionFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\Strings\StringAssertion_Contains_Feature.cs" />
+    <Compile Include="Api\Strings\StringAssertion_DoesntContain_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_DoesntEndWith_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_EndsWith_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_HasLength_Feature.cs" />
