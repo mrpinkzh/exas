@@ -23,9 +23,9 @@ namespace ExAs
             return new ObjectAssertion<T>().IsNotNull();
         }
 
-        public static IAssert<T> OfType<T>()
+        public static IAssert<T> IsNull<T>()
         {
-            return new ObjectAssertion<T>();
+            return new ObjectAssertion<T>().IsNull();
         } 
 
         public static IAssert<T> Has<T>()

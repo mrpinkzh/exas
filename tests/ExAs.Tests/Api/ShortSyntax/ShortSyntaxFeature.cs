@@ -15,16 +15,19 @@ namespace ExAs.Api.ShortSyntax
             var result = Evaluate(Naruto(), IsNotNull<Ninja>());
 
             // assert
-            result.Evaluate(r => r.Member(x => x.succeeded).IsTrue()
+            result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
                                   .Member(x => x.PrintLog()).IsEqualTo("Ninja: Name = 'Naruto' (expected: not null)"));
         }
 
         [Test]
-        public void ExpectingOfTypeNinjaNaruto_OnNaruto_ShouldPass()
+        public void ExpectingNull_OnNaruto_ShouldFail()
         {
             // act
-            var result = Evaluate(Naruto(), OfType<Ninja>()
-                                                .Member(x => x.Name).IsEqualTo("Naruto"));
+            var result = Evaluate(Naruto(), IsNull<Ninja>());
+
+            // assert
+            result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
+                                  .Member(x => x.PrintLog()).IsEqualTo("Ninja: Name = 'Naruto' (expected: null)"));
         }
 
         [Test]
