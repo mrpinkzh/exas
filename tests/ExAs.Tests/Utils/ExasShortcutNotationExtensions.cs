@@ -17,15 +17,15 @@ namespace ExAs.Utils
             return memberAssertion;
         }
 
-        public static IAssert<ObjectAssertionResult> Fullfills(
-            this IAssert<ObjectAssertionResult> instance, 
+        public static IAssert<Result> Fullfills(
+            this IAssert<Result> instance, 
             bool succeeded, 
             string log, 
             string expectation)
         {
             IAssertValue<bool> succeededAssertion = succeeded ? (IAssertValue<bool>) new IsTrueAssertion() : new IsFalseAssertion();
             return instance.p(x => x.succeeded)  .SetAssertion(succeededAssertion)
-                           .p(x => x.log)        .IsEqualTo(log)
+                           .p(x => x.actual)        .IsEqualTo(log)
                            .p(x => x.expectation).IsEqualTo(expectation);
         } 
     }

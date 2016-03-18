@@ -6,7 +6,7 @@ namespace ExAs
 {
     public class ExtendedAssertionException : Exception
     {
-        public ExtendedAssertionException(ObjectAssertionResult result)
+        public ExtendedAssertionException(Result result)
             : base(Pretty(result.PrintLog()))
         {
         }

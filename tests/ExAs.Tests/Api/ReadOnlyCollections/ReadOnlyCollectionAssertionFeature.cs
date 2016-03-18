@@ -22,77 +22,77 @@ namespace ExAs.Api.ReadOnlyCollections
         public void IsNull_WithNullDojos_ShouldPass()
         {
             // Act
-            ObjectAssertionResult result = cityWithNullDojos.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNull());
+            Result result = cityWithNullDojos.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNull());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = null"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = null"));
         }
 
         [Test]
         public void IsNull_OnCityWithoutDojo_ShouldFail()
         {
             // Act
-            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNull());
+            Result result = cityWithoutDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNull());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <empty>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <empty>"));
         }
 
         [Test]
         public void IsNotNull_OnCityWithoutDojo_ShouldSucceed()
         {
             // Act
-            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNotNull());
+            Result result = cityWithoutDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNotNull());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
         }
 
         [Test]
         public void IsNotNull_WithNullDojos_ShouldFail()
         {
             // Act
-            ObjectAssertionResult result = cityWithNullDojos.Evaluate(n => n.Member(x => x.ReadOnlyDojos).IsNotNull());
+            Result result = cityWithNullDojos.Evaluate(n => n.Member(x => x.ReadOnlyDojos).IsNotNull());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log).IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
+                                  .Member(x => x.actual).IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
         }
 
         [Test]
         public void IsEmpty_OnCityWithoutDojo_ShouldSucceed()
         {
             // Act
-            ObjectAssertionResult result = cityWithoutDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsEmpty());
+            Result result = cityWithoutDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsEmpty());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
         }
 
         [Test]
         public void IsEmpty_OnCityWithDojo_ShouldFail()
         {
             // Act
-            ObjectAssertionResult result = cityWithDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsEmpty());
+            Result result = cityWithDojo.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsEmpty());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <1 Dojo>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <1 Dojo>"));
         }
 
         [Test]
         public void IsEmpty_WithNullDojos_ShouldFail()
         {
             // Act
-            ObjectAssertionResult result = cityWithNullDojos.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsEmpty());
+            Result result = cityWithNullDojos.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsEmpty());
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
         }
 
         [Test]
@@ -119,7 +119,7 @@ namespace ExAs.Api.ReadOnlyCollections
         public void IsNotEmpty_OnCityNullDojos_ShouldSucceed()
         {
             // Act
-            ObjectAssertionResult result = cityWithNullDojos.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNotEmpty());
+            Result result = cityWithNullDojos.Evaluate(c => c.Member(x => x.ReadOnlyDojos).IsNotEmpty());
 
             // Assert
             Assert.IsTrue(result.succeeded);

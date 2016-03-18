@@ -13,7 +13,7 @@ namespace ExAs.Api
         {
             var result = Naruto().Evaluate(n => n);
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("no assertions", result.log);
+            Assert.AreEqual("no assertions", result.actual);
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndValidNameAssertion_ShouldPass()
         {
-            ObjectAssertionResult result = Naruto().Evaluate(
+            Result result = Naruto().Evaluate(
                 n => n.Member(x => x.Name).IsEqualTo("Naruto"));
 
             Assert.IsTrue(result.succeeded);
@@ -68,7 +68,7 @@ namespace ExAs.Api
         [Test]
         public void Assert_WithNaruto_AndValidAgeAssertion_ShouldPass()
         {
-            ObjectAssertionResult result = Naruto().Evaluate(
+            Result result = Naruto().Evaluate(
                 n => n.Member(x => x.Age).IsEqualTo(12));
 
             Assert.IsTrue(result.succeeded);

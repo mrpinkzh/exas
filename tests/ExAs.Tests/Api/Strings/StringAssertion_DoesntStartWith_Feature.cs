@@ -13,7 +13,7 @@ namespace ExAs.Api.Strings
             var result = Kakashi().Evaluate(n => n.Member(x => x.Name).DoesntStartWith("Naru"));
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("Ninja: ( )Name = 'Kakashi'")
+                                  .Member(x => x.actual)      .IsEqualTo("Ninja: ( )Name = 'Kakashi'")
                                   .Member(x => x.expectation).IsEqualTo("(expected: doesn't start with 'Naru')"));
         }
 
@@ -25,7 +25,7 @@ namespace ExAs.Api.Strings
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded)  .IsFalse()
-                                  .Member(x => x.log)        .IsEqualTo("Ninja: (X)Name = 'Kakashi'")
+                                  .Member(x => x.actual)        .IsEqualTo("Ninja: (X)Name = 'Kakashi'")
                                   .Member(x => x.expectation).IsEqualTo("(expected: doesn't start with 'Kak')"));
         }
     }

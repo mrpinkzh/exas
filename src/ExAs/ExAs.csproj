@@ -74,7 +74,7 @@
     <Compile Include="NullableBooleanAssertions.cs" />
     <Compile Include="NullableIntegerAssertions.cs" />
     <Compile Include="ReadOnlyCollectionAssertions.cs" />
-    <Compile Include="Results\ObjectAssertionResult.cs" />
+    <Compile Include="Results\Result.cs" />
     <Compile Include="Assertions\IAssertValue.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNotNullAssertion.cs" />
     <Compile Include="Assertions\ObjectAssertions\IsNullAssertion.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="Assertions\ObjectAssertion.cs" />
     <Compile Include="Assertions\IAssertMemberOf.cs" />
     <Compile Include="Results\ValueAssertionResult.cs" />
-    <Compile Include="ExAsExtensions.cs" />
+    <Compile Include="ExAs.cs" />
     <Compile Include="ObjectAssertionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Version.cs" />

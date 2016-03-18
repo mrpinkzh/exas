@@ -32,14 +32,14 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
                     actualList.ToValueString(),
                     expectation);
             
-            IReadOnlyCollection<ObjectAssertionResult> results = actualList.Map(a => childAssertion.Assert(a));
+            IReadOnlyCollection<Result> results = actualList.Map(a => childAssertion.Assert(a));
             int numberOfSucceededResults = results.Count(r => r.succeeded);
             return new ValueAssertionResult(
                 numberOfSucceededResults == 0, 
                 string.Join(
                     Environment.NewLine, 
                     numberOfSucceededResults.Matches()
-                        .Cons(results.Select(r => r.log))), 
+                        .Cons(results.Select(r => r.actual))), 
                 string.Join(
                     Environment.NewLine,
                     expectation

@@ -37,5 +37,10 @@ namespace ExAs
                 member.SetAssertion(
                     new AssertToAssertValueAdapter<TMember>(assertion(new ObjectAssertion<TMember>())));
         }
+
+        public static IAssert<T> Printout<T, TMember>(this IAssertMember<T, TMember> member)
+        {
+            return member.SetAssertion(new PrintoutAssertion<TMember>());
+        } 
     }
 }

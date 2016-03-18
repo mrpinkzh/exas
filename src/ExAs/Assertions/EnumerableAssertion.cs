@@ -13,11 +13,11 @@ namespace ExAs.Assertions
             this.itemAssertion = itemAssertion;
         }
 
-        public ObjectAssertionResult AssertEnumerable(IEnumerable<TElement> enumerable)
+        public Result AssertEnumerable(IEnumerable<TElement> enumerable)
         {
             var valueAssertionResult = itemAssertion.AssertValue(enumerable);
             string log = StringFunctions.HangingIndent("Enumerable<".Add(typeof(TElement).Name).Add(">: "), valueAssertionResult.actualValueString);
-            return new ObjectAssertionResult(valueAssertionResult.succeeded, log, valueAssertionResult.expectationString);
+            return new Result(valueAssertionResult.succeeded, log, valueAssertionResult.expectationString);
         }
     }
 }

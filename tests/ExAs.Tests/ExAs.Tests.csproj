@@ -52,6 +52,7 @@
     <Compile Include="Api\NullableIntegerAssertionFeature.cs" />
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
     <Compile Include="Api\ShortAssertionFeature.cs" />
+    <Compile Include="Api\ShortSyntax\ShortSyntaxFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\Strings\StringAssertion_Contains_Feature.cs" />
     <Compile Include="Api\Strings\StringAssertion_DoesntContain_Feature.cs" />

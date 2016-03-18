@@ -17,7 +17,7 @@ namespace ExAs.Api
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
-                                  .p(x => x.log)        .IsEqualTo("AppearingNinja: ( )firstAppearance = null")
+                                  .p(x => x.actual)        .IsEqualTo("AppearingNinja: ( )firstAppearance = null")
                                   .p(x => x.expectation).IsEqualTo("(expected: null)"));
         }
 
