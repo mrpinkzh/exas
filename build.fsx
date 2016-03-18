@@ -76,7 +76,7 @@ Target "pack-nuget" (fun _ ->
           "ExtendedAssertions.nuspec"
 )
 
-Target "publish-alpha" (fun _ ->
+Target "publish" (fun _ ->
     Paket.Push(fun p ->
         { p with WorkingDir = binDir })
 )
@@ -87,6 +87,6 @@ Target "publish-alpha" (fun _ ->
   ==> "compile-test"
   ==> "test"
   ==> "pack-nuget" 
-  ==> "publish-alpha"
+  ==> "publish"
 
 RunTargetOrDefault "pack-nuget"
