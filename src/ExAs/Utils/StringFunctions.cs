@@ -106,5 +106,12 @@ namespace ExAs.Utils
             if (value == null) return false;
             return subject.Contains(value);
         }
+
+        public static bool EndsWith_NullAware(this string subject, string value)
+        {
+            if (subject == null) return false;
+            if (value == null) return false;
+            return subject.EndsWith(value);
+        }
     }
 }

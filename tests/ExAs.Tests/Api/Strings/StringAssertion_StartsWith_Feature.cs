@@ -56,7 +56,8 @@ namespace ExAs.Api.Strings
             var result = Naruto().Evaluate(n => n.Member(x => x.Name).StartsWith(null));
 
             // assert
-            Assert.IsFalse(result.succeeded);
+            result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
+                                  .Member(x => x.expectation).IsEqualTo("(expected: starts with null)"));
         }
     }
 }

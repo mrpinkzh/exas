@@ -15,9 +15,9 @@ namespace ExAs.Assertions.MemberAssertions.Strings
         public ValueAssertionResult AssertValue(string actual)
         {
             return new ValueAssertionResult(
-                actual.EndsWith(expectedEnd), 
+                actual.EndsWith_NullAware(expectedEnd), 
                 actual.ToValueString(), 
-                $"(expected: ends with '{expectedEnd}')");
+                $"(expected: ends with {expectedEnd.ToValueString()})");
         }
     }
 }
