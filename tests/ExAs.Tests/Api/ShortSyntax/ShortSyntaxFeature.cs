@@ -1,7 +1,7 @@
 ﻿using ExAs.Results;
 using ExAs.Utils;
 using NUnit.Framework;
-using static ExAs.ExasShort;
+using static ExAs.ExAs;
 using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.ShortSyntax
@@ -31,7 +31,7 @@ namespace ExAs.Api.ShortSyntax
         }
 
         [Test]
-        public void ExpectingNaruto_OnKakshi_ShouldFail()
+        public void ExpectingNaruto_OnKakashi_ShouldFail()
         {
             // act
             var result = Evaluate(Kakashi(), Has<Ninja>().Member(x => x.Name).IsEqualTo("Naruto")
@@ -39,7 +39,7 @@ namespace ExAs.Api.ShortSyntax
 
             // assert
             ExAssert(result, Has<Result>().Member(x => x.succeeded).IsFalse()
-                                                         .Member(x => x.actual)      .Printout());
+                                          .Member(x => x.actual)      .Printout());
         }
     }
 }

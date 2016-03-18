@@ -6,12 +6,16 @@ using ExAs.Results;
 
 namespace ExAs
 {
-    public static class ExAsExtensions
+    public static class ExAs
     {
         public static Result Evaluate<T>(this T instance, Func<IAssert<T>, IAssert<T>> assertion)
         {
-            IAssert<T> exAssertion = assertion(new ObjectAssertion<T>());
-            return exAssertion.Assert(instance);
+            return Evaluate(instance, assertion(new ObjectAssertion<T>()));
+        }
+
+        public static Result Evaluate<T>(T instance, IAssert<T> assertion)
+        {
+            return assertion.Assert(instance);
         }
 
         public static Result EvaluateHasAny<T>(this IEnumerable<T> enumerable, Func<IAssert<T>, IAssert<T>> assertion)
@@ -34,6 +38,14 @@ namespace ExAs
             throw new ExtendedAssertionException(result);
         }
 
+        public static void ExAssert<T>(T instance, IAssert<T> assertion)
+        {
+            Result result = Evaluate(instance, assertion);
+            if (result.succeeded)
+                return;
+            throw new ExtendedAssertionException(result);
+        }
+
         public static void ExAssertHasAny<T>(this IEnumerable<T> enumerable, Func<IAssert<T>, IAssert<T>> assertion)
         {
             Result result = enumerable.EvaluateHasAny(assertion);
@@ -49,5 +61,20 @@ namespace ExAs
                 return;
             throw new ExtendedAssertionException(result);
         }
+
+        public static IAssert<T> IsNotNull<T>()
+        {
+            return new ObjectAssertion<T>().IsNotNull();
+        }
+
+        public static IAssert<T> IsNull<T>()
+        {
+            return new ObjectAssertion<T>().IsNull();
+        }
+
+        public static IAssert<T> Has<T>()
+        {
+            return new ObjectAssertion<T>();
+        } 
     }
 }

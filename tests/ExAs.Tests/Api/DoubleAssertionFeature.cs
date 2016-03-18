@@ -7,8 +7,8 @@ using NUnit.Framework;
 
 namespace ExAs.Api
 {
-    using ExAs.Results;
-    using ExAs.Utils;
+    using global::ExAs.Results;
+    using global::ExAs.Utils;
 
     [TestFixture]
     public class DoubleAssertionFeature
