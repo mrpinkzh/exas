@@ -38,5 +38,25 @@ namespace ExAs.Api.Strings
             // assert
             result.ExAssert(r => r.Member(x => x.expectation).IsEqualTo("(expected: starts with 'Kaka')"));
         }
+
+        [Test]
+        public void ExpectingNar_OnNull_ShouldFail()
+        {
+            // act
+            var result = NullNinja().Evaluate(n => n.Member(x => x.Name).StartsWith("Nar"));
+
+            // assert
+            Assert.IsFalse(result.succeeded);
+        }
+
+        [Test]
+        public void ExpectingNull_OnNaruto_ShouldFail()
+        {
+            // act
+            var result = Naruto().Evaluate(n => n.Member(x => x.Name).StartsWith(null));
+
+            // assert
+            Assert.IsFalse(result.succeeded);
+        }
     }
 }

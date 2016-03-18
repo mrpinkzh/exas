@@ -15,7 +15,7 @@ namespace ExAs.Assertions.MemberAssertions.Strings
         public ValueAssertionResult AssertValue(string actual)
         {
             return new ValueAssertionResult(
-                actual.StartsWith(expected), 
+                actual.StartsWith_NullAware(expected), 
                 actual.ToValueString(), 
                 $"(expected: starts with '{expected}')");
         }
