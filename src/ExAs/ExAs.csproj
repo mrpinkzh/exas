@@ -70,6 +70,7 @@
     <Compile Include="ComparableAssertions.cs" />
     <Compile Include="DateTimeAssertions.cs" />
     <Compile Include="EnumerableAssertions.cs" />
+    <Compile Include="ExasShort.cs" />
     <Compile Include="ExtendedAssertionException.cs" />
     <Compile Include="NullableBooleanAssertions.cs" />
     <Compile Include="NullableIntegerAssertions.cs" />
