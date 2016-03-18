@@ -38,7 +38,7 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
                 amountOfSucceededResults > 0, 
                 string.Join(Environment.NewLine,
                             amountOfSucceededResults.Matches()
-                                .Cons(results.Select(r => r.log))),
+                                .Cons(results.Select(r => r.actual))),
                 string.Join(Environment.NewLine,
                             expectation
                                 .Cons(results.Select(r => r.expectation))));

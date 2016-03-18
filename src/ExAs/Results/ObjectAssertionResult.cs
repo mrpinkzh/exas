@@ -8,19 +8,19 @@ namespace ExAs.Results
     public class ObjectAssertionResult
     {
         public readonly bool succeeded;
-        public readonly string log;
+        public readonly string actual;
         public readonly string expectation;
 
-        public ObjectAssertionResult(bool succeeded, string log, string expectation)
+        public ObjectAssertionResult(bool succeeded, string actual, string expectation)
         {
             this.succeeded = succeeded;
-            this.log = log;
+            this.actual = actual;
             this.expectation = expectation;
         }
 
         public string PrintLog()
         {
-            string[] logLines = log.SplitLines();
+            string[] logLines = actual.SplitLines();
             string[] expectationLines = expectation.SplitLines();
             int longestLogLine = logLines.MaxOrDefault(s => s.Length);
             IReadOnlyList<string> resultingLogLines = logLines.Map(expectationLines, 

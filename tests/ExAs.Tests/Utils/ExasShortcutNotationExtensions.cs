@@ -25,7 +25,7 @@ namespace ExAs.Utils
         {
             IAssertValue<bool> succeededAssertion = succeeded ? (IAssertValue<bool>) new IsTrueAssertion() : new IsFalseAssertion();
             return instance.p(x => x.succeeded)  .SetAssertion(succeededAssertion)
-                           .p(x => x.log)        .IsEqualTo(log)
+                           .p(x => x.actual)        .IsEqualTo(log)
                            .p(x => x.expectation).IsEqualTo(expectation);
         } 
     }

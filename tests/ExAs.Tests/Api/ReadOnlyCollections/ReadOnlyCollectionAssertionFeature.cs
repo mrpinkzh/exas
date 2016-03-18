@@ -26,7 +26,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = null"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = null"));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <empty>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <empty>"));
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log).IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
+                                  .Member(x => x.actual).IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <empty>"));
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <1 Dojo>"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = <1 Dojo>"));
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace ExAs.Api.ReadOnlyCollections
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
+                                  .Member(x => x.actual)      .IsEqualTo("CollectionCity: (X)ReadOnlyDojos = null"));
         }
 
         [Test]

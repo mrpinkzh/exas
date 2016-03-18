@@ -39,7 +39,7 @@ namespace ExAs.Api.ShortSyntax
 
             // assert
             ExAssert(result, Has<ObjectAssertionResult>().Member(x => x.succeeded).IsFalse()
-                                                         .Member(x => x.log)      .Printout());
+                                                         .Member(x => x.actual)      .Printout());
         }
     }
 }

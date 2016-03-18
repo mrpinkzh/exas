@@ -14,7 +14,7 @@ namespace ExAs.Api.Strings
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.log)      .IsEqualTo("Ninja: ( )Name = 'Naruto'")
+                                  .Member(x => x.actual)      .IsEqualTo("Ninja: ( )Name = 'Naruto'")
                                   .Member(x => x.expectation).IsEqualTo("(expected: contains 'ut')"));
         }
 
@@ -26,7 +26,7 @@ namespace ExAs.Api.Strings
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("Ninja: (X)Name = 'Kakashi'")
+                                  .Member(x => x.actual)      .IsEqualTo("Ninja: (X)Name = 'Kakashi'")
                                   .Member(x => x.expectation).IsEqualTo("(expected: contains 'arut')"));
         }
 
@@ -49,7 +49,7 @@ namespace ExAs.Api.Strings
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
-                                  .Member(x => x.log)      .IsEqualTo("Ninja: (X)Name = null"));
+                                  .Member(x => x.actual)      .IsEqualTo("Ninja: (X)Name = null"));
         }
     }
 }
