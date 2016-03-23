@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Results

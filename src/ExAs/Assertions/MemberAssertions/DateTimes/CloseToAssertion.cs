@@ -2,6 +2,7 @@
 using System.Globalization;
 using ExAs.Results;
 using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 
 namespace ExAs.Assertions.MemberAssertions.DateTimes
 {

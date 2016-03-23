@@ -1,6 +1,7 @@
 ﻿using System;
 using ExAs.Results;
 using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 
 namespace ExAs.Assertions.MemberAssertions.Enumerables

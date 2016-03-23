@@ -4,8 +4,9 @@ using System.Linq;
 using ExAs.Assertions.ObjectAssertions;
 using ExAs.Results;
 using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 using ExAs.Utils.SystemExtensions;
-using static ExAs.Utils.StringFormattingFunctions;
+using static ExAs.Utils.StringExtensions.StringFormattingFunctions;
 
 namespace ExAs.Assertions
 {

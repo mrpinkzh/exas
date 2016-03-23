@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ExAs.Utils.SystemExtensions;
 
-namespace ExAs.Utils
+namespace ExAs.Utils.StringExtensions
 {
     public static class StringFunctions
     {

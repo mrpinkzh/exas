@@ -1,4 +1,6 @@
-﻿namespace ExAs.Utils
+﻿using ExAs.Utils.StringExtensions;
+
+namespace ExAs.Utils
 {
     public static class ComposeLog
     {

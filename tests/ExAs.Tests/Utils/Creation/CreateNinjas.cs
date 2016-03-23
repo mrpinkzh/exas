@@ -1,4 +1,6 @@
-﻿namespace ExAs.Utils.Creation
+﻿using ExAs.Utils.StringExtensions;
+
+namespace ExAs.Utils.Creation
 {
     public static class CreateNinjas
     {

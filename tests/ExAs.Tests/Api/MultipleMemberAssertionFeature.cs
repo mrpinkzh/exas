@@ -1,6 +1,7 @@
 ﻿using ExAs.Assertions;
 using ExAs.Results;
 using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
 

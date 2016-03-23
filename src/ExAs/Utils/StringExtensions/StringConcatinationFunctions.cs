@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExAs.Utils
+namespace ExAs.Utils.StringExtensions
 {
     public static class StringConcatinationFunctions
     {

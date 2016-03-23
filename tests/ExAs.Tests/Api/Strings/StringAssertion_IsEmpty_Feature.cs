@@ -1,4 +1,5 @@
 ﻿using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
 
@@ -35,6 +36,19 @@ namespace ExAs.Api.Strings
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = null", "(expected: empty string)"));
+        }
+
+        [Ignore]
+        [Test]
+        public void OnMultiLineNaruto_ShouldFailWithMultilineLog()
+        {
+            // act
+            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).IsEmpty());
+
+            // assert
+            result.ExAssert(r => r.Member(x => x.PrintLog())
+                .IsEqualTo("Ninja: (X)Name = 'Naruto   (expected: empty string)".NewLine()
+                      .Add("                  Uzumaki' ")));
         }
     }
 }

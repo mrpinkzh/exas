@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using ExAs.Results;
 using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 
 namespace ExAs.Assertions.MemberAssertions.Strings
 {

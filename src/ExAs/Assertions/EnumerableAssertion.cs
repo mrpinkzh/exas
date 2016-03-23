@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using ExAs.Results;
 using ExAs.Utils;
-using static ExAs.Utils.StringFormattingFunctions;
+using ExAs.Utils.StringExtensions;
+using static ExAs.Utils.StringExtensions.StringFormattingFunctions;
 
 namespace ExAs.Assertions
 {
