@@ -5,6 +5,7 @@ using ExAs.Assertions.ObjectAssertions;
 using ExAs.Results;
 using ExAs.Utils;
 using ExAs.Utils.SystemExtensions;
+using static ExAs.Utils.StringFormattingFunctions;
 
 namespace ExAs.Assertions
 {
@@ -62,9 +63,9 @@ namespace ExAs.Assertions
                 {
                     string failureIndicator = r.childResult.succeeded ? "( )" : "(X)";
                     string memberString = failureIndicator.Add(r.memberName.FillUpWithSpacesToLength(lengthOfLongestMember)).Add(" = ");
-                    return StringFunctions.HangingIndent(memberString, r.childResult.actualValueString);
+                    return HangingIndent(memberString, r.childResult.actualValueString);
                 });
-            string log = StringFunctions.HangingIndent(TypeName(), string.Join(Environment.NewLine, memberResults));
+            string log = HangingIndent(TypeName(), string.Join(Environment.NewLine, memberResults));
             return new Result(results.All(r => r.childResult.succeeded), log, string.Join(Environment.NewLine, results.Select(r => r.childResult.expectationString)));
         }
 

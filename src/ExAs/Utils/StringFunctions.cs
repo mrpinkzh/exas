@@ -13,7 +13,7 @@ namespace ExAs.Utils
             if (item == null)
                 return nullString;
             if (item is string)
-                return string.Format("'{0}'", item);
+                return $"'{item.ToString().HangingIndent(1)}'";
             var enumerable = item as IEnumerable;
             if (enumerable != null)
                 return enumerable.ToValueString();
@@ -34,63 +34,6 @@ namespace ExAs.Utils
                 return "<".Add(strings.Count.ToString()).Add(" ").Add(typeName).Add(">");
             }
             return "[".Add(string.Join(", ", strings)).Add("]");
-        }
-
-        public static string HangingIndent(string unindentedPrefix, string indentedBlock)
-        {
-            int indentation = 0;
-            if (unindentedPrefix != null)
-                indentation = unindentedPrefix.Length;
-            return String.Format("{0}{1}", unindentedPrefix, indentedBlock).HangingIndent(indentation);
-        }
-
-        public static string HangingIndent(this string value, int indentation)
-        {
-            if (value == null)
-                return null;
-            IReadOnlyCollection<string> lines = value.Split(new[] { Environment.NewLine}, StringSplitOptions.None);
-            IEnumerable<string> indentedSubLines = lines.Rest().Select(x => String.Format("{0}{1}", indentation.Spaces(), x));
-            IReadOnlyCollection<string> result = SystemFunctions.Cons(lines.First(), indentedSubLines);
-            return String.Join(Environment.NewLine, result);
-        }
-
-        public static string Add(this string value, object valueToConcat)
-        {
-            return String.Format("{0}{1}", value, valueToConcat);
-        }
-
-        public static string NewLine(this string value)
-        {
-            return value.Add(Environment.NewLine);
-        }
-
-        public static string Spaces(this int amount)
-        {
-            if (amount <= 0)
-                return String.Empty;
-            return String.Format(" {0}", (amount - 1).Spaces());
-        }
-
-        public static string NewLines(this string value, int amount)
-        {
-            if (amount <= 0)
-                return value;
-            if (amount == 1)
-                return value.NewLine();
-            return value.NewLines(amount - 1);
-        }
-
-        public static string FillUpWithSpacesToLength(this string input, int length)
-        {
-            if (length <= input.Length)
-                return input;
-            int amount = length - input.Length;
-            return input.Add(amount.Spaces());
-        }
-
-        public static string[] SplitLines(this string multiLineString)
-        {
-            return multiLineString.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
         }
 
         public static bool Contains_NullAware(this string subject, string value)

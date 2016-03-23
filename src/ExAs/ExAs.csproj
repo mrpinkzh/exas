@@ -97,6 +97,8 @@
     <Compile Include="TimespanAssertions.cs" />
     <Compile Include="Utils\ComposeLog.cs" />
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
+    <Compile Include="Utils\StringConcatinationFunctions.cs" />
+    <Compile Include="Utils\StringFormattingFunctions.cs" />
     <Compile Include="Utils\StringFunctions.cs" />
     <Compile Include="Utils\SystemExtensions\ClassicEnumerableExtensions.cs" />
     <Compile Include="Utils\SystemExtensions\SystemFunctions.cs" />

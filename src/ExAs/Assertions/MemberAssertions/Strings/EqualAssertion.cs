@@ -1,6 +1,7 @@
 ﻿using System;
 using ExAs.Results;
 using ExAs.Utils;
+using static ExAs.Utils.StringFormattingFunctions;
 
 namespace ExAs.Assertions.MemberAssertions.Strings
 {
@@ -28,14 +29,14 @@ namespace ExAs.Assertions.MemberAssertions.Strings
         {
             if (input == null)
                 return "null";
-            string preApostrophedInput = StringFunctions.HangingIndent("'", input);
+            string preApostrophedInput = HangingIndent("'", input);
             return string.Format("{0}'", preApostrophedInput);
         }
 
         private string Expected(string input)
         {
             string apostrophedInput = Apostrophed(input);
-            string inputWithExpectedPrefix = StringFunctions.HangingIndent("(expected: ", apostrophedInput);
+            string inputWithExpectedPrefix = HangingIndent("(expected: ", apostrophedInput);
             return string.Format("{0})", inputWithExpectedPrefix);
         }
 
