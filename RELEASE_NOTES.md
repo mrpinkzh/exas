@@ -1,6 +1,7 @@
 ## New in 0.2.0
 * added string assertions: contains, contains-not, starts-with, starts-not-with, ends-with, ends-not-with
 * added some api extensions for static usings
+* fixed multiline support for string-assertions #23
 
 ## New in 0.1.1
 * added support for IReadOnlyCollection
