@@ -37,5 +37,20 @@ namespace ExAs.Utils.StringExtensions
         {
             return multiLineString.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
         }
+
+        public static Tuple<string, string> HarmonizeLineCount(string left, string right)
+        {
+            int leftLineCount = left.SplitLines().Length;
+            int rightLineCount = right.SplitLines().Length;
+            int difference = rightLineCount - leftLineCount;
+            if (difference == 0)
+                return new Tuple<string, string>(left, right);
+            if (difference < 0)
+            {
+                Tuple<string, string> invertedResult = HarmonizeLineCount(right, left);
+                return new Tuple<string, string>(invertedResult.Item2, invertedResult.Item1);
+            }
+            return new Tuple<string, string>(left.NewLines(difference), right);
+        } 
     }
 }

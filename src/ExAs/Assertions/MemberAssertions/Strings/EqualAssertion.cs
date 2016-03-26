@@ -2,6 +2,7 @@
 using ExAs.Results;
 using ExAs.Utils;
 using ExAs.Utils.StringExtensions;
+using static ExAs.Utils.StringExtensions.StringFormattingFunctions;
 
 namespace ExAs.Assertions.MemberAssertions.Strings
 {
@@ -18,26 +19,11 @@ namespace ExAs.Assertions.MemberAssertions.Strings
         {
             var actualValueString = actual.ToValueString();
             var expectationString = ComposeLog.Expected(expected.ToValueString());
-            Tuple<string, string> harmonizedOutput = HarmonizeLineCountWith(actualValueString, expectationString);
+            Tuple<string, string> harmonizedOutput = HarmonizeLineCount(actualValueString, expectationString);
             return new ValueAssertionResult(
                 string.Equals(actual, expected), 
                 harmonizedOutput.Item1, 
                 harmonizedOutput.Item2);
-        }
-
-        private Tuple<string, string> HarmonizeLineCountWith(string firstString, string otherString)
-        {
-            int firstStringLineCount = firstString.SplitLines().Length;
-            int otherStringLineCount = otherString.SplitLines().Length;
-            int difference = otherStringLineCount - firstStringLineCount;
-            if (difference == 0)
-                return new Tuple<string, string>(firstString, otherString);
-            if (difference < 0)
-            {
-                Tuple<string, string> invertedResult = HarmonizeLineCountWith(otherString, firstString);
-                return new Tuple<string, string>(invertedResult.Item2, invertedResult.Item1);
-            }
-            return new Tuple<string, string>(firstString.NewLines(difference), otherString);
         }
     }
 }
