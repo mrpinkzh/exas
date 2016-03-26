@@ -17,7 +17,7 @@ namespace ExAs.Assertions.MemberAssertions.Strings
 
         public ValueAssertionResult AssertValue(string actual)
         {
-            var actualValueString = Apostrophed(actual);
+            var actualValueString = actual.ToValueString();
             var expectationString = Expected(expected);
             Tuple<string, string> harmonizedOutput = HarmonizeLineCountWith(actualValueString, expectationString);
             return new ValueAssertionResult(
@@ -26,17 +26,9 @@ namespace ExAs.Assertions.MemberAssertions.Strings
                 harmonizedOutput.Item2);
         }
 
-        private string Apostrophed(string input)
-        {
-            if (input == null)
-                return "null";
-            string preApostrophedInput = HangingIndent("'", input);
-            return string.Format("{0}'", preApostrophedInput);
-        }
-
         private string Expected(string input)
         {
-            string apostrophedInput = Apostrophed(input);
+            string apostrophedInput = input.ToValueString();
             string inputWithExpectedPrefix = HangingIndent("(expected: ", apostrophedInput);
             return string.Format("{0})", inputWithExpectedPrefix);
         }

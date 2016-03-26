@@ -38,7 +38,6 @@ namespace ExAs.Api.Strings
             result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = null", "(expected: empty string)"));
         }
 
-        [Ignore]
         [Test]
         public void OnMultiLineNaruto_ShouldFailWithMultilineLog()
         {

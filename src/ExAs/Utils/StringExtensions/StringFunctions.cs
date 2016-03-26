@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ExAs.Utils.SystemExtensions;
+using static ExAs.Utils.StringExtensions.StringConcatinationFunctions;
 
 namespace ExAs.Utils.StringExtensions
 {
@@ -13,7 +14,7 @@ namespace ExAs.Utils.StringExtensions
             if (item == null)
                 return nullString;
             if (item is string)
-                return $"'{item.ToString().HangingIndent(1)}'";
+                return Apostrophed(item.ToString());
             var enumerable = item as IEnumerable;
             if (enumerable != null)
                 return enumerable.ToValueString();

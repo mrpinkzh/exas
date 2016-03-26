@@ -1,4 +1,5 @@
 ﻿using System;
+using static ExAs.Utils.StringExtensions.StringFormattingFunctions;
 
 namespace ExAs.Utils.StringExtensions
 {
@@ -6,7 +7,7 @@ namespace ExAs.Utils.StringExtensions
     {
         public static string Add(this string value, object valueToConcat)
         {
-            return String.Format("{0}{1}", value, valueToConcat);
+            return $"{value}{valueToConcat}";
         }
 
         public static string NewLine(this string value)
@@ -17,8 +18,8 @@ namespace ExAs.Utils.StringExtensions
         public static string Spaces(this int amount)
         {
             if (amount <= 0)
-                return String.Empty;
-            return String.Format(" {0}", (amount - 1).Spaces());
+                return string.Empty;
+            return $" {(amount - 1).Spaces()}";
         }
 
         public static string NewLines(this string value, int amount)
@@ -28,6 +29,11 @@ namespace ExAs.Utils.StringExtensions
             if (amount == 1)
                 return value.NewLine();
             return value.NewLines(amount - 1);
+        }
+
+        public static string Apostrophed(string value)
+        {
+            return $"'{HangingIndent(value, 1)}'";
         }
     }
 }

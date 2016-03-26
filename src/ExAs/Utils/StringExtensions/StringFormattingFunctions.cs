@@ -12,10 +12,10 @@ namespace ExAs.Utils.StringExtensions
             int indentation = 0;
             if (unindentedPrefix != null)
                 indentation = unindentedPrefix.Length;
-            return String.Format("{0}{1}", unindentedPrefix, indentedBlock).HangingIndent(indentation);
+            return HangingIndent($"{unindentedPrefix}{indentedBlock}", indentation);
         }
 
-        public static string HangingIndent(this string value, int indentation)
+        public static string HangingIndent(string value, int indentation)
         {
             if (value == null)
                 return null;
