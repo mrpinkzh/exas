@@ -1,4 +1,5 @@
 ﻿using ExAs.Utils;
+using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
 
@@ -14,7 +15,7 @@ namespace ExAs.Api.Strings
             var result = Naruto().Evaluate(n => n.Member(x => x.Name).HasLength(6));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = 'Naruto'", "(expected: length 6)"));
+            result.ExAssert(r => r.Fullfills(true, "Ninja: ( )Name = 'Naruto'[6]", "(expected: length 6)"));
         }
 
         [Test]
@@ -24,7 +25,7 @@ namespace ExAs.Api.Strings
             var result = Naruto().Evaluate(n => n.Member(x => x.Name).HasLength(7));
 
             // assert
-            result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = 'Naruto'", "(expected: length 7)"));
+            result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = 'Naruto'[6]", "(expected: length 7)"));
         }
 
         [Test]
@@ -34,7 +35,19 @@ namespace ExAs.Api.Strings
             var result = NullNinja().Evaluate(n => n.Member(x => x.Name).HasLength(6));
 
             // assert
-            result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = null", "(expected: length 6)"));
+            result.ExAssert(r => r.Fullfills(false, "Ninja: (X)Name = null[0]", "(expected: length 6)"));
+        }
+        [Test]
+        public void Expecting13_OnMultiLineNaruto_ShouldReturnHarmonizedResult()
+        {
+            // act
+            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).HasLength(13));
+
+            // assert
+            Assert.AreEqual(
+                 "Ninja: (X)Name = 'Naruto       (expected: length 13)".NewLine()
+            .Add("                  Uzumaki'[15] "),
+                 result.PrintLog());
         }
     }
 }

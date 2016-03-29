@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using ToText.Core;
 using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.Strings
@@ -50,6 +51,19 @@ namespace ExAs.Api.Strings
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
                                   .Member(x => x.actual)      .IsEqualTo("Ninja: (X)Name = null"));
+        }
+
+        [Test]
+        public void ExpectingRuto_OnMultiLineNaruto_ShouldReturnHarmonizedResult()
+        {
+            // act
+            var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).Contains("ruto"));
+
+            // assert
+            Assert.AreEqual(
+                 "Ninja: ( )Name = 'Naruto   (expected: contains 'ruto')".NewLine()
+            .Add("                  Uzumaki' "),
+                 result.PrintLog());
         }
     }
 }

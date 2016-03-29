@@ -1,6 +1,7 @@
 ﻿using ExAs.Results;
 using ExAs.Utils;
 using ExAs.Utils.StringExtensions;
+using static ExAs.Utils.StringExtensions.StringFormattingFunctions;
 
 namespace ExAs.Assertions.MemberAssertions.Strings
 {
@@ -15,7 +16,11 @@ namespace ExAs.Assertions.MemberAssertions.Strings
 
         public ValueAssertionResult AssertValue(string actual)
         {
-            return new ValueAssertionResult(actual?.Length == expected, actual.ToValueString(), ComposeLog.Expected($"length {expected}"));
+            return ValueAssertionResult.Create(
+                actual?.Length == expected,
+                HarmonizeLineCount(
+                    $"{actual.ToValueString()}[{actual?.Length ?? 0}]", 
+                    ComposeLog.Expected($"length {expected}")));
         }
     }
 }

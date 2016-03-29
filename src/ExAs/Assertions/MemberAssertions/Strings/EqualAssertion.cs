@@ -17,13 +17,11 @@ namespace ExAs.Assertions.MemberAssertions.Strings
 
         public ValueAssertionResult AssertValue(string actual)
         {
-            var actualValueString = actual.ToValueString();
-            var expectationString = ComposeLog.Expected(expected.ToValueString());
-            Tuple<string, string> harmonizedOutput = HarmonizeLineCount(actualValueString, expectationString);
-            return new ValueAssertionResult(
-                string.Equals(actual, expected), 
-                harmonizedOutput.Item1, 
-                harmonizedOutput.Item2);
+            return ValueAssertionResult.Create(
+                string.Equals(actual, expected),
+                HarmonizeLineCount(
+                    actual.ToValueString(),
+                    ComposeLog.Expected(expected.ToValueString()))); 
         }
     }
 }
