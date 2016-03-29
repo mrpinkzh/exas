@@ -6,6 +6,11 @@ namespace ExAs
 {
     public static class StringAssertions
     {
+        public static IAssert<T> IsNull<T>(this IAssertMember<T, string> member)
+        {
+            return member.SetAssertion(new IsNullAssertion());
+        } 
+
         public static IAssert<T> IsEqualTo<T>(this IAssertMember<T, string> member, string expected)
         {
             return member.SetAssertion(new EqualAssertion(expected));

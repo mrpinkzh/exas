@@ -37,7 +37,7 @@ namespace ExAs.Api.Strings
 
             // assert
             Assert.AreEqual(
-                 "Ninja: ( )Name = 'Naruto   (expected: null)".NewLine()
+                 "Ninja: (X)Name = 'Naruto   (expected: null)".NewLine()
             .Add("                  Uzumaki' "),
                  result.PrintLog());
         }
