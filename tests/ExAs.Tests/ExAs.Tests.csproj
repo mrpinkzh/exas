@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BooleanAssertionFeature.cs" />
+    <Compile Include="Api\Collections\Collection_HasAny_Feature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\DoubleAssertionFeature.cs" />
