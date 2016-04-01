@@ -20,7 +20,7 @@ namespace ExAs.Utils.SystemExtensions
 
         public static IReadOnlyCollection<TResult> Map<T, TResult>(this IEnumerable<T> items, Func<T, TResult> func)
         {
-            return items.Select(func).ToList();
+            return items?.Select(func).ToList();
         }
 
         public static IReadOnlyCollection<T> Map<T>(this IEnumerable<T> items, Action<T> action)

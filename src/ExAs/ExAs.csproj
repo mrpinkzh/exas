@@ -41,6 +41,7 @@
     <Compile Include="Assertions\MemberAssertions\Booleans\IsTrueAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasAnyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasCountAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertion.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Utils\StringExtensions\StringFormattingFunctions.cs" />
     <Compile Include="Utils\StringExtensions\StringFunctions.cs" />
     <Compile Include="Utils\SystemExtensions\ClassicEnumerableExtensions.cs" />
+    <Compile Include="Utils\SystemExtensions\EnumerableExtensions.cs" />
     <Compile Include="Utils\SystemExtensions\SystemFunctions.cs" />
     <Compile Include="Utils\TimeSpanFunctions.cs" />
   </ItemGroup>
