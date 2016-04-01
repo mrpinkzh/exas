@@ -40,6 +40,7 @@
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\DoubleAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_Contains_Feature.cs" />
+    <Compile Include="Api\Enumerables\EnumerableAssertion_DoesntContain_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasCount_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasNone_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasAny_Feature.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Utils\Shuriken.cs" />
     <Compile Include="Utils\Times.cs" />
     <Compile Include="Utils\Timespans.cs" />
+    <Compile Include="Utils\WeaponedNinja.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />

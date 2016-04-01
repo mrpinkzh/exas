@@ -29,5 +29,15 @@ namespace ExAs.Utils.Creation
         {
             return new Ninja(name:null);
         }
+
+        public static WeaponedNinja WeaponlessNinja()
+        {
+            return new WeaponedNinja();
+        }
+
+        public static WeaponedNinja NinjaWithTwoWeapons()
+        {
+            return new WeaponedNinja("Sword", "Shuriken");
+        }
     }
 }

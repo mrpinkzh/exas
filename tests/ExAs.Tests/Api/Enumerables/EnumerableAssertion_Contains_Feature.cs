@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using ExAs.Utils;
+﻿using ExAs.Utils;
 using NUnit.Framework;
 using ToText.Core;
+using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.Enumerables
 {
@@ -84,31 +84,6 @@ namespace ExAs.Api.Enumerables
             result.ExAssert(r => r.Member(x => x.succeeded).IsFalse()
                                   .Member(x => x.actual)   .IsEqualTo("WeaponedNinja: (X)Weapons = null")
                                   .Member(x => x.expectation).Contains("contains ['Sword']"));
-        }
-
-        private static WeaponedNinja NinjaWithTwoWeapons()
-        {
-            return new WeaponedNinja("Sword", "Shuriken");
-        }
-
-        private static WeaponedNinja WeaponlessNinja()
-        {
-            return new WeaponedNinja();
-        }
-
-        private class WeaponedNinja : Ninja
-        {
-            private readonly string[] weapons;
-
-            public WeaponedNinja(params string[] weapons)
-            {
-                this.weapons = weapons;
-            }
-
-            public IReadOnlyCollection<string> Weapons
-            {
-                get { return weapons; }
-            }
         }
     }
 }
