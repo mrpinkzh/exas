@@ -102,20 +102,20 @@ namespace ExAs.Api
         }
 
         [Test]
-        public void IsBiggerThan_Expecting0_OnEarlyAppearingNinja_ShouldSucceed()
+        public void IsGreaterThan_Expecting0_OnEarlyAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsBiggerThan(0));
+            var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsGreaterThan(0));
 
             // assert
             result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: bigger than 0)"));
         }
 
         [Test]
-        public void IsBiggerThan_Expecting0_OnNotAppearingNinja_ShouldSucceed()
+        public void IsGreaterThan_Expecting0_OnNotAppearingNinja_ShouldSucceed()
         {
             // act
-            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsBiggerThan(0));
+            var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsGreaterThan(0));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: bigger than 0)"));

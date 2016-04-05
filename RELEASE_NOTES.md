@@ -1,3 +1,6 @@
+## New in 0.3
+* renamed the is-bigger-than assertions to is-greater-than
+
 ## New in 0.2.0
 * added string assertions: contains, contains-not, starts-with, starts-not-with, ends-with, ends-not-with
 * added some api extensions for static usings

@@ -47,10 +47,10 @@ namespace ExAs.Api
         }
 
         [Test]
-        public void IsBiggerThan_Expected2_Get12_ShouldPass()
+        public void IsGreaterThan_Expected2_Get12_ShouldPass()
         {
             // Act
-            var result = Naruto().Evaluate(n => n.Member(x => x.Age).IsBiggerThan(2));
+            var result = Naruto().Evaluate(n => n.Member(x => x.Age).IsGreaterThan(2));
 
             // Assert
             result.ExAssert(r => r.IsNotNull()
@@ -59,10 +59,10 @@ namespace ExAs.Api
         }
 
         [Test]
-        public void IsBiggerThan_Expected100_Get93_ShouldFail()
+        public void IsGreaterThan_Expected100_Get93_ShouldFail()
         {
             // Act
-            var result = oldNaruto.Evaluate(n => n.Member(x => x.Age).IsBiggerThan(100));
+            var result = oldNaruto.Evaluate(n => n.Member(x => x.Age).IsGreaterThan(100));
 
             // Assert
             result.ExAssert(r => r.IsNotNull()

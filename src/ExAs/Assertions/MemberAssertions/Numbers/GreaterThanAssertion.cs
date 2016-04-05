@@ -4,13 +4,13 @@ using ExAs.Utils;
 
 namespace ExAs.Assertions.MemberAssertions.Numbers
 {
-    public class IsBiggerAssertion<T> : IAssertValue<T>
+    public class GreaterThanAssertion<T> : IAssertValue<T>
         where T : IComparable<T>
     {
 
         private readonly T expected;
 
-        public IsBiggerAssertion(T expected)
+        public GreaterThanAssertion(T expected)
         {
             this.expected = expected;
         }

@@ -20,13 +20,13 @@ namespace ExAs.Api.Timespans
         }
         
         [Test]
-        public void IsBigger_Expecting6Seconds_On6Seconds_ShouldFail()
+        public void IsGreaterThan_Expecting6Seconds_On6Seconds_ShouldFail()
         {
             // arrange
             var ninja = new SleepyNinja(6.Seconds());
 
             // act
-            var result = ninja.Evaluate(n => n.Member(x => x.awake).IsBiggerThan(6.Seconds()));
+            var result = ninja.Evaluate(n => n.Member(x => x.awake).IsGreaterThan(6.Seconds()));
 
             // assert
             result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 00:00:06", "(expected: bigger than 00:00:06)"));

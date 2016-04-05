@@ -51,7 +51,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\OutputExtensions.cs" />
     <Compile Include="Assertions\MemberAssertions\NotEqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\InRangeAssertion.cs" />
-    <Compile Include="Assertions\MemberAssertions\Numbers\IsBiggerAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Numbers\GreaterThanAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\IsSmallerAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\MemberAssertions\OfTypeAssertion.cs" />
