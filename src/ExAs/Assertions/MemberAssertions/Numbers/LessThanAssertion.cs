@@ -1,16 +1,15 @@
 ﻿using System;
 using ExAs.Results;
-using ExAs.Utils;
 using ExAs.Utils.StringExtensions;
 
 namespace ExAs.Assertions.MemberAssertions.Numbers
 {
-    public class IsSmallerAssertion<T> : IAssertValue<T>
+    public class LessThanAssertion<T> : IAssertValue<T>
         where T : IComparable<T>
     {
         private readonly T expected;
 
-        public IsSmallerAssertion(T expected)
+        public LessThanAssertion(T expected)
         {
             this.expected = expected;
         }

@@ -29,18 +29,18 @@ namespace ExAs.Api
         }
 
         [Test]
-        public void IsSmallerThan_Expected13_Get12_ShouldPass()
+        public void IsLessThan_Expected13_Get12_ShouldPass()
         {
-            Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
+            Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsLessThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
                                   .p(x => x.actual)        .IsEqualTo("Ninja: ( )Age = 12")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));
         }
 
         [Test]
-        public void IsSmallerThan_Expected13_Get13_ShouldFail()
+        public void IsLessThan_Expected13_Get13_ShouldFail()
         {
-            Result result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsSmallerThan(13));
+            Result result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsLessThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
                                   .p(x => x.actual)        .IsEqualTo("Ninja: (X)Age = 93")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));

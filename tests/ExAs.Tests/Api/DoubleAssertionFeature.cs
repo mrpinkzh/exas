@@ -35,18 +35,18 @@ namespace ExAs.Api
         }
 
         [Test]
-        public void IsSmallerThan_Expected43_2_Get38_4_ShouldPass()
+        public void IsLessThan_Expected43_2_Get38_4_ShouldPass()
         {
-            Result result = padavanNaruto.Evaluate(n => n.p(x => x.SkillValue).IsSmallerThan(43.2));
+            Result result = padavanNaruto.Evaluate(n => n.p(x => x.SkillValue).IsLessThan(43.2));
             result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
                                   .p(x => x.actual).IsEqualTo("Ninja: ( )SkillValue = 38.4")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 43.2)"));
         }
 
         [Test]
-        public void IsSmallerThan_Expected99_2_Get99_7_ShouldFail()
+        public void IsLessThan_Expected99_2_Get99_7_ShouldFail()
         {
-            Result result = skilledNaruto.Evaluate(n => n.p(x => x.SkillValue).IsSmallerThan(99.2));
+            Result result = skilledNaruto.Evaluate(n => n.p(x => x.SkillValue).IsLessThan(99.2));
             result.ExAssert(r => r.p(x => x.succeeded).IsFalse()
                                   .p(x => x.actual).IsEqualTo("Ninja: (X)SkillValue = 99.7")
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 99.2)"));
