@@ -53,7 +53,6 @@
     <Compile Include="Assertions\MemberAssertions\Numbers\IsSmallerAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\MemberAssertions\OfTypeAssertion.cs" />
-    <Compile Include="Assertions\MemberAssertions\Strings\ContainsStringAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\EqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\HasLengthAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\IsEmptyAssertion.cs" />

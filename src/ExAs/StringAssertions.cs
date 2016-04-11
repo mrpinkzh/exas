@@ -24,10 +24,5 @@ namespace ExAs
         {
             return member.SetAssertion(new HasLengthAssertion(expectedLength));
         }
-
-        public static IAssert<T> Contains<T>(this IAssertMember<T, string> member, string containedString)
-        {
-            return member.SetAssertion(new ContainsStringAssertion(containedString));
-        }
     }
 }
