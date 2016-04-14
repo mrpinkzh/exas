@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ExAs.Results;
+using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Api
+namespace ExAs.Api.Comparables
 {
-    using global::ExAs.Results;
-    using global::ExAs.Utils;
-
     [TestFixture]
     public class DoubleAssertionFeature
     {

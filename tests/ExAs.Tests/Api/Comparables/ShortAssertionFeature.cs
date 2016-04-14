@@ -1,7 +1,7 @@
 ﻿using ExAs.Utils;
 using NUnit.Framework;
 
-namespace ExAs.Api
+namespace ExAs.Api.Comparables
 {
     [TestFixture]
     public class ShortAssertionFeature
