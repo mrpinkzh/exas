@@ -30,6 +30,11 @@ namespace ExAs.Utils.Creation
             return new Ninja(name:null);
         }
 
+        public static Ninja PadavanNaruto()
+        {
+            return new Ninja(skillValue: 38.4);
+        }
+
         public static WeaponedNinja WeaponlessNinja()
         {
             return new WeaponedNinja();

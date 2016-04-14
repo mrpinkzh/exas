@@ -10,23 +10,7 @@ namespace ExAs.Api.Comparables
         private readonly Ninja padavanNaruto = new Ninja(skillValue: 38.4);
         private readonly Ninja skilledNaruto = new Ninja(skillValue: 99.7);
 
-        [Test]
-        public void IsEqualTo_Expect38_4_Get38_4_ShouldPass()
-        {
-            Result result = padavanNaruto.Evaluate(n => n.Member(x => x.SkillValue).IsEqualTo(38.4));
-            result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
-                                  .p(x => x.actual).IsEqualTo("Ninja: ( )SkillValue = 38.4")
-                                  .p(x => x.expectation).IsEqualTo("(expected: 38.4)"));
-        }
-
-        [Test]
-        public void IsEqualTo_Expect38_4_Get13_8_ShouldFail()
-        {
-            Result result = padavanNaruto.Evaluate(n => n.p(x => x.SkillValue).IsEqualTo(13.8));
-            result.ExAssert(r => r.p(x => x.succeeded).IsFalse()
-                                  .p(x => x.actual).IsEqualTo("Ninja: (X)SkillValue = 38.4")
-                                  .p(x => x.expectation).IsEqualTo("(expected: 13.8)"));
-        }
+        
 
         [Test]
         public void IsLessThan_Expected43_2_Get38_4_ShouldPass()

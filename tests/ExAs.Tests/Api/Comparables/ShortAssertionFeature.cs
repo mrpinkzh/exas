@@ -9,16 +9,6 @@ namespace ExAs.Api.Comparables
         private readonly DetailedNinja strongNinja = new DetailedNinja(65);
 
         [Test]
-        public void IsEqualTo_Expecting65_OnNinjaWith65_ShouldSucceed()
-        {
-            // act
-            var result = strongNinja.Evaluate(n => n.Member(x => x.strength).IsEqualTo(65));
-
-            // assert
-            result.ExAssert(r => r.Fullfills(true, "DetailedNinja: ( )strength = 65", "(expected: 65)"));
-        }
-
-        [Test]
         public void IsLessThan_ExpectingSmallerThan66_OnNinjaWith65_ShouldSucceed()
         {
             // act

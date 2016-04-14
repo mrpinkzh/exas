@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Api\BooleanAssertionFeature.cs" />
     <Compile Include="Api\Collections\Collection_HasAny_Feature.cs" />
+    <Compile Include="Api\Comparables\Comparable_IsEqualTo_Feature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\Comparables\DoubleAssertionFeature.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Utils\Dojo.cs" />
     <Compile Include="Utils\ExasShortcutNotationExtensions.cs" />
     <Compile Include="Utils\Ninja.cs" />
+    <Compile Include="Utils\NinjaExtensions.cs" />
     <Compile Include="Utils\Shuriken.cs" />
     <Compile Include="Utils\Times.cs" />
     <Compile Include="Utils\Timespans.cs" />
