@@ -37,6 +37,7 @@
     <Compile Include="Api\BooleanAssertionFeature.cs" />
     <Compile Include="Api\Collections\Collection_HasAny_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsEqualTo_Feature.cs" />
+    <Compile Include="Api\Comparables\Comparable_IsGreaterThan_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsLess_Feature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />

@@ -14,29 +14,9 @@ namespace ExAs.Api.Comparables
 
         
 
-        [Test]
-        public void IsGreaterThan_Expected37_8_Get38_8_ShouldPass()
-        {
-            // Act
-            var result = padavanNaruto.Evaluate(n => n.Member(x => x.SkillValue).IsGreaterThan(37.8));
+        
 
-            // Assert
-            result.ExAssert(r => r.IsNotNull()
-                                  .p(x => x.succeeded).IsTrue()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )SkillValue = 38.4 (expected: bigger than 37.8)"));
-        }
-
-        [Test]
-        public void IsGreaterThan_Expected100_1_Get99_7_ShouldFail()
-        {
-            // Act
-            var result = skilledNaruto.Evaluate(n => n.Member(x => x.SkillValue).IsGreaterThan(100.1));
-
-            // Assert
-            result.ExAssert(r => r.IsNotNull()
-                                  .p(x => x.succeeded).IsFalse()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)SkillValue = 99.7 (expected: bigger than 100.1)"));
-        }
+        
 
         [Test]
         public void IsInRange_ExpectedIn9_1And43_7_Get38_4_ShouldPass()

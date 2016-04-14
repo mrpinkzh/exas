@@ -12,29 +12,7 @@ namespace ExAs.Api.Comparables
 
         
 
-        [Test]
-        public void IsGreaterThan_Expected2_Get12_ShouldPass()
-        {
-            // Act
-            var result = CreateNinjas.Naruto().Evaluate(n => n.Member(x => x.Age).IsGreaterThan(2));
-
-            // Assert
-            result.ExAssert(r => r.IsNotNull()
-                                  .p(x => x.succeeded) .IsTrue()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )Age = 12 (expected: bigger than 2)"));
-        }
-
-        [Test]
-        public void IsGreaterThan_Expected100_Get93_ShouldFail()
-        {
-            // Act
-            var result = oldNaruto.Evaluate(n => n.Member(x => x.Age).IsGreaterThan(100));
-
-            // Assert
-            result.ExAssert(r => r.IsNotNull()
-                                  .p(x => x.succeeded) .IsFalse()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 93 (expected: bigger than 100)"));
-        }
+        
 
         [Test]
         public void IsInRange_ExpectedIn9And12_Get12_ShouldPass()

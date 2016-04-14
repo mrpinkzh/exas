@@ -9,7 +9,7 @@ namespace ExAs.Api.Comparables
     public class Comparable_IsLess_Feature
     {
         [Test]
-        public void Double_Expected43_2_Get38_4_ShouldPass()
+        public void Expected43_2_Get38_4_ShouldPass()
         {
             Result result = PadavanNaruto().Evaluate(n => n.p(x => x.SkillValue).IsLessThan(43.2));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
@@ -18,7 +18,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void IsLessThan_Expected99_2_Get99_7_ShouldFail()
+        public void Expected99_2_Get99_7_ShouldFail()
         {
             Result result = SkilledNaruto().Evaluate(n => n.p(x => x.SkillValue).IsLessThan(99.2));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
@@ -26,7 +26,7 @@ namespace ExAs.Api.Comparables
                                   .p(x => x.expectation).IsEqualTo("(expected: smaller than 99.2)"));
         }
         [Test]
-        public void Integer_Expected13_Get12_ShouldPass()
+        public void Expected13_Get12_ShouldPass()
         {
             Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsLessThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
@@ -35,7 +35,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void Integer_Expected26_Get26_ShouldFail()
+        public void Expected26_Get26_ShouldFail()
         {
             Result result = Kakashi().Evaluate(n => n.p(x => x.Age).IsLessThan(26));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
@@ -44,7 +44,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void Integer_ExpectingSmallerThan66_OnNinjaWith65_ShouldSucceed()
+        public void ExpectingSmallerThan66_OnNinjaWith65_ShouldSucceed()
         {
             // act
             var result = Naruto().Evaluate(n => n.Member(x => x.ShortAge()).IsLessThan(66));

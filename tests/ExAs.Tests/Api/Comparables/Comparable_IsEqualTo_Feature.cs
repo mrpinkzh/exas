@@ -9,7 +9,7 @@ namespace ExAs.Api.Comparables
     public class Comparable_IsEqualTo_Feature
     {
         [Test]
-        public void Double_Expect38_4_Get38_4_ShouldPass()
+        public void Expect38_4_Get38_4_ShouldPass()
         {
             Result result = PadavanNaruto().Evaluate(n => n.Member(x => x.SkillValue).IsEqualTo(38.4));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
@@ -18,7 +18,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void Double_IsEqualTo_Expect38_4_Get13_8_ShouldFail()
+        public void IsEqualTo_Expect38_4_Get13_8_ShouldFail()
         {
             Result result = PadavanNaruto().Evaluate(n => n.p(x => x.SkillValue).IsEqualTo(13.8));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
@@ -27,7 +27,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void Integer_Expect12_Get12_ShouldPass()
+        public void Expect12_Get12_ShouldPass()
         {
             Result result = Naruto().Evaluate(n => n.Member(x => x.Age).IsEqualTo(12));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
@@ -36,7 +36,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void Integer_Expect13_Get12_ShouldFail()
+        public void Expect13_Get12_ShouldFail()
         {
             Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsEqualTo(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
@@ -45,7 +45,7 @@ namespace ExAs.Api.Comparables
         }
 
         [Test]
-        public void Short_Expecting12_OnNinjaWith12_ShouldSucceed()
+        public void Expecting12_OnNinjaWith12_ShouldSucceed()
         {
             // act
             var result = Naruto().Evaluate(n => n.Member(x => x.ShortAge()).IsEqualTo(12));

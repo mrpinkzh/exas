@@ -10,15 +10,7 @@ namespace ExAs.Api.Comparables
 
         
 
-        [Test]
-        public void IsGreaterThan_ExpectingBiggerThan64_OnNinjaWith65_ShouldSucceed()
-        {
-            // act
-            var result = strongNinja.Evaluate(n => n.Member(x => x.strength).IsGreaterThan(64));
-
-            // assert
-            result.ExAssert(r => r.Fullfills(true, "DetailedNinja: ( )strength = 65", "(expected: bigger than 64)"));
-        }
+        
 
         [Test]
         public void IsInRange_ExpectingBetween64And66_OnNinjaWith65_ShouldSucceed()
