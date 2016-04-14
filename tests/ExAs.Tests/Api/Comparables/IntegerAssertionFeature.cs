@@ -10,23 +10,7 @@ namespace ExAs.Api.Comparables
     {
         private readonly Ninja oldNaruto = new Ninja(age:93);
 
-        [Test]
-        public void IsLessThan_Expected13_Get12_ShouldPass()
-        {
-            Result result = CreateNinjas.Naruto().Evaluate(n => n.p(x => x.Age).IsLessThan(13));
-            result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
-                                  .p(x => x.actual)        .IsEqualTo("Ninja: ( )Age = 12")
-                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));
-        }
-
-        [Test]
-        public void IsLessThan_Expected13_Get13_ShouldFail()
-        {
-            Result result = oldNaruto.Evaluate(n => n.p(x => x.Age).IsLessThan(13));
-            result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
-                                  .p(x => x.actual)        .IsEqualTo("Ninja: (X)Age = 93")
-                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));
-        }
+        
 
         [Test]
         public void IsGreaterThan_Expected2_Get12_ShouldPass()

@@ -35,6 +35,11 @@ namespace ExAs.Utils.Creation
             return new Ninja(skillValue: 38.4);
         }
 
+        public static Ninja SkilledNaruto()
+        {
+            return new Ninja(skillValue: 99.7);
+        }
+
         public static WeaponedNinja WeaponlessNinja()
         {
             return new WeaponedNinja();
