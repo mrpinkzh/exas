@@ -38,10 +38,10 @@
     <Compile Include="Api\Collections\Collection_HasAny_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsEqualTo_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsGreaterThan_Feature.cs" />
+    <Compile Include="Api\Comparables\Comparable_IsInRange_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsLess_Feature.cs" />
     <Compile Include="Api\DateTimeAssertionFeature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
-    <Compile Include="Api\Comparables\DoubleAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_Contains_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_DoesntContain_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_HasCount_Feature.cs" />
@@ -51,13 +51,11 @@
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotNull_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNull_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotEmpty_Feature.cs" />
-    <Compile Include="Api\Comparables\IntegerAssertionFeature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultipleMemberAssertionFeature.cs" />
     <Compile Include="Api\NullableBooleanAssertionFeature.cs" />
     <Compile Include="Api\NullableIntegerAssertionFeature.cs" />
     <Compile Include="Api\ReadOnlyCollections\ReadOnlyCollectionAssertionFeature.cs" />
-    <Compile Include="Api\Comparables\ShortAssertionFeature.cs" />
     <Compile Include="Api\ShortSyntax\ShortSyntaxFeature.cs" />
     <Compile Include="Api\SimpleAssertionFeature.cs" />
     <Compile Include="Api\Strings\StringAssertion_Contains_Feature.cs" />
