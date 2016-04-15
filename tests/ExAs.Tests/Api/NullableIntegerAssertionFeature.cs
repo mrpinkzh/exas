@@ -108,7 +108,7 @@ namespace ExAs.Api
             var result = earlyAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsGreaterThan(0));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: bigger than 0)"));
+            result.ExAssert(r => r.Fullfills(true, "AppearingNinja: ( )firstAppearance = 1", "(expected: greater than 0)"));
         }
 
         [Test]
@@ -118,7 +118,7 @@ namespace ExAs.Api
             var result = notAppearingNinja.Evaluate(n => n.Member(x => x.firstAppearance).IsGreaterThan(0));
 
             // assert
-            result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: bigger than 0)"));
+            result.ExAssert(r => r.Fullfills(false, "AppearingNinja: (X)firstAppearance = null", "(expected: greater than 0)"));
         }
 
         [Test]

@@ -29,7 +29,7 @@ namespace ExAs.Api.Timespans
             var result = ninja.Evaluate(n => n.Member(x => x.awake).IsGreaterThan(6.Seconds()));
 
             // assert
-            result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 00:00:06", "(expected: bigger than 00:00:06)"));
+            result.ExAssert(r => r.Fullfills(false, "SleepyNinja: (X)awake = 00:00:06", "(expected: greater than 00:00:06)"));
         }
 
         [Test]

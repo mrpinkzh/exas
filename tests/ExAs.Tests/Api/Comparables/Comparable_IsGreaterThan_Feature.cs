@@ -16,7 +16,7 @@ namespace ExAs.Api.Comparables
             // Assert
             result.ExAssert(r => r.IsNotNull()
                                   .p(x => x.succeeded).IsTrue()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )SkillValue = 38.4 (expected: bigger than 37.8)"));
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )SkillValue = 38.4 (expected: greater than 37.8)"));
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace ExAs.Api.Comparables
             // Assert
             result.ExAssert(r => r.IsNotNull()
                                   .p(x => x.succeeded).IsFalse()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)SkillValue = 99.7 (expected: bigger than 100.1)"));
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)SkillValue = 99.7 (expected: greater than 100.1)"));
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace ExAs.Api.Comparables
             // Assert
             result.ExAssert(r => r.IsNotNull()
                                   .p(x => x.succeeded).IsTrue()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )Age = 12 (expected: bigger than 2)"));
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: ( )Age = 12 (expected: greater than 2)"));
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace ExAs.Api.Comparables
             // Assert
             result.ExAssert(r => r.IsNotNull()
                                   .p(x => x.succeeded).IsFalse()
-                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 26 (expected: bigger than 100)"));
+                                  .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Age = 26 (expected: greater than 100)"));
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace ExAs.Api.Comparables
             var result = Naruto().Evaluate(n => n.Member(x => x.ShortAge()).IsGreaterThan(10));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "Ninja: ( )ShortAge() = 12", "(expected: bigger than 10)"));
+            result.ExAssert(r => r.Fullfills(true, "Ninja: ( )ShortAge() = 12", "(expected: greater than 10)"));
         }
     }
 }

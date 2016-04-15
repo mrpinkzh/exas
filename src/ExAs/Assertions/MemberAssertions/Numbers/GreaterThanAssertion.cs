@@ -20,7 +20,7 @@ namespace ExAs.Assertions.MemberAssertions.Numbers
             return new ValueAssertionResult(
                 actual.CompareTo(expected) > 0, 
                 actual.ToString(), 
-                ComposeLog.Expected($"bigger than {expected}"));
+                ComposeLog.Expected($"greater than {expected}"));
         }
     }
 }
