@@ -19,7 +19,7 @@ namespace ExAs.Assertions.MemberAssertions.Numbers
             return new ValueAssertionResult(
                 actual.CompareTo(expected) < 0, 
                 actual.ToValueString(),
-                $"(expected: smaller than {expected})");
+                $"(expected: less than {expected})");
         }
     }
 }

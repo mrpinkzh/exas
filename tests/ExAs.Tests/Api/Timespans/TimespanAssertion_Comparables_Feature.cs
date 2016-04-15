@@ -16,7 +16,7 @@ namespace ExAs.Api.Timespans
             var result = ninja.Evaluate(n => n.Member(x => x.awake).IsLessThan(5.Seconds()));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = 00:00:04", "(expected: smaller than 00:00:05)"));
+            result.ExAssert(r => r.Fullfills(true, "SleepyNinja: ( )awake = 00:00:04", "(expected: less than 00:00:05)"));
         }
         
         [Test]

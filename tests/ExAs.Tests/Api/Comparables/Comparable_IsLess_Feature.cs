@@ -14,7 +14,7 @@ namespace ExAs.Api.Comparables
             Result result = PadavanNaruto().Evaluate(n => n.p(x => x.SkillValue).IsLessThan(43.2));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
                                   .p(x => x.actual)     .IsEqualTo("Ninja: ( )SkillValue = 38.4")
-                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 43.2)"));
+                                  .p(x => x.expectation).IsEqualTo("(expected: less than 43.2)"));
         }
 
         [Test]
@@ -23,7 +23,7 @@ namespace ExAs.Api.Comparables
             Result result = SkilledNaruto().Evaluate(n => n.p(x => x.SkillValue).IsLessThan(99.2));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
                                   .p(x => x.actual)     .IsEqualTo("Ninja: (X)SkillValue = 99.7")
-                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 99.2)"));
+                                  .p(x => x.expectation).IsEqualTo("(expected: less than 99.2)"));
         }
         [Test]
         public void Expected13_Get12_ShouldPass()
@@ -31,7 +31,7 @@ namespace ExAs.Api.Comparables
             Result result = Naruto().Evaluate(n => n.p(x => x.Age).IsLessThan(13));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsTrue()
                                   .p(x => x.actual)     .IsEqualTo("Ninja: ( )Age = 12")
-                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 13)"));
+                                  .p(x => x.expectation).IsEqualTo("(expected: less than 13)"));
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace ExAs.Api.Comparables
             Result result = Kakashi().Evaluate(n => n.p(x => x.Age).IsLessThan(26));
             result.ExAssert(r => r.p(x => x.succeeded)  .IsFalse()
                                   .p(x => x.actual)     .IsEqualTo("Ninja: (X)Age = 26")
-                                  .p(x => x.expectation).IsEqualTo("(expected: smaller than 26)"));
+                                  .p(x => x.expectation).IsEqualTo("(expected: less than 26)"));
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace ExAs.Api.Comparables
             var result = Naruto().Evaluate(n => n.Member(x => x.ShortAge()).IsLessThan(66));
 
             // assert
-            result.ExAssert(r => r.Fullfills(true, "Ninja: ( )ShortAge() = 12", "(expected: smaller than 66)"));
+            result.ExAssert(r => r.Fullfills(true, "Ninja: ( )ShortAge() = 12", "(expected: less than 66)"));
         }
     }
 }
