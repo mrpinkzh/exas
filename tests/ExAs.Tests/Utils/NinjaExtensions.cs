@@ -1,4 +1,6 @@
-﻿namespace ExAs.Utils
+﻿using System;
+
+namespace ExAs.Utils
 {
     public static class NinjaExtensions
     {

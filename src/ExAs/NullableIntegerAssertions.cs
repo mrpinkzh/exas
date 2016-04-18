@@ -1,4 +1,5 @@
-﻿using ExAs.Assertions;
+﻿using System;
+using ExAs.Assertions;
 using ExAs.Assertions.MemberAssertions;
 using ExAs.Assertions.MemberAssertions.Numbers;
 using ExAs.Assertions.ObjectAssertions;

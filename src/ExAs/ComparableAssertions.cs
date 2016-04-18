@@ -24,9 +24,10 @@ namespace ExAs
             return member.SetAssertion(new InRangeAssertion<TMember>(min, max));
         }
 
-        public static IAssert<T> IsGreaterOrEqualTo<T>(this IAssertMember<T, int> member, int expected)
+        public static IAssert<T> IsGreaterOrEqualTo<T, TMember>(this IAssertMember<T, TMember> member, TMember expected)
+            where TMember : IComparable<TMember>
         {
-            return member.SetAssertion(new GreaterOrEqualAssertion(expected));
+            return member.SetAssertion(new GreaterOrEqualAssertion<TMember>(expected));
         } 
     }
 }
