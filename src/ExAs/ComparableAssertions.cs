@@ -28,6 +28,12 @@ namespace ExAs
             where TMember : IComparable<TMember>
         {
             return member.SetAssertion(new GreaterOrEqualAssertion<TMember>(expected));
+        }
+
+        public static IAssert<T> IsLessOrEqualTo<T, TMember>(this IAssertMember<T, TMember> member, TMember expected) 
+            where TMember : IComparable<TMember>
+        {
+            return member.SetAssertion(new LessOrEqualAssertion<TMember>(expected));
         } 
     }
 }

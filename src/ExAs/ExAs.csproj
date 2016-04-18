@@ -53,6 +53,7 @@
     <Compile Include="Assertions\MemberAssertions\Numbers\GreaterOrEqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\InRangeAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\GreaterThanAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Numbers\LessOrEqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\LessThanAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\MemberAssertions\OfTypeAssertion.cs" />
