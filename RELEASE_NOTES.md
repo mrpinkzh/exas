@@ -1,6 +1,7 @@
 ## New in 0.3
 * renamed the is-bigger-than assertion to is-greater-than (#26)
 * renamed the is-smaller-than assertion to is-less-than (#27)
+* added comparable is-greater-or-equal-to assertion (#28)
 
 ## New in 0.2.0
 * added string assertions: contains, contains-not, starts-with, starts-not-with, ends-with, ends-not-with
