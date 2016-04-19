@@ -6,6 +6,11 @@ namespace ExAs
 {
     public static class DateTimeAssertions
     {
+        public static IAssert<T> IsAfter<T>(this IAssertMember<T, DateTime> member, DateTime expected)
+        {
+            return member.SetAssertion(new AfterAssertion(expected));
+        }
+
         public static IAssert<T> IsOnSameDayAs<T>(this IAssertMember<T, DateTime> member, DateTime expectedDate)
         {
             return member.SetAssertion(new SameDayAssertion(expectedDate));

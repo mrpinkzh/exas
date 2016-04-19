@@ -39,6 +39,7 @@
     <Compile Include="Assertions\MemberAssertionFunctions.cs" />
     <Compile Include="Assertions\MemberAssertions\Booleans\IsFalseAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Booleans\IsTrueAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\DateTimes\AfterAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsAssertion.cs" />

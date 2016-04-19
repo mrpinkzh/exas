@@ -4,11 +4,11 @@ using ExAs.Utils;
 
 namespace ExAs.Assertions.MemberAssertions.DateTimes
 {
-    public class SameDayAssertion : IAssertValue<DateTime>
+    public class AfterAssertion : IAssertValue<DateTime>
     {
         private readonly DateTime expected;
 
-        public SameDayAssertion(DateTime expected)
+        public AfterAssertion(DateTime expected)
         {
             this.expected = expected;
         }
@@ -16,9 +16,9 @@ namespace ExAs.Assertions.MemberAssertions.DateTimes
         public ValueAssertionResult AssertValue(DateTime actual)
         {
             return new ValueAssertionResult(
-                actual.Date == expected.Date, 
-                actual.ToExasDateString(),
-                ComposeLog.Expected(expected.ToExasDateString()));
+                actual > expected,
+                actual.ToExasDateTimeString(),
+                ComposeLog.Expected($"after {expected.ToExasDateTimeString()}"));
         }
     }
 }

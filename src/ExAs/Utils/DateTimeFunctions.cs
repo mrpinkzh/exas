@@ -1,9 +1,20 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ExAs.Utils
 {
     public static class DateTimeFunctions
     {
+        public static string ToExasDateString(this DateTime date)
+        {
+            return date.ToString("d", CultureInfo.InvariantCulture);
+        }
+
+        public static string ToExasDateTimeString(this DateTime dateTime)
+        {
+            return dateTime.ToString("G", CultureInfo.InvariantCulture);
+        }
+
         public static DateTime January(this int day, int year) { return new DateTime(year, 01, day); }
 
         public static DateTime February(this int day, int year) { return new DateTime(year, 02, day); }
