@@ -1,4 +1,5 @@
 ## New in 0.4.0
+* added datetime is-after assertion (#35)
 
 ## New in 0.3.0
 * renamed the is-bigger-than assertion to is-greater-than (#26)
