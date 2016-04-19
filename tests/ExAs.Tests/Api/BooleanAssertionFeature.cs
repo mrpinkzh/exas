@@ -3,13 +3,14 @@ using ExAs.Utils;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
 using static ExAs.ExAs;
+using static ExAs.Utils.Dates;
 
 namespace ExAs.Api
 {
     [TestFixture]
     public class BooleanAssertionFeature
     {
-        private readonly City cityWithDojo = new City(new Dojo(Naruto(), Dates.StandardDay()));
+        private readonly City cityWithDojo = new City(new Dojo(Naruto(), StandardDay()));
         private readonly City cityWithoutDojo = new City();
 
         [Test]

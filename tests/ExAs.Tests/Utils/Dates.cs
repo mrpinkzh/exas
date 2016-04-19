@@ -6,7 +6,7 @@ namespace ExAs.Utils
     {
         public static DateTime StandardDay()
         {
-            return new DateTime(1984, 11, 16);
+            return 16.November(1984);
         }
 
         public static DateTime Yesterday()

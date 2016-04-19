@@ -6,6 +6,7 @@ using ExAs.Utils;
 using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
+using static ExAs.Utils.Dates;
 
 namespace ExAs.Api.ReadOnlyCollections
 {
@@ -14,10 +15,10 @@ namespace ExAs.Api.ReadOnlyCollections
     {
         private readonly CollectionCity cityWithNullDojos = new CollectionCity(dojoList: null);
         private readonly CollectionCity cityWithoutDojo = new CollectionCity();
-        private readonly CollectionCity cityWithDojo = new CollectionCity(new Dojo(Naruto(), Dates.StandardDay()));
-        private readonly CollectionCity threeDojoCity = new CollectionCity(new Dojo(Naruto(), new DateTime(1515, 11, 15)),
-                                                                           new Dojo(Kakashi(), new DateTime(1500, 1, 1)),
-                                                                           new Dojo(new Ninja("Tsubasa", 14), Dates.StandardDay()));
+        private readonly CollectionCity cityWithDojo = new CollectionCity(new Dojo(Naruto(), StandardDay()));
+        private readonly CollectionCity threeDojoCity = new CollectionCity(new Dojo(Naruto(), 15.November(1515)),
+                                                                           new Dojo(Kakashi(), 1.January(1500)),
+                                                                           new Dojo(new Ninja("Tsubasa", 14), StandardDay()));
 
         [Test]
         public void IsNull_WithNullDojos_ShouldPass()
@@ -155,7 +156,7 @@ namespace ExAs.Api.ReadOnlyCollections
         {
             // Act
             var result = cityWithDojo.Evaluate(
-                c => c.Member(x => x.ReadOnlyDojos).HasAny(d => d.Member(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+                c => c.Member(x => x.ReadOnlyDojos).HasAny(d => d.Member(x => x.Founded).IsOnSameDayAs(StandardDay())));
 
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded) .IsTrue()
@@ -169,7 +170,7 @@ namespace ExAs.Api.ReadOnlyCollections
             // Act
             var result = threeDojoCity.Evaluate(
                 c => c.Member(x => x.ReadOnlyDojos).HasNone(d => d.Member(x => x.Master).Fulfills(n => n.Member(x => x.Age).IsEqualTo(26))
-                                                                  .Member(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+                                                                  .Member(x => x.Founded).IsOnSameDayAs(StandardDay())));
 
             // Assert
             result.ExAssert(r => r.p(x => x.succeeded) .IsTrue()

@@ -4,6 +4,7 @@ using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateCities;
 using static ExAs.Utils.Creation.CreateNinjas;
+using static ExAs.Utils.Dates;
 
 namespace ExAs.Api.Enumerables
 {
@@ -16,7 +17,7 @@ namespace ExAs.Api.Enumerables
             // act
             var result = ThreeDojoCity().Evaluate(
                 c => c.Member(x => x.Dojos).HasNone(d => d.Member(x => x.Master).Fulfills(n => n.Member(x => x.Age).IsEqualTo(26))
-                                                          .Member(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+                                                          .Member(x => x.Founded).IsOnSameDayAs(StandardDay())));
 
             // assert
             Console.Out.WriteLine(result.PrintLog());

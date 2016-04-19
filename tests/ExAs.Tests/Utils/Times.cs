@@ -1,4 +1,5 @@
 ﻿using System;
+using static ExAs.Utils.Dates;
 
 namespace ExAs.Utils
 {
@@ -6,12 +7,12 @@ namespace ExAs.Utils
     {
         public static DateTime LunchTime()
         {
-            return Dates.StandardDay().AddHours(12);
+            return StandardDay().At(12.Hours(00));
         }
 
         public static DateTime DinnerTime()
         {
-            return Dates.StandardDay().AddHours(18);
+            return StandardDay().At(18.Hours(00));
         }
     }
 }

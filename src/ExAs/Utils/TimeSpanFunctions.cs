@@ -14,9 +14,9 @@ namespace ExAs.Utils
             return new TimeSpan(0, amount, 0);
         }
 
-        public static TimeSpan Hours(this int amount)
+        public static TimeSpan Hours(this int amount, int minutes = 0)
         {
-            return new TimeSpan(amount, 0, 0);
+            return new TimeSpan(amount, minutes, 0);
         }
     }
 }

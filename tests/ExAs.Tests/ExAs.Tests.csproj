@@ -42,7 +42,8 @@
     <Compile Include="Api\Comparables\Comparable_IsInRange_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsLessOrEqualTo_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsLess_Feature.cs" />
-    <Compile Include="Api\DateTimeAssertionFeature.cs" />
+    <Compile Include="Api\Dates\DateTime_CloseTo_Feature.cs" />
+    <Compile Include="Api\Dates\DateTime_SameDayAs_Feature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_Contains_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_DoesntContain_Feature.cs" />

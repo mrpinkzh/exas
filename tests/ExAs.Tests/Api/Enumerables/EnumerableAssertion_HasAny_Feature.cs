@@ -30,11 +30,11 @@ namespace ExAs.Api.Enumerables
         {
             // arrange
             var city = new City(new Dojo(Naruto(), new DateTime(1515, 11, 15)),
-                                new Dojo(Naruto(), Dates.StandardDay()));
+                                new Dojo(Naruto(), StandardDay()));
 
             // act
             var result = city.Evaluate(
-                c => c.Member(x => x.Dojos).HasAny(d => d.p(x => x.Founded).IsOnSameDayAs(Dates.StandardDay())));
+                c => c.Member(x => x.Dojos).HasAny(d => d.p(x => x.Founded).IsOnSameDayAs(StandardDay())));
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded).IsTrue()

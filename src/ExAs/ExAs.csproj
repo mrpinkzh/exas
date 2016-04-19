@@ -101,6 +101,7 @@
     <Compile Include="StringAssertions.cs" />
     <Compile Include="TimespanAssertions.cs" />
     <Compile Include="Utils\ComposeLog.cs" />
+    <Compile Include="Utils\DateTimeFunctions.cs" />
     <Compile Include="Utils\MemberExpressionFunctions.cs" />
     <Compile Include="Utils\StringExtensions\StringConcatinationFunctions.cs" />
     <Compile Include="Utils\StringExtensions\StringFormattingFunctions.cs" />
