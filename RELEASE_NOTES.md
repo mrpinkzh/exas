@@ -1,4 +1,4 @@
-## New in 0.3
+## New in 0.3.0
 * renamed the is-bigger-than assertion to is-greater-than (#26)
 * renamed the is-smaller-than assertion to is-less-than (#27)
 * added comparable is-greater-or-equal-to assertion (#28)
