@@ -43,6 +43,7 @@
     <Compile Include="Api\Comparables\Comparable_IsLessOrEqualTo_Feature.cs" />
     <Compile Include="Api\Comparables\Comparable_IsLess_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_After_Feature.cs" />
+    <Compile Include="Api\Dates\DateTime_Before_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_CloseTo_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_SameDayAs_Feature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Utils\City.cs" />
     <Compile Include="Utils\CreateRandom.cs" />
     <Compile Include="Utils\Creation\CreateCities.cs" />
+    <Compile Include="Utils\Creation\CreateDojos.cs" />
     <Compile Include="Utils\Creation\CreateNinjas.cs" />
     <Compile Include="Utils\Dates.cs" />
     <Compile Include="Utils\DinnerAppointment.cs" />
