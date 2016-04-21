@@ -86,7 +86,6 @@
     <Compile Include="Assertions\MemberAssertions\Booleans\IsFalseAssertionTests.cs" />
     <Compile Include="Assertions\MemberAssertions\Booleans\IsTrueAssertionTests.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertionTests.cs" />
-    <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertionTests.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasAnyAssertionTests.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertionTests.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsEmptyAssertionTests.cs" />

@@ -24,11 +24,11 @@ namespace ExAs.Api.Enumerables
             Assert.AreEqual(
                             "City: ( )Dojos = <0 matches>                           (expected: 0 matches)".NewLine()
                        .Add("                 Dojo: (X)Master  = Ninja: (X)Age = 12 (expected: 26)").NewLine()
-                       .Add("                       (X)Founded = 11/15/1515         (expected: 11/16/1984)").NewLine()
+                       .Add("                       (X)Founded = 15.11.1515         (expected: 16.11.1984)").NewLine()
                        .Add("                 Dojo: ( )Master  = Ninja: ( )Age = 26 (expected: 26)".NewLine()
-                       .Add("                       (X)Founded = 01/01/1500         (expected: 11/16/1984)".NewLine()
+                       .Add("                       (X)Founded = 01.01.1500         (expected: 16.11.1984)".NewLine()
                        .Add("                 Dojo: (X)Master  = Ninja: (X)Age = 14 (expected: 26)").NewLine()
-                       .Add("                       ( )Founded = 11/16/1984         (expected: 11/16/1984)"))),
+                       .Add("                       ( )Founded = 16.11.1984         (expected: 16.11.1984)"))),
                    result.PrintLog());
             Assert.IsTrue(result.succeeded);
         }
@@ -53,10 +53,10 @@ namespace ExAs.Api.Enumerables
                        .Add("                 Dojo: (X)Master  = Ninja: (X)Age  = 12        (expected: 26)")        .NewLine()
                        .Add("                                           (X)Name = 'Naruto   (expected: 'Kakashi')") .NewLine()
                        .Add("                                                      Uzumaki' ")                      .NewLine()
-                       .Add("                       (X)Founded = 11/15/1515                 (expected: 01/01/1500)").NewLine()
+                       .Add("                       (X)Founded = 15.11.1515                 (expected: 01.01.1500)").NewLine()
                        .Add("                 Dojo: ( )Master  = Ninja: ( )Age  = 26        (expected: 26)")        .NewLine()
                        .Add("                                           ( )Name = 'Kakashi' (expected: 'Kakashi')") .NewLine()
-                       .Add("                       ( )Founded = 01/01/1500                 (expected: 01/01/1500)"),
+                       .Add("                       ( )Founded = 01.01.1500                 (expected: 01.01.1500)"),
                    result.PrintLog());
             Assert.IsFalse(result.succeeded);
         }

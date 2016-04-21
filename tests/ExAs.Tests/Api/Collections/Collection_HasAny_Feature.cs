@@ -27,7 +27,7 @@ namespace ExAs.Api.Collections
                                   .p(x => x.PrintLog()).IsEqualTo("CollectionCity: ( )DojoCollection = <1 match>                                    (expected: at least 1 match)".NewLine()
                                                              .Add("                                    Dojo: ( )Master  = Ninja: ( )Name = 'Naruto' (expected: 'Naruto')").NewLine()
                                                              .Add("                                                              ( )Age  = 12       (expected: 12)").NewLine()
-                                                             .Add("                                          ( )Founded = 11/16/1984                (expected: 11/16/1984)")));
+                                                             .Add("                                          ( )Founded = 16.11.1984                (expected: 16.11.1984)")));
 
         }
 

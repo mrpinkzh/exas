@@ -21,7 +21,7 @@ namespace ExAs.Api.Dates
 
             // assert
             Assert.IsTrue(result.succeeded);
-            Assert.AreEqual("Dojo: ( )Founded = 11/15/1515 (expected: 11/15/1515)",
+            Assert.AreEqual("Dojo: ( )Founded = 15.11.1515 (expected: 15.11.1515)",
                             result.PrintLog());
         }
 
@@ -31,7 +31,7 @@ namespace ExAs.Api.Dates
             var dojo = new Dojo(CreateNinjas.Naruto(), commonFoundationDay);
             var result = dojo.Evaluate(d => d.Member(x => x.Founded).IsOnSameDayAs(15.November(1715)));
             Assert.IsFalse(result.succeeded);
-            Assert.AreEqual("Dojo: (X)Founded = 11/15/1515 (expected: 11/15/1715)",
+            Assert.AreEqual("Dojo: (X)Founded = 15.11.1515 (expected: 15.11.1715)",
                             result.PrintLog());
         }
     }

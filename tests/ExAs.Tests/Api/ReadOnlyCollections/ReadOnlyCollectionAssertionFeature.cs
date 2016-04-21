@@ -161,7 +161,7 @@ namespace ExAs.Api.ReadOnlyCollections
             // Assert
             result.ExAssert(r => r.Member(x => x.succeeded) .IsTrue()
                                   .Member(x => x.PrintLog()).IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <1 match>                     (expected: at least 1 match)".NewLine()
-                                                                    .Add("                                   Dojo: ( )Founded = 11/16/1984 (expected: 11/16/1984)")));
+                                                                    .Add("                                   Dojo: ( )Founded = 16.11.1984 (expected: 16.11.1984)")));
         }
 
         [Test]
@@ -176,11 +176,11 @@ namespace ExAs.Api.ReadOnlyCollections
             result.ExAssert(r => r.p(x => x.succeeded) .IsTrue()
                                   .p(x => x.PrintLog()).IsEqualTo("CollectionCity: ( )ReadOnlyDojos = <0 matches>                           (expected: 0 matches)".NewLine()
                                                              .Add("                                   Dojo: (X)Master  = Ninja: (X)Age = 12 (expected: 26)").NewLine()
-                                                             .Add("                                         (X)Founded = 11/15/1515         (expected: 11/16/1984)").NewLine()
+                                                             .Add("                                         (X)Founded = 15.11.1515         (expected: 16.11.1984)").NewLine()
                                                              .Add("                                   Dojo: ( )Master  = Ninja: ( )Age = 26 (expected: 26)".NewLine()
-                                                             .Add("                                         (X)Founded = 01/01/1500         (expected: 11/16/1984)".NewLine()
+                                                             .Add("                                         (X)Founded = 01.01.1500         (expected: 16.11.1984)".NewLine()
                                                              .Add("                                   Dojo: (X)Master  = Ninja: (X)Age = 14 (expected: 26)").NewLine()
-                                                             .Add("                                         ( )Founded = 11/16/1984         (expected: 11/16/1984)")))));
+                                                             .Add("                                         ( )Founded = 16.11.1984         (expected: 16.11.1984)")))));
             
         }
 

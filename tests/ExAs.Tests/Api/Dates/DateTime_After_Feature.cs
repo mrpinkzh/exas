@@ -18,8 +18,8 @@ namespace ExAs.Api.Dates
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded)  .IsTrue()
-                                  .Member(x => x.actual)     .IsEqualTo("Dojo: ( )Founded = 11/16/1984 00:00:00")
-                                  .Member(x => x.expectation).IsEqualTo(Expected("after 01/01/0001 00:00:00")));
+                                  .Member(x => x.actual)     .IsEqualTo("Dojo: ( )Founded = 16.11.1984 00:00:00")
+                                  .Member(x => x.expectation).IsEqualTo(Expected("after 01.01.0001 00:00:00")));
         }
 
         [Test]
@@ -33,8 +33,8 @@ namespace ExAs.Api.Dates
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded)  .IsFalse()
-                                  .Member(x => x.actual)     .IsEqualTo("Dojo: (X)Founded = 03/11/1515 00:00:00")
-                                  .Member(x => x.expectation).Contains("after 11/16/1984 00:00:00"));
+                                  .Member(x => x.actual)     .IsEqualTo("Dojo: (X)Founded = 11.03.1515 00:00:00")
+                                  .Member(x => x.expectation).Contains("after 16.11.1984 00:00:00"));
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace ExAs.Api.Dates
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
-                                  .Member(x => x.actual)   .IsEqualTo("Dojo: ( )Founded = 11/16/1984 13:00:00"));
+                                  .Member(x => x.actual)   .IsEqualTo("Dojo: ( )Founded = 16.11.1984 13:00:00"));
         }
     }
 }

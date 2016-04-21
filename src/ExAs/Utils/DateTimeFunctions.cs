@@ -5,14 +5,16 @@ namespace ExAs.Utils
 {
     public static class DateTimeFunctions
     {
+        private static CultureInfo ExasCulture() { return new CultureInfo  ("de-ch"); }
+
         public static string ToExasDateString(this DateTime date)
         {
-            return date.ToString("d", CultureInfo.InvariantCulture);
+            return date.ToString("d", ExasCulture());
         }
 
         public static string ToExasDateTimeString(this DateTime dateTime)
         {
-            return dateTime.ToString("G", CultureInfo.InvariantCulture);
+            return dateTime.ToString("G", ExasCulture());
         }
 
         public static DateTime January(this int day, int year) { return new DateTime(year, 01, day); }
