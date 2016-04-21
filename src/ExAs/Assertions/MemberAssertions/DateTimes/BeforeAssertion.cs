@@ -16,9 +16,9 @@ namespace ExAs.Assertions.MemberAssertions.DateTimes
         public ValueAssertionResult AssertValue(DateTime actual)
         {
             return new ValueAssertionResult(
-                true,
+                actual < expected,
                 actual.ToExasDateTimeString(),
-                ComposeLog.Expected($"before 16.11.1984 00:00:00"));
+                ComposeLog.Expected($"before {expected.ToExasDateTimeString()}"));
         }
     }
 }
