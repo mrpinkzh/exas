@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ExAs.Utils
 {
@@ -8,5 +9,15 @@ namespace ExAs.Utils
         {
             return (short) ninja.Age;
         }
+
+        public static IList<string> WeaponList(this WeaponedNinja ninja)
+        {
+            return ninja.Weapons.ToList();
+        }
+
+        public static IList<string> NullWeaponList(this WeaponedNinja ninja)
+        {
+            return null;
+        } 
     }
 }

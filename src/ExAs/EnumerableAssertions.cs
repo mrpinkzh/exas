@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ExAs.Assertions;
 using ExAs.Assertions.MemberAssertions.Enumerables;
+using ExAs.Assertions.MemberAssertions.Lists;
 
 namespace ExAs
 {
@@ -45,5 +46,15 @@ namespace ExAs
         {
             return member.SetAssertion(new ContainsNotAssertion<TItem>(expectedItems));
         }
+
+        public static IAssert<T> IsEqualTo<T, TItem>(this IAssertMember<T, IList<TItem>> member, params TItem[] expectedItems)
+        {
+            return member.SetAssertion(new EqualAssertion<TItem>(expectedItems));
+        }
+
+        public static IAssert<T> IsEqualTo<T, TItem>(this IAssertMember<T, IList<TItem>> member, IList<TItem> expectedItems)
+        {
+            return member.SetAssertion(new EqualAssertion<TItem>(expectedItems));
+        } 
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsNotEmptyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\OutputExtensions.cs" />
+    <Compile Include="Assertions\MemberAssertions\Lists\EqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NotEqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\GreaterOrEqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\InRangeAssertion.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Utils\StringExtensions\StringFunctions.cs" />
     <Compile Include="Utils\SystemExtensions\ClassicEnumerableExtensions.cs" />
     <Compile Include="Utils\SystemExtensions\EnumerableExtensions.cs" />
+    <Compile Include="Utils\SystemExtensions\EqualityFunctions.cs" />
     <Compile Include="Utils\SystemExtensions\SystemFunctions.cs" />
     <Compile Include="Utils\TimeSpanFunctions.cs" />
   </ItemGroup>

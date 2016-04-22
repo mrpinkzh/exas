@@ -56,6 +56,7 @@
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotNull_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNull_Feature.cs" />
     <Compile Include="Api\Enumerables\EnumerableAssertion_IsNotEmpty_Feature.cs" />
+    <Compile Include="Api\Lists\List_IsEqualTo_Feature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultipleMemberAssertionFeature.cs" />
     <Compile Include="Api\NullableBooleanAssertionFeature.cs" />
