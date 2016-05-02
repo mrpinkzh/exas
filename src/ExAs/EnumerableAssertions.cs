@@ -18,12 +18,15 @@ namespace ExAs
             return member.SetAssertion(new IsNotEmptyAssertion<TElement>());
         }
 
-        public static IAssert<T> HasAny<T, TElement>(
-            this IAssertMember<T, IEnumerable<TElement>> member,
-            Func<IAssert<TElement>, IAssert<TElement>> assertion)
+        public static IAssert<T> HasAny<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Func<IAssert<TElement>, IAssert<TElement>> assertion)
         {
             return member.SetAssertion(new HasAnyAssertion<TElement>(assertion(new ObjectAssertion<TElement>())));
         }
+
+        public static IAssert<T> HasAny<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
+        {
+            return member.SetAssertion(new AnyFulfilsPredicateAssertion<TElement>(predicate));
+        } 
 
         public static IAssert<T> HasNone<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Func<IAssert<TElement>, IAssert<TElement>> assertion)
         {

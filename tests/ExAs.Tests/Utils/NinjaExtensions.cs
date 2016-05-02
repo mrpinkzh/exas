@@ -18,6 +18,6 @@ namespace ExAs.Utils
         public static IList<string> NullWeaponList(this WeaponedNinja ninja)
         {
             return null;
-        } 
+        }
     }
 }

@@ -1,7 +1,7 @@
 ## New in 0.4.0
 * added datetime assertions: is-after (#35), is-before (#36)
 * added list is-equal assertion (#44)
-* added enumerable has-none assertion (#53)
+* added enumerable assertions: has-any(#52), has-none (#53)
 * fixed bug when displaying multiline strings with over 2 lines (#55)
 
 ## New in 0.3.0
