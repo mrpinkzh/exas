@@ -48,6 +48,7 @@
     <Compile Include="Api\Dates\DateTime_SameDayAs_Feature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_Contains_Feature.cs" />
+    <Compile Include="Api\Enumerables\Enumerable_DoesntContainNulls_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_DoesntContain_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasAny_WithPredicate_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasCount_Feature.cs" />

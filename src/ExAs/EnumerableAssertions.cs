@@ -53,6 +53,11 @@ namespace ExAs
             return member.SetAssertion(new ContainsNotAssertion<TItem>(expectedItems));
         }
 
+        public static IAssert<T> DoesntContainNulls<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member)
+        {
+            return member.SetAssertion(new ContainsNoNullsAssertion<TElement>());
+        }
+
         public static IAssert<T> IsEqualTo<T, TItem>(this IAssertMember<T, IList<TItem>> member, params TItem[] expectedItems)
         {
             return member.SetAssertion(new Assertions.MemberAssertions.Lists.EqualAssertion<TItem>(expectedItems));

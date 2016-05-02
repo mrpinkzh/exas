@@ -45,6 +45,7 @@
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\AnyFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNoNullsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNotAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\EquivalentAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasAnyAssertion.cs" />
