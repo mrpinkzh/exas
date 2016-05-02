@@ -50,6 +50,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsNotEmptyAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\NoneFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\OutputExtensions.cs" />
     <Compile Include="Assertions\MemberAssertions\Lists\EqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NotEqualAssertion.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="Assertions\MemberAssertions\Numbers\LessThanAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\MemberAssertions\OfTypeAssertion.cs" />
-    <Compile Include="Assertions\MemberAssertions\PredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\ContainsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\ContainsNotAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\EndsNotWithAssertion.cs" />

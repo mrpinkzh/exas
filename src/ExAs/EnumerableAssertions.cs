@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using ExAs.Assertions;
-using ExAs.Assertions.MemberAssertions;
 using ExAs.Assertions.MemberAssertions.Enumerables;
 
 namespace ExAs
@@ -33,7 +32,7 @@ namespace ExAs
 
         public static IAssert<T> HasNone<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
         {
-            return member.SetAssertion(new HasNoneAssertion<TElement>(new PredicateAssertion<TElement>(predicate)));
+            return member.SetAssertion(new NoneFulfilsPredicateAssertion<TElement>(predicate));
         }
 
         public static IAssert<T> HasCount<T, TMember>(this IAssertMember<T, IEnumerable<TMember>> member, int expected)
