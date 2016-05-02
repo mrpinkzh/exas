@@ -16,5 +16,12 @@ namespace ExAs.Utils.SystemExtensions
             if (expectedItems == null) return false;
             return expectedItems.Map(items.Contains_NullAware).All(b => b);
         }
+
+        public static IReadOnlyCollection<T> ToReadOnly<T>(this IEnumerable<T> items)
+        {
+            if (items == null)
+                return null;
+            return items.ToArray();
+        }
     }
 }
