@@ -46,6 +46,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\AnyFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNotAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\EquivalentAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasAnyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasCountAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertion.cs" />

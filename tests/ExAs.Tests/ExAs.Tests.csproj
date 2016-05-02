@@ -54,6 +54,7 @@
     <Compile Include="Api\Enumerables\Enumerable_HasNone_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasAny_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_IsEmpty_Feature.cs" />
+    <Compile Include="Api\Enumerables\Enumerable_IsEquivalentTo_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_IsNotNull_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_IsNull_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_IsNotEmpty_Feature.cs" />

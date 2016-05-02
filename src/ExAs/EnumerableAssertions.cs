@@ -61,6 +61,16 @@ namespace ExAs
         public static IAssert<T> IsEqualTo<T, TItem>(this IAssertMember<T, IList<TItem>> member, IList<TItem> expectedItems)
         {
             return member.SetAssertion(new Assertions.MemberAssertions.Lists.EqualAssertion<TItem>(expectedItems));
+        }
+
+        public static IAssert<T> IsEquivalentTo<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, params TElement[] expected)
+        {
+            return member.SetAssertion(new EquivalentAssertion<TElement>(expected));
+        }
+
+        public static IAssert<T> IsEquivalentTo<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, IEnumerable<TElement> expected)
+        {
+            return member.SetAssertion(new EquivalentAssertion<TElement>(expected));
         } 
     }
 }
