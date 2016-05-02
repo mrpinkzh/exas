@@ -60,6 +60,7 @@
     <Compile Include="Assertions\MemberAssertions\Numbers\LessThanAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NullableAssertionAdapter.cs" />
     <Compile Include="Assertions\MemberAssertions\OfTypeAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\PredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\ContainsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\ContainsNotAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Strings\EndsNotWithAssertion.cs" />
