@@ -28,7 +28,7 @@ namespace ExAs.Utils.StringExtensions
                 return value;
             if (amount == 1)
                 return value.NewLine();
-            return value.NewLines(amount - 1);
+            return value.NewLines(amount - 1).NewLine();
         }
 
         public static string Apostrophed(string value)

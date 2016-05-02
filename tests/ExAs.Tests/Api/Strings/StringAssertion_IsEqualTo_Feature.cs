@@ -1,8 +1,10 @@
 ﻿using System;
+using ExAs.Results;
 using ExAs.Utils;
 using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
+using static System.Environment;
 
 namespace ExAs.Api.Strings
 {
@@ -52,6 +54,27 @@ namespace ExAs.Api.Strings
             result.ExAssert(r => r.p(x => x.succeeded) .IsFalse()
                                   .p(x => x.PrintLog()).IsEqualTo("Ninja: (X)Name = 'Naruto   (expected: 'Naruto')".NewLine()
                                                              .Add("                  Uzumaki' ")));
+        }
+
+        [Test]
+        public void ExpectingNaruto_OnTriplelinedNaruto_ShouldFail()
+        {
+            // arrange
+            var kurama = new Ninja($"Naruto{NewLine}" +
+                                   $"Kuruma{NewLine}" +
+                                   $"Uzumaki");
+
+            // act
+            Result result = kurama.Evaluate(n => n.Member(x => x.Name).IsEqualTo("Naruto")
+                                                  .Member(x => x.Age) .IsEqualTo(12));
+
+            Console.WriteLine(result.PrintLog());
+            // assert
+            result.ExAssert(r => r.Member(x => x.succeeded) .IsFalse()
+                                  .Member(x => x.PrintLog()).IsEqualTo($"Ninja: (X)Name = 'Naruto   (expected: 'Naruto'){NewLine}" +
+                                                                       $"                  Kuruma   {NewLine}" +
+                                                                       $"                  Uzumaki' {NewLine}" +
+                                                                       $"       ( )Age  = 12        (expected: 12)"));
         }
 
         [Test]
