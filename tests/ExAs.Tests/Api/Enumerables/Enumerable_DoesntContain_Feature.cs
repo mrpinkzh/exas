@@ -5,7 +5,7 @@ using static ExAs.Utils.Creation.CreateNinjas;
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertion_DoesntContain_Feature
+    public class Enumerable_DoesntContain_Feature
     {
         [Test]
         public void ExpectingNoShuriken_OnWeaponlessNinja_ShouldSucceed()

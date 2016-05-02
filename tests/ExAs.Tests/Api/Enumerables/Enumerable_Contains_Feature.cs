@@ -6,7 +6,7 @@ using static ExAs.Utils.Creation.CreateNinjas;
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertion_Contains_Feature
+    public class Enumerable_Contains_Feature
     {
         [Test]
         public void ExpectingShuriken_OnNinjaWithShuriken_ShouldSucceed()

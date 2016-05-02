@@ -9,7 +9,7 @@ using static ExAs.Utils.Dates;
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertion_HasAny_Feature
+    public class Enumerable_HasAny_Feature
     {
         [Test]
         public void ExpectingStandardDayDojo_OnCityWithStandardDayDojo_ShouldSucceed()

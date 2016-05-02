@@ -1,12 +1,11 @@
-﻿using ExAs.Results;
-using ExAs.Utils;
+﻿using ExAs.Utils;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateCities;
 
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertion_IsNull_Feature
+    public class Enumerable_IsNull_Feature
     {
         [Test]
         public void OnCityWithNullDojos_ShouldPass()

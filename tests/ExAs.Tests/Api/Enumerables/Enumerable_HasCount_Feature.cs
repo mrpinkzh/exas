@@ -5,7 +5,7 @@ using static ExAs.Utils.Creation.CreateCities;
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertion_HasCount_Feature
+    public class Enumerable_HasCount_Feature
     {
         [Test]
         public void Expecting1_OnCityWithDojo_ShouldSucceed()
