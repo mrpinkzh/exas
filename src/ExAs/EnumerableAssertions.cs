@@ -76,6 +76,11 @@ namespace ExAs
         public static IAssert<T> IsEquivalentTo<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, IEnumerable<TElement> expected)
         {
             return member.SetAssertion(new EquivalentAssertion<TElement>(expected));
+        }
+
+        public static IAssert<T> FulfilAll<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> expected)
+        {
+            return member.SetAssertion(new AllFulfilPredicateAssertion<TElement>(expected));
         } 
     }
 }
