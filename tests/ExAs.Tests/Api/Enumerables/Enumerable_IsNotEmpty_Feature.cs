@@ -1,12 +1,11 @@
-﻿using System;
-using ExAs.Utils;
+﻿using ExAs.Utils;
 using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateCities;
 
 namespace ExAs.Api.Enumerables
 {
     [TestFixture]
-    public class EnumerableAssertion_IsNotEmpty_Feature
+    public class Enumerable_IsNotEmpty_Feature
     {
         [Test]
         public void OnCityWithDojo_ShouldSucceed()

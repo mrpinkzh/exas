@@ -18,12 +18,15 @@ namespace ExAs
             return member.SetAssertion(new IsNotEmptyAssertion<TElement>());
         }
 
-        public static IAssert<T> HasAny<T, TElement>(
-            this IAssertMember<T, IEnumerable<TElement>> member,
-            Func<IAssert<TElement>, IAssert<TElement>> assertion)
+        public static IAssert<T> HasAny<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Func<IAssert<TElement>, IAssert<TElement>> assertion)
         {
             return member.SetAssertion(new HasAnyAssertion<TElement>(assertion(new ObjectAssertion<TElement>())));
         }
+
+        public static IAssert<T> HasAny<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
+        {
+            return member.SetAssertion(new AnyFulfilsPredicateAssertion<TElement>(predicate));
+        } 
 
         public static IAssert<T> HasNone<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Func<IAssert<TElement>, IAssert<TElement>> assertion)
         {
@@ -50,6 +53,11 @@ namespace ExAs
             return member.SetAssertion(new ContainsNotAssertion<TItem>(expectedItems));
         }
 
+        public static IAssert<T> DoesntContainNulls<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member)
+        {
+            return member.SetAssertion(new ContainsNoNullsAssertion<TElement>());
+        }
+
         public static IAssert<T> IsEqualTo<T, TItem>(this IAssertMember<T, IList<TItem>> member, params TItem[] expectedItems)
         {
             return member.SetAssertion(new Assertions.MemberAssertions.Lists.EqualAssertion<TItem>(expectedItems));
@@ -58,6 +66,21 @@ namespace ExAs
         public static IAssert<T> IsEqualTo<T, TItem>(this IAssertMember<T, IList<TItem>> member, IList<TItem> expectedItems)
         {
             return member.SetAssertion(new Assertions.MemberAssertions.Lists.EqualAssertion<TItem>(expectedItems));
+        }
+
+        public static IAssert<T> IsEquivalentTo<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, params TElement[] expected)
+        {
+            return member.SetAssertion(new EquivalentAssertion<TElement>(expected));
+        }
+
+        public static IAssert<T> IsEquivalentTo<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, IEnumerable<TElement> expected)
+        {
+            return member.SetAssertion(new EquivalentAssertion<TElement>(expected));
+        }
+
+        public static IAssert<T> FulfilAll<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> expected)
+        {
+            return member.SetAssertion(new AllFulfilPredicateAssertion<TElement>(expected));
         } 
     }
 }

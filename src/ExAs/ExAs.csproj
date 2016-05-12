@@ -43,8 +43,12 @@
     <Compile Include="Assertions\MemberAssertions\DateTimes\BeforeAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\AllFulfilPredicateAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\AnyFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNoNullsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNotAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\EquivalentAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasAnyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasCountAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertion.cs" />

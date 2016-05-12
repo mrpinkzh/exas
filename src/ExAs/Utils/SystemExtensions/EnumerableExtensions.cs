@@ -1,10 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ExAs.Utils.SystemExtensions
 {
     public static class EnumerableExtensions
     {
+        public static bool Any_NullAware<T>(this IEnumerable<T> items, Expression<Func<T, bool>> predicate)
+        {
+            if (predicate == null)
+                return false;
+            if (items == null)
+                return false;
+            return items.Any(predicate.Compile());
+        }
+
         public static bool Contains_NullAware<T>(this IEnumerable<T> items, T item)
         {
             if (items == null) return false;
@@ -19,9 +30,7 @@ namespace ExAs.Utils.SystemExtensions
 
         public static IReadOnlyCollection<T> ToReadOnly<T>(this IEnumerable<T> items)
         {
-            if (items == null)
-                return null;
-            return items.ToArray();
+            return items?.ToArray();
         }
     }
 }
