@@ -60,5 +60,10 @@ namespace ExAs
         {
             return member.SetAssertion(new HasSecondAssertion(expectedSecond));
         }
+
+        public static IAssert<T> HasMillisecond<T>(this IAssertMember<T, DateTime> member, int expectedMillisecond)
+        {
+            return member.SetAssertion(new HasMillisecondAssertion(expectedMillisecond));
+        }
     }
 }

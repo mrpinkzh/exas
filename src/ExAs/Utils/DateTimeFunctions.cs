@@ -17,6 +17,11 @@ namespace ExAs.Utils
             return dateTime.ToString("G", ExasCulture());
         }
 
+        public static string ToExasDatetimeStringWithMilliseconds(this DateTime dateTime)
+        {
+            return dateTime.ToString("o", ExasCulture());
+        }
+
         public static DateTime January(this int day, int year) { return new DateTime(year, 01, day); }
 
         public static DateTime February(this int day, int year) { return new DateTime(year, 02, day); }

@@ -18,5 +18,10 @@ namespace ExAs.Utils
         {
             return new TimeSpan(amount, minutes, 0);
         }
+
+        public static TimeSpan Milliseconds(this int amount)
+        {
+            return new TimeSpan(0, 0, 0, 0, amount);
+        }
     }
 }
