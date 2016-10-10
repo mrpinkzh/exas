@@ -35,5 +35,10 @@ namespace ExAs
         {
             return member.SetAssertion(new HasYearAssertion(expectedYear));
         }
+
+        public static IAssert<T> HasMonth<T>(this IAssertMember<T, DateTime> member, int expectedMonth)
+        {
+            return member.SetAssertion(new HasMonthAssertion(expectedMonth));
+        }
     }
 }
