@@ -42,6 +42,7 @@
     <Compile Include="Assertions\MemberAssertions\DateTimes\AfterAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\BeforeAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\DateTimes\HasYearAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameYearAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\AllFulfilPredicateAssertion.cs" />
