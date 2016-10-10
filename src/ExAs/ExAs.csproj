@@ -43,6 +43,7 @@
     <Compile Include="Assertions\MemberAssertions\DateTimes\BeforeAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\CloseToAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\HasDayAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\DateTimes\HasHourAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\HasMonthAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\HasYearAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\DateTimes\SameDayAssertion.cs" />

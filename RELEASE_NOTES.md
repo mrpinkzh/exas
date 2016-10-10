@@ -1,5 +1,5 @@
 ## New in 1.0.0
-* added datetime assertions: is-in-same-year, has-year (#39), has-month (#38), has-day (#37)
+* added datetime assertions: is-in-same-year, has-year (#39), has-month (#38), has-day (#37), has-hour (#40)
 
 ## New in 0.4.0 (Released 2016/05/12)
 * added datetime assertions: is-after (#35), is-before (#36)
