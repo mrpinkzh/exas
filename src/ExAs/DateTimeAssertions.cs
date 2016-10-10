@@ -50,5 +50,10 @@ namespace ExAs
         {
             return member.SetAssertion(new HasHourAssertion(expectedHour));
         }
+
+        public static IAssert<T> HasMinute<T>(this IAssertMember<T, DateTime> member, int expectedMinute)
+        {
+            return member.SetAssertion(new HasMinuteAssertion(expectedMinute));
+        }
     }
 }
