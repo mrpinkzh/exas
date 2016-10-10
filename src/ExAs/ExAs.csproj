@@ -63,6 +63,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsNotEmptyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\NoneFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\OutputExtensions.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\StartsWithAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Lists\EqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\NotEqualAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Numbers\GreaterOrEqualAssertion.cs" />

@@ -68,6 +68,7 @@
     <Compile Include="Api\Enumerables\Enumerable_IsNull_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_IsNotEmpty_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasNone_WithPredicate_Feature.cs" />
+    <Compile Include="Api\Enumerables\Enumerable_StartsWith_Feature.cs" />
     <Compile Include="Api\Lists\List_IsEqualTo_Feature.cs" />
     <Compile Include="Api\MultipleObjectsAssertionFeature.cs" />
     <Compile Include="Api\MultipleMemberAssertionFeature.cs" />

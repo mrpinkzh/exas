@@ -81,6 +81,11 @@ namespace ExAs
         public static IAssert<T> FulfilAll<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> expected)
         {
             return member.SetAssertion(new AllFulfilPredicateAssertion<TElement>(expected));
-        } 
+        }
+
+        public static IAssert<T> StartsWith<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, TElement expected)
+        {
+            return member.SetAssertion(new StartsWithAssertion<TElement>(expected));
+        }
     }
 }
