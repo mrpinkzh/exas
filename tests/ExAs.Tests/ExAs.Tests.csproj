@@ -45,6 +45,7 @@
     <Compile Include="Api\Dates\DateTime_After_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_Before_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_CloseTo_Feature.cs" />
+    <Compile Include="Api\Dates\DateTime_HasDay_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_HasMonth_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_HasYear_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_SameDayAs_Feature.cs" />
