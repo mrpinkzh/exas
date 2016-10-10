@@ -21,6 +21,11 @@ namespace ExAs
             return member.SetAssertion(new SameDayAssertion(expectedDate));
         }
 
+        public static IAssert<T> IsInSameYearAs<T>(this IAssertMember<T, DateTime> member, DateTime expectedDate)
+        {
+            return member.SetAssertion(new SameYearAssertion(expectedDate));
+        }
+
         public static IAssert<T> IsCloseTo<T>(this IAssertMember<T, DateTime> member, DateTime expectedTime, TimeSpan plusMinusRange)
         {
             return member.SetAssertion(new CloseToAssertion(expectedTime, plusMinusRange));

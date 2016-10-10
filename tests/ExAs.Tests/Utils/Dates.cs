@@ -23,5 +23,10 @@ namespace ExAs.Utils
         {
             return Today().AddDays(1);
         }
+
+        public static DateTime CommonFoundationDay()
+        {
+            return 15.November(1515).At(2.Hours(15));
+        }
     }
 }

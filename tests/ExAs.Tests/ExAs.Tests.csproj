@@ -46,6 +46,7 @@
     <Compile Include="Api\Dates\DateTime_Before_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_CloseTo_Feature.cs" />
     <Compile Include="Api\Dates\DateTime_SameDayAs_Feature.cs" />
+    <Compile Include="Api\Dates\DateTime_SameYearAs_Feature.cs" />
     <Compile Include="Api\DirectEnumerableAssertionFeature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_FulfilAll_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_Contains_Feature.cs" />
