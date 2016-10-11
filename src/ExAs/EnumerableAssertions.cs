@@ -87,5 +87,10 @@ namespace ExAs
         {
             return member.SetAssertion(new StartsWithAssertion<TElement>(expected));
         }
+
+        public static IAssert<T> EndsWith<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, TElement expected)
+        {
+            return member.SetAssertion(new EndsWithAssertion<TElement>(expected));
+        }
     }
 }
