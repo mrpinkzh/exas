@@ -63,6 +63,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\HasNoneAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsEmptyAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\IsNotEmptyAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\IsSubsetOfAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\NoneFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\OutputExtensions.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\StartsWithAssertion.cs" />

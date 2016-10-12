@@ -92,5 +92,15 @@ namespace ExAs
         {
             return member.SetAssertion(new EndsWithAssertion<TElement>(expected));
         }
+
+        public static IAssert<T> IsSubsetOf<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, params TElement[] expectedSuperset)
+        {
+            return member.SetAssertion(new IsSubsetOfAssertion<TElement>(expectedSuperset));
+        }
+
+        public static IAssert<T> IsSubsetOf<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, IEnumerable<TElement> expectedSuperset)
+        {
+            return member.SetAssertion(new IsSubsetOfAssertion<TElement>(expectedSuperset));
+        }
     }
 }
