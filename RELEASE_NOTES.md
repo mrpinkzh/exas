@@ -1,6 +1,6 @@
 ## New in 1.0.0
 * added datetime assertions: is-in-same-year, has-year (#39), has-month (#38), has-day (#37), has-hour (#40), has-minute (#41), has-second (#42)
-* added enumerable assertions: starts-with (#46), ends-with (#47), is-subset-of (#48)
+* added enumerable assertions: starts-with (#46), ends-with (#47), is-subset-of (#48), contains-in-order (#49)
 
 ## New in 0.4.0 (Released 2016/05/12)
 * added datetime assertions: is-after (#35), is-before (#36)

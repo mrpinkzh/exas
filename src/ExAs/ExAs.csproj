@@ -54,6 +54,7 @@
     <Compile Include="Assertions\MemberAssertions\Enumerables\AllFulfilPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\AnyFulfilsPredicateAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsAssertion.cs" />
+    <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsInOrderAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNoNullsAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\ContainsNotAssertion.cs" />
     <Compile Include="Assertions\MemberAssertions\Enumerables\EndsWithAssertion.cs" />

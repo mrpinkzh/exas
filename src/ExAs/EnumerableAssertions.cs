@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using ExAs.Assertions;
 using ExAs.Assertions.MemberAssertions.Enumerables;
@@ -101,6 +102,16 @@ namespace ExAs
         public static IAssert<T> IsSubsetOf<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, IEnumerable<TElement> expectedSuperset)
         {
             return member.SetAssertion(new IsSubsetOfAssertion<TElement>(expectedSuperset));
+        }
+
+        public static IAssert<T> ContainsInOrder<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, params TElement[] expectedElements)
+        {
+            return member.SetAssertion(new ContainsInOrderAssertion<TElement>(expectedElements?.ToList()));
+        }
+
+        public static IAssert<T> ContainsInOrder<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, IList<TElement> expectedElements)
+        {
+            return member.SetAssertion(new ContainsInOrderAssertion<TElement>(expectedElements));
         }
     }
 }
