@@ -12,8 +12,8 @@ namespace ExAs.Api.Enumerables
         [Test]
         public void ExpectingEndingWithOrd_OnNinjaWithSword_ShouldSucceed()
         {
-            // act
-            Result result = NinjaWithTwoWeapons().Evaluate(n => n.Member(x => x.Weapons).HasAny(w => w.EndsWith("ord")));
+			// act
+			Result result = NinjaWithTwoWeapons().Evaluate(n => n.Member(x => x.Weapons).HasAnyPredicate(w => w.EndsWith("ord")));
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded) .IsTrue()
@@ -24,7 +24,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingEndingWithIken_OnWeaponlessNinja_ShouldFail()
         {
             // act
-            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasAny(w => w.EndsWith("iken")));
+            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasAnyPredicate(w => w.EndsWith("iken")));
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded) .IsFalse()
@@ -35,7 +35,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingNullPredicate_OnWeaponlessNinja_ShouldFail()
         {
             // act
-            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasAny((Expression<Func<string, bool>>)null));
+            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasAnyPredicate((Expression<Func<string, bool>>)null));
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded)  .IsFalse()

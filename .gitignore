@@ -4,6 +4,7 @@
 obj
 bin
 packages
+paket-files
 build
 pack
 *.suo

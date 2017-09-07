@@ -15,7 +15,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingNoneStartingWithSw_OnWeaponlessNinja_ShouldSucceed()
         {
             // act
-            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasNone(w => w.StartsWith("Sw")));
+            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasNonePredicate(w => w.StartsWith("Sw")));
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded).IsTrue()
@@ -27,7 +27,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingNoneStartingWithShu_OnNinjaWithShuriken_ShouldFail()
         {
             // act
-            Result result = NinjaWithTwoWeapons().Evaluate(n => n.Member(x => x.Weapons).HasNone(w => w.StartsWith("Shu")));
+            Result result = NinjaWithTwoWeapons().Evaluate(n => n.Member(x => x.Weapons).HasNonePredicate(w => w.StartsWith("Shu")));
 
             // assert
             Console.WriteLine(result.PrintLog());
@@ -39,7 +39,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingNullPredicate_OnWeaponlessNinja_ShouldFail()
         {
             // act
-            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasNone((Expression<Func<string, bool>>)null));
+            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).HasNonePredicate((Expression<Func<string, bool>>)null));
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded)  .IsFalse()
@@ -50,7 +50,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingNoneStartingWithSw_OnNullWeapons_ShouldSucceed()
         {
             // act
-            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.NullWeaponList()).HasNone(w => w.StartsWith("Sw")));
+            Result result = WeaponlessNinja().Evaluate(n => n.Member(x => x.NullWeaponList()).HasNonePredicate(w => w.StartsWith("Sw")));
 
             // assert
             result.ExAssert(r => r.Member(x => x.succeeded) .IsTrue()

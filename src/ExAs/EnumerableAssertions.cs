@@ -24,7 +24,7 @@ namespace ExAs
             return member.SetAssertion(new HasAnyAssertion<TElement>(assertion(new ObjectAssertion<TElement>())));
         }
 
-        public static IAssert<T> HasAny<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
+        public static IAssert<T> HasAnyPredicate<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
         {
             return member.SetAssertion(new AnyFulfilsPredicateAssertion<TElement>(predicate));
         } 
@@ -34,7 +34,7 @@ namespace ExAs
             return member.SetAssertion(new HasNoneAssertion<TElement>(assertion(new ObjectAssertion<TElement>())));
         }
 
-        public static IAssert<T> HasNone<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
+        public static IAssert<T> HasNonePredicate<T, TElement>(this IAssertMember<T, IEnumerable<TElement>> member, Expression<Func<TElement, bool>> predicate)
         {
             return member.SetAssertion(new NoneFulfilsPredicateAssertion<TElement>(predicate));
         }
