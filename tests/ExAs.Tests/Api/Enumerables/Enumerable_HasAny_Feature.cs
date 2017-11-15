@@ -2,6 +2,7 @@
 using ExAs.Utils;
 using ExAs.Utils.StringExtensions;
 using NUnit.Framework;
+using static System.Environment;
 using static ExAs.Utils.Creation.CreateCities;
 using static ExAs.Utils.Creation.CreateNinjas;
 using static ExAs.Utils.Dates;
@@ -20,8 +21,8 @@ namespace ExAs.Api.Enumerables
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded) .IsTrue()
-                                  .p(x => x.PrintLog()).IsEqualTo("City: ( )Dojos = <1 match>                     (expected: at least 1 match)".NewLine()
-                                                             .Add("                 Dojo: ( )Founded = 16.11.1984 (expected: on same day as 16.11.1984)")));
+                                  .p(x => x.PrintLog()).IsEqualTo($"City: ( )Dojos = <1 match>                     (expected: at least 1 match){NewLine}" + 
+                                                                  $"                 Dojo: ( )Founded = 16.11.1984 (expected: on same day as 16.11.1984)"));
             
         }
 
@@ -38,11 +39,10 @@ namespace ExAs.Api.Enumerables
 
             // assert
             result.ExAssert(r => r.p(x => x.succeeded).IsTrue()
-                                  .p(x => x.PrintLog()).IsEqualTo("City: ( )Dojos = <1 match>                     (expected: at least 1 match)".NewLine()
-                                                             .Add("                 Dojo: (X)Founded = 15.11.1515 (expected: on same day as 16.11.1984)").NewLine()
-                                                             .Add("                 Dojo: ( )Founded = 16.11.1984 (expected: on same day as 16.11.1984)")));
+                                  .p(x => x.PrintLog()).IsEqualTo($"City: ( )Dojos = <1 match>                     (expected: at least 1 match){NewLine}" + 
+                                                                  //$"                 Dojo: (X)Founded = 15.11.1515 (expected: on same day as 16.11.1984){NewLine}" + 
+                                                                  $"                 Dojo: ( )Founded = 16.11.1984 (expected: on same day as 16.11.1984)"));
         }
-
 
         [Test]
         public void ExpectingSpecificDojo_OnCityWithThreeOtherDojos_ShouldFail()

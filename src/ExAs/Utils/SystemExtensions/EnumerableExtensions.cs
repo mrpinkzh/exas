@@ -32,5 +32,12 @@ namespace ExAs.Utils.SystemExtensions
         {
             return items?.ToArray();
         }
+
+	    public static string JoinToString(this IEnumerable<string> input, string separator)
+	    {
+		    if (input == null)
+			    return null;
+		    return string.Join(separator, input);
+	    }
     }
 }

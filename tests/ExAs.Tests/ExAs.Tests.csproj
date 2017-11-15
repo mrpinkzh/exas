@@ -61,6 +61,7 @@
     <Compile Include="Api\Enumerables\Enumerable_Contains_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_DoesntContainNulls_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_DoesntContain_Feature.cs" />
+    <Compile Include="Api\Enumerables\Enumerable_HasAny_MultiAssertion_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasAny_WithPredicate_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasCount_Feature.cs" />
     <Compile Include="Api\Enumerables\Enumerable_HasNone_Feature.cs" />

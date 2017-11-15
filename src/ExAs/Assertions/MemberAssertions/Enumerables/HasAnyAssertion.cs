@@ -20,6 +20,7 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
         public ValueAssertionResult AssertValue(IEnumerable<TElement> actual)
         {
             string expectation = ComposeLog.Expected("at least 1 match");
+
             if (actual == null)
                 return new ValueAssertionResult(
                     false,
@@ -35,14 +36,29 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
 
             IReadOnlyCollection<Result> results = actualList.Map(item => childAssertion.Assert(item));
             int amountOfSucceededResults = results.Count(r => r.succeeded);
-            return new ValueAssertionResult(
-                amountOfSucceededResults > 0, 
-                string.Join(Environment.NewLine,
-                            amountOfSucceededResults.Matches()
-                                .Cons(results.Select(r => r.actual))),
-                string.Join(Environment.NewLine,
-                            expectation
-                                .Cons(results.Select(r => r.expectation))));
+
+	        if (amountOfSucceededResults > 0)
+	        {
+		        return new ValueAssertionResult(
+					true,
+					amountOfSucceededResults.Matches()
+						.Cons(results.Where(x => x.succeeded)
+									 .Select(x => x.actual))
+						.JoinToString(Environment.NewLine),
+					expectation
+						.Cons(results.Where(x => x.succeeded)
+									 .Select(x => x.expectation))
+						.JoinToString(Environment.NewLine));
+	        }
+
+			return new ValueAssertionResult(
+                false,
+				amountOfSucceededResults.Matches()
+	                .Cons(results.Select(r => r.actual))
+					.JoinToString(Environment.NewLine),
+				expectation
+					.Cons(results.Select(r => r.expectation))
+					.JoinToString(Environment.NewLine));
         }
     }
 }

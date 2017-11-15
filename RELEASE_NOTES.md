@@ -1,4 +1,7 @@
-## New in 2.0.0
+## New in 2.1.0 
+* extended the has-any enumerable-assertion to support multiple assertions (#59)
+
+## New in 2.0.0 (Released 2017/09/07)
 * renamed the has-any and has-none with predicate assertions to has-any-predicate and has-none-predicate (#58)
 
 ## New in 1.0.0 (Released 2016/10/15)
