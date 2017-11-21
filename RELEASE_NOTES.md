@@ -1,4 +1,7 @@
-## New in 2.1.0 
+## New in 2.1.1
+* adjusted the build script to publish only dated releases
+
+## New in 2.1.0 (Released 2017/11/15)
 * extended the has-any enumerable-assertion to support multiple assertions (#59)
 
 ## New in 2.0.0 (Released 2017/09/07)

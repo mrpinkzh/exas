@@ -77,8 +77,10 @@ Target "pack-nuget" (fun _ ->
 )
 
 Target "publish" (fun _ ->
-    Paket.Push(fun p ->
-        { p with WorkingDir = binDir })
+    match release.Date with
+    | Some date -> Paket.Push(fun p ->
+                     { p with WorkingDir = binDir })
+    | None -> log "no release date, no release"
 )
 
 "clean"
