@@ -44,11 +44,12 @@ namespace ExAs.Utils.SystemExtensions
 	    public static string ToCountString(this IEnumerable input)
 	    {
 		    var arrayList = input.ToArrayList();
+		    if (arrayList.Count == 0)
+			    return "<empty>";
 			var typeName = arrayList.FirstOrDefault().GetType().Name;
 		    if (arrayList.Count != 1)
 			    typeName = $"{typeName}s";
 		    return $"<{arrayList.Count} {typeName}>";
-
 	    }
     }
 }

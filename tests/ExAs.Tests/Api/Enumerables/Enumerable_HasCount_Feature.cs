@@ -42,5 +42,17 @@ namespace ExAs.Api.Enumerables
                                   .p(x => x.succeeded).IsFalse()
                                   .p(x => x.PrintLog()).IsEqualTo("City: (X)Dojos = <3 Dojos> (expected: 1 Dojo)"));
         }
+
+	    [Test]
+	    public void Expecting2_OnNinjaWithThreeWeapons_ShouldFail()
+	    {
+		    var ninjaWithThreeWeapons = new WeaponedNinja("Shuriken", "Sword", "Bow");
+
+		    var result = ninjaWithThreeWeapons.Evaluate(n => n.p(x => x.Weapons).HasCount(2));
+
+			result.ExAssert(r =>
+				r.p(x => x.succeeded) .IsFalse()
+				 .p(x => x.PrintLog()).IsEqualTo("WeaponedNinja: (X)Weapons = <3 Strings> (expected: 2 Strings)"));
+	    }
     }
 }

@@ -2,7 +2,7 @@
 using System.Linq;
 using ExAs.Results;
 using ExAs.Utils;
-using ExAs.Utils.StringExtensions;
+using ExAs.Utils.SystemExtensions;
 
 namespace ExAs.Assertions.MemberAssertions.Enumerables
 {
@@ -19,16 +19,17 @@ namespace ExAs.Assertions.MemberAssertions.Enumerables
         {
             List<T> actualValues = actual.ToList();
             return new ValueAssertionResult(
-                actualValues.Count() == expected, 
-                actualValues.ToValueString(), 
+                actualValues.Count == expected, 
+                actualValues.ToCountString(), 
                 ComposeLog.Expected(ExpectedMessage()));
         }
 
         private string ExpectedMessage()
         {
-            if (expected == 1)
-                return $"{expected} Dojo";
-            return $"{expected} Dojos";
+	        string typeName = typeof(T).Name;
+	        if (expected == 1)
+                return $"{expected} {typeName}";
+            return $"{expected} {typeName}s";
         }
     }
 }

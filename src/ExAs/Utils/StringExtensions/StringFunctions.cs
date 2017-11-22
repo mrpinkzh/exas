@@ -38,8 +38,6 @@ namespace ExAs.Utils.StringExtensions
 			return $"[{strings.JoinToString(", ")}]";
         }
 
-	
-
         public static bool Contains_NullAware(this string subject, string value)
         {
             if (subject == null) return false;
