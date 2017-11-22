@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -38,6 +39,16 @@ namespace ExAs.Utils.SystemExtensions
 		    if (input == null)
 			    return null;
 		    return string.Join(separator, input);
+	    }
+
+	    public static string ToCountString(this IEnumerable input)
+	    {
+		    var arrayList = input.ToArrayList();
+			var typeName = arrayList.FirstOrDefault().GetType().Name;
+		    if (arrayList.Count != 1)
+			    typeName = $"{typeName}s";
+		    return $"<{arrayList.Count} {typeName}>";
+
 	    }
     }
 }

@@ -20,9 +20,9 @@ namespace ExAs.Utils.StringExtensions
             if (value == null)
                 return null;
             IReadOnlyCollection<string> lines = value.Split(new[] { Environment.NewLine}, StringSplitOptions.None);
-            IEnumerable<string> indentedSubLines = lines.Rest().Select(x => String.Format("{0}{1}", indentation.Spaces(), x));
-            IReadOnlyCollection<string> result = SystemFunctions.Cons(lines.First(), indentedSubLines);
-            return String.Join(Environment.NewLine, result);
+            IEnumerable<string> indentedSubLines = lines.Rest().Select(x => $"{indentation.Spaces()}{x}");
+            IReadOnlyCollection<string> result = lines.First().Cons(indentedSubLines);
+            return string.Join(Environment.NewLine, result);
         }
 
         public static string FillUpWithSpacesToLength(this string input, int length)

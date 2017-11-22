@@ -13,11 +13,14 @@ namespace ExAs.Utils.StringExtensions
         {
             if (item == null)
                 return nullString;
+
             if (item is string)
                 return Apostrophed(item.ToString());
+
             var enumerable = item as IEnumerable;
             if (enumerable != null)
                 return enumerable.ToValueString();
+
             return item.ToString();
         }
 
@@ -25,17 +28,17 @@ namespace ExAs.Utils.StringExtensions
         {
             var arrayList = enumerable.ToArrayList();
             IReadOnlyCollection<string> strings = arrayList.Map(item => item.ToValueString());
+
             if (!strings.Any())
                 return "<empty>";
-            if (strings.Any(s => s.Contains(Environment.NewLine)))
-            {
-                var typeName = arrayList.FirstOrDefault().GetType().Name;
-                if (strings.Count != 1)
-                    typeName = typeName.Add("s");
-                return "<".Add(strings.Count.ToString()).Add(" ").Add(typeName).Add(">");
-            }
-            return "[".Add(string.Join(", ", strings)).Add("]");
+
+			if (strings.Any(s => s.Contains(Environment.NewLine)))
+		        return arrayList.ToCountString();
+
+			return $"[{strings.JoinToString(", ")}]";
         }
+
+	
 
         public static bool Contains_NullAware(this string subject, string value)
         {
