@@ -84,11 +84,13 @@ Target "publish" (fun _ ->
 )
 
 "clean"
-  ==> "version"
-  ==> "compile-src"
-  ==> "compile-test"
-  ==> "test"
-  ==> "pack-nuget" 
-  ==> "publish"
+//  ==> "version"
+//  ==> "compile-src"
+//  ==> "compile-test"
+//  ==> "test"
+//  ==> "pack-nuget" 
+//  ==> "publish"
 
-RunTargetOrDefault "pack-nuget"
+//RunTargetOrDefault "pack-nuget"
+
+RunTargetOrDefault "clean"

@@ -1,7 +1,7 @@
-source https://www.nuget.org/api/v2/
-
-nuget FAKE
-nuget NuGet.CommandLine
-nuget NUnit < 3
-nuget NUnit.Runners < 3
-nuget ToText 1.1.7
+// source https://www.nuget.org/api/v2
+// 
+// nuget FAKE
+// nuget NuGet.CommandLine
+// nuget NUnit < 3
+// nuget NUnit.Runners < 3
+// nuget ToText 1.1.7
