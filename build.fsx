@@ -5,11 +5,11 @@ open Fake.Core
 open Fake.Core.Globbing.Operators
 open Fake.Core.TargetOperators
 open Fake.DotNet
-open Fake.DotNet.NuGet
+open Fake.DotNet.Paket
 open Fake.FileHelper
 open Fake.IO
 
-Restore.RestorePackages()
+Paket.PaketRestoreDefaults
 
 let buildDir = "./build/"
 let packDir = "./pack/"
