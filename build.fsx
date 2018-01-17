@@ -36,7 +36,7 @@ Target.Create "version" (fun _ ->
 
 Target.Create "compile-src" (fun _ ->
    !! "src/**/*.csproj"
-      |> MSBuildRelease buildDir "Build"
+      |> MsBuild.MSBuildRelease buildDir ""
       |> Trace.Log "compile-src output: "
 )
 
@@ -85,14 +85,19 @@ Target.Create "publish" (fun _ ->
     | None -> log "no release date, no release"
 )
 
+Target.Create "complete" (fun _ ->
+    Trace.log "completed build"
+)
+
 "clean"
   ==> "version"
-//  ==> "compile-src"
+  ==> "compile-src"
 //  ==> "compile-test"
 //  ==> "test"
 //  ==> "pack-nuget" 
 //  ==> "publish"
+  ==> "complete"
 
 //RunTargetOrDefault "pack-nuget"
 
-Target.RunOrDefault "version"
+Target.RunOrDefault "complete"
