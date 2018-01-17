@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{A25DD784-0193-4392-A8E8-928BCF037254}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{84350C44-AE33-4AA0-808E-846686726F66}"

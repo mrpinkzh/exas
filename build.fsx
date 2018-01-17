@@ -28,9 +28,9 @@ Target.Create "clean" (fun _ ->
    CleanDir binDir
 )
 
-//Target.Create "install-dependencies" (fun _ ->
-//    
-//)
+Target.Create "dotnet-restore" (fun _ -> 
+    DotNetCli.Restore (fun p -> p)
+)
 
 Target.Create "version" (fun _ ->
     AssemblyInfoFile.CreateCSharp "./src/ExAs/Properties/Version.cs"
@@ -105,6 +105,7 @@ Target.Create "complete" (fun _ ->
 )
 
 "clean"
+  ==> "dotnet-restore"
   ==> "version"
   ==> "compile-src"
   ==> "copy-src"
