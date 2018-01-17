@@ -1,4 +1,3 @@
-group framework460
-	NUnit
-	NUnit.Runners
-	ToText
+NUnit
+NUnit.Runners
+ToText

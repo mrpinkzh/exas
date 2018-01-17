@@ -28,6 +28,10 @@ Target.Create "clean" (fun _ ->
    CleanDir binDir
 )
 
+//Target.Create "install-dependencies" (fun _ ->
+//    
+//)
+
 Target.Create "version" (fun _ ->
     AssemblyInfoFile.CreateCSharp "./src/ExAs/Properties/Version.cs"
         [Fake.DotNet.AssemblyInfo.Version version

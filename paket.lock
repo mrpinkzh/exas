@@ -1,6 +1,9 @@
 NUGET
   remote: https://api.nuget.org/v3/index.json
     fake (5.0.0-beta010) - clitool: true
+    NUnit (2.6.4)
+    NUnit.Runners (2.6.4)
+    ToText (1.1.7)
 
 GROUP framework460
 NUGET
