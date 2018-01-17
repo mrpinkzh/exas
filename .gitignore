@@ -11,3 +11,5 @@ pack
 *.feature.cs
 *.VisualState.xml
 TestResult.xml
+
+src/Exas-old

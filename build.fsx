@@ -3,6 +3,7 @@
 open Fake
 open Fake.Core
 open Fake.Core.Globbing.Operators
+open Fake.Core.TargetOperators
 open Fake.DotNet
 open Fake.DotNet.NuGet
 open Fake.FileHelper
@@ -85,7 +86,7 @@ Target.Create "publish" (fun _ ->
 )
 
 "clean"
-//  ==> "version"
+  ==> "version"
 //  ==> "compile-src"
 //  ==> "compile-test"
 //  ==> "test"
@@ -94,4 +95,4 @@ Target.Create "publish" (fun _ ->
 
 //RunTargetOrDefault "pack-nuget"
 
-Target.RunOrDefault "clean"
+Target.RunOrDefault "version"
