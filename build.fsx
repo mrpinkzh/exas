@@ -1,50 +1,51 @@
 #r @"packages/FAKE/tools/FakeLib.dll"
-open Fake
-open Fake.AssemblyInfoFile
 
-RestorePackages()
+open Fake
+open Fake.Core
+open Fake.Core.Globbing.Operators
+open Fake.DotNet
+open Fake.DotNet.NuGet
+open Fake.FileHelper
+
+Restore.RestorePackages()
 
 let buildDir = "./build/"
 let packDir = "./pack/"
 let binDir = "./bin/"
 
-let release = ReleaseNotesHelper.LoadReleaseNotes "RELEASE_NOTES.md"
-let version = release.AssemblyVersion + "." + BuildServerHelper.buildVersion
+let release = Fake.ReleaseNotesHelper.LoadReleaseNotes "RELEASE_NOTES.md"
+let version = release.AssemblyVersion + "." + Fake.BuildServerHelper.buildVersion
 
-let isLocalBuild = BuildServerHelper.buildServer = BuildServerHelper.BuildServer.LocalBuild
+let isLocalBuild = Fake.BuildServerHelper.buildServer = Fake.BuildServerHelper.BuildServer.LocalBuild
 
 let productDesc = "see: https://github.com/mrpinkzh/exas"
 
-Target "clean" (fun _ ->
+Target.Create "clean" (fun _ ->
    CleanDir buildDir
    CleanDir packDir
    CleanDir binDir
 )
 
-Target "trace-version" (fun _ ->
-    trace version
+Target.Create "version" (fun _ ->
+    AssemblyInfoFile.CreateCSharp "./src/ExAs/Properties/Version.cs"
+        [Fake.DotNet.AssemblyInfo.Version version
+         Fake.DotNet.AssemblyInfo.FileVersion version
+         Fake.DotNet.AssemblyInfo.Description productDesc]
 )
 
-Target "version" (fun _ ->
-    CreateCSharpAssemblyInfo "./src/ExAs/Properties/Version.cs"
-        [Attribute.Version version
-         Attribute.FileVersion version
-         Attribute.Description productDesc]
-)
-
-Target "compile-src" (fun _ ->
+Target.Create "compile-src" (fun _ ->
    !! "src/**/*.csproj"
       |> MSBuildRelease buildDir "Build"
-      |> Log "compile-src output: "
+      |> Trace.Log "compile-src output: "
 )
 
-Target "compile-test" (fun _ ->
+Target.Create "compile-test" (fun _ ->
    !! "tests/**/*.csproj"
       |> MSBuildRelease buildDir "Build"
-      |> Log "compile-test output: "
+      |> Trace.Log "compile-test output: "
 )
 
-Target "test" (fun _ ->
+Target.Create "test" (fun _ ->
    !! (buildDir + "/*.Tests.dll")
       |> NUnit(fun p ->
          { p with
@@ -53,11 +54,11 @@ Target "test" (fun _ ->
          )
 )
 
-Target "appveyor-test-publish" (fun _ ->
+Target.Create "appveyor-test-publish" (fun _ ->
     AppVeyor.UploadTestResultsXml AppVeyor.TestResultsType.NUnit "./build"
 )
 
-Target "pack-nuget" (fun _ ->
+Target.Create "pack-nuget" (fun _ ->
     CopyFiles packDir [buildDir + "ExAs.dll"]
 
     // on a local build the version would contain a "LocalBuild" string which nuget cannot handle
@@ -76,7 +77,7 @@ Target "pack-nuget" (fun _ ->
           "ExtendedAssertions.nuspec"
 )
 
-Target "publish" (fun _ ->
+Target.Create "publish" (fun _ ->
     match release.Date with
     | Some date -> Paket.Push(fun p ->
                      { p with WorkingDir = binDir })
@@ -93,4 +94,4 @@ Target "publish" (fun _ ->
 
 //RunTargetOrDefault "pack-nuget"
 
-RunTargetOrDefault "clean"
+Target.RunOrDefault "clean"
