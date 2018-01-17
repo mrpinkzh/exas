@@ -7,6 +7,7 @@ open Fake.Core.TargetOperators
 open Fake.DotNet
 open Fake.DotNet.NuGet
 open Fake.FileHelper
+open Fake.IO
 
 Restore.RestorePackages()
 
@@ -36,8 +37,18 @@ Target.Create "version" (fun _ ->
 
 Target.Create "compile-src" (fun _ ->
    !! "src/**/*.csproj"
-      |> MsBuild.MSBuildRelease buildDir ""
+      |> MsBuild.MSBuildWithDefaults ""
       |> Trace.Log "compile-src output: "
+)
+
+Target.Create "copy-src" (fun _ -> 
+    !! "src/**/*.csproj"
+        |> Seq.map (fun projectFile -> Path.getDirectory projectFile )
+        |> Seq.map (fun projectDirectory -> 
+            Shell.CopyDir buildDir (projectDirectory + "/bin/Release") (fun s -> true)
+            projectDirectory
+        )
+        |> Trace.Log "copied to directories: "
 )
 
 Target.Create "compile-test" (fun _ ->
@@ -92,6 +103,7 @@ Target.Create "complete" (fun _ ->
 "clean"
   ==> "version"
   ==> "compile-src"
+  ==> "copy-src"
 //  ==> "compile-test"
 //  ==> "test"
 //  ==> "pack-nuget" 
