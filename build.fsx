@@ -11,7 +11,8 @@ open Fake.IO
 
 Paket.PaketRestoreDefaults
 
-let buildDir = "./build/"
+let buildDir = "./build-src/"
+let testBuildDir = "./build-test/"
 let packDir = "./pack/"
 let binDir = "./bin/"
 
@@ -24,6 +25,7 @@ let productDesc = "see: https://github.com/mrpinkzh/exas"
 
 Target.Create "clean" (fun _ ->
    CleanDir buildDir
+   CleanDir testBuildDir
    CleanDir packDir
    CleanDir binDir
 )
@@ -45,20 +47,27 @@ Target.Create "compile-src" (fun _ ->
       |> Trace.Log "compile-src output: "
 )
 
-Target.Create "copy-src" (fun _ -> 
-    !! "src/**/*.csproj"
+let copyReleaseBuildArtefactsToFolder = fun targetDir rootSource ->
+    !! (rootSource + "/**/*.csproj")
         |> Seq.map (fun projectFile -> Path.getDirectory projectFile )
         |> Seq.map (fun projectDirectory -> 
-            Shell.CopyDir buildDir (projectDirectory + "/bin/Release") (fun s -> true)
+            Shell.CopyDir targetDir (projectDirectory + "/bin/Release") (fun s -> true)
             projectDirectory
         )
         |> Trace.Log "copied to directories: "
+
+Target.Create "copy-src" (fun _ -> 
+    copyReleaseBuildArtefactsToFolder buildDir "src"
 )
 
 Target.Create "compile-test" (fun _ ->
    !! "tests/**/*.csproj"
       |> MsBuild.MSBuildWithDefaults ""
       |> Trace.Log "compile-test output: "
+)
+
+Target.Create "copy-test" (fun _ ->
+    copyReleaseBuildArtefactsToFolder testBuildDir "tests"
 )
 
 Target.Create "test" (fun _ ->
@@ -110,6 +119,7 @@ Target.Create "complete" (fun _ ->
   ==> "compile-src"
   ==> "copy-src"
   ==> "compile-test"
+  ==> "copy-test"
 //  ==> "test"
 //  ==> "pack-nuget" 
 //  ==> "publish"

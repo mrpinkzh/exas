@@ -4,7 +4,8 @@ obj
 bin
 packages
 paket-files
-build
+build-src
+build-test
 pack
 *.suo
 *.user
