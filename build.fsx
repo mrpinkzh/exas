@@ -1,6 +1,7 @@
 #r @"packages/FAKE/tools/FakeLib.dll"
 open Fake
 open Fake.AssemblyInfoFile
+open Fake.Testing.NUnit3
 
 RestorePackages()
 
@@ -46,11 +47,9 @@ Target "compile-test" (fun _ ->
 
 Target "test" (fun _ ->
    !! (buildDir + "/*.Tests.dll")
-      |> NUnit(fun p ->
-         { p with
-            ToolPath = "packages/NUnit.Runners/tools"
-            OutputFile = buildDir + "/TestResults.xml" } 
-         )
+      |> NUnit3(fun p -> 
+        { p with ResultSpecs = [(buildDir + "TestResult.xml")] }
+        )
 )
 
 Target "appveyor-test-publish" (fun _ ->

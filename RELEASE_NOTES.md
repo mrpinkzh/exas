@@ -1,3 +1,6 @@
+## New in 2.2
+* migrated to nunit 3.9
+
 ## New in 2.1.1 (Released 2017/11/22)
 * adjusted the build script to publish only dated releases
 * fixed bug about enumerable-assertion has-count only expecting dojos (#60)
