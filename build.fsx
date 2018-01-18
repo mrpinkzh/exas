@@ -57,7 +57,7 @@ Target.Create "copy-src" (fun _ ->
 
 Target.Create "compile-test" (fun _ ->
    !! "tests/**/*.csproj"
-      |> MSBuildRelease buildDir "Build"
+      |> MsBuild.MSBuildWithDefaults ""
       |> Trace.Log "compile-test output: "
 )
 
@@ -109,7 +109,7 @@ Target.Create "complete" (fun _ ->
   ==> "version"
   ==> "compile-src"
   ==> "copy-src"
-//  ==> "compile-test"
+  ==> "compile-test"
 //  ==> "test"
 //  ==> "pack-nuget" 
 //  ==> "publish"
