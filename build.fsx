@@ -70,11 +70,11 @@ Target.Create "copy-test" (fun _ ->
     copyReleaseBuildArtefactsToFolder testBuildDir "tests"
 )
 
-Target.Create "test" (fun _ ->
-   !! (testBuildDir + "**/*.Tests.dll")
-      |> Fake.DotNet.Testing.NUnit.Sequential.NUnit(fun p ->
-         { p with ToolPath = "packages/NUnit.Runners/tools"
-                  OutputFile = testBuildDir + "/TestResults.xml" } )
+Target "test" (fun _ ->
+   !! (buildDir + "/*.Tests.dll")
+      |> NUnit3(fun p -> 
+        { p with ResultSpecs = [(buildDir + "TestResult.xml")] }
+        )
 )
 
 Target.Create "appveyor-test-publish" (fun _ ->

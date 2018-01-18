@@ -1,6 +1,6 @@
 source https://api.nuget.org/v3/index.json
 
-	clitool fake beta
-	nuget NUnit < 3
-	nuget NUnit.Runners < 3
-	nuget ToText 1.1.7
+clitool fake beta
+nuget NUnit
+nuget NUnit.Runners
+nuget ToText 1.1.7
