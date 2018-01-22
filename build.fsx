@@ -6,6 +6,7 @@ open Fake.Core.Globbing.Operators
 open Fake.Core.TargetOperators
 open Fake.DotNet
 open Fake.DotNet.Paket
+open Fake.DotNet.Testing
 open Fake.FileHelper
 open Fake.IO
 
@@ -70,11 +71,11 @@ Target.Create "copy-test" (fun _ ->
     copyReleaseBuildArtefactsToFolder testBuildDir "tests"
 )
 
-Target "test" (fun _ ->
-   !! (buildDir + "/*.Tests.dll")
-      |> NUnit3(fun p -> 
-        { p with ResultSpecs = [(buildDir + "TestResult.xml")] }
-        )
+Target.Create "test" (fun _ ->
+   !! (testBuildDir + "/**/*.Tests.dll")
+      |> NUnit3.NUnit3(fun p -> p)
+        //{ p with ResultSpecs = [(testBuildDir + "TestResult.xml")] }
+        //)
 )
 
 Target.Create "appveyor-test-publish" (fun _ ->
@@ -118,7 +119,7 @@ Target.Create "complete" (fun _ ->
   ==> "copy-src"
   ==> "compile-test"
   ==> "copy-test"
-//  ==> "test"
+  ==> "test"
 //  ==> "pack-nuget" 
 //  ==> "publish"
   ==> "complete"

@@ -1,6 +1,8 @@
 source https://api.nuget.org/v3/index.json
 
 clitool fake beta
+nuget Microsoft.NET.Test.Sdk
 nuget NUnit
 nuget NUnit.Runners
+nuget NUnit3TestAdapter
 nuget ToText 1.1.7
