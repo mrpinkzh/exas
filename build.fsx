@@ -70,10 +70,10 @@ Target.Create "copy-test" (fun _ ->
     copyReleaseBuildArtefactsToFolder testBuildDir "tests"
 )
 
-Target.Create "test" (fun _ ->
-   DotNetCli.Test (fun p -> 
-    { p with Project = "./tests/ExAs.Tests"
-             AdditionalArgs = [ "--no-build"; ("-r " + testBuildDir) ]})
+Target.Create "nunit" (fun _ ->
+    !! (testBuildDir + "/net471/**/*.Tests.dll")
+        |> Fake.DotNet.Testing.NUnit3.NUnit3 (fun p -> 
+            { p with ResultSpecs = [(testBuildDir + "TestResult.xml")] })
 )
 
 Target.Create "appveyor-test-publish" (fun _ ->
@@ -116,8 +116,8 @@ Target.Create "complete" (fun _ ->
   ==> "compile-src"
   ==> "copy-src"
   ==> "compile-test"
-//  ==> "copy-test"
-  ==> "test"
+  ==> "copy-test"
+  ==> "nunit"
 //  ==> "pack-nuget" 
 //  ==> "publish"
   ==> "complete"
