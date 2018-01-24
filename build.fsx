@@ -6,6 +6,7 @@ open Fake.Core.Globbing.Operators
 open Fake.Core.TargetOperators
 open Fake.DotNet
 open Fake.DotNet.Paket
+open Fake.DotNet.NuGet
 open Fake.FileHelper
 open Fake.IO
 
@@ -77,25 +78,25 @@ Target.Create "nunit" (fun _ ->
 )
 
 Target.Create "appveyor-test-publish" (fun _ ->
-    AppVeyor.UploadTestResultsXml AppVeyor.TestResultsType.NUnit "./build"
+    AppVeyor.UploadTestResultsXml AppVeyor.TestResultsType.NUnit testBuildDir
 )
 
 Target.Create "pack-nuget" (fun _ ->
-    CopyFiles packDir [buildDir + "ExAs.dll"]
+    CopyDir (packDir + "lib") buildDir (fun _ -> true)
 
     // on a local build the version would contain a "LocalBuild" string which nuget cannot handle
     let nugetVersion = if isLocalBuild
                        then release.AssemblyVersion
                        else version
 
-    NuGet (fun p -> 
+    Fake.DotNet.NuGet.NuGet.NuGet (fun p -> 
             { p with Version = nugetVersion
                      Description = productDesc
                      WorkingDir = packDir
                      AccessKey = getBuildParamOrDefault "nugetkey" ""
                      OutputPath = binDir
-                     ReleaseNotes = toLines release.Notes
-                     Files = [("ExAs.dll", Some "lib", None)] })
+                     ReleaseNotes = String.toLines release.Notes
+                     Files = [(@"lib/**/*", None, Some "lib/**/*.pdb" )] })
           "ExtendedAssertions.nuspec"
 )
 
@@ -118,7 +119,7 @@ Target.Create "complete" (fun _ ->
   ==> "compile-test"
   ==> "copy-test"
   ==> "nunit"
-//  ==> "pack-nuget" 
+  ==> "pack-nuget" 
 //  ==> "publish"
   ==> "complete"
 

@@ -2,6 +2,7 @@ source https://api.nuget.org/v3/index.json
 
 clitool fake beta
 nuget Microsoft.NET.Test.Sdk
+nuget NuGet.CommandLine
 nuget NUnit > 3.0
 nuget NUnit.Console
 nuget NUnit3TestAdapter
