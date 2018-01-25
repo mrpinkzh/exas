@@ -78,7 +78,7 @@ Target.Create "nunit" (fun _ ->
 )
 
 Target.Create "appveyor-test-publish" (fun _ ->
-    AppVeyor.UploadTestResultsXml AppVeyor.TestResultsType.NUnit testBuildDir
+    Fake.AppVeyor.UploadTestResultsXml Fake.AppVeyor.TestResultsType.NUnit testBuildDir
 )
 
 Target.Create "pack-nuget" (fun _ ->
@@ -104,7 +104,7 @@ Target.Create "publish" (fun _ ->
     match release.Date with
     | Some date -> Paket.Push(fun p ->
                      { p with WorkingDir = binDir })
-    | None -> log "no release date, no release"
+    | None -> Trace.log "no release date, no release"
 )
 
 Target.Create "complete" (fun _ ->
@@ -120,9 +120,7 @@ Target.Create "complete" (fun _ ->
   ==> "copy-test"
   ==> "nunit"
   ==> "pack-nuget" 
-//  ==> "publish"
+  ==> "publish"
   ==> "complete"
-
-//RunTargetOrDefault "pack-nuget"
 
 Target.RunOrDefault "complete"
