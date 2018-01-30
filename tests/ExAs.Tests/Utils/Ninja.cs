@@ -1,4 +1,5 @@
-﻿using ToText;
+﻿using ExAs.Utils.StringExtensions;
+using static System.Environment;
 
 namespace ExAs.Utils
 {
@@ -32,7 +33,8 @@ namespace ExAs.Utils
 
         public override string ToString()
         {
-            return this.ToText(x => x.Name, x => x.Age);
-        }
+	        return $"Ninja: Name = {Name.ToValueString()}{NewLine}" +
+	               $"       Age  = {Age.ToValueString()}";
+		}
     }
 }

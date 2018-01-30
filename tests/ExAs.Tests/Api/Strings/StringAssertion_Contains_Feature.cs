@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using ToText.Core;
+using static System.Environment;
 using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.Strings
@@ -61,8 +61,8 @@ namespace ExAs.Api.Strings
 
             // assert
             Assert.AreEqual(
-                 "Ninja: ( )Name = 'Naruto   (expected: contains 'ruto')".NewLine()
-            .Add("                  Uzumaki' "),
+                 $"Ninja: ( )Name = 'Naruto   (expected: contains 'ruto'){NewLine}" + 
+				  "                  Uzumaki' ",
                  result.PrintLog());
         }
     }

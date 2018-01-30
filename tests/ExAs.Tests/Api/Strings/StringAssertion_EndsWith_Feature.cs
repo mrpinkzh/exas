@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using ToText.Core;
+﻿using ExAs.Utils.StringExtensions;
+using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.Strings

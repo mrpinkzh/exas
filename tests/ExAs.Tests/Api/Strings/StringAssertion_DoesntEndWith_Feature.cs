@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
-using ToText.Core;
+﻿using ExAs.Utils.StringExtensions;
+using NUnit.Framework;
 using static ExAs.Utils.Creation.CreateNinjas;
+using static System.Environment;
 
 namespace ExAs.Api.Strings
 {
@@ -38,8 +39,8 @@ namespace ExAs.Api.Strings
             var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).DoesntEndWith("kash"));
 
             // assert
-            Assert.AreEqual("Ninja: ( )Name = 'Naruto   (expected: doesn't end with 'kash')".NewLine()
-                       .Add("                  Uzumaki' "),
+            Assert.AreEqual($"Ninja: ( )Name = 'Naruto   (expected: doesn't end with 'kash'){NewLine}" +
+							 "                  Uzumaki' ",
                        result.PrintLog());
         }
     }

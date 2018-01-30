@@ -1,7 +1,7 @@
 ﻿using ExAs.Utils;
 using NUnit.Framework;
-using ToText.Core;
 using static ExAs.Utils.Creation.CreateNinjas;
+using static System.Environment;
 
 namespace ExAs.Api.Enumerables
 {
@@ -47,7 +47,7 @@ namespace ExAs.Api.Enumerables
         public void ExpectingMultiLineRiffle_OnWeaponlessNinja_ShouldShortenExpectation()
         {
             // act
-            var result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).Contains("Assault".NewLine().Add("Rifle")));
+            var result = WeaponlessNinja().Evaluate(n => n.Member(x => x.Weapons).Contains($"Assault{NewLine}Rifle"));
 
             // assert
             StringAssert.Contains("contains <1 String>", result.expectation);

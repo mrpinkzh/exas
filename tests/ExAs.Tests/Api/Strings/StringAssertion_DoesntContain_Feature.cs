@@ -1,6 +1,6 @@
 ﻿using ExAs.Utils;
 using NUnit.Framework;
-using ToText.Core;
+using static System.Environment;
 using static ExAs.Utils.Creation.CreateNinjas;
 
 namespace ExAs.Api.Strings
@@ -49,8 +49,8 @@ namespace ExAs.Api.Strings
             var result = MultilinedNarutoUzumaki().Evaluate(n => n.Member(x => x.Name).DoesntContain("kash"));
 
             // assert
-            Assert.AreEqual("Ninja: ( )Name = 'Naruto   (expected: doesn't contain 'kash')".NewLine()
-                       .Add("                  Uzumaki' "),
+            Assert.AreEqual($"Ninja: ( )Name = 'Naruto   (expected: doesn't contain 'kash'){NewLine}" + 
+							 "                  Uzumaki' ",
                        result.PrintLog());
         }
     }

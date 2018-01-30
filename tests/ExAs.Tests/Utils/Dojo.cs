@@ -1,5 +1,6 @@
 ﻿using System;
-using ToText;
+using ExAs.Utils.StringExtensions;
+using static System.Environment;
 
 namespace ExAs.Utils
 {
@@ -26,7 +27,8 @@ namespace ExAs.Utils
 
         public override string ToString()
         {
-            return this.ToText(x => x.Master, x => x.Founded);
+	        return $"Dojo: Master  = {Master.ToValueString()}{NewLine}" +
+	               $"      Founded = {Founded.ToValueString()}";
         }
     }
 }

@@ -6,4 +6,3 @@ nuget NuGet.CommandLine
 nuget NUnit > 3.0
 nuget NUnit.Console
 nuget NUnit3TestAdapter
-nuget ToText 1.1.7
