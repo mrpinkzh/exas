@@ -23,7 +23,8 @@ namespace ExAs.Assertions
 
         public IAssert<T> IsNotNull()
         {
-            isNotNullAssertion = new IsNotNullAssertion<T>();
+			if (isNotNullAssertion == null)
+				isNotNullAssertion = new IsNotNullAssertion<T>();
             return this;
         }
 
@@ -35,7 +36,8 @@ namespace ExAs.Assertions
 
         public void AddMemberAssertion(IAssertMemberOf<T> memberAssertion)
         {
-            memberAssertions.Add(memberAssertion);
+	        memberAssertions.Add(memberAssertion);
+	        IsNotNull();
         }
 
         public Result Assert(T actual)

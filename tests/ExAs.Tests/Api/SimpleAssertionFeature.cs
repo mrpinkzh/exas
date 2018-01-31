@@ -75,5 +75,20 @@ namespace ExAs.Api
             Assert.AreEqual("Ninja: ( )Age = 12 (expected: 12)",
                             result.PrintLog());
         }
+
+	    [Test]
+	    public void Assert_WithNull_AndNameAssertion_ShouldReturnTestFail()
+	    {
+		    Ninja nullNinja = null;
+
+		    Result result =
+			    nullNinja.Evaluate(n =>
+				    n.Member(x => x.Age).IsEqualTo(12));
+
+			result.ExAssert(r => 
+				r.Member(x => x.succeeded).IsFalse()
+				 .Member(x => x.actual).IsEqualTo("null")
+				 .Member(x => x.expectation).IsEqualTo("(expected: not null)"));
+	    }
     }
 }

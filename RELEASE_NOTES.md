@@ -1,6 +1,8 @@
 ## New in 2.2
 * migrated to nunit 3.9
 * enabled dotnetcoreapp2.0 (#61)
+* removed dependency from ToText (#62)
+* automatically expect object-not-null when member-assertion is specifiec (#63)
 
 ## New in 2.1.1 (Released 2017/11/22)
 * adjusted the build script to publish only dated releases
