@@ -15,6 +15,6 @@ This library is available on NuGet: https://www.nuget.org/packages/ExtendedAsser
 ```
 PM> Install-Package ExtendedAssertions
 ```
-You can use this library in any .Net project which is compatible to .net 4.7.1 and later.
+You can use this library in any .Net project which is compatible to .net 4.5 and later.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/c6ck5b3dusfkxc7s?svg=true)](https://ci.appveyor.com/project/mrpinkzh/exas)
