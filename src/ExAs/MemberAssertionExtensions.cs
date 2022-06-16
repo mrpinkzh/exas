@@ -41,6 +41,12 @@ namespace ExAs
         public static IAssert<T> Printout<T, TMember>(this IAssertMember<T, TMember> member)
         {
             return member.SetAssertion(new PrintoutAssertion<TMember>());
-        } 
+        }
+
+        public static IAssert<T> IsEqualToAny<T, TMember>(this IAssertMember<T, TMember> member,
+            params TMember[] expectedValues)
+        {
+            return member.SetAssertion(new IsEqualToAnyAssertion<TMember>(expectedValues));
+        }
     }
 }
