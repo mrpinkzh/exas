@@ -1,14 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   
   <PropertyGroup>
-    <TargetFrameworks>net471;net45;net6</TargetFrameworks>
+    <TargetFrameworks>net7</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\src\ExAs\ExAs.csproj" />
   </ItemGroup>
-
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+  </ItemGroup>
   
 </Project>

@@ -1,3 +1,6 @@
+## New in 2.2.1
+* removing fake build
+
 ## New in 2.2.0 (Released 2017/01/31)
 * migrated to nunit 3.9
 * enabled dotnetcoreapp2.0 (#61)
