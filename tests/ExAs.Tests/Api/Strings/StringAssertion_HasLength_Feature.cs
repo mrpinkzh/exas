@@ -46,7 +46,7 @@ namespace ExAs.Api.Strings
             // assert
             Assert.AreEqual(
                  "Ninja: (X)Name = 'Naruto       (expected: length 13)".NewLine()
-            .Add("                  Uzumaki'[15] "),
+            .Add("                  Uzumaki'[14] "),
                  result.PrintLog());
         }
     }
