@@ -2,7 +2,21 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;</TargetFrameworks>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PackageId>ExtendedAssertions</PackageId>
+    <Version>2.2.1-rc</Version>
+    <Authors>mrpinkzh</Authors>
+    <Description>
+      see: https://github.com/mrpinkzh/exas
+    </Description>
+    <README>../../README.md</README>
+    <ReleaseNotes>
+      removing fake build
+    </ReleaseNotes>
+    <Copyright>Copyright © aias engineering GmbH 2015</Copyright>
+    <Tags>
+        TDD BDD
+    </Tags>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

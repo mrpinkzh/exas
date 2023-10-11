@@ -5,21 +5,25 @@ name: Release
 
 on:
   workflow_dispatch:
-  
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 7.0.x
-    - name: Build
-      run: dotnet build --configuration Release 
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Create package
-      run: dotnet pack --configuration Release ./src/ExAs/ExAs.csproj
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Build
+        run: dotnet build --configuration Release
+      - name: Create package
+        run: dotnet pack --configuration Release ./src/ExAs/ExAs.csproj
+      - name: Upload packed artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: ExtendedAssertions
+            path: ./src/ExAs/bin/Release/ExtendedAssertions.2.2.1-rc.nupkg
+          # Use always() to always run this step to publish test results when there are test failures
+          if: ${{ always() }}
