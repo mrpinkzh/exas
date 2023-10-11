@@ -21,9 +21,9 @@ jobs:
       - name: Create package
         run: dotnet pack --configuration Release ./src/ExAs/ExAs.csproj
       - name: Upload packed artifact
-          uses: actions/upload-artifact@v3
-          with:
-            name: ExtendedAssertions
-            path: ./src/ExAs/bin/Release/ExtendedAssertions.2.2.1-rc.nupkg
-          # Use always() to always run this step to publish test results when there are test failures
-          if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ExtendedAssertions
+          path: ./src/ExAs/bin/Release/ExtendedAssertions.2.2.1-rc.nupkg
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
