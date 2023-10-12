@@ -17,4 +17,5 @@ PM> Install-Package ExtendedAssertions
 ```
 You can use this library in any .Net project which is compatible to .net 4.5 and later.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/c6ck5b3dusfkxc7s?svg=true)](https://ci.appveyor.com/project/mrpinkzh/exas)
+[![Continous](https://github.com/mrpinkzh/exas/actions/workflows/continous.yml/badge.svg?branch=master)](https://github.com/mrpinkzh/exas/actions/workflows/continous.yml)
+[![Release](https://github.com/mrpinkzh/exas/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/mrpinkzh/exas/actions/workflows/release.yml)
