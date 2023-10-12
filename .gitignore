@@ -1,12 +1,6 @@
 .vs
-.fake
 obj
 bin
-packages
-paket-files
-build-src
-build-test
-pack
 *.suo
 *.user
 *.feature.cs
