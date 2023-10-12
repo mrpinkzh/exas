@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;</TargetFrameworks>
     <PackageId>ExtendedAssertions</PackageId>
-    <Version>2.2.1-rc</Version>
+    <Version>2.2.1</Version>
     <Authors>mrpinkzh</Authors>
     <Description>
       see: https://github.com/mrpinkzh/exas
     </Description>
     <README>../../README.md</README>
     <ReleaseNotes>
-      removing fake build
+      New in 2.2.1
+      * removing fake build
     </ReleaseNotes>
     <Copyright>Copyright © aias engineering GmbH 2015</Copyright>
     <Tags>
